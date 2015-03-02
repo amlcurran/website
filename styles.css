@@ -1,0 +1,87 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,300);
+
+body {
+  margin: 0px;
+}
+
+h1 {
+  font-family: 'Roboto', sans-serif;
+  color: black;
+  font-weight: 300;
+  font-size: 32px;
+  padding: 8px;
+  margin: 0px;
+}
+
+p {
+  font-family: 'Roboto', sans-serif;
+  color: rgba(0, 0, 0, 0.53);
+  margin-top: 12px;
+  font-size: 18px;
+  line-height: 1.5;
+  padding: 8px;
+}
+
+.button_bar_host {
+  background-color: rgba(255, 102, 0, 0.8);
+}
+
+nav {
+  padding: 0px;
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+}
+
+.button {
+  padding: 16px;
+  display: table-cell;
+  font-family: 'Roboto', sans-serif;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: transparent;
+  transition: background-color .15s ease-in-out;
+  -moz-transition: background-color .15s ease-in-out;
+  -webkit-transition: background-color .15s ease-in-out;
+  /*transition: color .15s ease-in-out;*/
+  /*-moz-transition: color .15s ease-in-out;*/
+  /*-webkit-transition: color .15s ease-in-out;*/
+}
+
+.button:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+  color: rgba(255, 255, 255, 1);
+}
+
+@media (min-width: 600px) {
+  h1 {
+    margin: auto;
+    max-width: 600px;
+  }
+  
+  nav {
+    width: 600px;
+    margin: auto;
+  }
+  
+  .button {
+  }
+  
+  p {
+    margin: auto;
+    max-width: 600px;
+  }
+}
+
+#animations
+
+.fade {
+  background-color: transparent;
+  transition: background-color .25s ease-in-out;
+  -moz-transition: background-color .25s ease-in-out;
+  -webkit-transition: background-color .25s ease-in-out;
+}
+
+.fade:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
