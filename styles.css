@@ -28,9 +28,9 @@ p {
 
 nav {
   padding: 0px;
-  display: table;
-  table-layout: fixed;
+  display: block;
   width: 100%;
+  overflow: scroll;
 }
 
 .button {
@@ -43,6 +43,7 @@ nav {
   transition: background-color .15s ease-in-out;
   -moz-transition: background-color .15s ease-in-out;
   -webkit-transition: background-color .15s ease-in-out;
+  min-width: 100px;
   /*transition: color .15s ease-in-out;*/
   /*-moz-transition: color .15s ease-in-out;*/
   /*-webkit-transition: color .15s ease-in-out;*/
@@ -58,15 +59,17 @@ nav {
     margin: auto;
     max-width: 600px;
   }
-  
+
   nav {
     width: 600px;
     margin: auto;
+    display: table;
+    table-layout: fixed;
   }
-  
+
   .button {
   }
-  
+
   p {
     margin: auto;
     max-width: 600px;
