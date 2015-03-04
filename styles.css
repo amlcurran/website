@@ -7,10 +7,12 @@ body {
 h1 {
   font-family: 'Roboto', sans-serif;
   color: black;
+  display: table-cell;
   font-weight: 300;
   font-size: 32px;
   padding: 8px;
   margin: 0px;
+  width: auto;
 }
 
 p {
@@ -49,14 +51,21 @@ nav {
   /*-webkit-transition: color .15s ease-in-out;*/
 }
 
+#chips_holder {
+  display: table-cell;
+}
+
 .button:active {
   background-color: rgba(255, 255, 255, 0.3);
   color: rgba(255, 255, 255, 1);
 }
 
 @media (min-width: 600px) {
-  h1 {
+  .header {
     margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     max-width: 600px;
   }
 
