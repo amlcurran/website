@@ -52,7 +52,15 @@ nav {
 }
 
 #chips_holder {
-  display: table-cell;
+  display: flex;
+  align-items: center;
+}
+
+.chip {
+  padding: 4px;
+  transition: background-color .15s ease-in-out;
+  -moz-transition: background-color .15s ease-in-out;
+  -webkit-transition: background-color .15s ease-in-out;
 }
 
 .button:active {
@@ -93,3 +101,21 @@ nav {
 
 #animations
 
+@-webkit-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@-moz-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+
+.fadein {
+    opacity: 0;
+    transition: fadeIn .25s ease-in-out;
+  -moz-transition: fadeIn .25s ease-in-out;
+  -webkit-transition: fadeIn .25s ease-in-out;
+
+  -webkit-animation-fill-mode:forwards;
+  -moz-animation-fill-mode:forwards;
+    animation-fill-mode:forwards;
+
+    -webkit-animation-duration:1s;
+ -moz-animation-duration:1s;
+ animation-duration:1s;
+}

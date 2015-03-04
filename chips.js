@@ -4,14 +4,66 @@ function Chips () {
 
 }
 
-Chips.prototype.load = function(callback) {
+Chips.prototype.load = function(chipView) {
 
   var request = new XMLHttpRequest();
   request.onload = function(data) {
-    callback(JSON.parse(data.target.responseText));
+    chipView.renderChips(JSON.parse(data.target.responseText));
   }
   request.open('get', './chips/chip-data.json');
   request.send();
 
+}
+
+function ChipsView () {
+
+}
+
+ChipsView.prototype.renderChips = function(chips) {
+
+    var chipsHolder = document.querySelector('#chips_holder');
+    for (i = 0; i < chips.length; i++) {
+      var chip = chips[i];
+      chipsHolder.appendChild(this.createChip(chip));
+    }
+
+}
+
+ChipsView.prototype.createChip = function(chip) {
+
+  var a = document.createElement('a');
+  a.href = chip.url;
+  // a.onmouseover = this.mouseOverAction(a, chip);
+  // a.onmouseout = this.mouseOutAction(a)
+
+  var image = document.createElement('img');
+  image.title = chip.title;
+  image.className = image.className + ' chip';
+  image.srcset = this.imageUrl(chip);
+  image.style.color = chip.color;
+
+  a.appendChild(image);
+  return a;
+}
+
+ChipsView.prototype.mouseOverAction = function(target, chip) {
+  return function(e) {
+        target.style.backgroundColor = chip.color;
+  }
+}
+
+ChipsView.prototype.mouseOutAction = function(target) {
+  return function(e) {
+        target.style.backgroundColor = "rgba(0, 0, 0, 0.0)";
+  }
+}
+
+ChipsView.prototype.imageUrl = function(chip) {
+    return "chips/" + chip.image + ".png";
+}
+
+
+ChipsView.prototype.imageUrl2 = function(chip) {
+    return "chips/" + chip.image + "@2x.png";
 }
 

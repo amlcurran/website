@@ -1,10 +1,20 @@
 [
   {
     "title" : "Github",
-    "url" : "http://something.com"
+    "url" : "https://github.com/amlcurran/",
+    "color" : "#000",
+    "image" : "github"
   },
   {
     "title" : "Stackoverflow",
-    "url" : "http://somethingelse.com"
+    "url" : "http://stackoverflow.com/users/428665/alex-curran",
+    "color" : "#f90",
+    "image" : "stackoverflow"
+  },
+  {
+    "title" : "Twitter",
+    "url" : "https://twitter.com/amlcurran",
+    "color" : "#55acee",
+    "image" : "twitter"
   }
-  ]
+]
