@@ -56,6 +56,7 @@ nav {
   display: flex;
   -webkit-align-items: center;
   align-items: center;
+  min-height: 52px;
 }
 
 .chip {
@@ -91,6 +92,13 @@ nav {
     margin: auto;
     display: table;
     table-layout: fixed;
+  }
+
+  #chips_holder {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: center;
+    align-items: center;
   }
 
   .button {
