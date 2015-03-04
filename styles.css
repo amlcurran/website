@@ -52,7 +52,9 @@ nav {
 }
 
 #chips_holder {
+  display: -webkit-flex;
   display: flex;
+  -webkit-align-items: center;
   align-items: center;
 }
 
@@ -71,8 +73,11 @@ nav {
 @media (min-width: 600px) {
   .header {
     margin: auto;
+    display: -webkit-flex;
     display: flex;
+    -webkit-justify-content: space-between;
     justify-content: space-between;
+    -webkit-align-items: center;
     align-items: center;
     max-width: 600px;
   }
@@ -99,23 +104,3 @@ nav {
 
 }
 
-#animations
-
-@-webkit-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
-@-moz-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
-@keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
-
-.fadein {
-    opacity: 0;
-    transition: fadeIn .25s ease-in-out;
-  -moz-transition: fadeIn .25s ease-in-out;
-  -webkit-transition: fadeIn .25s ease-in-out;
-
-  -webkit-animation-fill-mode:forwards;
-  -moz-animation-fill-mode:forwards;
-    animation-fill-mode:forwards;
-
-    -webkit-animation-duration:1s;
- -moz-animation-duration:1s;
- animation-duration:1s;
-}

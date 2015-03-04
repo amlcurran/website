@@ -1,5 +1,11 @@
 [
   {
+    "title" : "Email",
+    "url" : "mailto:aml.curran@gmail.com",
+    "color" : "#1d9900",
+    "image" : "email"
+  },
+  {
     "title" : "Github",
     "url" : "https://github.com/amlcurran/",
     "color" : "#000",
