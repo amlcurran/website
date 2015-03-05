@@ -60,7 +60,7 @@ nav {
 }
 
 .chip {
-  padding: 4px;
+  padding: 8px;
   width: 32px;
   opacity: 0;
   transition: background-color .15s ease-in-out;
