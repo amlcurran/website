@@ -61,6 +61,8 @@ nav {
 
 .chip {
   padding: 4px;
+  width: 32px;
+  opacity: 0;
   transition: background-color .15s ease-in-out;
   -moz-transition: background-color .15s ease-in-out;
   -webkit-transition: background-color .15s ease-in-out;
@@ -69,6 +71,13 @@ nav {
 .button:active {
   background-color: rgba(255, 255, 255, 0.3);
   color: rgba(255, 255, 255, 1);
+}
+
+.fadeIn {
+    -webkit-animation: fadein 0.6s;
+    -webkit-animation-fill-mode: forwards;
+    animation: fadein 0.6s;
+    animation-fill-mode: forwards;
 }
 
 @media (min-width: 600px) {
@@ -115,4 +124,10 @@ nav {
   }
 
 }
+
+@-webkit-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
 
