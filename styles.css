@@ -62,10 +62,18 @@ nav {
 .chip {
   padding: 8px;
   width: 32px;
+  height: 32px;
   opacity: 0;
+}
+
+.chipLink {
   transition: background-color .15s ease-in-out;
   -moz-transition: background-color .15s ease-in-out;
   -webkit-transition: background-color .15s ease-in-out;
+}
+
+.chipLink:hover {
+  background-color: rgba(0, 153, 255, 0.2);
 }
 
 .button:active {
@@ -87,7 +95,7 @@ nav {
     display: flex;
     -webkit-justify-content: space-between;
     justify-content: space-between;
-    -webkit-align-items:
+    -webkit-align-items: center;
     align-items: center;
     max-width: 600px;
   }

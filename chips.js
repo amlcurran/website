@@ -39,6 +39,7 @@ ChipsView.prototype.createChip = function(chip) {
 
   var a = document.createElement('a');
   a.href = chip.url;
+  a.className = a.className + ' chipLink';
   // a.onmouseover = this.mouseOverAction(a, chip);
   // a.onmouseout = this.mouseOutAction(a)
 
@@ -48,7 +49,7 @@ ChipsView.prototype.createChip = function(chip) {
   image.src = this.imageUrl(chip);
   image.srcset = this.imageSet(chip);
   image.addEventListener('load', this.fadeIn(image));
-  image.style.color = chip.color;
+  // image.style.backgroundColor = chip.color;
 
   a.appendChild(image);
   return a;
