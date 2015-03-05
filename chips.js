@@ -10,7 +10,11 @@ Chips.prototype.load = function(chipView) {
   request.onload = function(data) {
     chipView.renderChips(JSON.parse(data.target.responseText));
   }
-  request.open('get', './chips/chip-data.json');
+  request.onerror = function() {
+    console.log(request.responseText);
+  }
+  request.open('get', '/chips/chip-data.json');
+  request.setRequestHeader('Content-type', 'application/json');
   request.send();
 
 }
