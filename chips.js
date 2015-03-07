@@ -13,7 +13,7 @@ Chips.prototype.load = function(chipView) {
   request.onerror = function() {
     console.log(request.responseText);
   }
-  request.open('get', '/chips/chip-data.json');
+  request.open('get', './chips/chip-data.json');
   request.setRequestHeader('Content-type', 'application/json');
   request.send();
 
