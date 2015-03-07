@@ -46,9 +46,24 @@ nav {
   -moz-transition: background-color .15s ease-in-out;
   -webkit-transition: background-color .15s ease-in-out;
   min-width: 100px;
+  text-decoration: none;
   /*transition: color .15s ease-in-out;*/
   /*-moz-transition: color .15s ease-in-out;*/
   /*-webkit-transition: color .15s ease-in-out;*/
+}
+
+.button_disabled {
+  padding: 16px;
+  display: table-cell;
+  font-family: 'Roboto', sans-serif;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.54);
+  background-color: transparent;
+  transition: background-color .15s ease-in-out;
+  -moz-transition: background-color .15s ease-in-out;
+  -webkit-transition: background-color .15s ease-in-out;
+  min-width: 100px;
+  text-decoration: none;
 }
 
 #chips_holder {
@@ -116,9 +131,6 @@ nav {
     display: flex;
     -webkit-align-items: center;
     align-items: center;
-  }
-
-  .button {
   }
 
   p {
