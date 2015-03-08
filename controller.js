@@ -31,11 +31,12 @@ var Controller = function() {
           self.hideOthers(this.talks);
         }
       }
+
+      // Load me by default
+      self.show(me);
+      self.hideOthers(me);
   }
 
   return this;
 
 };
-
-// Load me by default
-location.hash = '#me';
