@@ -103,6 +103,22 @@ nav {
     animation-fill-mode: forwards;
 }
 
+.fadeInFast {
+    -webkit-animation: fadein 0.3s;
+    -webkit-animation-fill-mode: forwards;
+    animation: fadein 0.3s;
+    animation-fill-mode: forwards;
+}
+
+.page {
+  display: none;
+  opacity: 1;
+}
+
+.shown {
+  display: block;
+}
+
 @media (min-width: 600px) {
   .header {
     margin: auto;
