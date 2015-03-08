@@ -15,6 +15,7 @@ var Controller = function() {
         // Nothing
       } else {
         item.classList.remove('shown');
+        item.classList.remove('fadeInFast');
       }
     });
   }
