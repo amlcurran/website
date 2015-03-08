@@ -97,6 +97,8 @@ nav {
 }
 
 .fadeIn {
+    -moz-animation: fadein 0.6s;
+    -moz-animation-fill-mode: forwards;
     -webkit-animation: fadein 0.6s;
     -webkit-animation-fill-mode: forwards;
     animation: fadein 0.6s;
@@ -104,6 +106,8 @@ nav {
 }
 
 .fadeInFast {
+    -moz-animation: fadein 0.3s;
+    -moz-animation-fill-mode: forwards;
     -webkit-animation: fadein 0.3s;
     -webkit-animation-fill-mode: forwards;
     animation: fadein 0.3s;
@@ -162,6 +166,16 @@ nav {
 }
 
 @-webkit-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+@-moz-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+@keyframes fadein {
     from { opacity: 0; }
     to   { opacity: 1; }
 }
