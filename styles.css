@@ -7,7 +7,6 @@ body {
 h1 {
   font-family: 'Roboto', sans-serif;
   color: black;
-  display: table-cell;
   font-weight: 300;
   font-size: 32px;
   padding: 8px;
@@ -17,6 +16,25 @@ h1 {
 
 .header_link {
   text-decoration: none;
+}
+
+.home-image {
+  display: inline-block;
+  width: 24px;
+  transition: width 0.2s;
+  -webkit-transition: width 0.2s;
+  -moz-transition: width 0.2s;
+  transition-timing-function: ease-out;
+  -webkit-transition-timing-function: ease-out;
+  -mox-transition-timing-function: ease-out;
+}
+
+.home-image-hidden {
+  width: 0px;
+}
+
+.home-title {
+  display: inline-block;  
 }
 
 p {
