@@ -50,19 +50,25 @@ var Controller = function() {
       
       var scrollableTabs = document.querySelector('#nav-tabs');
       var scrollHint = document.querySelector('#scroll-hint');
-      scrollableTabs.onscroll = function() {
-        var left = scrollableTabs.scrollLeft;
-        var scrollWidth = scrollableTabs.scrollWidth;
-        var width = scrollableTabs.clientWidth;
-        var slop = scrollWidth / 8;
-          if (left + width === scrollWidth) {
-            self.removeClass(scrollHint, 'fadedIn');
-            self.addClass(scrollHint, 'fadedOut'); 
-          } else {
-            self.removeClass(scrollHint, 'fadedOut');
-            self.addClass(scrollHint, 'fadedIn'); 
-          }
-      };
+      if (scrollableTabs.scrollWidth !== scrollableTabs.clientWidth) {
+        scrollableTabs.onscroll = function() {
+          if (scrollWidth > clientWidth) {
+            var left = scrollableTabs.scrollLeft;
+            var scrollWidth = scrollableTabs.scrollWidth;
+            var width = scrollableTabs.clientWidth;
+            var slop = scrollWidth / 8;
+            if (left + width === scrollWidth) {
+              self.removeClass(scrollHint, 'fadedIn');
+              self.addClass(scrollHint, 'fadedOut'); 
+            } else {
+              self.removeClass(scrollHint, 'fadedOut');
+              self.addClass(scrollHint, 'fadedIn'); 
+            }
+          } 
+        };
+      } else {
+        scrollHint.style.display = 'none';
+      }
 
       // Load me by default
       self.show(me);
