@@ -54,6 +54,17 @@ p {
   background-color: rgba(255, 102, 0, 0.8);
 }
 
+.scroll_hint {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background: -webkit-linear-gradient(to right, transparent , transparent 80%, rgba(255, 255, 255, 0.6));
+  background: -o-linear-gradient(to right, transparent , transparent 80%, rgba(255, 255, 255, 0.6));
+  background: -moz-linear-gradient(to right, transparent , transparent 80%, rgba(255, 255, 255, 0.6));
+  background: linear-gradient(to right, transparent , transparent 80%, rgba(255, 255, 255, 0.6));
+}
+
 nav {
   padding: 0px;
   display: block;
@@ -73,9 +84,6 @@ nav {
   -webkit-transition: background-color .15s ease-in-out;
   min-width: 100px;
   text-decoration: none;
-  /*transition: color .15s ease-in-out;*/
-  /*-moz-transition: color .15s ease-in-out;*/
-  /*-webkit-transition: color .15s ease-in-out;*/
 }
 
 .button_disabled {
@@ -178,6 +186,10 @@ nav {
     margin: auto;
     display: table;
     table-layout: fixed;
+  }
+  
+  .scroll_hint {
+    display: none;
   }
 
   #chips_holder {
