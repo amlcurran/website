@@ -28,9 +28,7 @@ var Controller = function() {
   
   this.hideHome = function() {
     var homeImage = document.querySelector('#homeimage');
-    if (homeImage.className.indexOf('home-image-hidden') === -1) {
-      homeImage.className = homeImage.className + ' home-image-hidden'; 
-    }
+    self.addClass(homeImage, 'home-image-hidden');
   };
 
   this.link = function() {
@@ -49,10 +47,58 @@ var Controller = function() {
           }
         }
       };
+      
+      var scrollableTabs = document.querySelector('#nav-tabs');
+      var scrollHint = document.querySelector('#scroll-hint');
+      scrollableTabs.onscroll = function() {
+        var left = scrollableTabs.scrollLeft;
+        var scrollWidth = scrollableTabs.scrollWidth;
+        var width = scrollableTabs.clientWidth;
+        var slop = scrollWidth / 8;
+          if (left + width === scrollWidth) {
+            self.removeClass(scrollHint, 'fadedIn');
+            self.addClass(scrollHint, 'fadedOut'); 
+          } else {
+            self.removeClass(scrollHint, 'fadedOut');
+            self.addClass(scrollHint, 'fadedIn'); 
+          }
+      };
 
       // Load me by default
       self.show(me);
       self.hideOthers(me);
+  };
+  
+  this.addClass = function(element, className) {
+    if ('classList' in element) {
+      if (!element.classList.contains(className)) {
+        element.classList.add(className);
+      }
+    } else {
+      if (element.className.indexOf(className) === -1) {
+        element.className = element.className + ' ' + className; 
+      }
+    }
+    
+  };
+  
+  this.removeClass = function(element, className) {
+    if ('classList' in element) {
+      element.classList.remove(className);
+    } else {
+      var classes = element.className.split(/\s+/);
+      var newClasses = [];
+      for (var oldClass in classes) {
+        if (classes[oldClass] !== className) {
+          newClasses[newClasses.length] = classes[oldClass]; 
+        }
+      }
+      var newClassName = '';
+      for (var newClass in newClasses) {
+        newClassName = newClassName + ' ' + newClasses[newClass];  
+      }
+      element.className = newClassName;  
+    }
   };
 
   return this;

@@ -138,6 +138,22 @@ nav {
   color: rgba(255, 255, 255, 1);
 }
 
+.fading {
+    -webkit-transition: opacity 0.3s ease-in-out;
+    -moz-transition: opacity 0.3s ease-in-out;
+    -ms-transition: opacity 0.3s ease-in-out;
+    -o-transition: opacity 0.3s ease-in-out;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.fadedOut {
+    opacity: 0;
+}
+
+.fadedIn {
+    opacity: 1;
+}
+
 .fadeIn {
     -moz-animation: fadein 0.6s;
     -moz-animation-fill-mode: forwards;
@@ -145,6 +161,15 @@ nav {
     -webkit-animation-fill-mode: forwards;
     animation: fadein 0.6s;
     animation-fill-mode: forwards;
+}
+
+.fadeOutFast {
+    -webkit-transition: opacity 0.3s ease-in-out;
+    -moz-transition: opacity 0.3s ease-in-out;
+    -ms-transition: opacity 0.3s ease-in-out;
+    -o-transition: opacity 0.3s ease-in-out;
+    transition: opacity 0.3s ease-in-out;
+    opacity: 0;
 }
 
 .fadeInFast {
@@ -224,6 +249,21 @@ nav {
 @keyframes fadein {
     from { opacity: 0; }
     to   { opacity: 1; }
+}
+
+@-webkit-keyframes fadeout {
+    from { opacity: 1; }
+    to   { opacity: 0; }
+}
+
+@-moz-keyframes fadeout {
+    from { opacity: 1; }
+    to   { opacity: 0; }
+}
+
+@keyframes fadeout {
+    from { opacity: 1; }
+    to   { opacity: 0; }
 }
 
 
