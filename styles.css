@@ -14,6 +14,10 @@ h1 {
   width: auto;
 }
 
+a {
+  color: rgb(255, 102, 0);
+}
+
 .header_link {
   text-decoration: none;
 }
