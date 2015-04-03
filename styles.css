@@ -15,6 +15,10 @@ h1 {
   width: auto;
 }
 
+.header_link {
+  text-decoration: none;
+}
+
 p {
   font-family: 'Roboto', sans-serif;
   color: rgba(0, 0, 0, 0.53);
