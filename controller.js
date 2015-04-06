@@ -1,4 +1,4 @@
-var controller = function() {
+var controller = (function() {
 
   var self = this;
   var me = document.querySelector('#me');
@@ -29,49 +29,6 @@ var controller = function() {
   this.hideHome = function() {
     var homeImage = document.querySelector('#homeimage');
     self.addClass(homeImage, 'home-image-hidden');
-  };
-
-  this.link = function() {
-    console.log('linking controller');
-      window.onhashchange = function(event) {
-        console.log(location.hash);
-        if (location.hash === '#me') {
-          self.hideHome();
-          self.show(this.me);
-          self.hideOthers(this.me);
-        } else {
-          self.displayHome();
-          if (location.hash === '#talks') {
-            self.show(this.talks);
-            self.hideOthers(this.talks);
-          }
-        }
-      };
-      
-      var scrollableTabs = document.querySelector('#nav-tabs');
-      var scrollHint = document.querySelector('#scroll-hint');
-      if (scrollableTabs.scrollWidth !== scrollableTabs.clientWidth) {
-        console.log('adding scroll listener');
-        scrollableTabs.onscroll = function() {
-          var left = scrollableTabs.scrollLeft;
-          var scrollWidth = scrollableTabs.scrollWidth;
-          var width = scrollableTabs.clientWidth;
-          var slop = scrollWidth / 8;
-          if (left + width === scrollWidth) {
-            self.removeClass(scrollHint, 'fadedIn');
-            self.addClass(scrollHint, 'fadedOut'); 
-          } else {
-            self.removeClass(scrollHint, 'fadedOut');
-            self.addClass(scrollHint, 'fadedIn'); 
-          }
-        };
-      } else {
-        scrollHint.style.display = 'none';
-      }
-
-      // Load me by default
-      self.show(me);
-      self.hideOthers(me);
   };
   
   this.addClass = function(element, className) {
@@ -106,6 +63,51 @@ var controller = function() {
     }
   };
 
-  return this;
+  return {
+    
+    link : function() {
+      console.log('linking controller');
+        window.onhashchange = function(event) {
+          console.log(location.hash);
+          if (location.hash === '#me') {
+            self.hideHome();
+            self.show(this.me);
+            self.hideOthers(this.me);
+          } else {
+            self.displayHome();
+            if (location.hash === '#talks') {
+              self.show(this.talks);
+              self.hideOthers(this.talks);
+            }
+          }
+        };
+        
+        var scrollableTabs = document.querySelector('#nav-tabs');
+        var scrollHint = document.querySelector('#scroll-hint');
+        if (scrollableTabs.scrollWidth !== scrollableTabs.clientWidth) {
+          console.log('adding scroll listener');
+          scrollableTabs.onscroll = function() {
+            var left = scrollableTabs.scrollLeft;
+            var scrollWidth = scrollableTabs.scrollWidth;
+            var width = scrollableTabs.clientWidth;
+            var slop = scrollWidth / 8;
+            if (left + width === scrollWidth) {
+              self.removeClass(scrollHint, 'fadedIn');
+              self.addClass(scrollHint, 'fadedOut'); 
+            } else {
+              self.removeClass(scrollHint, 'fadedOut');
+              self.addClass(scrollHint, 'fadedIn'); 
+            }
+          };
+        } else {
+          scrollHint.style.display = 'none';
+        }
+  
+        // Load me by default
+        self.show(me);
+        self.hideOthers(me);
+    } 
+    
+  };
 
-};
+});
