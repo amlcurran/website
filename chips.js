@@ -19,7 +19,7 @@ var chips = function() {
 
 };
 
-this.chipsView = function() {
+this.chipsView = (function() {
   
   fadeIn = function(element) {
     element.className = element.className + ' fadeIn';
@@ -73,7 +73,7 @@ this.chipsView = function() {
     
   };
 
-}();
+}());
 
 // ChipsView.prototype.mouseOverAction = function(target, chip) {
 //   return function(e) {
