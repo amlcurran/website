@@ -1,4 +1,4 @@
-var Controller = function() {
+var controller = function() {
 
   var self = this;
   var me = document.querySelector('#me');

@@ -1,2 +1,2 @@
-new Chips().load(new ChipsView());
-new Controller().link();
+chips().load(new ChipsView());
+controller().link();
