@@ -19,7 +19,7 @@ var chips = function() {
 
 };
 
-this.chipsView = (function() {
+this.chipsView = function() {
   
   fadeIn = function(element) {
     element.className = element.className + ' fadeIn';
@@ -56,24 +56,22 @@ this.chipsView = (function() {
       return "chips/" + chip.image + ".png";
   };
   
-  return function() {
+  return {
     
-    renderChips = function(chips) {
+    loaded : function(chips) {
 
         var chipsHolder = document.querySelector('#chips_holder');
         var chipsInner = document.createElement('div');
         for (i = 0; i < chips.length; i++) {
           var chip = chips[i];
-          chipsHolder.appendChild(this.createChip(chip));
+          chipsHolder.appendChild(createChip(chip));
         }
     
-    };
-    
-    return this;
+    }
     
   };
 
-}());
+};
 
 // ChipsView.prototype.mouseOverAction = function(target, chip) {
 //   return function(e) {
