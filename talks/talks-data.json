@@ -4,13 +4,17 @@
     "online" : {
       "place" : "Speakerdeck",
       "url" : "https://speakerdeck.com/amlcurran/code-whispering"
-    }
+    },
+    "blurb" : "Being a craftsman in development practises is only part of the problem! We'll have a brief look at some principles that help make great software, and the hints that your code can give you about what you can improve.",
+    "image" : "code_whispering.jpg"
   },
   {
     "title" : "Lollipop and iPlayer",
     "online" : {
       "place" : "Speakerdeck",
       "url" : "https://speakerdeck.com/amlcurran/lollipop-and-iplayer-whats-new-with-material-design"
-    }
+    },
+    "blurb" : "Take a look at the new APIs available in Android Lollipop, how to apply them, and what they look like in a production environment.",
+    "image" : "lollipop-iplayer.jpg"
   }
 ]

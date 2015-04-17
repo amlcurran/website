@@ -47,8 +47,8 @@ p {
   color: rgba(0, 0, 0, 0.53);
   margin-top: 12px;
   font-size: 18px;
-  line-height: 1.5;
   padding: 8px;
+  line-height: 1.5;
 }
 
 .button_bar_host {
@@ -110,9 +110,21 @@ nav {
 .card {
   background: rgb(242, 242, 242);
   border-radius: 4px;
-  padding: 8px;
   margin: 8px;
   box-shadow: 0px 2px 4px #DEDEDE;
+  overflow: hidden;
+  display: flex;
+}
+
+.card-innards {
+  padding: 8px;
+}
+
+.card-image {
+  flex: 0 0 150px; 
+  background-repeat: no-repeat; 
+  background-size: cover; 
+  background-position: center;
 }
 
 .card h2 {
@@ -121,6 +133,10 @@ nav {
   -webkit-margin-before: 0;
   -moz-margin-before: 0;
   -o-margin-before: 0;
+}
+
+.card p {
+  padding: 0px;
 }
 
 #chips_holder {
@@ -250,6 +266,11 @@ nav {
     background-color: rgba(255, 255, 255, 0.3);
     color: rgba(255, 255, 255, 1);
   }
+  
+  .card {
+    margin: 16px;
+  }
+
 
 }
 
