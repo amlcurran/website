@@ -1,0 +1,16 @@
+[
+  {
+    "title" : "Code Whispering",
+    "online" : {
+      "place" : "Speakerdeck",
+      "url" : "https://speakerdeck.com/amlcurran/code-whispering"
+    }
+  },
+  {
+    "title" : "Lollipop and iPlayer",
+    "online" : {
+      "place" : "Speakerdeck",
+      "url" : "https://speakerdeck.com/amlcurran/lollipop-and-iplayer-whats-new-with-material-design"
+    }
+  }
+]

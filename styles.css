@@ -224,7 +224,7 @@ nav {
     align-items: center;
   }
 
-  p {
+  .page {
     margin: auto;
     max-width: 600px;
   }
