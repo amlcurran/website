@@ -3,7 +3,8 @@
     "title" : "Code Whispering",
     "online" : {
       "place" : "Speakerdeck",
-      "url" : "https://speakerdeck.com/amlcurran/code-whispering"
+      "url" : "https://speakerdeck.com/amlcurran/code-whispering",
+      "dl" : "https://speakerd.s3.amazonaws.com/presentations/09ec5a3b81c740a5a54f84f8eecb5eaa/Code_whispering.pdf"
     },
     "blurb" : "Being a craftsman in development practises is only part of the problem! We'll have a brief look at some principles that help make great software, and the hints that your code can give you about what you can improve.",
     "image" : "code_whispering.jpg"
@@ -12,7 +13,8 @@
     "title" : "Lollipop and iPlayer",
     "online" : {
       "place" : "Speakerdeck",
-      "url" : "https://speakerdeck.com/amlcurran/lollipop-and-iplayer-whats-new-with-material-design"
+      "url" : "https://speakerdeck.com/amlcurran/lollipop-and-iplayer-whats-new-with-material-design",
+      "dl" : "https://speakerd.s3.amazonaws.com/presentations/8ba84ce0562d0132b721068d4fdc98ab/Android_L_and_iPlayer.pdf"
     },
     "blurb" : "Take a look at the new APIs available in Android Lollipop, how to apply them, and what they look like in a production environment.",
     "image" : "lollipop-iplayer.jpg"
