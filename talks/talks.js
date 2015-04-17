@@ -1,10 +1,13 @@
 this.talksView = function() {
   
   var talksHolder = document.querySelector('#talks-holder');
+  var talksChunkBase = document.querySelector('#talk-chunk-import').import;
   
   createTalkItem = function(talk) {
-    var talkDiv = document.createElement('talkDiv');
-    talkDiv.innerText = talk.title;
+    var talkDiv = talksChunkBase.querySelector('#talk-chunk').cloneNode(true);
+    talkDiv.querySelector('#talk-title').innerText = talk.title;
+    talkDiv.querySelector('#talk-link').innerText = talk.online.place;
+    talkDiv.querySelector('#talk-link').href = talk.online.url;
     return talkDiv;
   };
   
