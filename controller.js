@@ -62,6 +62,21 @@ var controller = (function() {
       element.className = newClassName;  
     }
   };
+  
+  this.controlHashChange = function() {
+    console.log(location.hash);
+          if (location.hash === '#me') {
+            self.hideHome();
+            self.show(this.me);
+            self.hideOthers(this.me);
+          } else {
+            self.displayHome();
+            if (location.hash === '#talks') {
+              self.show(this.talks);
+              self.hideOthers(this.talks);
+            }
+          }
+  };
 
   return {
     
@@ -104,8 +119,7 @@ var controller = (function() {
         }
   
         // Load me by default
-        self.show(me);
-        self.hideOthers(me);
+        self.controlHashChange();
     } 
     
   };
