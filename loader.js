@@ -1,10 +1,9 @@
 var loader = function() {
-    
-    return {
-    
-      load : function(callback) {
   
-        var request = new XMLHttpRequest();
+  var jobs = [];
+  
+  var addJob = function(url, callback) {
+    var request = new XMLHttpRequest();
         request.onload = function(data) {
           callback.loaded(JSON.parse(data.target.responseText));
         };
@@ -14,10 +13,15 @@ var loader = function() {
             callback.error(request.responseText);
           }
         };
-        request.open('get', './chips/chip-data.json');
+        request.open('get', url);
         request.setRequestHeader('Content-type', 'application/json');
-        request.send();
+        request.send();  
+  };
     
+    return {
+    
+      load : function(url, callback) {
+        addJob(url, callback);  
       }
     
     };
