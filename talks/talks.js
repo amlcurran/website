@@ -14,7 +14,7 @@ this.talksView = function() {
     setText(talkDiv.querySelector('#talk-blurb'), talk.blurb);
     setText(talkDiv.querySelector('#talk-link'), talk.online.place);
     talkDiv.querySelector('#talk-link').href = talk.online.url;
-    talkDiv.querySelector('#talk-image').style.backgroundImage = 'url("talks/' + talk.image + '")';
+    talkDiv.querySelector('#talk-image').style.backgroundImage = 'url(\'/talks/' + talk.image + '\')';
     talkDiv.querySelector('#talk-dl').href = talk.online.dl;
     return talkDiv;
   };
