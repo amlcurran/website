@@ -119,7 +119,7 @@ var controller = (function() {
         }
   
         // Load me by default
-        self.controlHashChange();
+        location.hash = "me";
     } 
     
   };
