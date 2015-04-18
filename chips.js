@@ -14,9 +14,9 @@ this.chipsView = function() {
     var image = document.createElement('img');
     image.title = chip.title;
     image.className = image.className + ' chip';
-    image.src = this.imageUrl(chip);
-    image.srcset = this.imageSet(chip);
-    image.addEventListener('load', this.fadeIn(image));
+    image.src = imageUrl(chip);
+    image.srcset = imageSet(chip);
+    image.addEventListener('load', fadeIn(image));
     // image.style.backgroundColor = chip.color;
   
     a.appendChild(image);
@@ -28,7 +28,7 @@ this.chipsView = function() {
   };
   
   var imageSet = function(chip) {
-      return this.imageUrl(chip) + ' 1x, ' + this.imageUrl2(chip) + ' 2x';
+      return imageUrl(chip) + ' 1x, ' + imageUrl2(chip) + ' 2x';
   };
   
   var imageUrl = function(chip) {
