@@ -114,7 +114,9 @@ nav {
   box-shadow: 0px 2px 4px #DEDEDE;
   overflow: hidden;
   display: flex;
+  display:-webkit-flex;
   flex-direction: column;
+  -webkit-flex-direction: column;
 }
 
 .card-innards {
@@ -123,6 +125,7 @@ nav {
 
 .card-image {
   flex: 0 0 150px; 
+  -webkit-flex: 0 0 150px;
   background-repeat: no-repeat; 
   background-size: cover; 
   background-position: center;
@@ -281,6 +284,7 @@ nav {
   .card {
     margin: 16px;
     flex-direction: row;
+    -webkit-flex-direction: row;
   }
 
 
