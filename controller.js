@@ -81,7 +81,13 @@ var controller = (function() {
   return {
     
     link : function() {
-      console.log('linking controller');
+        console.log('linking controller');
+      
+        // Load me by default
+        if (location.hash === undefined || location.hash === '') { 
+          location.hash = "me";
+        }
+        
         window.onhashchange = function(event) {
           console.log(location.hash);
           if (location.hash === '#me') {
@@ -118,8 +124,7 @@ var controller = (function() {
           scrollHint.style.display = 'none';
         }
   
-        // Load me by default
-        location.hash = "me";
+        controlHashChange();
     } 
     
   };
