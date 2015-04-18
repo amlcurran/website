@@ -2,12 +2,12 @@ this.talksView = function() {
   
   var talksHolder = document.querySelector('#talks-holder');
   
-  setText = function(node, text) {
+  var setText = function(node, text) {
     node.innerText = text;  
     node.textContent = text;  
   };
   
-  createTalkItem = function(talk) {
+  var createTalkItem = function(talk) {
     var talkImport = document.querySelector('#talk-chunk-import').import;
     var talkDiv = talkImport.querySelector('#talk-chunk').cloneNode(true);
     setText(talkDiv.querySelector('#talk-title'), talk.title);
@@ -19,7 +19,7 @@ this.talksView = function() {
     return talkDiv;
   };
   
-  addViews = function(talks) {
+  var addViews = function(talks) {
     for (i = 0; i < talks.length; i++) {
       var talk = talks[i];
       talksHolder.appendChild(createTalkItem(talk));

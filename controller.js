@@ -1,15 +1,15 @@
-var controller = (function() {
+var controller = function() {
 
   var self = this;
   var me = document.querySelector('#me');
   var talks = document.querySelector('#talks');
   var all = [me, talks];
 
-  this.show = function(element) {
+  var show = function(element) {
     element.className = element.className + ' shown fadeInFast';
   };
 
-  this.hideOthers = function(element) {
+  var hideOthers = function(element) {
     all.forEach(function(item, index, array) {
       if (item === element) {
         // Nothing
@@ -20,13 +20,13 @@ var controller = (function() {
     });
   };
   
-  this.displayHome = function() {
+  var displayHome = function() {
     var homeImage = document.querySelector('#homeimage');
     homeImage.className = homeImage.className.replace( /(?:^|\s)home-image-hidden(?!\S)/ , '');
     console.log(homeImage.className);
   };
   
-  this.hideHome = function() {
+  var hideHome = function() {
     var homeImage = document.querySelector('#homeimage');
     self.addClass(homeImage, 'home-image-hidden');
   };
@@ -63,17 +63,17 @@ var controller = (function() {
     }
   };
   
-  this.controlHashChange = function() {
+  controlHashChange = function() {
     console.log(location.hash);
           if (location.hash === '#me') {
-            self.hideHome();
-            self.show(this.me);
-            self.hideOthers(this.me);
+            hideHome();
+            show(this.me);
+            hideOthers(this.me);
           } else {
-            self.displayHome();
+            displayHome();
             if (location.hash === '#talks') {
-              self.show(this.talks);
-              self.hideOthers(this.talks);
+              show(this.talks);
+              hideOthers(this.talks);
             }
           }
   };
@@ -90,17 +90,7 @@ var controller = (function() {
         
         window.onhashchange = function(event) {
           console.log(location.hash);
-          if (location.hash === '#me') {
-            self.hideHome();
-            self.show(this.me);
-            self.hideOthers(this.me);
-          } else {
-            self.displayHome();
-            if (location.hash === '#talks') {
-              self.show(this.talks);
-              self.hideOthers(this.talks);
-            }
-          }
+          controlHashChange();
         };
         
         var scrollableTabs = document.querySelector('#nav-tabs');
@@ -129,4 +119,4 @@ var controller = (function() {
     
   };
 
-});
+};

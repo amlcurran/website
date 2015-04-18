@@ -1,10 +1,10 @@
 this.chipsView = function() {
   
-  fadeIn = function(element) {
+  var fadeIn = function(element) {
     element.className = element.className + ' fadeIn';
   };
   
-  createChip = function(chip) {
+  var createChip = function(chip) {
     var a = document.createElement('a');
     a.href = chip.url;
     a.className = a.className + ' chipLink';
@@ -23,15 +23,15 @@ this.chipsView = function() {
     return a;
   };
 
-  imageUrl2 = function(chip) {
+  var imageUrl2 = function(chip) {
       return "chips/" + chip.image + "@2x.png";
   };
   
-  imageSet = function(chip) {
+  var imageSet = function(chip) {
       return this.imageUrl(chip) + ' 1x, ' + this.imageUrl2(chip) + ' 2x';
   };
   
-  imageUrl = function(chip) {
+  var imageUrl = function(chip) {
       return "chips/" + chip.image + ".png";
   };
   
@@ -51,17 +51,5 @@ this.chipsView = function() {
   };
 
 };
-
-// ChipsView.prototype.mouseOverAction = function(target, chip) {
-//   return function(e) {
-//         target.style.backgroundColor = chip.color;
-//   }
-// }
-
-// ChipsView.prototype.mouseOutAction = function(target) {
-//   return function(e) {
-//         target.style.backgroundColor = "rgba(0, 0, 0, 0.0)";
-//   }
-// }
 
 
