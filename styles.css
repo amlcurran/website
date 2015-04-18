@@ -114,6 +114,7 @@ nav {
   box-shadow: 0px 2px 4px #DEDEDE;
   overflow: hidden;
   display: flex;
+  flex-direction: column;
 }
 
 .card-innards {
@@ -279,6 +280,7 @@ nav {
   
   .card {
     margin: 16px;
+    flex-direction: row;
   }
 
 
