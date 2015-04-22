@@ -1,4 +1,4 @@
-this.talksView = function() {
+this.talksView = function(prototype) {
   
   var talksHolder = document.querySelector('#talks-holder');
   
@@ -26,9 +26,10 @@ this.talksView = function() {
     }   
   };
   
-  return {
+  return function() {
     
-    loaded : function(talks) {
+    var returnee = Object.create(prototype);
+    returnee.loaded = function(talks) {
       
       if (document.querySelector('#talk-chunk-import').import) {
         addViews(talks); 
@@ -37,9 +38,11 @@ this.talksView = function() {
           addViews(talks);  
         });
       }
-      
-    }
     
-  };
+    };
+    
+    return returnee;
+    
+  }();
   
 };

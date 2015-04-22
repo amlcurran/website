@@ -35,9 +35,10 @@ this.chipsView = function() {
       return "chips/" + chip.image + ".png";
   };
   
-  return {
+  return function() {
     
-    loaded : function(chips) {
+    var returnee = {};
+    returnee.loaded = function(chips) {
 
         var chipsHolder = document.querySelector('#chips_holder');
         var chipsInner = document.createElement('div');
@@ -46,9 +47,11 @@ this.chipsView = function() {
           chipsHolder.appendChild(createChip(chip));
         }
     
-    }
+    };
     
-  };
+    return returnee;
+    
+  }();
 
 };
 

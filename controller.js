@@ -1,4 +1,4 @@
-var controller = function() {
+var controller = function(talksView) {
 
   var self = this;
   var me = document.querySelector('#me');
@@ -72,7 +72,8 @@ var controller = function() {
           } else {
             displayHome();
             if (location.hash === '#talks') {
-              show(this.talks);
+              talksView.show();
+              talksView.loadSelf();
               hideOthers(this.talks);
             }
           }
