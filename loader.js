@@ -3,19 +3,32 @@ var loader = function() {
   var jobs = [];
   
   var addJob = function(url, callback) {
-    var request = new XMLHttpRequest();
-        request.onload = function(data) {
-          callback.loaded(JSON.parse(data.target.responseText));
-        };
-        request.onerror = function() {
-          console.log(request.responseText);
-          if ('error' in callback) {
-            callback.error(request.responseText);
-          }
-        };
-        request.open('get', url);
-        request.setRequestHeader('Content-type', 'application/json');
-        request.send();  
+    get(url).then(function(success) {
+      callback.loaded(success);  
+    }, function(error) {
+      if ('error' in callback) {
+        callback.error(error); 
+      }
+    });
+  };
+  
+  var get = function(url) {
+    return new Promise(function(resolve, reject) {
+      var request = new XMLHttpRequest();
+      request.onload = function(data) {
+        if (request.status == 200) {
+          resolve(JSON.parse(data.target.responseText));
+        } else {
+          reject(Error(request.statusText));
+        }
+      };
+      request.onerror = function() {
+          reject(Error("Network error ocurred"));
+      };
+      request.open('get', url);
+      request.setRequestHeader('Content-type', 'application/json');
+      request.send();
+    });
   };
     
     return {
