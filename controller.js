@@ -1,4 +1,4 @@
-var controller = function(talksView) {
+var controller = function(talksView, appsView) {
 
   var self = this;
   var me = document.querySelector('#me');
@@ -20,18 +20,18 @@ var controller = function(talksView) {
       }
     });
   };
-  
+
   var displayHome = function() {
     var homeImage = document.querySelector('#homeimage');
     homeImage.className = homeImage.className.replace( /(?:^|\s)home-image-hidden(?!\S)/ , '');
     console.log(homeImage.className);
   };
-  
+
   var hideHome = function() {
     var homeImage = document.querySelector('#homeimage');
     self.addClass(homeImage, 'home-image-hidden');
   };
-  
+
   this.addClass = function(element, className) {
     if ('classList' in element) {
       if (!element.classList.contains(className)) {
@@ -39,12 +39,12 @@ var controller = function(talksView) {
       }
     } else {
       if (element.className.indexOf(className) === -1) {
-        element.className = element.className + ' ' + className; 
+        element.className = element.className + ' ' + className;
       }
     }
-    
+
   };
-  
+
   this.removeClass = function(element, className) {
     if ('classList' in element) {
       element.classList.remove(className);
@@ -53,17 +53,17 @@ var controller = function(talksView) {
       var newClasses = [];
       for (var oldClass in classes) {
         if (classes[oldClass] !== className) {
-          newClasses[newClasses.length] = classes[oldClass]; 
+          newClasses[newClasses.length] = classes[oldClass];
         }
       }
       var newClassName = '';
       for (var newClass in newClasses) {
-        newClassName = newClassName + ' ' + newClasses[newClass];  
+        newClassName = newClassName + ' ' + newClasses[newClass];
       }
-      element.className = newClassName;  
+      element.className = newClassName;
     }
   };
-  
+
   controlHashChange = function() {
     console.log(location.hash);
           if (location.hash === '#me') {
@@ -77,30 +77,31 @@ var controller = function(talksView) {
               talksView.loadSelf();
               hideOthers(this.talks);
             } else if (location.hash === '#apps') {
-              show(this.apps);
+                appsView.show();
+                appsView.loadSelf();
               hideOthers(this.apps);
             }
           }
   };
 
   return {
-    
+
     link : function() {
         console.log('linking controller');
-      
+
         // Load me by default
-        if (location.hash === undefined || location.hash === '') { 
+        if (location.hash === undefined || location.hash === '') {
           location.hash = "me";
         }
-        
+
         window.onhashchange = function(event) {
           console.log(location.hash);
           controlHashChange();
         };
-        
+
         controlHashChange();
-    } 
-    
+    }
+
   };
 
 };
