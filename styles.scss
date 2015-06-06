@@ -99,6 +99,11 @@ nav {
   width: 18px;
 }
 
+#talks-holder {
+    display: flex;
+    flex-flow: row wrap;
+}
+
 .card {
   background: $card-background;
   border-radius: 4px;
@@ -121,7 +126,12 @@ nav {
   p {
       padding: 0px;
   }
-  
+
+  @media (min-width: 600px) {
+      flex: 1 0 0px;
+      align-self: stretch;
+  }
+
 }
 
 .card-innards {

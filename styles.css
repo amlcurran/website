@@ -111,6 +111,10 @@ nav {
   padding-left: 2px;
   width: 18px; }
 
+#talks-holder {
+  display: flex;
+  flex-flow: row wrap; }
+
 .card {
   background: #f2f2f2;
   border-radius: 4px;
@@ -129,6 +133,10 @@ nav {
     -o-margin-before: 0; }
   .card p {
     padding: 0px; }
+  @media (min-width: 600px) {
+    .card {
+      flex: 1 0 0px;
+      align-self: stretch; } }
 
 .card-innards {
   padding: 8px; }
