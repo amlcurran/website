@@ -111,7 +111,7 @@ nav {
   padding-left: 2px;
   width: 18px; }
 
-#talks-holder {
+.card-holder {
   display: flex;
   display: -webkit-flex;
   flex-flow: row wrap;
@@ -134,7 +134,8 @@ nav {
     -moz-margin-before: 0;
     -o-margin-before: 0; }
   .card p {
-    padding: 0px; }
+    padding: 0px;
+    font-size: 14px; }
   @media (min-width: 600px) {
     .card {
       flex: 1 0 280px;
