@@ -113,7 +113,9 @@ nav {
 
 #talks-holder {
   display: flex;
-  flex-flow: row wrap; }
+  display: -webkit-flex;
+  flex-flow: row wrap;
+  -webkit-flex-flow: row wrap; }
 
 .card {
   background: #f2f2f2;
@@ -136,7 +138,7 @@ nav {
   @media (min-width: 600px) {
     .card {
       flex: 1 0 0px;
-      align-self: stretch; } }
+      -webkit-flex: 1 0 0px; } }
 
 .card-innards {
   padding: 8px; }
