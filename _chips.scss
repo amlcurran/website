@@ -1,0 +1,33 @@
+#chips_holder {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: center;
+    -webkit-justify-content: center;
+    align-items: center;
+    justify-content: center;
+    min-height: 52px;
+
+    @media (min-width: 600px) {
+        display: -webkit-flex;
+        display: flex;
+        -webkit-align-items: center;
+        align-items: center;
+    }
+}
+
+.chip {
+  padding: 8px;
+  width: 32px;
+  height: 32px;
+  opacity: 0;
+}
+
+.chipLink {
+  transition: background-color .15s ease-in-out;
+  -moz-transition: background-color .15s ease-in-out;
+  -webkit-transition: background-color .15s ease-in-out;
+}
+
+.chipLink:hover {
+  background-color: rgba(0, 153, 255, 0.2);
+}

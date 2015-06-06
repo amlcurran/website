@@ -1,4 +1,33 @@
 @import url(http://fonts.googleapis.com/css?family=Roboto:400,300);
+#chips_holder {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-justify-content: center;
+  align-items: center;
+  justify-content: center;
+  min-height: 52px; }
+  @media (min-width: 600px) {
+    #chips_holder {
+      display: -webkit-flex;
+      display: flex;
+      -webkit-align-items: center;
+      align-items: center; } }
+
+.chip {
+  padding: 8px;
+  width: 32px;
+  height: 32px;
+  opacity: 0; }
+
+.chipLink {
+  transition: background-color .15s ease-in-out;
+  -moz-transition: background-color .15s ease-in-out;
+  -webkit-transition: background-color .15s ease-in-out; }
+
+.chipLink:hover {
+  background-color: rgba(0, 153, 255, 0.2); }
+
 body {
   margin: 0px;
   font-family: 'Roboto', sans-serif; }
@@ -122,29 +151,6 @@ nav {
   color: silver;
   text-decoration: none; }
 
-#chips_holder {
-  display: -webkit-flex;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-justify-content: center;
-  align-items: center;
-  justify-content: center;
-  min-height: 52px; }
-
-.chip {
-  padding: 8px;
-  width: 32px;
-  height: 32px;
-  opacity: 0; }
-
-.chipLink {
-  transition: background-color .15s ease-in-out;
-  -moz-transition: background-color .15s ease-in-out;
-  -webkit-transition: background-color .15s ease-in-out; }
-
-.chipLink:hover {
-  background-color: rgba(0, 153, 255, 0.2); }
-
 .button:active {
   background-color: rgba(255, 255, 255, 0.3);
   color: white; }
@@ -212,12 +218,6 @@ nav {
     margin: auto;
     display: table;
     table-layout: fixed; }
-
-  #chips_holder {
-    display: -webkit-flex;
-    display: flex;
-    -webkit-align-items: center;
-    align-items: center; }
 
   .page {
     margin: auto;
