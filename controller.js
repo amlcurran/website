@@ -3,7 +3,8 @@ var controller = function(talksView) {
   var self = this;
   var me = document.querySelector('#me');
   var talks = document.querySelector('#talks');
-  var all = [me, talks];
+  var apps = document.querySelector('#apps');
+  var all = [me, talks, apps];
 
   var show = function(element) {
     element.className = element.className + ' shown fadeInFast';
@@ -75,6 +76,9 @@ var controller = function(talksView) {
               talksView.show();
               talksView.loadSelf();
               hideOthers(this.talks);
+            } else if (location.hash === '#apps') {
+              show(this.apps);
+              hideOthers(this.apps);
             }
           }
   };

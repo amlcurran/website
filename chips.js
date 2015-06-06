@@ -8,8 +8,6 @@ this.chipsView = function() {
     var a = document.createElement('a');
     a.href = chip.url;
     a.className = a.className + ' chipLink';
-    // a.onmouseover = this.mouseOverAction(a, chip);
-    // a.onmouseout = this.mouseOutAction(a)
   
     var image = document.createElement('img');
     image.title = chip.title;
