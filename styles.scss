@@ -128,6 +128,9 @@ nav {
   p {
       padding: 0px;
       font-size: 14px;
+      margin-top: 0px;
+      flex: 1;
+      -webkit-flex: 1;
   }
 
   @media (min-width: 600px) {
@@ -139,6 +142,12 @@ nav {
 
 .card-innards {
   padding: 8px;
+  display: flex;
+  display: -webkit-flex;
+  flex-flow: column;
+  -webkit-flex-flow: column;
+  flex: 1;
+  -webkit-flex: 1;
 }
 
 .card-image {

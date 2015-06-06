@@ -135,14 +135,23 @@ nav {
     -o-margin-before: 0; }
   .card p {
     padding: 0px;
-    font-size: 14px; }
+    font-size: 14px;
+    margin-top: 0px;
+    flex: 1;
+    -webkit-flex: 1; }
   @media (min-width: 600px) {
     .card {
       flex: 1 0 280px;
       -webkit-flex: 1 0 280px; } }
 
 .card-innards {
-  padding: 8px; }
+  padding: 8px;
+  display: flex;
+  display: -webkit-flex;
+  flex-flow: column;
+  -webkit-flex-flow: column;
+  flex: 1;
+  -webkit-flex: 1; }
 
 .card-image {
   flex: 0 0 150px;
