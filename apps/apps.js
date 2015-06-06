@@ -12,10 +12,15 @@ this.appsView = function(prototype) {
     var talkDiv = talkImport.querySelector('#talk-chunk').cloneNode(true);
     setText(talkDiv.querySelector('#talk-title'), talk.title);
     setText(talkDiv.querySelector('#talk-blurb'), talk.blurb);
-    setText(talkDiv.querySelector('#talk-link'), talk.online.place);
-    talkDiv.querySelector('#talk-link').href = talk.online.url;
+    if (talk.coming_soon == 1) {
+        setText(talkDiv.querySelector('#talk-title'), talk.title + " (coming soon)");
+    }
+    if (talk.online) {
+        setText(talkDiv.querySelector('#talk-link'), talk.online.place);
+        talkDiv.querySelector('#talk-link').href = talk.online.url;
+    }
     talkDiv.querySelector('#talk-image').style.backgroundImage = 'url(\'/talks/' + talk.image + '\')';
-    talkDiv.querySelector('#talk-dl').href = talk.online.dl;
+    talkDiv.querySelector('#talk-dl').style.display = 'none';
     return talkDiv;
   };
 
