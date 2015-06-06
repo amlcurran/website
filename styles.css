@@ -129,9 +129,6 @@ nav {
     -o-margin-before: 0; }
   .card p {
     padding: 0px; }
-  @media (min-width: 600px) {
-    .card {
-      padding: 16px; } }
 
 .card-innards {
   padding: 8px; }
