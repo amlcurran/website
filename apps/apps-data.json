@@ -35,5 +35,24 @@
     },
     "blurb" : "Want an open-source SMS app? This is the one for you!",
     "image" : "lollipop-iplayer.jpg"
+  },
+  {
+    "title" : "OxBump & CamBump",
+    "online" : {
+      "place" : "Play Store",
+      "url" : "https://play.google.com/store/apps/details?id=com.feathersquare.oxbump"
+    },
+    "blurb" : "Produced in collaboration with Feather & Square, OxBump and CamBump are the definitive guides to rowing in Oxford and Cambridge",
+    "image" : "lollipop-iplayer.jpg"
+  },
+  {
+    "title" : "Queues",
+    "coming_soon" : 1,
+    "online" : {
+      "place" : "Github",
+      "url" : "https://github.com/amlcurran/Queues"
+    },
+    "blurb" : "Queues is an innovative twist on the regular to-do app, highlighting important new methods of creating apps using cross-compilation.",
+    "image" : "lollipop-iplayer.jpg"
   }
 ]
