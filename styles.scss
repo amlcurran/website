@@ -151,8 +151,8 @@ nav {
     @extend .card;
 
     @media (min-width: 600px) {
-        flex: 1 0 560px;
-        -webkit-flex: 1 0 560px;
+        flex: 0 0 576px;
+        -webkit-flex: 0 0 576px;
         flex-flow: row;
         -webkit-flex-flow: row;
         min-height: 200px;
