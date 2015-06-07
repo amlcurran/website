@@ -7,37 +7,39 @@ this.appsView = function(prototype) {
     node.textContent = text;
   };
 
-  var createTalkItem = function(talk) {
+  var createAppItem = function(app) {
     var talkImport = document.querySelector('#talk-chunk-import').import;
-    var talkDiv = talkImport.querySelector('#talk-chunk').cloneNode(true);
-    setText(talkDiv.querySelector('#talk-title'), talk.title);
-    setText(talkDiv.querySelector('#talk-blurb'), talk.blurb);
-    if (talk.coming_soon == 1) {
-        setText(talkDiv.querySelector('#talk-title'), talk.title + " (coming soon)");
+    var appDiv = talkImport.querySelector('#talk-chunk').cloneNode(true);
+    setText(appDiv.querySelector('#talk-title'), app.title);
+    setText(appDiv.querySelector('#talk-blurb'), app.blurb);
+    if (app.coming_soon == 1) {
+        setText(appDiv.querySelector('#talk-title'), app.title + " (coming soon)");
     }
-    if (talk.online) {
-        setText(talkDiv.querySelector('#talk-link'), talk.online.place);
-        talkDiv.querySelector('#talk-link').href = talk.online.url;
+    if (app.online) {
+        setText(appDiv.querySelector('#talk-link'), app.online.place);
+        appDiv.querySelector('#talk-link').href = app.online.url;
     }
-    talkDiv.querySelector('#talk-image').style.backgroundImage = 'url(\'' + talk.image + '\')';
-    talkDiv.querySelector('#talk-dl').style.display = 'none';
-    return talkDiv;
+    if (app.image) {
+        appDiv.querySelector('#talk-image').style.backgroundImage = 'url(\'' + app.image + '\')';
+    }
+    appDiv.querySelector('#talk-dl').style.display = 'none';
+    return appDiv;
   };
 
-  var createLargerItem = function(talk) {
-      var talkDiv = createTalkItem(talk);
-      removeClass(talkDiv, 'card');
-      addClass(talkDiv, 'large-card');
-      return talkDiv;
+  var createLargerItem = function(app) {
+      var appDiv = createAppItem(app);
+      removeClass(appDiv, 'card');
+      addClass(appDiv, 'large-card');
+      return appDiv;
   }
 
-  var addViews = function(talks) {
-    for (i = 0; i < talks.length; i++) {
-      var talk = talks[i];
+  var addViews = function(apps) {
+    for (i = 0; i < apps.length; i++) {
+      var app = apps[i];
       if ((i + 1) % 3 == 0) {
-          appsHolder.appendChild(createLargerItem(talk));
+          appsHolder.appendChild(createLargerItem(app));
       } else {
-          appsHolder.appendChild(createTalkItem(talk));
+          appsHolder.appendChild(createAppItem(app));
       }
     }
   };
