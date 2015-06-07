@@ -114,10 +114,14 @@ nav {
 .card-holder {
   display: flex;
   display: -webkit-flex;
-  flex-flow: row wrap;
-  -webkit-flex-flow: row wrap; }
+  flex-flow: column;
+  -webkit-flex-flow: column; }
+  @media (min-width: 600px) {
+    .card-holder {
+      flex-flow: row wrap;
+      -webkit-flex-flow: row wrap; } }
 
-.card {
+.card, .large-card {
   background: #f2f2f2;
   border-radius: 4px;
   margin: 8px;
@@ -126,23 +130,33 @@ nav {
   display: flex;
   display: -webkit-flex;
   flex-direction: column;
-  -webkit-flex-direction: column; }
-  .card h2 {
+  -webkit-flex-direction: column;
+  flex: 1;
+  -webkit-flex: 1; }
+  .card h2, .large-card h2 {
     font-family: 'Roboto', sans-serif;
     font-weight: 300;
     -webkit-margin-before: 0;
     -moz-margin-before: 0;
     -o-margin-before: 0; }
-  .card p {
+  .card p, .large-card p {
     padding: 0px;
     font-size: 14px;
     margin-top: 0px;
     flex: 1;
     -webkit-flex: 1; }
   @media (min-width: 600px) {
-    .card {
-      flex: 1 0 280px;
-      -webkit-flex: 1 0 280px; } }
+    .card, .large-card {
+      flex: 0 0 280px;
+      -webkit-flex: 0 0 280px; } }
+
+@media (min-width: 600px) {
+  .large-card {
+    flex: 1 0 560px;
+    -webkit-flex: 1 0 560px;
+    flex-flow: row;
+    -webkit-flex-flow: row;
+    min-height: 200px; } }
 
 .card-innards {
   padding: 8px;

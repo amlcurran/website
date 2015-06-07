@@ -24,10 +24,21 @@ this.appsView = function(prototype) {
     return talkDiv;
   };
 
+  var createLargerItem = function(talk) {
+      var talkDiv = createTalkItem(talk);
+      removeClass(talkDiv, 'card');
+      addClass(talkDiv, 'large-card');
+      return talkDiv;
+  }
+
   var addViews = function(talks) {
     for (i = 0; i < talks.length; i++) {
       var talk = talks[i];
-      appsHolder.appendChild(createTalkItem(talk));
+      if ((i + 1) % 3 == 0) {
+          appsHolder.appendChild(createLargerItem(talk));
+      } else {
+          appsHolder.appendChild(createTalkItem(talk));
+      }
     }
   };
 

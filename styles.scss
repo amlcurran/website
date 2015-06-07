@@ -102,8 +102,13 @@ nav {
 .card-holder {
     display: flex;
     display: -webkit-flex;
-    flex-flow: row wrap;
-    -webkit-flex-flow: row wrap;
+    flex-flow: column;
+    -webkit-flex-flow: column;
+
+    @media (min-width: 600px) {
+        flex-flow: row wrap;
+        -webkit-flex-flow: row wrap;
+    }
 }
 
 .card {
@@ -116,6 +121,8 @@ nav {
   display:-webkit-flex;
   flex-direction: column;
   -webkit-flex-direction: column;
+  flex: 1;
+  -webkit-flex: 1;
 
   h2 {
     font-family: 'Roboto', sans-serif;
@@ -134,9 +141,22 @@ nav {
   }
 
   @media (min-width: 600px) {
-      flex: 1 0 280px;
-      -webkit-flex: 1 0 280px;
+      flex: 0 0 280px;
+      -webkit-flex: 0 0 280px;
   }
+
+}
+
+.large-card {
+    @extend .card;
+
+    @media (min-width: 600px) {
+        flex: 1 0 560px;
+        -webkit-flex: 1 0 560px;
+        flex-flow: row;
+        -webkit-flex-flow: row;
+        min-height: 200px;
+    }
 
 }
 
