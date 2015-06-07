@@ -19,7 +19,7 @@ this.appsView = function(prototype) {
         setText(talkDiv.querySelector('#talk-link'), talk.online.place);
         talkDiv.querySelector('#talk-link').href = talk.online.url;
     }
-    talkDiv.querySelector('#talk-image').style.backgroundImage = 'url(\'/talks/' + talk.image + '\')';
+    talkDiv.querySelector('#talk-image').style.backgroundImage = 'url(\'' + talk.image + '\')';
     talkDiv.querySelector('#talk-dl').style.display = 'none';
     return talkDiv;
   };
