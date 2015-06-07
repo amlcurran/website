@@ -1,17 +1,19 @@
 var loader = function() {
-  
+
   var jobs = [];
-  
+
   var addJob = function(url, callback) {
     get(url).then(function(success) {
-      callback.loaded(success);  
+      callback.loaded(success);
     }, function(error) {
       if ('error' in callback) {
-        callback.error(error); 
+        callback.error(error);
       }
-    });
+  }).catch(function(error) {
+      console.log(error);
+  });
   };
-  
+
   var get = function(url) {
     return new Promise(function(resolve, reject) {
       var request = new XMLHttpRequest();
@@ -30,13 +32,13 @@ var loader = function() {
       request.send();
     });
   };
-    
+
     return {
-    
+
       load : function(url, callback) {
-        addJob(url, callback);  
+        addJob(url, callback);
       }
-    
+
     };
-  
+
 };
