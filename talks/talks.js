@@ -1,12 +1,12 @@
 this.talksView = function(prototype) {
-  
+
   var talksHolder = document.querySelector('#talks-holder');
-  
+
   var setText = function(node, text) {
-    node.innerText = text;  
-    node.textContent = text;  
+    node.innerText = text;
+    node.textContent = text;
   };
-  
+
   var createTalkItem = function(talk) {
     var talkImport = document.querySelector('#talk-chunk-import').import;
     var talkDiv = talkImport.querySelector('#talk-chunk').cloneNode(true);
@@ -15,34 +15,35 @@ this.talksView = function(prototype) {
     setText(talkDiv.querySelector('#talk-link'), talk.online.place);
     talkDiv.querySelector('#talk-link').href = talk.online.url;
     talkDiv.querySelector('#talk-image').style.backgroundImage = 'url(\'/talks/' + talk.image + '\')';
+    talkDiv.querySelector('#talk-image').style.backgroundSize = 'cover';
     talkDiv.querySelector('#talk-dl').href = talk.online.dl;
     return talkDiv;
   };
-  
+
   var addViews = function(talks) {
     for (i = 0; i < talks.length; i++) {
       var talk = talks[i];
       talksHolder.appendChild(createTalkItem(talk));
-    }   
+    }
   };
-  
+
   return function() {
-    
+
     var returnee = Object.create(prototype);
     returnee.loaded = function(talks) {
-      
+
       if (document.querySelector('#talk-chunk-import').import) {
-        addViews(talks); 
+        addViews(talks);
       } else {
         window.addEventListener('HTMLImportsLoaded', function() {
-          addViews(talks);  
+          addViews(talks);
         });
       }
-    
+
     };
-    
+
     return returnee;
-    
+
   }();
-  
+
 };
