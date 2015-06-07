@@ -6,7 +6,8 @@
       "url" : "https://play.google.com/store/apps/details?id=com.espian.formulae.pro"
     },
     "blurb" : "The app if want to study chemistry or maths on the go, or are just a little forgetful with all those important formulas!",
-    "image" : "apps/formulaepro.png"
+    "image" : "apps/formulaepro.png",
+    "id" : "formulae-pro"
   },
   {
     "title" : "Analyst",
@@ -41,7 +42,8 @@
       "place" : "Play Store",
       "url" : "https://play.google.com/store/apps/details?id=com.feathersquare.oxbump"
     },
-    "blurb" : "Produced in collaboration with Feather & Square, OxBump and CamBump are the definitive guides to rowing in Oxford and Cambridge"
+    "blurb" : "Produced in collaboration with Feather & Square, OxBump and CamBump are the definitive guides to rowing in Oxford and Cambridge",
+    "image" : "apps/coxbump.png"
   },
   {
     "title" : "Queues",
