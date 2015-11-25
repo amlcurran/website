@@ -16,13 +16,13 @@ this.appsView = function(prototype) {
         setText(appDiv.querySelector('#talk-title'), app.title + " (coming soon)");
     }
     if (app.online) {
-        setText(appDiv.querySelector('#talk-link'), app.online.place);
-        appDiv.querySelector('#talk-link').href = app.online.url;
+        setText(appDiv.querySelector('#talk-link-1'), app.online.place);
+        appDiv.querySelector('#talk-link-1').href = app.online.url;
     }
     if (app.image) {
         appDiv.querySelector('#talk-image').style.backgroundImage = 'url(\'' + app.image + '\')';
     }
-    appDiv.querySelector('#talk-dl').style.display = 'none';
+    appDiv.querySelector('#talk-link-2').style.display = 'none';
     return appDiv;
   };
 
