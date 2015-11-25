@@ -52,7 +52,8 @@
       "place" : "Github",
       "url" : "https://github.com/amlcurran/Queues"
     },
-    "blurb" : "Queues is an innovative twist on the regular to-do app, highlighting important new methods of creating apps using cross-compilation."
+    "blurb" : "Queues is an innovative twist on the regular to-do app, highlighting important new methods of creating apps using cross-compilation.",
+    "image" : "apps/queues.png"
   },
   {
     "title" : "Schemer",
