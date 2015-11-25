@@ -1,4 +1,17 @@
 [
+    {
+      "title" : "Writing Better Code",
+      "online" : [ {
+          "place" : "Youtube",
+          "url" : "https://www.youtube.com/watch?v=hYlz48mRJg0"
+        }, {
+           "place" : "Download",
+           "url" : "https://drive.google.com/file/d/0B80ykRbfmxQHNjNpRWE4eTRKeE0/view"
+          }
+      ],
+      "blurb" : "So you know all those APIs, but how do you go about using them wisely? This talk gives a brief look into the benefits of writing better code, and the first steps to improving as a developer. Presented at Droidcon France 2015.",
+      "image" : "writing-better-code.jpg"
+  },
   {
     "title" : "Code Whispering",
     "online" : [ {
