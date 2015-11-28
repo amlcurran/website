@@ -23,7 +23,7 @@
         }
     ],
     "blurb" : "Being a craftsman in development practices is only part of the problem! We'll have a brief look at some principles that help make great software, and the hints that your code can give you about what you can improve.",
-    "image" : "code_whispering.jpg"
+    "image" : "code-whispering-2.jpeg"
   },
   {
     "title" : "Lollipop and iPlayer",
@@ -34,6 +34,6 @@
       "url" : "https://speakerd.s3.amazonaws.com/presentations/8ba84ce0562d0132b721068d4fdc98ab/Android_L_and_iPlayer.pdf"
     } ],
     "blurb" : "Take a look at the new APIs available in Android Lollipop, how to apply them, and what they look like in a production environment.",
-    "image" : "lollipop-iplayer.jpg"
+    "image" : "lollipop-iplayer-2.jpeg"
   }
 ]
