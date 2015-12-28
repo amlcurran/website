@@ -22,14 +22,19 @@ var controller = function(talksView, appsView) {
   };
 
   var displayHome = function() {
-    var homeImage = document.querySelector('#homeimage');
-    homeImage.className = homeImage.className.replace( /(?:^|\s)home-image-hidden(?!\S)/ , '');
-    console.log(homeImage.className);
+    var homeImages = document.querySelectorAll('#homeimage');
+    for (var i = 0; i < homeImages.length; i++) {
+        var homeImage = homeImages[i];
+        self.removeClass(homeImage, 'home-image-hidden');
+    }
   };
 
   var hideHome = function() {
-    var homeImage = document.querySelector('#homeimage');
-    self.addClass(homeImage, 'home-image-hidden');
+    var homeImages = document.querySelectorAll('#homeimage');
+    for (var i = 0; i < homeImages.length; i++) {
+        var homeImage = homeImages[i];
+        self.addClass(homeImage, 'home-image-hidden');
+    }
   };
 
   this.addClass = function(element, className) {

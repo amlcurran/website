@@ -57,6 +57,18 @@ a {
   -webkit-transition-timing-function: ease-out;
   -mox-transition-timing-function: ease-out; }
 
+.home-image-desktop {
+  width: 0px; }
+  @media (min-width: 600px) {
+    .home-image-desktop {
+      width: 24px; } }
+
+.home-image-mobile {
+  width: 32px; }
+  @media (min-width: 600px) {
+    .home-image-mobile {
+      width: 0px; } }
+
 .home-image-hidden {
   width: 0px; }
 
