@@ -28,6 +28,13 @@
 .chipLink:hover {
   background-color: rgba(0, 153, 255, 0.2); }
 
+.card-banner {
+  position: relative;
+  display: inline-block;
+  top: 8px;
+  background-color: #ff0000;
+  min-width: 96px; }
+
 body {
   margin: 0px;
   font-family: 'Roboto', sans-serif; }
