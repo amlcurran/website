@@ -28,10 +28,10 @@
 .chipLink:hover {
   background-color: rgba(0, 153, 255, 0.2); }
 
-.card-banner, .large-card .card-banner {
+.card-banner {
   position: absolute;
   display: inline-block;
-  background-color: #ff6600;
+  background-color: rgba(255, 102, 0, 0.8);
   color: white;
   min-width: 96px;
   padding-left: 8px;
@@ -85,9 +85,18 @@
     -webkit-flex: 0 0 576px;
     flex-flow: row;
     -webkit-flex-flow: row;
-    min-height: 200px; } }
-.large-card .card-banner {
-  bottom: 36px; }
+    min-height: 200px; }
+    .large-card .card-banner {
+      position: absolute;
+      display: inline-block;
+      background-color: rgba(255, 102, 0, 0.8);
+      color: white;
+      min-width: 96px;
+      padding-left: 8px;
+      padding-right: 8px;
+      padding-top: 4px;
+      padding-bottom: 4px;
+      bottom: 36px; } }
 
 .card-innards {
   padding: 8px;
