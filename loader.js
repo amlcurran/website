@@ -15,22 +15,32 @@ var loader = function() {
   };
 
   var get = function(url) {
-    return new Promise(function(resolve, reject) {
-      var request = new XMLHttpRequest();
-      request.onload = function(data) {
-        if (request.status == 200) {
-          resolve(JSON.parse(data.target.responseText));
-        } else {
-          reject(Error(request.statusText));
-        }
-      };
-      request.onerror = function() {
-          reject(Error("Network error ocurred"));
-      };
-      request.open('get', url);
-      request.setRequestHeader('Content-type', 'application/json');
-      request.send();
-    });
+      if ('fetch' in window) {
+          return fetch(url).then(function(response) {
+              if (response.status == 200) {
+                  return response.json();
+              } else {
+                  reject(Error(response.statusText));
+              }
+          })
+      } else {
+          return new Promise(function(resolve, reject) {
+              var request = new XMLHttpRequest();
+              request.onload = function(data) {
+                  if (request.status == 200) {
+                      resolve(JSON.parse(data.target.responseText));
+                  } else {
+                      reject(Error(request.statusText));
+                  }
+              };
+              request.onerror = function() {
+                  reject(Error("Network error ocurred"));
+              };
+              request.open('get', url);
+              request.setRequestHeader('Content-type', 'application/json');
+              request.send();
+          });
+}
   };
 
     return {
