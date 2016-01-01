@@ -1,0 +1,104 @@
+$card-background: rgb(242, 242, 242);
+$card-padding: 8px;
+
+.card-banner {
+    position: absolute;
+    display: inline-block;
+    background-color: $theme-color;
+    color: white;
+    min-width: 96px;
+    padding-left: $card-padding;
+    padding-right: $card-padding;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    bottom: 16px;
+}
+
+.card-holder {
+    display: flex;
+    display: -webkit-flex;
+    flex-flow: column;
+    -webkit-flex-flow: column;
+
+    @media (min-width: 600px) {
+        flex-flow: row wrap;
+        -webkit-flex-flow: row wrap;
+    }
+}
+
+.card {
+  background: $card-background;
+  border-radius: 4px;
+  margin: 8px;
+  box-shadow: 0px 2px 4px #DEDEDE;
+  overflow: hidden;
+  display: flex;
+  display:-webkit-flex;
+  flex-direction: column;
+  -webkit-flex-direction: column;
+  flex: 1;
+  -webkit-flex: 1;
+
+  h2 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    -webkit-margin-before: 0;
+    -moz-margin-before: 0;
+    -o-margin-before: 0;
+  }
+
+  p {
+      padding: 0px;
+      font-size: 14px;
+      margin-top: 0px;
+      flex: 1;
+      -webkit-flex: 1;
+  }
+
+  @media (min-width: 600px) {
+      flex: 0 0 280px;
+      -webkit-flex: 0 0 280px;
+  }
+
+}
+
+.large-card {
+    @extend .card;
+
+    @media (min-width: 600px) {
+        flex: 0 0 576px;
+        -webkit-flex: 0 0 576px;
+        flex-flow: row;
+        -webkit-flex-flow: row;
+        min-height: 200px;
+    }
+
+    .card-banner {
+        @extend .card-banner;
+        bottom: 36px;
+    }
+
+}
+
+.card-innards {
+  padding: 8px;
+  display: flex;
+  display: -webkit-flex;
+  flex-flow: column;
+  -webkit-flex-flow: column;
+  flex: 1;
+  -webkit-flex: 1;
+}
+
+.card-image {
+  flex: 0 0 150px;
+  position: relative;
+  -webkit-flex: 0 0 150px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.card-links {
+  text-align: right;
+}

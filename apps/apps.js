@@ -12,8 +12,10 @@ this.appsView = function(prototype) {
     var appDiv = talkImport.querySelector('#talk-chunk').cloneNode(true);
     setText(appDiv.querySelector('#talk-title'), app.title);
     setText(appDiv.querySelector('#talk-blurb'), app.blurb);
-    if (app.coming_soon == 1) {
-        setText(appDiv.querySelector('#talk-title'), app.title + " (coming soon)");
+    if (app.banner) {
+        setText(appDiv.querySelector('#banner'), app.banner);
+    } else {
+        appDiv.querySelector('#banner').style.display = 'none';
     }
     if (app.online) {
         setText(appDiv.querySelector('#talk-link-1'), app.online.place);

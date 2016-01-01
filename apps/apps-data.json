@@ -29,7 +29,7 @@
   },
   {
     "title" : "Messages",
-    "coming_soon" : 1,
+    "banner" : "Coming soon",
     "online" : {
       "place" : "Github",
       "url" : "https://github.com/amlcurran/Messages"
@@ -47,7 +47,7 @@
   },
   {
     "title" : "Queues",
-    "coming_soon" : 1,
+    "banner" : "Coming soon",
     "online" : {
       "place" : "Github",
       "url" : "https://github.com/amlcurran/Queues"
