@@ -49,6 +49,10 @@
         {
             "title" : "Queues",
             "banner" : "Coming soon",
+            "tags" : [
+                    "transpile",
+                    "ios"
+            ],
             "online" : {
                 "place" : "Github",
                 "url" : "https://github.com/amlcurran/Queues"
@@ -60,6 +64,16 @@
             "title" : "Schemer",
             "blurb" : "Schemer was a simple web-app which built reaction profiles for use in chemistry presentations and papers. Unfortunately, Schemer is no longer available.",
             "image" : "apps/schemericon.png"
+        }
+    ],
+    "tags" : [
+        {
+            "id" : "transpile",
+            "name" : "Transpiled"
+        },
+        {
+            "id" : "ios",
+            "name" : "iOS"
         }
     ]
 }

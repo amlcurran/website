@@ -34,18 +34,33 @@ this.appsView = function(prototype) {
         addClass(appDiv, 'large-card');
         return appDiv;
     }
-    
+
     var addViews = function(json) {
         var apps = json.apps;
         for (i = 0; i < apps.length; i++) {
             var app = apps[i];
-            if ((i + 1) % 3 == 0) {
-                appsHolder.appendChild(createLargerItem(app));
-            } else {
-                appsHolder.appendChild(createAppItem(app));
+            if (isWithinFilter(app.tags)) {
+                if ((i + 1) % 3 == 0) {
+                    appsHolder.appendChild(createLargerItem(app));
+                } else {
+                    appsHolder.appendChild(createAppItem(app));
+                }
             }
         }
     };
+
+    var isWithinFilter = function(tagsArray) {
+        var queryParams = window.location.hash;
+        if (queryParams !== "" && tagsArray) {
+            var regex = new RegExp(".*&filter=(.*)").exec(queryParams);
+            for (var i = 0; i < tagsArray.length; i++) {
+                if (regex[1] === tagsArray[i]) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 
     return function() {
 
