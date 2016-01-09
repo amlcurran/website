@@ -51,8 +51,11 @@ this.appsView = function(prototype) {
 
     var isWithinFilter = function(tagsArray) {
         var queryParams = window.location.hash;
-        if (queryParams !== "" && tagsArray) {
-            var regex = new RegExp(".*&filter=(.*)").exec(queryParams);
+        if (!hasFilter()) {
+            return true;
+        }
+        if (hasFilter() && tagsArray) {
+            var regex = new RegExp(".*?filter=(.*)").exec(queryParams);
             for (var i = 0; i < tagsArray.length; i++) {
                 if (regex[1] === tagsArray[i]) {
                     return true;
@@ -62,11 +65,21 @@ this.appsView = function(prototype) {
         return false;
     }
 
+    var hasFilter = function() {
+        return window.location.hash.indexOf("?filter") !== -1;
+    }
+
     return function() {
 
         var returnee = Object.create(prototype);
         returnee.loaded = function(talks) {
 
+            var filter = document.querySelector('#apps-filter');
+            if (hasFilter()) {
+                filter.style.display = 'block';
+            } else {
+                filter.style.display = 'none';
+            }
             if (document.querySelector('#talk-chunk-import').import) {
                 addViews(talks);
             } else {
