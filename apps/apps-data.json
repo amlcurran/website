@@ -41,6 +41,20 @@
             "image" : "apps/messages.png"
         },
         {
+            "title" : "What's on",
+            "tags" : [
+                "comingsoon",
+                "ios",
+                "transpile"
+            ],
+            "online" : {
+                "place" : "Github",
+                "url" : "https://github.com/amlcurran/Social"
+            },
+            "blurb" : "A simpler twist on the traditional calendar",
+            "image" : "apps/whatson.png"
+        },
+        {
             "title" : "OxBump & CamBump",
             "online" : {
                 "place" : "Play Store",
