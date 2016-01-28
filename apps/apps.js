@@ -1,21 +1,38 @@
 this.appsView = function(prototype) {
 
     var appsHolder = document.querySelector('#apps-holder');
+    var filter = "";
 
     var setText = function(node, text) {
         node.innerText = text;
         node.textContent = text;
     };
 
-    var createAppItem = function(app) {
+    var renderTags = function(appDiv, app, tags) {
+        var bannerImport = document.querySelector('#banner-import').import.querySelector("#banner");
+        for (var i = 0; i < app.tags.length; i++) {
+            var newBanner = createBanner(bannerImport, app.tags[i], tags);
+            var baseBottom = newBanner.style.bottom.replace("px", "");
+            var newBottom = 30 * (i + 1);
+            newBanner.style.bottom = newBottom + "px";
+            appDiv.querySelector('#talk-image').appendChild(newBanner);
+        }
+
+    }
+
+    var createBanner = function(bannerImport, tagId, tagNames) {
+        var newBanner = bannerImport.cloneNode(true);
+        setText(newBanner, tagNames[tagId].name);
+        return newBanner;
+    }
+
+    var createAppItem = function(app, tags) {
         var talkImport = document.querySelector('#talk-chunk-import').import;
         var appDiv = talkImport.querySelector('#talk-chunk').cloneNode(true);
         setText(appDiv.querySelector('#talk-title'), app.title);
         setText(appDiv.querySelector('#talk-blurb'), app.blurb);
-        if (app.banner) {
-            setText(appDiv.querySelector('#banner'), app.banner);
-        } else {
-            appDiv.querySelector('#banner').style.display = 'none';
+        if (app.tags) {
+            renderTags(appDiv, app, tags);
         }
         if (app.online) {
             setText(appDiv.querySelector('#talk-link-1'), app.online.place);
@@ -28,8 +45,8 @@ this.appsView = function(prototype) {
         return appDiv;
     };
 
-    var createLargerItem = function(app) {
-        var appDiv = createAppItem(app);
+    var createLargerItem = function(app, tags) {
+        var appDiv = createAppItem(app, tags);
         removeClass(appDiv, 'card');
         addClass(appDiv, 'large-card');
         return appDiv;
@@ -41,23 +58,21 @@ this.appsView = function(prototype) {
             var app = apps[i];
             if (isWithinFilter(app.tags)) {
                 if ((i + 1) % 3 == 0) {
-                    appsHolder.appendChild(createLargerItem(app));
+                    appsHolder.appendChild(createLargerItem(app, json.tags));
                 } else {
-                    appsHolder.appendChild(createAppItem(app));
+                    appsHolder.appendChild(createAppItem(app, json.tags));
                 }
             }
         }
     };
 
     var isWithinFilter = function(tagsArray) {
-        var queryParams = window.location.hash;
         if (!hasFilter()) {
             return true;
         }
         if (hasFilter() && tagsArray) {
-            var regex = new RegExp(".*?filter=(.*)").exec(queryParams);
             for (var i = 0; i < tagsArray.length; i++) {
-                if (regex[1] === tagsArray[i]) {
+                if (filter === tagsArray[i]) {
                     return true;
                 }
             }
@@ -66,7 +81,7 @@ this.appsView = function(prototype) {
     }
 
     var hasFilter = function() {
-        return window.location.hash.indexOf("?filter") !== -1;
+        return filter !== "";
     }
 
     return function() {

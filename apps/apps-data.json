@@ -30,12 +30,15 @@
         },
         {
             "title" : "Messages",
-            "banner" : "Coming soon",
+            "tags" : [
+                "comingsoon"
+            ],
             "online" : {
                 "place" : "Github",
                 "url" : "https://github.com/amlcurran/Messages"
             },
-            "blurb" : "Want an open-source SMS app? This is the one for you!"
+            "blurb" : "Want an open-source SMS app? This is the one for you!",
+            "image" : "apps/messages.png"
         },
         {
             "title" : "OxBump & CamBump",
@@ -51,7 +54,8 @@
             "banner" : "Coming soon",
             "tags" : [
                     "transpile",
-                    "ios"
+                    "ios",
+                    "comingsoon"
             ],
             "online" : {
                 "place" : "Github",
@@ -66,14 +70,15 @@
             "image" : "apps/schemericon.png"
         }
     ],
-    "tags" : [
-        {
-            "id" : "transpile",
+    "tags" : {
+        "transpile" : {
             "name" : "Transpiled"
         },
-        {
-            "id" : "ios",
+        "ios" : {
             "name" : "iOS"
+        },
+        "comingsoon" : {
+            "name" : "Coming soon"
         }
-    ]
+    }
 }
