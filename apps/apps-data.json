@@ -1,63 +1,98 @@
-[
-  {
-    "title" : "Formulae Pro",
-    "online" : {
-      "place" : "Play Store",
-      "url" : "https://play.google.com/store/apps/details?id=com.espian.formulae.pro"
-    },
-    "blurb" : "The app if want to study chemistry or maths on the go, or are just a little forgetful with all those important formulas!",
-    "image" : "apps/formulaepro.png",
-    "id" : "formulae-pro"
-  },
-  {
-    "title" : "Analyst",
-    "online" : {
-      "place" : "Play Store",
-      "url" : "https://play.google.com/store/apps/details?id=com.espian.applyse"
-    },
-    "blurb" : "Want to know more about what your apps do? What version of Android they work best on? Analyst is the tool you want. ",
-    "image" : "apps/analyst_large.png"
-  },
-  {
-    "title" : "Jump",
-    "online" : {
-      "place" : "Play Store",
-      "url" : "https://play.google.com/store/apps/details?id=com.amlcurran.jump"
-    },
-    "blurb" : "Speed or simplicity. Choose both. Jump is a new take on the launcher - taking it back to the basics of what a launcher should be - a springboard to your apps.",
-    "image" : "apps/jump.png"
-  },
-  {
-    "title" : "Messages",
-    "banner" : "Coming soon",
-    "online" : {
-      "place" : "Github",
-      "url" : "https://github.com/amlcurran/Messages"
-    },
-    "blurb" : "Want an open-source SMS app? This is the one for you!"
-  },
-  {
-    "title" : "OxBump & CamBump",
-    "online" : {
-      "place" : "Play Store",
-      "url" : "https://play.google.com/store/apps/details?id=com.feathersquare.oxbump"
-    },
-    "blurb" : "Produced in collaboration with Feather & Square, OxBump and CamBump are the definitive guides to rowing in Oxford and Cambridge",
-    "image" : "apps/coxbump.png"
-  },
-  {
-    "title" : "Queues",
-    "banner" : "Coming soon",
-    "online" : {
-      "place" : "Github",
-      "url" : "https://github.com/amlcurran/Queues"
-    },
-    "blurb" : "Queues is an innovative twist on the regular to-do app, highlighting important new methods of creating apps using cross-compilation.",
-    "image" : "apps/queues.png"
-  },
-  {
-    "title" : "Schemer",
-    "blurb" : "Schemer was a simple web-app which built reaction profiles for use in chemistry presentations and papers. Unfortunately, Schemer is no longer available.",
-    "image" : "apps/schemericon.png"
-  }
-]
+{
+    "apps" : [
+        {
+            "title" : "Formulae Pro",
+            "online" : {
+                "place" : "Play Store",
+                "url" : "https://play.google.com/store/apps/details?id=com.espian.formulae.pro"
+            },
+            "blurb" : "The app if want to study chemistry or maths on the go, or are just a little forgetful with all those important formulas!",
+            "image" : "apps/formulaepro.png",
+            "id" : "formulae-pro"
+        },
+        {
+            "title" : "Analyst",
+            "online" : {
+                "place" : "Play Store",
+                "url" : "https://play.google.com/store/apps/details?id=com.espian.applyse"
+            },
+            "blurb" : "Want to know more about what your apps do? What version of Android they work best on? Analyst is the tool you want. ",
+            "image" : "apps/analyst_large.png"
+        },
+        {
+            "title" : "Jump",
+            "online" : {
+                "place" : "Play Store",
+                "url" : "https://play.google.com/store/apps/details?id=com.amlcurran.jump"
+            },
+            "blurb" : "Speed or simplicity. Choose both. Jump is a new take on the launcher - taking it back to the basics of what a launcher should be - a springboard to your apps.",
+            "image" : "apps/jump.png"
+        },
+        {
+            "title" : "Messages",
+            "tags" : [
+                "comingsoon"
+            ],
+            "online" : {
+                "place" : "Github",
+                "url" : "https://github.com/amlcurran/Messages"
+            },
+            "blurb" : "Want an open-source SMS app? This is the one for you!",
+            "image" : "apps/messages.png"
+        },
+        {
+            "title" : "What's on",
+            "tags" : [
+                "comingsoon",
+                "ios",
+                "transpile"
+            ],
+            "online" : {
+                "place" : "Github",
+                "url" : "https://github.com/amlcurran/Social"
+            },
+            "blurb" : "A simpler twist on the traditional calendar",
+            "image" : "apps/whatson.png"
+        },
+        {
+            "title" : "OxBump & CamBump",
+            "online" : {
+                "place" : "Play Store",
+                "url" : "https://play.google.com/store/apps/details?id=com.feathersquare.oxbump"
+            },
+            "blurb" : "Produced in collaboration with Feather & Square, OxBump and CamBump are the definitive guides to rowing in Oxford and Cambridge",
+            "image" : "apps/coxbump.png"
+        },
+        {
+            "title" : "Queues",
+            "banner" : "Coming soon",
+            "tags" : [
+                    "transpile",
+                    "ios",
+                    "comingsoon"
+            ],
+            "online" : {
+                "place" : "Github",
+                "url" : "https://github.com/amlcurran/Queues"
+            },
+            "blurb" : "Queues is an innovative twist on the regular to-do app, highlighting important new methods of creating apps using cross-compilation.",
+            "image" : "apps/queues.png"
+        },
+        {
+            "title" : "Schemer",
+            "blurb" : "Schemer was a simple web-app which built reaction profiles for use in chemistry presentations and papers. Unfortunately, Schemer is no longer available.",
+            "image" : "apps/schemericon.png"
+        }
+    ],
+    "tags" : {
+        "transpile" : {
+            "name" : "Transpiled"
+        },
+        "ios" : {
+            "name" : "iOS"
+        },
+        "comingsoon" : {
+            "name" : "Coming soon"
+        }
+    }
+}
