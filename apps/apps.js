@@ -26,6 +26,24 @@ this.appsView = function(prototype) {
         return newBanner;
     }
 
+    var lowlightTags = function() {
+        return function(event) {
+            var banners = event.target.querySelectorAll('#banner');
+            for (var i = 0; i < banners.length; i++) {
+                banners[i].style.opacity = 0.3;
+            }
+        }
+    }
+
+    var highlightTags = function() {
+        return function(event) {
+            var banners = event.target.querySelectorAll('#banner');
+            for (var i = 0; i < banners.length; i++) {
+                banners[i].style.opacity = 1.0;
+            }
+        }
+    }
+
     var createAppItem = function(app, tags) {
         var talkImport = document.querySelector('#talk-chunk-import').import;
         var appDiv = talkImport.querySelector('#talk-chunk').cloneNode(true);
@@ -39,7 +57,10 @@ this.appsView = function(prototype) {
             appDiv.querySelector('#talk-link-1').href = app.online.url;
         }
         if (app.image) {
-            appDiv.querySelector('#talk-image').style.backgroundImage = 'url(\'' + app.image + '\')';
+            var imageDiv = appDiv.querySelector('#talk-image');
+            imageDiv.style.backgroundImage = 'url(\'' + app.image + '\')';
+            imageDiv.addEventListener('mouseenter', lowlightTags());
+            imageDiv.addEventListener('mouseleave', highlightTags());
         }
         appDiv.querySelector('#talk-link-2').style.display = 'none';
         return appDiv;
