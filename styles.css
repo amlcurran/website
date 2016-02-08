@@ -145,7 +145,7 @@ a {
   -moz-transition: width 0.2s;
   transition-timing-function: ease-out;
   -webkit-transition-timing-function: ease-out;
-  -mox-transition-timing-function: ease-out; }
+  -moz-transition-timing-function: ease-out; }
 
 .home-image-desktop {
   width: 0px; }
@@ -271,6 +271,7 @@ nav {
   margin-right: auto;
   max-width: 600px;
   padding: 16px;
+  display: none;
   background-color: red; }
 
 .shown {
