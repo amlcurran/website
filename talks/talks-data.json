@@ -1,4 +1,19 @@
 [
+  {
+    "title" : "Using Swift to write better code",
+    "online" : [
+      {
+        "place": "Speakerdeck",
+        "url" : "https://speakerdeck.com/amlcurran/using-swift-to-write-better-code"
+      },
+      {
+        "place": "Swift Playground",
+        "url" : "//www.amlcurran.co.uk/tutorials/better-swift.zip"
+      }
+    ],
+    "blurb" : "Writing better code is what makes great developers, a great codebase, and great products. So how can you use Swift's power to make your life easier and your code even better?",
+    "image" : "better-swift.jpg"
+  },
     {
       "title" : "Writing Better Code",
       "online" : [ {
