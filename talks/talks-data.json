@@ -11,7 +11,7 @@
         "url" : "//www.amlcurran.co.uk/tutorials/better-swift.zip"
       }
     ],
-    "blurb" : "Writing better code is what makes great developers, a great codebase, and great products. So how can you use Swift's power to make your life easier and your code even better?",
+    "blurb" : "Writing better code is what makes great developers, a great codebase, and great products. So how can you use Swift's power to make your life easier and your code even better? Presented at Swift Berlin #21.",
     "image" : "better-swift.jpg"
   },
     {
@@ -37,7 +37,7 @@
          "url" : "https://speakerd.s3.amazonaws.com/presentations/09ec5a3b81c740a5a54f84f8eecb5eaa/Code_whispering.pdf"
         }
     ],
-    "blurb" : "Being a craftsman in development practices is only part of the problem! We'll have a brief look at some principles that help make great software, and the hints that your code can give you about what you can improve.",
+    "blurb" : "Being a craftsman in development practices is only part of the problem! We'll have a brief look at some principles that help make great software, and the hints that your code can give you about what you can improve. Presented at Android Manchester.",
     "image" : "code-whispering-2.jpeg"
   },
   {
@@ -48,7 +48,7 @@
       "place" : "Download",
       "url" : "https://speakerd.s3.amazonaws.com/presentations/8ba84ce0562d0132b721068d4fdc98ab/Android_L_and_iPlayer.pdf"
     } ],
-    "blurb" : "Take a look at the new APIs available in Android Lollipop, how to apply them, and what they look like in a production environment.",
+    "blurb" : "Take a look at the new APIs available in Android Lollipop, how to apply them, and what they look like in a production environment. Presented at Android Manchester.",
     "image" : "lollipop-iplayer-2.jpeg"
   }
 ]
