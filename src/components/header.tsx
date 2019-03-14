@@ -2,10 +2,6 @@ import { Link } from "gatsby"
 import React, { CSSProperties } from "react"
 import { contentStyle } from "./layout"
 
-interface HeaderProps {
-  siteTitle: string
-}
-
 const linkHostStyle: CSSProperties = {
   backgroundColor: `rgb(255, 102, 0)`,
 }
@@ -19,7 +15,7 @@ const linkHostInnerStyle: CSSProperties = {
   justifyContent: "space-evenly"
 }
 
-const Header = ({ siteTitle }: HeaderProps) => (
+const Header = () => (
   <header>
     <div style={{...contentStyle, ...myStyle}}>I am Alex Curran.</div>
     <div style={linkHostStyle}>
