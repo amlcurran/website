@@ -5,7 +5,7 @@
  * See: https://www.gatsbyjs.org/docs/static-query/
  */
 
-import React, { Component } from "react"
+import React, { Component, CSSProperties } from "react"
 import { StaticQuery, graphql } from "gatsby"
 
 import Header from "./header"
@@ -13,6 +13,13 @@ import "./layout.css"
 
 interface LayoutProps {
   children: Component[]
+}
+
+export const contentStyle: CSSProperties = {
+  maxWidth: 960,
+  marginLeft: "auto",
+  marginRight: "auto",
+  padding: "0px 1.0875rem 0px 1.0875rem"
 }
 
 const Layout = ({ children }: LayoutProps) => (

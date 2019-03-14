@@ -1,36 +1,35 @@
 import { Link } from "gatsby"
-import PropTypes from "prop-types"
-import React from "react"
+import React, { CSSProperties } from "react"
+import { contentStyle } from "./layout"
 
 interface HeaderProps {
   siteTitle: string
 }
 
+const linkHostStyle: CSSProperties = {
+  backgroundColor: `rgb(255, 102, 0)`,
+}
+
+const myStyle: CSSProperties = {
+
+}
+
+const linkHostInnerStyle: CSSProperties = {
+  display: "flex",
+  justifyContent: "space-evenly"
+}
+
 const Header = ({ siteTitle }: HeaderProps) => (
-  <header
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
-    }}
-  >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
-        </Link>
-      </h1>
+  <header>
+    <div style={{...contentStyle, ...myStyle}}>I am Alex Curran.</div>
+    <div style={linkHostStyle}>
+      <div style={{...contentStyle, ...linkHostInnerStyle}}>
+        <Link to="/">Home</Link>
+        <Link to="/portfolio">Portfolio</Link>
+        <Link to="/talks">Talks</Link>
+        <Link to="/not-tech">Not tech</Link>
+        <a href="https://www.medium.com/@amlcurran" target="_blank">Blog</a>
+      </div>
     </div>
   </header>
 )
