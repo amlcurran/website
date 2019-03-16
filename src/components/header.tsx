@@ -11,20 +11,30 @@ const myStyle: CSSProperties = {
 }
 
 const linkHostInnerStyle: CSSProperties = {
-  display: "flex",
-  justifyContent: "space-evenly"
+  display: "flex"
 }
+
+interface HeaderLinkProps {
+  to: string
+  text: string
+}
+
+const HeaderLink = ({to, text}: HeaderLinkProps) => (
+  <Link to={to} style={{flexGrow: 1}}>
+    <div style={{textAlign: "center"}}>{text}</div>
+  </Link>
+)
 
 const Header = () => (
   <header>
     <div style={{...contentStyle, ...myStyle}}>I am Alex Curran.</div>
     <div style={linkHostStyle}>
       <div style={{...contentStyle, ...linkHostInnerStyle}}>
-        <Link to="/">Home</Link>
-        <Link to="/portfolio">Portfolio</Link>
-        <Link to="/talks">Talks</Link>
-        <Link to="/not-tech">Not tech</Link>
-        <a href="https://www.medium.com/@amlcurran" target="_blank">Blog</a>
+        <HeaderLink to="/" text="Home" />
+        <HeaderLink to="/portfolio" text="Portfolio" />
+        <HeaderLink to="/talks" text="Talks" />
+        <HeaderLink to="/not-tech" text="Not tech" />
+        <a href="https://www.medium.com/@amlcurran" style={{flexGrow: 1}} target="_blank">Blog</a>
       </div>
     </div>
   </header>
