@@ -12,6 +12,8 @@ body {
 }
 .emphasisBox a, .emphasisBox a:visited, .emphasisBox div {
   color: white;
+  text-transform: uppercase;
+  font-weight: 700;
   text-decoration: none;
 }
 article,
