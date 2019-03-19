@@ -12,7 +12,7 @@ import Header from "./header"
 import "./layout.css"
 
 interface LayoutProps {
-  children: Component[]
+  children: JSX.Element[]
 }
 
 export const contentStyle: CSSProperties = {
