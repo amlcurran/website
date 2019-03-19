@@ -7,12 +7,17 @@ const linkHostStyle: CSSProperties = {
 }
 
 const myStyle: CSSProperties = {
-
+  fontSize: 32,
+  paddingTop: 12,
+  paddingBottom: 12,
+  fontFamily: 'sans-serif'
 }
 
 const linkHostInnerStyle: CSSProperties = {
   display: "flex",
   alignItems: "center",
+  marginTop: 0,
+  marginBottom: 12,
   minHeight: 56
 }
 
@@ -39,7 +44,7 @@ const HeaderLink = ({to, text}: HeaderLinkProps) => (
 const Header = () => (
   <header>
     <div style={{...contentStyle, ...myStyle}}>I am Alex Curran.</div>
-    <div style={linkHostStyle}>
+    <div style={linkHostStyle} className="emphasisBox">
       <div style={{...contentStyle, ...linkHostInnerStyle}}>
         <HeaderLink to="/" text="Home" />
         <HeaderLink to="/portfolio" text="Portfolio" />
