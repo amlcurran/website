@@ -43,7 +43,7 @@ const HeaderLink = ({to, text, current}: HeaderLinkProps) => (
 )
 
 function dotIfCurrent(to: string, current: Location): string {
-  if (current.href.indexOf(to) != -1) {
+  if (current.href.endsWith(to)) {
     return "● "
   } else {
     return ""
