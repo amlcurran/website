@@ -11,11 +11,18 @@ const myStyle: CSSProperties = {
 }
 
 const linkHostInnerStyle: CSSProperties = {
-  display: "flex"
+  display: "flex",
+  alignItems: "center",
+  minHeight: 56
 }
 
 const linkInnerStyle: CSSProperties = {
   textAlign: "center",
+}
+
+const externalLinkStyle: CSSProperties = {
+  flexGrow: 1, 
+  textAlign: "center"
 }
 
 interface HeaderLinkProps {
@@ -38,7 +45,7 @@ const Header = () => (
         <HeaderLink to="/portfolio" text="Portfolio" />
         <HeaderLink to="/talks" text="Talks" />
         <HeaderLink to="/not-tech" text="Not tech" />
-        <a href="https://www.medium.com/@amlcurran" style={{flexGrow: 1, textAlign: "center"}} target="_blank">Blog</a>
+        <a href="https://www.medium.com/@amlcurran" style={externalLinkStyle} target="_blank">Blog</a>
       </div>
     </div>
   </header>
