@@ -10,7 +10,6 @@ const myStyle: CSSProperties = {
   fontSize: 32,
   paddingTop: 12,
   paddingBottom: 12,
-  fontFamily: 'sans-serif'
 }
 
 const linkHostInnerStyle: CSSProperties = {
