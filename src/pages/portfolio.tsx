@@ -20,21 +20,8 @@ interface MarkdownRemark {
     frontmatter: Frontmatter
 }
 
-interface Edge<T> {
-    node: T
-}
-
-interface Edges<T> {
-    edges: { node: T }[]
-}
-
-interface SharpImage {
-
-}
-
 interface PortfolioQuery {
-    allMarkdownRemark: Edges<MarkdownRemark>
-    placeholderImage: SharpImage
+    allMarkdownRemark: GraphQLList<MarkdownRemark>
 }
 
 const Portfolio = ({ data }: { data: PortfolioQuery }) => {
@@ -49,7 +36,7 @@ const Portfolio = ({ data }: { data: PortfolioQuery }) => {
     )
 }
 
-function asPortfolioExcerpt({ node }: { node: MarkdownRemark }): JSX.Element {
+function asPortfolioExcerpt({ node }: Edge<MarkdownRemark>): JSX.Element {
     return (
         <div key={node.frontmatter.title}>
             <div style={{ display: 'flex', marginBottom: 24 }}>
@@ -75,7 +62,7 @@ function platforms(node: MarkdownRemark): JSX.Element {
 }
 
 export const pageQuery = graphql`{
-    allMarkdownRemark {
+    allMarkdownRemark(sort: { order: DESC , fields: [frontmatter___start]}) {
       edges {
         node {
           excerpt
