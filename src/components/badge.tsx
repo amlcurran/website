@@ -4,6 +4,7 @@ const badgeStyle: CSSProperties = {
     display: "flex", 
     flexDirection: "column", 
     alignItems: "center", 
+    minWidth: 40,
     justifyContent: "space-around", 
     marginLeft: 16, 
     marginTop: 8,
