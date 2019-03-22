@@ -58,7 +58,7 @@ const Header = () => (
         <HeaderLink to="/portfolio" text="Portfolio" current={window.location} />
         <HeaderLink to="/talks" text="Talks" current={window.location} />
         <HeaderLink to="/not-tech" text="Not tech" current={window.location} />
-        <a href="https://www.medium.com/@amlcurran" style={externalLinkStyle} target="_blank">Blog</a>
+        <a href="https://www.medium.com/@amlcurran" style={externalLinkStyle} target="_blank">⎋ Blog</a>
       </div>
     </div>
   </header>
