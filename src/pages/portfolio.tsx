@@ -29,7 +29,7 @@ const Portfolio = ({ data }: { data: PortfolioQuery }) => {
     return (
         <Layout>
             {
-                [<SEO title="Home" keywords={[`gatsby`, `application`, `react`]} description="A series of my most popular projects" key="SEO"/>]
+                [<SEO title="Portfolio" keywords={[`portfolio`, `developer`, `engineer`, `mobile`, `ios`, `android`]} description="A series of my most popular projects" key="SEO"/>]
                     .concat(elements)
             }
         </Layout>
