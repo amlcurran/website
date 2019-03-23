@@ -1,8 +1,8 @@
 
-interface Edge<T> {
+export interface Edge<T> {
     node: T
 }
 
-interface GraphQLList<T> {
+export interface GraphQLList<T> {
     edges: Edge<T>[]
 }
