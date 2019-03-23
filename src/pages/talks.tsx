@@ -9,9 +9,10 @@ import { MarkdownRemark } from "../models/remark";
 
 interface TalksFrontmatter {
     title: string
-    slides?: string
+    slides: string
     video?: Url
     image: Url
+    presentedAt: string
 }
 
 interface TalksQuery {
@@ -20,13 +21,15 @@ interface TalksQuery {
 
 const talksStyle: CSSProperties = {
     display: "flex",
-    flexWrap: "wrap"
+    flexWrap: "wrap",
+    margin: -8
 }
 
 const talkStyle: CSSProperties = {
     flexGrow: 1,
     flexBasis: 0,
-    minWidth: 250
+    minWidth: 350,
+    margin: 8
 }
 
 const Talks = ({ data }: { data: TalksQuery }) => {
@@ -42,7 +45,12 @@ const Talks = ({ data }: { data: TalksQuery }) => {
 
 function asTalkElement(edge: Edge<MarkdownRemark<TalksFrontmatter>>): JSX.Element {
     return (
-       <a href={edge.node.frontmatter.slides} style={talkStyle}>{edge.node.frontmatter.title}</a>
+      <div style={talkStyle}>
+        <h5>{edge.node.frontmatter.presentedAt}</h5>
+        <h3>{edge.node.frontmatter.title}</h3>
+        <div dangerouslySetInnerHTML={{ __html: edge.node.html }} />
+        <a href={edge.node.frontmatter.slides}>Slides</a>
+      </div>  
     )
 }
 
@@ -55,8 +63,7 @@ export const pageQuery = graphql`{
           frontmatter {
             title
             slides
-            
-            
+            presentedAt
           }
         }
       }
