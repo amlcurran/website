@@ -5,14 +5,15 @@
  * See: https://www.gatsbyjs.org/docs/static-query/
  */
 
-import React, { Component, CSSProperties } from "react"
-import { StaticQuery, graphql } from "gatsby"
+import React, { CSSProperties } from "react"
 
 import Header from "./header"
 import "./layout.css"
+import SEO from "./seo";
 
 interface LayoutProps {
   children: JSX.Element[]
+  seo: SEO
 }
 
 export const contentStyle: CSSProperties = {
@@ -22,8 +23,9 @@ export const contentStyle: CSSProperties = {
   padding: "0px 1.0875rem 0px 1.0875rem"
 }
 
-const Layout = ({ children }: LayoutProps) => (
+const Layout = ({ children, seo }: LayoutProps) => (
   <>
+    {seo}
     <Header />
     <div
       style={{

@@ -26,12 +26,10 @@ interface PortfolioQuery {
 
 const Portfolio = ({ data }: { data: PortfolioQuery }) => {
     const elements = data.allMarkdownRemark.edges.map(asPortfolioExcerpt)
+    const seo = <SEO title="Portfolio" keywords={[`portfolio`, `developer`, `engineer`, `mobile`, `ios`, `android`]} description="A series of my most popular projects" key="SEO"/>
     return (
-        <Layout>
-            {
-                [<SEO title="Portfolio" keywords={[`portfolio`, `developer`, `engineer`, `mobile`, `ios`, `android`]} description="A series of my most popular projects" key="SEO"/>]
-                    .concat(elements)
-            }
+        <Layout seo={seo}>
+            {elements}
         </Layout>
     )
 }
