@@ -60,7 +60,8 @@ function platforms(node: MarkdownRemark): JSX.Element {
 }
 
 export const pageQuery = graphql`{
-    allMarkdownRemark(sort: { order: DESC , fields: [frontmatter___start]}) {
+    allMarkdownRemark(sort: { order: DESC , fields: [frontmatter___start]},
+        filter: {fileAbsolutePath: {glob: "**/portfolio-*.md"} }) {
       edges {
         node {
           excerpt
