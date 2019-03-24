@@ -16,8 +16,8 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `portfolio`,
-        path: `${__dirname}/src/portfolio`,
+        name: `docs`,
+        path: `${__dirname}/src/docs`,
       },
     },
     {
@@ -46,7 +46,7 @@ module.exports = {
       resolve: 'gatsby-plugin-web-font-loader',
       options: {
         google: {
-          families: ['Raleway:300,700']
+          families: ['Raleway:300,700', 'Open Sans:400']
         }
       }
     },

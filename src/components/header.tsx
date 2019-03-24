@@ -10,6 +10,9 @@ const myStyle: CSSProperties = {
   fontSize: 32,
   paddingTop: 12,
   paddingBottom: 12,
+  fontWeight: 700,
+  fontFamily: 'Raleway, sans-serif',
+  letterSpacing: '0.15rem'
 }
 
 const linkHostInnerStyle: CSSProperties = {
@@ -22,11 +25,13 @@ const linkHostInnerStyle: CSSProperties = {
 
 const linkInnerStyle: CSSProperties = {
   textAlign: "center",
+  fontFamily: 'Raleway, sans-serif',
+  letterSpacing: '0.15rem'
 }
 
 const externalLinkStyle: CSSProperties = {
   flexGrow: 1, 
-  textAlign: "center"
+  ...linkInnerStyle
 }
 
 interface HeaderLinkProps {

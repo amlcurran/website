@@ -1,5 +1,5 @@
 html {
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
 }
@@ -70,6 +70,7 @@ dfn {
   font-style: italic;
 }
 h1 {
+  font-family: 'Raleway', 'sans-serif';
   font-size: 2em;
   margin: 0.67em 0;
 }
@@ -229,6 +230,7 @@ h1 {
   line-height: 1.1;
 }
 h2 {
+  font-family: 'Raleway', 'sans-serif';
   margin-left: 0;
   margin-right: 0;
   margin-top: 0;
@@ -244,6 +246,7 @@ h2 {
   line-height: 1.1;
 }
 h3 {
+  font-family: 'Raleway', 'sans-serif';
   margin-left: 0;
   margin-right: 0;
   margin-top: 0;
@@ -259,6 +262,7 @@ h3 {
   line-height: 1.1;
 }
 h4 {
+  font-family: 'Raleway', 'sans-serif';
   margin-left: 0;
   margin-right: 0;
   margin-top: 0;
@@ -274,6 +278,7 @@ h4 {
   line-height: 1.1;
 }
 h5 {
+  font-family: 'Raleway', 'sans-serif';
   margin-left: 0;
   margin-right: 0;
   margin-top: 0;
@@ -289,6 +294,7 @@ h5 {
   line-height: 1.1;
 }
 h6 {
+  font-family: 'Raleway', 'sans-serif';
   margin-left: 0;
   margin-right: 0;
   margin-top: 0;
