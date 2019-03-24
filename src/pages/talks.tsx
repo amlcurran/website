@@ -9,56 +9,63 @@ import { GraphQLList, Edge } from "../models/graphql";
 import { MarkdownRemark } from "../models/remark";
 
 interface TalksFrontmatter {
-    title: string
-    slides: string
-    video?: Url
-    image: string
-    presentedAt: string
-    date: Date
+  title: string
+  slides: string
+  video?: Url
+  image: string
+  presentedAt: string
+  date: Date
 }
 
 interface TalksQuery {
-    allMarkdownRemark: GraphQLList<MarkdownRemark<TalksFrontmatter>>
-    betterSwift
-    lollipop
-    betterCode
-    codeWhispering
+  allMarkdownRemark: GraphQLList<MarkdownRemark<TalksFrontmatter>>
+  betterSwift
+  lollipop
+  betterCode
+  codeWhispering
 }
 
 const talksStyle: CSSProperties = {
-    display: "flex",
-    flexWrap: "wrap",
-    margin: -8
+  display: "flex",
+  flexWrap: "wrap",
+  margin: -8
 }
 
 const talkStyle: CSSProperties = {
-    flexGrow: 1,
-    flexBasis: 0,
-    minWidth: 350,
-    margin: 8
+  flexGrow: 1,
+  flexBasis: 0,
+  minWidth: 350,
+  margin: 8
 }
 
 const Talks = ({ data }: { data: TalksQuery }) => {
-    const seo = <SEO title="Talks" keywords={[`talks`, `developer`, `engineer`, `mobile`, `ios`, `android`]} description="A summary of the talks I've done over my career" key="SEO"/>
-    const talks = data.allMarkdownRemark.edges.map(asTalkElement(data))
-    return (
-        <Layout seo={seo}>
-           <div style={talksStyle}>{talks}</div>
-           <div />
-        </Layout>
-    )
+  const seo = <SEO title="Talks" keywords={[`talks`, `developer`, `engineer`, `mobile`, `ios`, `android`]} description="A summary of the talks I've done over my career" key="SEO" />
+  const talks = data.allMarkdownRemark.edges.map(asTalkElement(data))
+  return (
+    <Layout seo={seo}>
+      <div style={talksStyle}>{talks}</div>
+      <div />
+    </Layout>
+  )
 }
 
+const containerStyle: CSSProperties = {position: "relative", marginBottom: 16}
+const textStyle: CSSProperties = {position: "absolute", bottom: 0, left: 0, right:0, paddingRight: 16, paddingLeft: 16, paddingBottom: 16, backgroundColor: "#0009"}
+
 function asTalkElement(query: TalksQuery): (edge: Edge<MarkdownRemark<TalksFrontmatter>>) => JSX.Element {
-    return (edge) => (
-      <div style={talkStyle}>
-        <Img fluid={imageForTalk(edge.node.frontmatter, query)} style={{height: 250}} />
-        <h5>{edge.node.frontmatter.presentedAt}</h5>
-        <h3>{edge.node.frontmatter.title}</h3>
-        <div dangerouslySetInnerHTML={{ __html: edge.node.html }} />
-        <a href={edge.node.frontmatter.slides}>Slides</a>
-      </div>  
-    )
+  return (edge) => (
+    <div style={talkStyle} key={edge.node.frontmatter.title}>
+      <div style={containerStyle}>
+        <Img fluid={imageForTalk(edge.node.frontmatter, query)} style={{ height: 250, borderRadius: 8 }} />
+        <div style={textStyle}>
+          <h5>{edge.node.frontmatter.presentedAt}</h5>
+          <h3 style={{marginBottom: 0}}>{edge.node.frontmatter.title}</h3>
+        </div>
+      </div>
+      <div dangerouslySetInnerHTML={{ __html: edge.node.html }} />
+      <a href={edge.node.frontmatter.slides}>Slides</a>
+    </div>
+  )
 }
 
 function imageForTalk(frontmatter: TalksFrontmatter, query: TalksQuery): FluidObject {
