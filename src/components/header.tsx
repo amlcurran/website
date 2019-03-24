@@ -47,26 +47,28 @@ const HeaderLink = ({to, text, current}: HeaderLinkProps) => (
 )
 
 function dotIfCurrent(to: string, current: Location): string {
-  if (current.href.endsWith(to)) {
+  if (current && current.href.endsWith(to)) {
     return "● "
   } else {
     return ""
   }
 }
 
-const Header = () => (
+const Header = () => {
+  const location = typeof window !== `undefined` ? window.location : null
+  return (
   <header>
     <div style={{...contentStyle, ...myStyle}}>I am Alex Curran.</div>
     <div style={linkHostStyle} className="emphasisBox">
       <div style={{...contentStyle, ...linkHostInnerStyle}}>
-        <HeaderLink to="/" text="Home" current={window.location} />
-        <HeaderLink to="/portfolio" text="Portfolio" current={window.location} />
-        <HeaderLink to="/talks" text="Talks" current={window.location} />
-        <HeaderLink to="/not-tech" text="Not tech" current={window.location} />
+        <HeaderLink to="/" text="Home" current={location} />
+        <HeaderLink to="/portfolio" text="Portfolio" current={location} />
+        <HeaderLink to="/talks" text="Talks" current={location} />
+        <HeaderLink to="/not-tech" text="Not tech" current={location} />
         <a href="https://www.medium.com/@amlcurran" style={externalLinkStyle} target="_blank">⎋ Blog</a>
       </div>
     </div>
   </header>
-)
+)}
 
 export default Header
