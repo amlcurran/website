@@ -14,6 +14,7 @@ interface TalksFrontmatter {
     video?: Url
     image: string
     presentedAt: string
+    date: Date
 }
 
 interface TalksQuery {
@@ -38,7 +39,6 @@ const talkStyle: CSSProperties = {
 }
 
 const Talks = ({ data }: { data: TalksQuery }) => {
-  console.log(data)
     const seo = <SEO title="Talks" keywords={[`talks`, `developer`, `engineer`, `mobile`, `ios`, `android`]} description="A summary of the talks I've done over my career" key="SEO"/>
     const talks = data.allMarkdownRemark.edges.map(asTalkElement(data))
     return (
@@ -66,7 +66,7 @@ function imageForTalk(frontmatter: TalksFrontmatter, query: TalksQuery): FluidOb
 }
 
 export const pageQuery = graphql`{
-    allMarkdownRemark(sort: { order: DESC , fields: [frontmatter___start]},
+    allMarkdownRemark(sort: { order: DESC , fields: [frontmatter___date]},
         filter: {fileAbsolutePath: {glob: "**/talks-*.md"} }) {
       edges {
         node {
