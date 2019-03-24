@@ -19,10 +19,10 @@ interface TalksFrontmatter {
 
 interface TalksQuery {
   allMarkdownRemark: GraphQLList<MarkdownRemark<TalksFrontmatter>>
-  betterSwift
-  lollipop
-  betterCode
-  codeWhispering
+  betterSwift: any
+  lollipop: any
+  betterCode: any
+  codeWhispering: any
 }
 
 const talksStyle: CSSProperties = {
