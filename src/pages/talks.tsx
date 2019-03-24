@@ -3,7 +3,7 @@ import React, { CSSProperties } from "react"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { graphql, StaticQuery } from "gatsby";
-import Img from "gatsby-image";
+import Img, { FluidObject } from "gatsby-image";
 import { Url } from "url";
 import { GraphQLList, Edge } from "../models/graphql";
 import { MarkdownRemark } from "../models/remark";
@@ -52,7 +52,7 @@ const Talks = ({ data }: { data: TalksQuery }) => {
 function asTalkElement(query: TalksQuery): (edge: Edge<MarkdownRemark<TalksFrontmatter>>) => JSX.Element {
     return (edge) => (
       <div style={talkStyle}>
-        <Img fluid={query[edge.node.frontmatter.image].childImageSharp.fluid} style={{height: 250}} />
+        <Img fluid={imageForTalk(edge.node.frontmatter, query)} style={{height: 250}} />
         <h5>{edge.node.frontmatter.presentedAt}</h5>
         <h3>{edge.node.frontmatter.title}</h3>
         <div dangerouslySetInnerHTML={{ __html: edge.node.html }} />
@@ -61,8 +61,8 @@ function asTalkElement(query: TalksQuery): (edge: Edge<MarkdownRemark<TalksFront
     )
 }
 
-function imageForTalk(frontmatter: TalksFrontmatter): JSX.Element {
-  return 
+function imageForTalk(frontmatter: TalksFrontmatter, query: TalksQuery): FluidObject {
+  return query[frontmatter.image].childImageSharp.fluid
 }
 
 export const pageQuery = graphql`{
@@ -108,125 +108,28 @@ export const pageQuery = graphql`{
         }
       }
     }
+    springCleaning: file(relativePath: { eq: "rwdevcon.jpeg" }) {
+      childImageSharp {
+        fluid(maxWidth: 600) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    aid: file(relativePath: { eq: "aid.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 600) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    correctQuicker: file(relativePath: { eq: "being-correct-quicker.jpeg" }) {
+      childImageSharp {
+        fluid(maxWidth: 600) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
   }
 `
 
 export default Talks
-
-export const betterSwift = graphql`
-  fragment betterSwift on Query {
-    file(relativePath: { eq: "gatsby-astronaut.png" }) {
-      childImageSharp {
-        fluid(maxWidth: 300) {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
-  }
-`
-
-export const lollipop = graphql`
-  fragment lollipop on Query {
-    file(relativePath: { eq: "gatsby-astronaut.png" }) {
-      childImageSharp {
-        fluid(maxWidth: 300) {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
-  }
-`
-
-export const betterCode = graphql`
-  fragment betterCode on Query {
-    file(relativePath: { eq: "gatsby-astronaut.png" }) {
-      childImageSharp {
-        fluid(maxWidth: 300) {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
-  }
-`
-
-export const codeWhispering = graphql`
-  fragment codeWhispering on Query {
-    file(relativePath: { eq: "gatsby-astronaut.png" }) {
-      childImageSharp {
-        fluid(maxWidth: 300) {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
-  }
-`
-
-// const images = { 
-//   "betterSwift": () => (
-//     <StaticQuery
-//       query={graphql`
-//         query {
-//           betterSwift: file(relativePath: { eq: "gatsby-astronaut.png" }) {
-//             childImageSharp {
-//               fluid(maxWidth: 300) {
-//                 ...GatsbyImageSharpFluid
-//               }
-//             }
-//           }
-//         }
-//       `}
-//       render={data => <Img fluid={data.betterSwift.childImageSharp.fluid} />}
-//     />
-//   ),
-
-//   "codeWhispering": () => (
-//     <StaticQuery
-//       query={graphql`
-//         query {
-//           codeWhispering: file(relativePath: { eq: "gatsby-astronaut.png" }) {
-//             childImageSharp {
-//               fluid(maxWidth: 300) {
-//                 ...GatsbyImageSharpFluid
-//               }
-//             }
-//           }
-//         }
-//       `}
-//       render={data => <Img fluid={data.codeWhispering.childImageSharp.fluid} />}
-//     />
-//   ),
-
-//   "lollipop": () => (
-//     <StaticQuery
-//       query={graphql`
-//         query {
-//           lollipop: file(relativePath: { eq: "gatsby-astronaut.png" }) {
-//             childImageSharp {
-//               fluid(maxWidth: 300) {
-//                 ...GatsbyImageSharpFluid
-//               }
-//             }
-//           }
-//         }
-//       `}
-//       render={data => <Img fluid={data.lollipop.childImageSharp.fluid} />}
-//     />
-//   ),
-
-//   "betterCode": () => (
-//     <StaticQuery
-//       query={graphql`
-//         query {
-//           betterCode: file(relativePath: { eq: "gatsby-astronaut.png" }) {
-//             childImageSharp {
-//               fluid(maxWidth: 300) {
-//                 ...GatsbyImageSharpFluid
-//               }
-//             }
-//           }
-//         }
-//       `}
-//       render={data => <Img fluid={data.betterCode.childImageSharp.fluid} />}
-//     />
-//   )
-// }
