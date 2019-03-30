@@ -31,7 +31,7 @@ const NewIndexPage = () => {
             text="My suite of side projects in various states of abandonment, investigating new technologies and solving issues"
             goesTo="/side-projects"
             doNotWrapTitle={true} />
-          <BlogCard title="Blog"
+          <BlogCard title="⎋ Blog"
             text="Sometimes, I write. Here are the things I write. The last thing I wrote was…"
             goesTo="https://www.medium.com/@amlcurran" />
           <Card title="Not Tech"
