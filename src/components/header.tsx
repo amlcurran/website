@@ -4,7 +4,7 @@ import { contentStyle } from "./layout"
 import Styling from "./styling";
 
 const linkHostStyle: CSSProperties = {
-  backgroundColor: Styling.primaryColor,
+  backgroundColor: Styling.white,
 }
 
 const myStyle: CSSProperties = {
@@ -27,7 +27,7 @@ const linkHostInnerStyle: CSSProperties = {
 const linkInnerStyle: CSSProperties = {
   textAlign: "center",
   fontFamily: 'Raleway, sans-serif',
-  letterSpacing: '0.15rem'
+  letterSpacing: '0.10rem'
 }
 
 const externalLinkStyle: CSSProperties = {
@@ -66,6 +66,7 @@ const Header = () => {
           <HeaderLink to="/portfolio" text="Portfolio" current={location} />
           <HeaderLink to="/talks" text="Talks" current={location} />
           <HeaderLink to="/not-tech" text="Not tech" current={location} />
+          <HeaderLink to="/side-projects" text="Side projects" current={location} />
           <a href="https://www.medium.com/@amlcurran" style={externalLinkStyle} target="_blank">⎋ Blog</a>
         </div>
       </div>
