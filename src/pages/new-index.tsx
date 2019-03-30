@@ -7,6 +7,7 @@ import { Link } from "gatsby";
 const myStyle: CSSProperties = {
   fontSize: 32,
   paddingTop: 12,
+  paddingBottom: 12,
   fontWeight: 700,
   fontFamily: 'Raleway, sans-serif',
   letterSpacing: '0.15rem'
@@ -23,7 +24,8 @@ const cardStyle: CSSProperties = {
 }
 
 const cardTitle: CSSProperties = {
-  color: "#FF5900"
+  color: "#FF5900",
+  fontSize: 56,
 }
 
 const cardText: CSSProperties = {
@@ -38,16 +40,21 @@ interface CardProps {
   title: string
   text: string
   goesTo: string
+  doNotWrapTitle?: boolean
 }
 
-const Card = (props: CardProps) => (
-  <div style={cardStyle}>
-    <Link to={props.goesTo} style={linkStyle}>
-      <h1 style={cardTitle}>{props.title}</h1>
-      <div style={cardText}>{props.text}</div>
-    </Link>
-  </div>
-)
+const Card = (props: CardProps) => {
+  const additionalTitleStyle: CSSProperties = props.doNotWrapTitle ? { whiteSpace: "nowrap" } : {}
+  console.log(`${props.title} : ${JSON.stringify(additionalTitleStyle)}`)
+  return (
+    <div style={cardStyle}>
+      <Link to={props.goesTo} style={linkStyle}>
+        <h1 style={{ ...cardTitle, ...additionalTitleStyle }}>{props.title}</h1>
+        <div style={cardText}>{props.text}</div>
+      </Link>
+    </div>
+  )
+}
 
 const BlogCard = (props: CardProps) => (
   <div style={cardStyle}>
@@ -73,15 +80,21 @@ const NewIndexPage = () => {
         <div style={{ ...myStyle }}>Hey, I'm Alex Curran.</div>
         <div>I’m a software developer, specialising in mobile applications across Android and iOS.</div>
         <div style={{ display: "flex", flexWrap: "wrap", margin: -8 }}>
-          <Card title="Portfolio" text="A collection of the projects I’ve worked on in my professional career"
+          <Card title="Portfolio"
+            text="A collection of the projects I’ve worked on in my professional career"
             goesTo="/portfolio" />
-          <Card title="Talks" text="My public speaking about tech, code, and more. For example, Writing Better Swift"
+          <Card title="Talks"
+            text="My public speaking about tech, code, and more. For example, Writing Better Swift"
             goesTo="/talks" />
-          <Card title="A bit on the side" text="My suite of side projects in various states of abandonment, investigating new technologies and solving issues"
-            goesTo="/side-projects" />
-          <BlogCard title="Blog" text="Sometimes, I write. Here are the things I write. The last thing I wrote was…"
+          <Card title="A bit on the side"
+            text="My suite of side projects in various states of abandonment, investigating new technologies and solving issues"
+            goesTo="/side-projects"
+            doNotWrapTitle={true} />
+          <BlogCard title="Blog"
+            text="Sometimes, I write. Here are the things I write. The last thing I wrote was…"
             goesTo="https://www.medium.com/@amlcurran" />
-          <Card title="Not Tech" text="Not all that I do revolves around tech. See the hobbies I have and the reasons why I do them."
+          <Card title="Not Tech"
+            text="Not all that I do revolves around tech. See the hobbies I have and the reasons why I do them."
             goesTo="/not-tech" />
           <ContactCard />
 
