@@ -45,7 +45,7 @@ const Card = (props: CardProps) => {
   )
 }
 
-export const BlogCard = (props: CardProps) => (
+export const ExternalLinkCard = (props: CardProps) => (
   <div style={cardStyle}>
     <a href={props.goesTo} style={linkStyle} target="_blank">
       <h1 style={cardTitle}>{props.title}</h1>
