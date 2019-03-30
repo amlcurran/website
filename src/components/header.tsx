@@ -5,7 +5,7 @@ import Styling from "./styling";
 
 const linkHostStyle: CSSProperties = {
   backgroundColor: Styling.white,
-  marginBottom: 12,
+  marginBottom: 24,
 }
 
 const myStyle: CSSProperties = {
