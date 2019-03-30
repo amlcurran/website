@@ -253,8 +253,16 @@ code {
   padding-top: 0.2em;
   padding-bottom: 0.2em;
 }
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 600px) {
   html {
     font-size: 100%;
+  }
+  nav {
+    width: 600px;
+    display: table;
+    table-layout: fixed;
+  }
+  .emphasisBox {
+    overflow: scroll;
   }
 }

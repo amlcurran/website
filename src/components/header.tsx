@@ -5,6 +5,7 @@ import Styling from "./styling";
 
 const linkHostStyle: CSSProperties = {
   backgroundColor: Styling.white,
+  marginBottom: 12,
 }
 
 const myStyle: CSSProperties = {
@@ -20,7 +21,6 @@ const linkHostInnerStyle: CSSProperties = {
   display: "flex",
   alignItems: "center",
   marginTop: 0,
-  marginBottom: 12,
   minHeight: 56
 }
 
@@ -61,14 +61,14 @@ const Header = () => {
     <header>
       <div style={{ ...contentStyle, ...myStyle }}>Hey, I'm Alex Curran.</div>
       <div style={linkHostStyle} className="emphasisBox">
-        <div style={{ ...contentStyle, ...linkHostInnerStyle }}>
+        <nav style={{ ...contentStyle, ...linkHostInnerStyle }}>
           <HeaderLink to="/" text="Home" current={location} />
           <HeaderLink to="/portfolio" text="Portfolio" current={location} />
           <HeaderLink to="/talks" text="Talks" current={location} />
           <HeaderLink to="/not-tech" text="Not tech" current={location} />
           <HeaderLink to="/side-projects" text="Side projects" current={location} />
           <a href="https://www.medium.com/@amlcurran" style={externalLinkStyle} target="_blank">⎋ Blog</a>
-        </div>
+        </nav>
       </div>
     </header>
   )
