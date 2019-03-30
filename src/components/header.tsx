@@ -30,7 +30,7 @@ const linkInnerStyle: CSSProperties = {
 }
 
 const externalLinkStyle: CSSProperties = {
-  flexGrow: 1, 
+  flexGrow: 1,
   ...linkInnerStyle
 }
 
@@ -40,8 +40,8 @@ interface HeaderLinkProps {
   current: Location
 }
 
-const HeaderLink = ({to, text, current}: HeaderLinkProps) => (
-  <Link to={to} style={{flexGrow: 1}}>
+const HeaderLink = ({ to, text, current }: HeaderLinkProps) => (
+  <Link to={to} style={{ flexGrow: 1 }}>
     <div style={linkInnerStyle}>{dotIfCurrent(to, current) + text}</div>
   </Link>
 )
@@ -57,18 +57,19 @@ function dotIfCurrent(to: string, current: Location): string {
 const Header = () => {
   const location = typeof window !== `undefined` ? window.location : null
   return (
-  <header>
-    <div style={{...contentStyle, ...myStyle}}>I am Alex Curran.</div>
-    <div style={linkHostStyle} className="emphasisBox">
-      <div style={{...contentStyle, ...linkHostInnerStyle}}>
-        <HeaderLink to="/" text="Home" current={location} />
-        <HeaderLink to="/portfolio" text="Portfolio" current={location} />
-        <HeaderLink to="/talks" text="Talks" current={location} />
-        <HeaderLink to="/not-tech" text="Not tech" current={location} />
-        <a href="https://www.medium.com/@amlcurran" style={externalLinkStyle} target="_blank">⎋ Blog</a>
+    <header>
+      <div style={{ ...contentStyle, ...myStyle }}>Hey, I'm Alex Curran.</div>
+      <div style={linkHostStyle} className="emphasisBox">
+        <div style={{ ...contentStyle, ...linkHostInnerStyle }}>
+          <HeaderLink to="/" text="Home" current={location} />
+          <HeaderLink to="/portfolio" text="Portfolio" current={location} />
+          <HeaderLink to="/talks" text="Talks" current={location} />
+          <HeaderLink to="/not-tech" text="Not tech" current={location} />
+          <a href="https://www.medium.com/@amlcurran" style={externalLinkStyle} target="_blank">⎋ Blog</a>
+        </div>
       </div>
-    </div>
-  </header>
-)}
+    </header>
+  )
+}
 
 export default Header
