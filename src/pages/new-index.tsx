@@ -17,10 +17,10 @@ const cardStyle: CSSProperties = {
   minWidth: 250,
   flexGrow: 1,
   flexBasis: 0,
-  margin: 8,
+  margin: 12,
   minHeight: 200,
   background: 'white',
-  padding: 8
+  padding: 12
 }
 
 const cardTitle: CSSProperties = {
@@ -45,7 +45,6 @@ interface CardProps {
 
 const Card = (props: CardProps) => {
   const additionalTitleStyle: CSSProperties = props.doNotWrapTitle ? { whiteSpace: "nowrap" } : {}
-  console.log(`${props.title} : ${JSON.stringify(additionalTitleStyle)}`)
   return (
     <div style={cardStyle}>
       <Link to={props.goesTo} style={linkStyle}>
@@ -78,8 +77,8 @@ const NewIndexPage = () => {
       <main style={contentStyle}>
         <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} description="Alex Curran's portfolio website" />
         <div style={{ ...myStyle }}>Hey, I'm Alex Curran.</div>
-        <div>I’m a software developer, specialising in mobile applications across Android and iOS.</div>
-        <div style={{ display: "flex", flexWrap: "wrap", margin: -8 }}>
+        <div style={{ marginBottom: 72 }}>I’m a software developer, specialising in mobile applications across Android and iOS.</div>
+        <div style={{ display: "flex", flexWrap: "wrap", margin: -12 }}>
           <Card title="Portfolio"
             text="A collection of the projects I’ve worked on in my professional career"
             goesTo="/portfolio" />
