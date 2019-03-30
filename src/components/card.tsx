@@ -9,7 +9,8 @@ const cardStyle: CSSProperties = {
   margin: 12,
   minHeight: 200,
   background: 'white',
-  padding: 12
+  padding: 12,
+  borderRadius: 4
 }
 
 const cardTitle: CSSProperties = {
