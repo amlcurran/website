@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `Alex Curran`,
-    description: `The portfolio website for Alex Curran, mobile developer`,
+    description: `I’m Alex Curran, a software developer specialising in mobile applications across Android and iOS.`,
     author: `Alex Curran`,
   },
   plugins: [
