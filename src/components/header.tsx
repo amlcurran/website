@@ -1,9 +1,10 @@
 import { Link } from "gatsby"
 import React, { CSSProperties } from "react"
 import { contentStyle } from "./layout"
+import Styling from "./styling";
 
 const linkHostStyle: CSSProperties = {
-  backgroundColor: `rgb(255, 102, 0)`,
+  backgroundColor: Styling.primaryColor,
 }
 
 const myStyle: CSSProperties = {

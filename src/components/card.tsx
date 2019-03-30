@@ -1,5 +1,6 @@
 import React, { CSSProperties } from "react"
 import { Link } from "@reach/router";
+import Styling from "./styling";
 
 const cardStyle: CSSProperties = {
   minWidth: 250,
@@ -12,12 +13,12 @@ const cardStyle: CSSProperties = {
 }
 
 const cardTitle: CSSProperties = {
-  color: "#FF5900",
+  color: Styling.primaryColor,
   fontSize: 56,
 }
 
 const cardText: CSSProperties = {
-  color: "#242935"
+  color: Styling.secondaryColor
 }
 
 const linkStyle: CSSProperties = {
