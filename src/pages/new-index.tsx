@@ -17,8 +17,11 @@ const myStyle: CSSProperties = {
 const NewIndexPage = ({ data }: IndexQuery) => {
   return (
     <>
-      <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} description="Alex Curran's portfolio website" />
-      <div style={{ ...contentStyle, ...myStyle }}>Hey, I'm Alex Curran.</div>
+      <main style={contentStyle}>
+        <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} description="Alex Curran's portfolio website" />
+        <div style={{ ...myStyle }}>Hey, I'm Alex Curran.</div>
+        <div>I’m a software developer, specialising in mobile applications across Android and iOS.</div>
+      </main>
     </>
   )
 }
