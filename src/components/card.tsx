@@ -18,6 +18,11 @@ const cardTitle: CSSProperties = {
   fontSize: 56,
 }
 
+const smallCardTitle: CSSProperties = {
+  color: Styling.primaryColor,
+  fontSize: 36,
+}
+
 const cardText: CSSProperties = {
   color: Styling.secondaryColor
 }
@@ -41,6 +46,20 @@ const Card = (props: CardProps) => {
         <h1 style={{ ...cardTitle }} className={classNames}>{props.title}</h1>
         <div style={cardText}>{props.text}</div>
       </Link>
+    </div>
+  )
+}
+
+interface SmallCardProps {
+  title: string
+  html: string
+}
+
+export const SmallCard = (props: SmallCardProps) => {
+  return (
+    <div style={cardStyle}>
+      <h2 style={smallCardTitle}>{props.title}</h2>
+      <div style={cardText} dangerouslySetInnerHTML={{ __html: props.html }} />
     </div>
   )
 }
