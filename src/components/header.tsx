@@ -20,6 +20,8 @@ const myStyle: CSSProperties = {
 const linkHostInnerStyle: CSSProperties = {
   display: "flex",
   alignItems: "center",
+  overflow: "auto",
+  whiteSpace: "nowrap",
   marginTop: 0,
   minHeight: 56
 }
@@ -27,7 +29,8 @@ const linkHostInnerStyle: CSSProperties = {
 const linkInnerStyle: CSSProperties = {
   textAlign: "center",
   fontFamily: 'Raleway, sans-serif',
-  letterSpacing: '0.15rem'
+  letterSpacing: '0.15rem',
+  minWidth: 160
 }
 
 const externalLinkStyle: CSSProperties = {
