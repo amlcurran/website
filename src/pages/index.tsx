@@ -2,7 +2,8 @@ import React, { CSSProperties } from "react"
 
 import { contentStyle } from "../components/layout"
 import SEO from "../components/seo"
-import Card, { ExternalLinkCard, ContactCard } from '../components/card'
+import Card, { ExternalLinkCard } from '../components/card'
+import "./index.css"
 
 const myStyle: CSSProperties = {
   fontSize: 32,
@@ -20,7 +21,7 @@ const NewIndexPage = () => {
         <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} description="Alex Curran's portfolio website" />
         <div style={{ ...myStyle }}>Hey, I'm Alex Curran.</div>
         <div style={{ marginBottom: 72 }}>I’m a software developer, specialising in mobile applications across Android and iOS.</div>
-        <div style={{ display: "flex", flexWrap: "wrap", margin: -12 }}>
+        <div className="left-shifted">
           <Card
             title="Portfolio"
             text="A collection of the projects I’ve worked on in my professional career"
@@ -33,7 +34,8 @@ const NewIndexPage = () => {
             title="A bit on the side"
             text="My suite of side projects in various states of abandonment, investigating new technologies and solving issues"
             goesTo="/side-projects"
-            doNotWrapTitle={true} />
+            doNotWrapTitle={true} /></div>
+        <div className="right-shifted">
           <ExternalLinkCard
             title="⎋ Blog"
             text="Sometimes, I write. Here are the things I write. The last thing I wrote was…"

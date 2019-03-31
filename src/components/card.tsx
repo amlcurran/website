@@ -34,11 +34,11 @@ interface CardProps {
 }
 
 const Card = (props: CardProps) => {
-  const additionalTitleStyle: CSSProperties = props.doNotWrapTitle ? { whiteSpace: "nowrap" } : {}
+  const additionalTitleStyle: string = props.doNotWrapTitle ? "on-the-side" : ""
   return (
     <div style={cardStyle}>
       <Link to={props.goesTo} style={linkStyle}>
-        <h1 style={{ ...cardTitle, ...additionalTitleStyle }}>{props.title}</h1>
+        <h1 style={{ ...cardTitle }} className={additionalTitleStyle}>{props.title}</h1>
         <div style={cardText}>{props.text}</div>
       </Link>
     </div>

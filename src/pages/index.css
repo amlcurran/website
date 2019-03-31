@@ -1,0 +1,42 @@
+.left-shifted {
+  display: flex; 
+  flex-wrap: wrap; 
+  margin-left: -60px;
+  margin-right: 36px;
+  margin-top: 12px;
+  margin-bottom: 0px; 
+}
+
+.right-shifted {
+  display: flex; 
+  flex-wrap: wrap; 
+  margin-left: 60px;
+  margin-right: -36px;
+  margin-top: 0px;
+  margin-bottom: 12px; 
+}
+
+.on-the-side {
+  white-space: nowrap;
+}
+
+@media(max-width: 960px) {
+  .left-shifted {
+    display: flex; 
+    flex-wrap: wrap; 
+    margin-left: -12px;
+    margin-right: -12px;
+    margin-top: 0px;
+    margin-bottom: 12px; 
+  }
+  
+  .right-shifted {
+    display: flex; 
+    flex-wrap: wrap; 
+    margin: -12px;
+  }
+
+  .on-the-side {
+    white-space: inherit;
+  }
+}
