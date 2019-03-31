@@ -6,13 +6,13 @@ html {
 body {
   margin: 0;
   background-color: rgb(36, 40, 53);
-  color: #dbdbeb;
+  color: rgb(219, 219, 235);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 .emphasisBox a, .emphasisBox a:visited, .emphasisBox div {
-  color: #FF5900;
-  font-size: 18px;
+  color: white;
+  text-transform: uppercase;
   font-weight: 700;
   text-decoration: none;
 }
