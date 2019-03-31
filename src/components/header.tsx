@@ -51,7 +51,7 @@ const HeaderLink = ({ to, text, current }: HeaderLinkProps) => (
 )
 
 function dotIfCurrent(to: string, current: Location): string {
-  if (current && current.href.endsWith(to)) {
+  if (current && (current.pathname == to || current.pathname == to + "/")) {
     return "● "
   } else {
     return ""
