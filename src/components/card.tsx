@@ -1,12 +1,13 @@
 import React, { CSSProperties } from "react"
 import { Link } from "@reach/router";
 import Styling from "./styling";
+import "./layout.css"
 
 const cardStyle: CSSProperties = {
   minWidth: 250,
   flexGrow: 1,
   flexBasis: 0,
-  margin: 12,
+  margin: 16,
   minHeight: 200,
   background: 'white',
   padding: 12,
@@ -16,11 +17,6 @@ const cardStyle: CSSProperties = {
 const cardTitle: CSSProperties = {
   color: Styling.primaryColor,
   fontSize: 56,
-}
-
-const smallCardTitle: CSSProperties = {
-  color: Styling.primaryColor,
-  fontSize: 36,
 }
 
 const cardText: CSSProperties = {
@@ -58,7 +54,7 @@ interface SmallCardProps {
 export const SmallCard = (props: SmallCardProps) => {
   return (
     <div style={cardStyle}>
-      <h2 style={smallCardTitle}>{props.title}</h2>
+      <h2>{props.title}</h2>
       <div style={cardText} dangerouslySetInnerHTML={{ __html: props.html }} />
     </div>
   )
