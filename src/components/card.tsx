@@ -67,20 +67,28 @@ interface LargeCardProps {
   html: string
   with: string
   badges?: JSX.Element[]
+  image: JSX.Element
 }
 
 export const LargeCard = (props: LargeCardProps) => {
   return (
     <div style={cardStyle} className="card">
-      <div style={{ display: 'flex', marginBottom: 24 }}>
-        <div style={{ flexGrow: 1 }}>
-          <h5>{props.date}</h5>
-          <h2 style={{ marginBottom: 0 }}>{props.title}</h2>
-          <h5 style={{ color: Styling.primaryColor }}>with {props.with}</h5>
+      <div style={{ display: 'flex' }}>
+        <div>
+          <div style={{ display: 'flex', marginBottom: 24, flexGrow: 1 }}>
+            <div style={{ flexGrow: 1 }}>
+              <h5>{props.date}</h5>
+              <h2 style={{ marginBottom: 0 }}>{props.title}</h2>
+              <h5 style={{ color: Styling.primaryColor }}>with {props.with}</h5>
+            </div>
+          </div>
+          <div style={{ paddingBottom: 16 }} dangerouslySetInnerHTML={{ __html: props.html }} />
         </div>
-        {props.badges}
+        <div style={{ flexShrink: 0, width: '25%' }}>
+          {props.image}
+        </div>
       </div>
-      <div dangerouslySetInnerHTML={{ __html: props.html }} />
+      <div style={{ display: "flex", backgroundColor: Styling.primaryColor, paddingBottom: 8, margin: -12, borderBottomLeftRadius: 4, borderBottomRightRadius: 4 }}>{props.badges}</div>
     </div>
   )
 }
