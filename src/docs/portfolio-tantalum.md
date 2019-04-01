@@ -1,7 +1,8 @@
 ---
 date: "Sept 2018 – Dec 2018"
 start: "2018-09-01"
-title: "Harman Spark with Tantalum Corporation"
+title: "Harman Spark"
+with: "Tantalum Corporation"
 team: 20
 platforms: ["android", "iOS"]
 ---

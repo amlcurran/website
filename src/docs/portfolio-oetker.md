@@ -1,7 +1,8 @@
 ---
 date: "May 2018 – Aug 2018"
 start: "2018-05-01"
-title: "Backen.de with Oetker Digital"
+title: "Backen.de"
+with: "Oetker Digital"
 team: 6
 platforms: ["android", "iOS"]
 ---

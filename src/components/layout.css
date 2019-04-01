@@ -5,7 +5,7 @@ html {
 }
 body {
   margin: 0;
-  background-color: rgb(36, 40, 53);
+  background-color: #242835;
   color: rgb(219, 219, 235);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -73,6 +73,9 @@ mark {
 small {
   font-size: 80%;
 }
+.card {
+  color: #242835;
+}
 img {
   max-width: 100%;
   margin-left: 0;
@@ -125,7 +128,7 @@ h3 {
   padding-right: 0;
   padding-top: 0;
   margin-bottom: 1.45rem;
-  color: inherit;
+  color: #FF5900;
   font-weight: bold;
   text-rendering: optimizeLegibility;
   font-size: 1.38316rem;
@@ -157,7 +160,7 @@ h5 {
   padding-right: 0;
   padding-top: 0.9rem;
   margin-bottom: 0.45rem;
-  color: inherit;
+  color: #242835;
   font-weight: bold;
   text-rendering: optimizeLegibility;
   font-size: 0.85028rem;

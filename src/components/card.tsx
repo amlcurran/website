@@ -2,6 +2,7 @@ import React, { CSSProperties } from "react"
 import { Link } from "@reach/router";
 import Styling from "./styling";
 import "./layout.css"
+import Badge from "./badge";
 
 const cardStyle: CSSProperties = {
   minWidth: 250,
@@ -60,8 +61,32 @@ export const SmallCard = (props: SmallCardProps) => {
   )
 }
 
+interface LargeCardProps {
+  title: string
+  date: string
+  html: string
+  with: string
+  badges?: JSX.Element[]
+}
+
+export const LargeCard = (props: LargeCardProps) => {
+  return (
+    <div style={cardStyle} className="card">
+      <div style={{ display: 'flex', marginBottom: 24 }}>
+        <div style={{ flexGrow: 1 }}>
+          <h5>{props.date}</h5>
+          <h2 style={{ marginBottom: 0 }}>{props.title}</h2>
+          <h5 style={{ color: Styling.primaryColor }}>with {props.with}</h5>
+        </div>
+        {props.badges}
+      </div>
+      <div dangerouslySetInnerHTML={{ __html: props.html }} />
+    </div>
+  )
+}
+
 export const ExternalLinkCard = (props: CardProps) => (
-  <div style={cardStyle}>
+  <div style={cardStyle} className="card">
     <a href={props.goesTo} style={linkStyle} target="_blank">
       <h1 style={cardTitle}>{props.title}</h1>
       <div style={cardText}>{props.text}</div>
@@ -70,7 +95,7 @@ export const ExternalLinkCard = (props: CardProps) => (
 )
 
 export const ContactCard = () => (
-  <div style={cardStyle}>
+  <div style={cardStyle} className="card">
     <h1 style={cardTitle}>Contact</h1>
     <div style={cardText}>Want to chat about something? Then get in touch</div>
   </div>

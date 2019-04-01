@@ -2,6 +2,7 @@
 date: "Jan 2019 - current"
 start: "2019-01-01"
 title: "Current client"
+with: "a large multinational company"
 team: 4
 platforms: ["android"]
 ---
