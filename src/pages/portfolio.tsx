@@ -10,6 +10,7 @@ import AndroidLogo from "../images/android.svg"
 import { GraphQLList, Edge } from "../models/graphql";
 import { MarkdownRemark } from "../models/remark";
 import { LargeCard } from "../components/card";
+import Styling from "../components/styling";
 
 interface PortfolioFrontmatter {
     title: string
@@ -38,7 +39,7 @@ const Portfolio = ({ data }: { data: PortfolioQuery }) => {
 function asPortfolioExcerpt(image: FluidObject): ({ node }: Edge<MarkdownRemark<PortfolioFrontmatter>>) => JSX.Element {
     return ({ node }) => {
         const badges = [
-            <Badge text="Devs" component={(<div style={{ fontWeight: 700, fontSize: 20 }}>{node.frontmatter.team}</div>)} />,
+            <Badge text="Devs" component={(<div style={{ fontWeight: 700, fontSize: 20, color: Styling.white }}>{node.frontmatter.team}</div>)} />,
             platforms(node.frontmatter.platforms)
         ]
         return (
@@ -54,8 +55,8 @@ function asPortfolioExcerpt(image: FluidObject): ({ node }: Edge<MarkdownRemark<
 }
 
 function platforms(platforms: string[]): JSX.Element {
-    const apple = platforms.includes("iOS") ? <Badge text="iOS" component={<AppleLogo style={{ fill: "white" }} />} /> : null
-    const android = platforms.includes("android") ? <Badge text="Android" component={<AndroidLogo height="24px" style={{ fill: "white" }} />} /> : null
+    const apple = platforms.includes("iOS") ? <Badge text="iOS" component={<AppleLogo height="26px" style={{ fill: "white" }} />} /> : null
+    const android = platforms.includes("android") ? <Badge text="Android" component={<AndroidLogo height="26px" style={{ fill: "white" }} />} /> : null
     return (<>
         {apple}
         {android}
