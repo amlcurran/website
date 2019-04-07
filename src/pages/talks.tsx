@@ -50,8 +50,21 @@ const Talks = ({ data }: { data: TalksQuery }) => {
   )
 }
 
-const containerStyle: CSSProperties = {position: "relative", marginBottom: 16}
-const textStyle: CSSProperties = {position: "absolute", bottom: 0, left: 0, right:0, paddingRight: 16, paddingLeft: 16, paddingBottom: 16, backgroundColor: "#0009"}
+const containerStyle: CSSProperties = {
+  position: "relative", 
+  marginBottom: 16
+}
+
+const textStyle: CSSProperties = {
+  position: "absolute", 
+  bottom: 0, 
+  left: 0, 
+  right:0, 
+  paddingRight: 16, 
+  paddingLeft: 16, 
+  paddingBottom: 16, 
+  backgroundColor: "#0009"
+}
 
 function asTalkElement(query: TalksQuery): (edge: Edge<MarkdownRemark<TalksFrontmatter>>) => JSX.Element {
   return (edge) => (
