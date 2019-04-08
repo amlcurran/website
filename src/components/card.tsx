@@ -73,7 +73,7 @@ interface LargeCardProps {
 export const LargeCard = (props: LargeCardProps) => {
   return (
     <div style={cardStyle} className="card">
-      <div style={{ display: 'flex' }}>
+      <div style={{ display: 'flex' }} className="card-internal">
         <div>
           <div style={{ display: 'flex', marginBottom: 24, flexGrow: 1 }}>
             <div style={{ flexGrow: 1 }}>
@@ -84,7 +84,7 @@ export const LargeCard = (props: LargeCardProps) => {
           </div>
           <div style={{ paddingBottom: 16 }} dangerouslySetInnerHTML={{ __html: props.html }} />
         </div>
-        <div style={{ flexShrink: 0, width: '25%' }}>
+        <div className="portfolio-image">
           {props.image}
         </div>
       </div>

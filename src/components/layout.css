@@ -76,6 +76,10 @@ small {
 .card {
   color: #242835;
 }
+.portfolio-image {
+  flex-shrink: 0;
+  width: 25%;
+}
 img {
   max-width: 100%;
   margin-left: 0;
@@ -264,6 +268,15 @@ code {
     width: 600px;
     display: table;
     table-layout: fixed;
+  }
+  .card-internal {
+    flex-direction: column;
+  }
+  .portfolio-image {
+    flex-shrink: 0;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
   }
   .emphasisBox {
     overflow: scroll;
