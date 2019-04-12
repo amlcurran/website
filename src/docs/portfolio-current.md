@@ -6,6 +6,7 @@ title: "Current client"
 with: "a large multinational company"
 team: 4
 platforms: ["android"]
+imageName: "secret-android"
 ---
 My current project is a small but vibrant app for a new client.
 

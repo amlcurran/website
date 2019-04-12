@@ -6,6 +6,7 @@ title: "Backen.de"
 with: "Oetker Digital"
 team: 6
 platforms: ["android", "iOS"]
+imageName: "backen-iphone"
 ---
 Backen.de was produced in collaboration with Oetker Digital, of the Dr. Oetker brand.
 

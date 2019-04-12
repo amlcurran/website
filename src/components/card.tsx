@@ -92,7 +92,7 @@ export const LargeCard = (props: LargeCardProps) => {
             <h2 style={{ marginBottom: 0 }}>{props.title}</h2>
             <h5 style={{ color: Styling.primaryColor }}>with {props.with}</h5>
           </div>
-          <div style={{ paddingBottom: 48 }} dangerouslySetInnerHTML={{ __html: props.html }} />
+          <div style={{ paddingBottom: 48, paddingRight: 16 }} dangerouslySetInnerHTML={{ __html: props.html }} />
         </div>
         <div className="portfolio-image">{props.image}</div>
       </div>
