@@ -1,5 +1,6 @@
 ---
 date: "May 2018 – Aug 2018"
+position: "Principle Engineer"
 start: "2018-05-01"
 title: "Backen.de"
 with: "Oetker Digital"

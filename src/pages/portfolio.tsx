@@ -19,6 +19,7 @@ interface PortfolioFrontmatter {
   date: string
   links: string[]
   with: string
+  position: string
 }
 
 interface PortfolioQuery {
@@ -44,7 +45,7 @@ function asPortfolioExcerpt({ node }: Edge<MarkdownRemark<PortfolioFrontmatter>>
     <LargeCard
       key={node.frontmatter.title}
       title={node.frontmatter.title}
-      date={node.frontmatter.date}
+      date={node.frontmatter.date + " ● " + node.frontmatter.position}
       badges={badges}
       html={node.html}
       with={node.frontmatter.with}
@@ -73,6 +74,7 @@ export const pageQuery = graphql`{
             platforms
             date
             with
+            position
           }
         }
       }

@@ -1,5 +1,6 @@
 ---
 date: "Jan 2019 - current"
+position: "Principle Engineer"
 start: "2019-01-01"
 title: "Current client"
 with: "a large multinational company"
