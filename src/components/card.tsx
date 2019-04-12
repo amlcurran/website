@@ -28,6 +28,18 @@ const linkStyle: CSSProperties = {
   textDecoration: 'none'
 }
 
+const badgeHostStyle: CSSProperties = {
+  display: "flex", 
+  backgroundColor: Styling.primaryColor, 
+  paddingBottom: 8, 
+  marginLeft: -12, 
+  marginRight: -12, 
+  marginBottom: -12, 
+  marginTop: -48, 
+  borderBottomLeftRadius: 4, 
+  borderBottomRightRadius: 4
+}
+
 interface CardProps {
   title: string
   text: string
@@ -75,20 +87,16 @@ export const LargeCard = (props: LargeCardProps) => {
     <div style={cardStyle} className="card">
       <div style={{ display: 'flex' }} className="card-internal">
         <div>
-          <div style={{ display: 'flex', marginBottom: 24, flexGrow: 1 }}>
-            <div style={{ flexGrow: 1 }}>
-              <h5>{props.date}</h5>
-              <h2 style={{ marginBottom: 0 }}>{props.title}</h2>
-              <h5 style={{ color: Styling.primaryColor }}>with {props.with}</h5>
-            </div>
+          <div style={{ marginBottom: 24 }}>
+            <h5>{props.date}</h5>
+            <h2 style={{ marginBottom: 0 }}>{props.title}</h2>
+            <h5 style={{ color: Styling.primaryColor }}>with {props.with}</h5>
           </div>
-          <div style={{ paddingBottom: 16 }} dangerouslySetInnerHTML={{ __html: props.html }} />
+          <div style={{ paddingBottom: 48 }} dangerouslySetInnerHTML={{ __html: props.html }} />
         </div>
-        <div className="portfolio-image">
-          {props.image}
-        </div>
+        <div className="portfolio-image">{props.image}</div>
       </div>
-      <div style={{ display: "flex", backgroundColor: Styling.primaryColor, paddingBottom: 8, margin: -12, borderBottomLeftRadius: 4, borderBottomRightRadius: 4 }}>{props.badges}</div>
+      <div style={badgeHostStyle}>{props.badges}</div>
     </div>
   )
 }
