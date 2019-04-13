@@ -28,21 +28,21 @@ const NewIndexPage = () => {
             goesTo="/portfolio" />
           <Card
             title="Talks"
-            text="My public speaking about tech, code, and more. For example, Writing Better Swift"
+            text="My public speaking about tech, code, and more."
             goesTo="/talks" />
           <Card
             title="A bit on the side"
-            text="My suite of side projects in various states of abandonment, investigating new technologies and solving issues"
+            text="My suite of side projects in various states of abandonment"
             goesTo="/side-projects"
             doNotWrapTitle={true} /></div>
         <div className="right-shifted">
-          <ExternalLinkCard
-            title="⎋ Blog"
+          <Card
+            title="Articles"
             text="Sometimes, I write. Here are the things I write. The last thing I wrote was…"
-            goesTo="https://www.medium.com/@amlcurran" />
+            goesTo="/articles" />
           <Card
             title="Not Tech"
-            text="Not all that I do revolves around tech. See the hobbies I have and the reasons why I do them."
+            text="Not all that I do revolves around tech, here's some of my hobbies"
             goesTo="/not-tech" />
           <ExternalLinkCard
             title="Contact"

@@ -70,8 +70,8 @@ const Header = () => {
           <HeaderLink to="/portfolio" text="Portfolio" current={location} />
           <HeaderLink to="/talks" text="Talks" current={location} />
           <HeaderLink to="/side-projects" text="On the side" current={location} />
+          <HeaderLink to="/articles" current={location} text="Articles" />
           <HeaderLink to="/not-tech" text="Not tech" current={location} />
-          <a href="https://www.medium.com/@amlcurran" style={externalLinkStyle} target="_blank">⎋ Blog</a>
         </nav>
       </div>
     </header>
