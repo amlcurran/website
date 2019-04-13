@@ -6,7 +6,7 @@ html {
 body {
   margin: 0;
   background-color: #242835;
-  color: rgb(219, 219, 235);
+  color: #dbdbeb;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -51,6 +51,7 @@ a, a:visited {
   background-color: transparent;
   color: #9898d4;
   -webkit-text-decoration-skip: objects;
+  text-decoration: none;
 }
 a:active,
 a:hover {

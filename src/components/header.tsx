@@ -62,10 +62,11 @@ const Header = () => {
   const location = typeof window !== `undefined` ? window.location : null
   return (
     <header>
-      <div style={{ ...contentStyle, ...myStyle }}>Hey, I'm Alex Curran.</div>
+      <div style={{ ...contentStyle, ...myStyle }}>
+        <Link to="/" style={{color: Styling.lightTextColor}}>Hey, I'm Alex Curran.</Link>
+      </div>
       <div style={linkHostStyle} className="emphasisBox">
         <nav style={{ ...contentStyle, ...linkHostInnerStyle }}>
-          <HeaderLink to="/" text="Home" current={location} />
           <HeaderLink to="/portfolio" text="Portfolio" current={location} />
           <HeaderLink to="/talks" text="Talks" current={location} />
           <HeaderLink to="/side-projects" text="On the side" current={location} />
