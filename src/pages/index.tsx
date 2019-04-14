@@ -4,6 +4,18 @@ import { contentStyle } from "../components/layout"
 import SEO from "../components/seo"
 import Card, { ExternalLinkCard } from '../components/card'
 import "./index.css"
+import { graphql } from "gatsby";
+import Img from "gatsby-image";
+
+const backgroundImageStyle: CSSProperties = {
+  position: "absolute",
+  left: 0,
+  right: 0,
+  top: 0,
+  bottom: 0,
+  opacity: 0.15,
+  zIndex: -1
+}
 
 const myStyle: CSSProperties = {
   fontSize: 32,
@@ -14,7 +26,7 @@ const myStyle: CSSProperties = {
   letterSpacing: '0.15rem'
 }
 
-const NewIndexPage = () => {
+const NewIndexPage = (query) => {
   return (
     <>
       <main style={contentStyle}>
@@ -48,11 +60,23 @@ const NewIndexPage = () => {
             title="Contact"
             text="Want to chat about something? Then get in touch"
             goesTo="mailto:aml.curran+website@gmail.com" />
-
         </div>
+        <Img fluid={query.data.file.childImageSharp.fluid} style={backgroundImageStyle} />
       </main>
     </>
   )
 }
+
+export const query = graphql`
+  query {
+    file(relativePath: { eq: "writing-better-code.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 600) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+  }
+`
 
 export default NewIndexPage
