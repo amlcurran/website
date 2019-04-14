@@ -20,7 +20,7 @@ interface PortfolioFrontmatter {
   links: string[]
   with: string
   position: string
-  imageName: string
+  images: string[]
 }
 
 interface PortfolioQuery {
@@ -50,7 +50,7 @@ function asPortfolioExcerpt({ node }: Edge<MarkdownRemark<PortfolioFrontmatter>>
       badges={badges}
       html={node.html}
       with={node.frontmatter.with}
-      image={<BackenIPhone name={node.frontmatter.imageName} />} />
+      image={<BackenIPhone name={node.frontmatter.images[0]} />} />
   )
 }
 
@@ -76,7 +76,7 @@ export const pageQuery = graphql`{
             date
             with
             position
-            imageName
+            images
           }
         }
       }
