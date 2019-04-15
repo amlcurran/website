@@ -30,6 +30,9 @@ section,
 summary {
   display: block;
 }
+footer {
+  font-size: 10pt
+}
 audio,
 canvas,
 progress,

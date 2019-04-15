@@ -32,9 +32,7 @@ const Layout = ({ children, seo }: LayoutProps) => (
     >
       <main>{children}</main>
       <footer style={{ marginTop: 32 }}>
-        © {new Date().getFullYear()}, Built with
-            {` `}
-        <a href="https://www.gatsbyjs.org">Gatsby</a>
+        ALEX CURRAN © {new Date().getFullYear()}
       </footer>
     </div>
   </>
