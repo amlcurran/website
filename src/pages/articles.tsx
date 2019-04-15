@@ -10,7 +10,7 @@ interface ArticleFrontmatter {
     title: string
 }
 
-class Remark<T> {
+interface Remark<T> {
     childMarkdownRemark: MarkdownRemark<T>
 }
 
