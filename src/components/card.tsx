@@ -68,12 +68,12 @@ export const LargeTitledExternalLinkCard = (props: LinkCardProps) => (
     </div>
 )
 
-interface SmallCardProps {
+interface BasicHtmlCardProps {
   title: string
   html: string
 }
 
-export const BasicHtmlCard = (props: SmallCardProps) => {
+export const BasicHtmlCard = (props: BasicHtmlCardProps) => {
   return (
     <div style={cardStyle}>
       <h2>{props.title}</h2>
