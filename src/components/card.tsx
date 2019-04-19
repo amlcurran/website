@@ -2,13 +2,13 @@ import React, { CSSProperties } from "react"
 import { Link } from "@reach/router";
 import Styling from "./styling";
 import "./layout.css"
-import Badge from "./badge";
 
 const cardStyle: CSSProperties = {
   minWidth: 250,
   flexGrow: 1,
   flexBasis: 0,
-  margin: 16,
+  marginTop: 16,
+  marginBottom: 16,
   minHeight: 200,
   background: 'white',
   padding: 12,
