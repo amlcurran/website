@@ -40,17 +40,17 @@ const badgeHostStyle: CSSProperties = {
   borderBottomRightRadius: 4
 }
 
-interface CardProps {
+interface LinkCardProps {
   title: string
   text: string
   goesTo: string
   doNotWrapTitle?: boolean
 }
 
-const Card = (props: CardProps) => {
+const LargeTitledLinkCard = (props: LinkCardProps) => {
   const classNames = props.doNotWrapTitle ? "on-the-side" : ""
   return (
-    <div style={cardStyle}>
+    <div style={{...cardStyle, margin: 16}}>
       <Link to={props.goesTo} style={linkStyle}>
         <h1 style={{ ...cardTitle }} className={classNames}>{props.title}</h1>
         <div style={cardText}>{props.text}</div>
@@ -59,12 +59,21 @@ const Card = (props: CardProps) => {
   )
 }
 
+export const LargeTitledExternalLinkCard = (props: LinkCardProps) => (
+    <div style={cardStyle} className="card">
+        <a href={props.goesTo} style={linkStyle} target="_blank">
+            <h1 style={cardTitle}>{props.title}</h1>
+            <div style={cardText}>{props.text}</div>
+        </a>
+    </div>
+)
+
 interface SmallCardProps {
   title: string
   html: string
 }
 
-export const SmallCard = (props: SmallCardProps) => {
+export const BasicHtmlCard = (props: SmallCardProps) => {
   return (
     <div style={cardStyle}>
       <h2>{props.title}</h2>
@@ -100,21 +109,4 @@ export const LargeCard = (props: LargeCardProps) => {
     </div>
   )
 }
-
-export const ExternalLinkCard = (props: CardProps) => (
-  <div style={cardStyle} className="card">
-    <a href={props.goesTo} style={linkStyle} target="_blank">
-      <h1 style={cardTitle}>{props.title}</h1>
-      <div style={cardText}>{props.text}</div>
-    </a>
-  </div>
-)
-
-export const ContactCard = () => (
-  <div style={cardStyle} className="card">
-    <h1 style={cardTitle}>Contact</h1>
-    <div style={cardText}>Want to chat about something? Then get in touch</div>
-  </div>
-)
-
-export default Card
+export default LargeTitledLinkCard

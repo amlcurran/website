@@ -5,7 +5,7 @@ import SEO from "../components/seo"
 import { GraphQLList, Edge } from "../models/graphql";
 import { MarkdownRemark } from "../models/remark";
 import { graphql } from "gatsby";
-import Card, { SmallCard } from "../components/card";
+import LargeTitledLinkCard, { BasicHtmlCard } from "../components/card";
 
 interface SideProjectFrontmatter {
   start: Date
@@ -28,7 +28,7 @@ const SideProjects = ({ data }: { data: SideProjectsQuery }) => {
 
 function asSideProject({ node }: Edge<MarkdownRemark<SideProjectFrontmatter>>): JSX.Element {
   return (
-    <SmallCard title={node.frontmatter.title} html={node.html} />
+    <BasicHtmlCard title={node.frontmatter.title} html={node.html} />
   )
 }
 
