@@ -60,7 +60,7 @@ const LargeTitledLinkCard = (props: LinkCardProps) => {
 }
 
 export const LargeTitledExternalLinkCard = (props: LinkCardProps) => (
-    <div style={cardStyle} className="card">
+    <div style={{...cardStyle, margin: 16}} className="card">
         <a href={props.goesTo} style={linkStyle} target="_blank">
             <h1 style={cardTitle}>{props.title}</h1>
             <div style={cardText}>{props.text}</div>
