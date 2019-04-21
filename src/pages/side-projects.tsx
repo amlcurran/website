@@ -18,7 +18,7 @@ interface SideProjectsQuery {
 }
 
 const SideProjects = ({ data }: { data: SideProjectsQuery }) => {
-  const seo = <SEO title="Not tech" keywords={[`side projects`, `flutter`, `tech`]} description="Here's what I get up to when I'm not coding" key="SEO" />
+  const seo = <SEO title="On the side" keywords={[`side projects`, `flutter`, `tech`, 'oo-er']} description="Here's what I get up to when I'm not coding" key="SEO" />
   return (
     <Layout seo={seo}>
       {data.allMarkdownRemark.edges.map(asSideProject)}
