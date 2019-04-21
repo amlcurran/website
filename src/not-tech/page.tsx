@@ -2,12 +2,12 @@ import React, { CSSProperties } from "react"
 
 import SEO from "../components/seo"
 import Img from "gatsby-image";
-import { Edge } from "../models/graphql";
+import { Edge, SharpImage } from "../models/graphql";
 
 const imageStyle: CSSProperties = {
 }
 
-export function ui(notTechBits: any[]): JSX.Element[] {
+export function ui(notTechBits: Edge<SharpImage>[]): JSX.Element[] {
     const rounds = (notTechBits.length / 3)
     const elements: JSX.Element[] = []
     for (let i = 0; i < rounds; i++) {
@@ -18,19 +18,19 @@ export function ui(notTechBits: any[]): JSX.Element[] {
     return elements
 }
 
-function buildRow(images: Edge<any>[]): JSX.Element {
+function buildRow(images: Edge<SharpImage>[]): JSX.Element {
     return <div style={{ display: "flex", position: "relative" }}>
         <Img fluid={images[0].node.childImageSharp.fluid} style={{ flexBasis: '60%', ...imageStyle }} />
         <div style={{ display: "flex", flexDirection: "column", flexBasis: '40%', ...imageStyle }}>
             <Img fluid={images[1].node.childImageSharp.fluid} style={{ flexBasis: '50%', ...imageStyle }} />
-            {final(images)}
+            {final(images[2])}
         </div>
     </div>;
 }
 
-function final(images: any): JSX.Element | null {
-    if (images[2] && images[2].node.childImageSharp) {
-        return <Img fluid={images[2].node.childImageSharp.fluid} style={{flexBasis: '50%', ...imageStyle}} />                 
+function final(imageNode: Edge<SharpImage> | null): JSX.Element | null {
+    if (imageNode && imageNode.node.childImageSharp) {
+        return <Img fluid={imageNode.node.childImageSharp.fluid} style={{flexBasis: '50%', ...imageStyle}} />                 
     }
     return null;
 }
