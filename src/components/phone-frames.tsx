@@ -1,8 +1,8 @@
 import React from "react"
 import { StaticQuery, graphql } from "gatsby";
-import Img, { FluidObject } from "gatsby-image";
+import Img from "gatsby-image";
 
-export const BackenIPhone = ({ name }) => (
+export const PhoneFrame = ({ name }: { name: any}) => (
   <StaticQuery
     query={graphql`
     query allFrames {
@@ -20,7 +20,7 @@ export const BackenIPhone = ({ name }) => (
     }    
     `}
     render={data => {
-      const filtered = data.allFile.edges.filter((edge) => {
+      const filtered = data.allFile.edges.filter((edge: any) => {
         return edge.node.childImageSharp.fluid.src.indexOf(name) != -1
       })
       return (
@@ -29,3 +29,5 @@ export const BackenIPhone = ({ name }) => (
     }}
   />
 )
+
+export default PhoneFrame

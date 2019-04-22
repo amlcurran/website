@@ -10,7 +10,7 @@ import { GraphQLList, Edge } from "../models/graphql";
 import { MarkdownRemark } from "../models/remark";
 import { LargeCard } from "../components/card";
 import Styling from "../components/styling";
-import { BackenIPhone } from "../components/phone-frames";
+import PhoneFrame from "../components/phone-frames";
 
 interface PortfolioFrontmatter {
   title: string
@@ -50,7 +50,7 @@ function asPortfolioExcerpt({ node }: Edge<MarkdownRemark<PortfolioFrontmatter>>
       badges={badges}
       html={node.html}
       with={node.frontmatter.with}
-      image={<BackenIPhone name={node.frontmatter.images[0]} />} />
+      image={<PhoneFrame name={node.frontmatter.images[0]} />} />
   )
 }
 
