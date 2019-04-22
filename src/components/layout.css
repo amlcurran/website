@@ -13,6 +13,12 @@ body {
 .emphasisBox a, .emphasisBox a:visited, .emphasisBox div {
   color: white;
 }
+.headlineTop {
+  display: grid;
+  grid-template-columns: auto 10% 20%;
+  row-gap: 16px;
+  column-gap: 16px;
+}
 article,
 aside,
 details,
@@ -264,7 +270,7 @@ code {
 @media only screen and (max-width: 600px) {
   html {
     font-size: 100%;
-  }
+  } 
   nav {
     width: 600px;
     display: table;
@@ -279,5 +285,15 @@ code {
   }
   .emphasisBox {
     overflow: scroll;
+  }
+  .headlineTop {
+    display: grid;
+    grid-template-columns: calc(50% - 8px) calc(50% - 8px);
+    grid-template-rows: auto auto;
+    row-gap: 16px;
+    column-gap: 16px;
+  }
+  .headlineLink {
+    grid-column: 1 / span 2;
   }
 }

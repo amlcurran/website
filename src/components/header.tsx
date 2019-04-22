@@ -10,8 +10,7 @@ const linkHostStyle: CSSProperties = {
 
 const myStyle: CSSProperties = {
   paddingTop: 12,
-  paddingBottom: 12,
-  display: 'flex'
+  paddingBottom: 12
 }
 
 const myLinkStyle: CSSProperties = {
@@ -19,7 +18,8 @@ const myLinkStyle: CSSProperties = {
   fontWeight: 700,
   fontFamily: 'Raleway, sans-serif',
   letterSpacing: '0.15rem',
-  display: 'flex',
+  justifySelf: 'start',
+  color: Styling.lightTextColor
 }
 
 const linkHostInnerStyle: CSSProperties = {
@@ -62,8 +62,7 @@ function dotIfCurrent(to: string, current: Location | null): string {
 }
 
 const contactButton: CSSProperties = {
-  padding: '8px 24px',
-  marginLeft: 16,
+  padding: '8px 0px',
   borderRadius: 24,
   backgroundColor: Styling.white,
   color: Styling.primaryColor,
@@ -83,8 +82,8 @@ const Header = () => {
       const location = typeof window !== `undefined` ? window.location : null
       return (
         <header>
-          <div style={{ ...contentStyle, ...myStyle }}>
-            <Link to="/" style={{color: Styling.lightTextColor, flexGrow: 1, ...myLinkStyle}}>Hey, I'm Alex Curran.</Link>
+          <div style={{ ...contentStyle, ...myStyle }} className="headlineTop">
+            <Link to="/" style={myLinkStyle} className="headlineLink">Hey, I'm Alex Curran.</Link>
             <a href={query.file.publicURL} style={contactButton} className="emphasisBox">CV</a>
             <a href="mailto:aml.curran+website@gmail.com" style={contactButton} className="emphasisBox">Contact</a>
           </div>
