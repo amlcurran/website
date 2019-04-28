@@ -27,16 +27,9 @@ interface TalksQuery {
 }
 
 const talksStyle: CSSProperties = {
-  display: "flex",
-  flexWrap: "wrap",
-  margin: -8
-}
-
-const talkStyle: CSSProperties = {
-  flexGrow: 1,
-  flexBasis: 0,
-  minWidth: 350,
-  margin: 8
+  display: "grid",
+  gridRowGap: 16,
+  gridColumnGap: 16
 }
 
 const Talks = ({ data }: { data: TalksQuery }) => {
@@ -44,7 +37,7 @@ const Talks = ({ data }: { data: TalksQuery }) => {
   const talks = data.allMarkdownRemark.edges.map(asTalkElement(data))
   return (
     <Layout seo={seo}>
-      <div style={talksStyle}>{talks}</div>
+      <div style={talksStyle} className="talks">{talks}</div>
       <div />
     </Layout>
   )
@@ -61,6 +54,8 @@ const textStyle: CSSProperties = {
   left: 0, 
   right:0, 
   paddingRight: 16, 
+  borderBottomLeftRadius: 8,
+  borderBottomRightRadius: 8,
   paddingLeft: 16, 
   paddingBottom: 16, 
   backgroundColor: "#0009"
@@ -68,7 +63,7 @@ const textStyle: CSSProperties = {
 
 function asTalkElement(query: TalksQuery): (edge: Edge<MarkdownRemark<TalksFrontmatter>>) => JSX.Element {
   return (edge) => (
-    <div style={talkStyle} key={edge.node.frontmatter.title}>
+    <div key={edge.node.frontmatter.title}>
       <div style={containerStyle}>
         <Img fluid={imageForTalk(edge.node.frontmatter, query)} style={{ height: 250, borderRadius: 8 }} />
         <div style={textStyle}>

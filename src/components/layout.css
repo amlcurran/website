@@ -19,6 +19,9 @@ body {
   row-gap: 16px;
   column-gap: 16px;
 }
+.talks {
+  grid-template-columns: auto auto;
+}
 article,
 aside,
 details,
@@ -295,5 +298,8 @@ code {
   }
   .headlineLink {
     grid-column: 1 / span 2;
+  }
+  .talks {
+    grid-template-columns: auto;
   }
 }
