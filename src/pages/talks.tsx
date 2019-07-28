@@ -87,14 +87,14 @@ function buttons(frontmatter: TalksFrontmatter): JSX.Element[] {
   const elements: JSX.Element[] = []
   if (frontmatter.slides) {
     elements.push(
-      <a href={frontmatter.slides} style={{paddingTop: 20, paddingLeft: 8, alignSelf: "center"}}>
+      <a href={frontmatter.slides} target="_blank" style={{paddingTop: 20, paddingLeft: 8, alignSelf: "center"}}>
         <i className="material-icons md-light md-36" >desktop_mac</i>
       </a>
     )
   }
   if (frontmatter.video) {
     elements.push(
-      <a href={frontmatter.video} style={{paddingTop: 20, paddingLeft: 8, alignSelf: "center"}}>
+      <a href={frontmatter.video} target="_blank" style={{paddingTop: 20, paddingLeft: 8, alignSelf: "center"}}>
         <i className="material-icons md-light md-36" >ondemand_video</i>
       </a>
     )
