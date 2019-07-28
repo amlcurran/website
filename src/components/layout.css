@@ -21,6 +21,9 @@ body {
 .emphasisBox a, .emphasisBox a:visited, .emphasisBox div {
   color: var(--surface);
 }
+.material-icons.md-light { color: rgba(255, 255, 255, 1); }
+.material-icons.md-36 { font-size: 36px; }
+
 .headlineTop {
   display: grid;
   grid-template-columns: auto 10% 20%;

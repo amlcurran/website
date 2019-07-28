@@ -5,7 +5,7 @@ import SEO from "../components/seo"
 import { graphql } from "gatsby";
 import { GraphQLList, Edge } from "../models/graphql";
 import { MarkdownRemark } from "../models/remark";
-import { LargeCard, BasicHtmlCard, SmallCard } from "../components/card";
+import { SmallCard } from "../components/card";
 
 interface ArticleFrontmatter {
     title: string

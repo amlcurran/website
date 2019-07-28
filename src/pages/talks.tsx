@@ -66,13 +66,17 @@ function asTalkElement(query: TalksQuery): (edge: Edge<MarkdownRemark<TalksFront
     <div key={edge.node.frontmatter.title}>
       <div style={containerStyle}>
         <Img fluid={imageForTalk(edge.node.frontmatter, query)} style={{ height: 250, borderRadius: 8 }} />
-        <div style={textStyle}>
-          <h5 style={{color: Styling.talks.textColor}}>{edge.node.frontmatter.presentedAt}</h5>
-          <h3 style={{marginBottom: 0, color: Styling.talks.textColor}}>{edge.node.frontmatter.title}</h3>
+        <div style={{...textStyle, display: "flex"}}>
+          <div style={{flexGrow: 1}}>
+            <h5 style={{color: Styling.talks.textColor}}>{edge.node.frontmatter.presentedAt}</h5>
+            <h3 style={{marginBottom: 0, color: Styling.talks.textColor}}>{edge.node.frontmatter.title}</h3>
+          </div>
+          <a href={edge.node.frontmatter.slides} style={{paddingTop: 20, alignSelf: "center"}}>
+            <i className="material-icons md-light md-36" >slideshow</i>
+          </a>
         </div>
       </div>
       <div dangerouslySetInnerHTML={{ __html: edge.node.html }} />
-      <a href={edge.node.frontmatter.slides}>Slides</a>
     </div>
   )
 }
