@@ -11,7 +11,8 @@ class Styling {
   }
 
   static bigButtons = {
-    background: "white"
+    background: "white",
+    color: Styling.primaryColor
   }
 
   static onPrimary = {

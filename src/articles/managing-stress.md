@@ -1,5 +1,6 @@
 ---
 title: "Managing my stress levels"
+date: "2018-08-20"
 ---
 
 # Managing my stress levels

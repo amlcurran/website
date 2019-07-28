@@ -82,6 +82,15 @@ export const BasicHtmlCard = (props: BasicHtmlCardProps) => {
   )
 }
 
+export const SmallCard = (props: BasicHtmlCardProps) => {
+  return (
+    <div style={cardStyle}>
+      <h3>{props.title}</h3>
+      <div style={cardText} dangerouslySetInnerHTML={{ __html: props.html }} />
+    </div>
+  )
+}
+
 interface LargeCardProps {
   title: string
   date: string

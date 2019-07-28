@@ -5,44 +5,45 @@ import SEO from "../components/seo"
 import { graphql } from "gatsby";
 import { GraphQLList, Edge } from "../models/graphql";
 import { MarkdownRemark } from "../models/remark";
+import { LargeCard, BasicHtmlCard, SmallCard } from "../components/card";
 
 interface ArticleFrontmatter {
     title: string
 }
 
-interface Remark<T> {
-    childMarkdownRemark: MarkdownRemark<T>
-}
-
 interface ArticlesQuery {
-    allFile: GraphQLList<Remark<ArticleFrontmatter>>
+    allMarkdownRemark: GraphQLList<MarkdownRemark<ArticleFrontmatter>>
 }
 
 const Articles = ({ data }: { data: ArticlesQuery }) => {
     const seo = <SEO title="Articles" keywords={[`articles`, `blog`, `vlog`, `tech`, `thoughts`]} description="Articles and piece I've written" key="SEO" />
+    const articles = data.allMarkdownRemark.edges.map(asArticle)
     return (
         <Layout seo={seo}>
-            <p>This page is still being built, and will show all my new articles.</p>
-            <p>In the meantime, check my <a href="https://www.medium.com/@amlcurran" target="_blank">Medium</a> account for older ones.</p>
+            {articles}
+            {/* <p>In the meantime, check my <a href="https://www.medium.com/@amlcurran" target="_blank">Medium</a> account for older ones.</p> */}
         </Layout>
     )
 }
 
-function asArticle(edge: Edge<Remark<ArticleFrontmatter>>): JSX.Element {
-    return <div>{edge.node.childMarkdownRemark.frontmatter.title}</div>
+function asArticle(edge: Edge<MarkdownRemark<ArticleFrontmatter>>): JSX.Element {
+    return <SmallCard 
+        key={edge.node.id} 
+        title={edge.node.frontmatter.title}
+        html={edge.node.excerpt || ""} />
 }
 
 export const query = graphql`
   query {
-    allFile(filter: { sourceInstanceName: { eq: "articles" } }) {
+    allMarkdownRemark(filter: { fileAbsolutePath: { regex: "\/articles/" } }, sort: { fields: [frontmatter___date], order: DESC }) {
         edges {
             node {
-                childMarkdownRemark {
                     excerpt
+                    id
                     frontmatter {
                         title
+                        date
                     }
-                }
             }
         }
     }
