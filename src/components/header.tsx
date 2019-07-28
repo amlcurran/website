@@ -64,7 +64,7 @@ function dotIfCurrent(to: string, current: Location | null): string {
 const contactButton: CSSProperties = {
   padding: '8px 0px',
   borderRadius: 24,
-  backgroundColor: Styling.white,
+  backgroundColor: Styling.bigButtons.background,
   color: Styling.primaryColor,
   ...linkInnerStyle,
   minWidth: 0

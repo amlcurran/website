@@ -12,7 +12,7 @@ const badgeStyle: CSSProperties = {
     fontSize: 12,
     textTransform: "uppercase",
     fontWeight: 700,
-    color: Styling.white
+    color: Styling.onPrimary.text
 }
 
 interface BadgeProps {
