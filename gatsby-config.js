@@ -39,6 +39,7 @@ module.exports = {
       options: {
         name: `not-tech`,
         path: `${__dirname}/src/not-tech`,
+        ignore: [`**/**.tsx`]
       },
     },
     {
