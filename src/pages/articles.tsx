@@ -18,10 +18,12 @@ interface ArticlesQuery {
 const Articles = ({ data }: { data: ArticlesQuery }) => {
     const seo = <SEO title="Articles" keywords={[`articles`, `blog`, `vlog`, `tech`, `thoughts`]} description="Articles and piece I've written" key="SEO" />
     const articles = data.allMarkdownRemark.edges.map(asArticle)
+    articles.push(
+        <h3 style={{textAlign: "center"}}><a href="https://www.medium.com/@amlcurran" target="_blank">Older articles</a></h3>
+    )
     return (
         <Layout seo={seo}>
             {articles}
-            {/* <p>In the meantime, check my <a href="https://www.medium.com/@amlcurran" target="_blank">Medium</a> account for older ones.</p> */}
         </Layout>
     )
 }
