@@ -71,9 +71,7 @@ function asTalkElement(query: TalksQuery): (edge: Edge<MarkdownRemark<TalksFront
             <h5 style={{color: Styling.talks.textColor}}>{edge.node.frontmatter.presentedAt}</h5>
             <h3 style={{marginBottom: 0, color: Styling.talks.textColor}}>{edge.node.frontmatter.title}</h3>
           </div>
-          <a href={edge.node.frontmatter.slides} style={{paddingTop: 20, alignSelf: "center"}}>
-            <i className="material-icons md-light md-36" >slideshow</i>
-          </a>
+          {buttons(edge.node.frontmatter)}
         </div>
       </div>
       <div dangerouslySetInnerHTML={{ __html: edge.node.html }} />
@@ -83,6 +81,25 @@ function asTalkElement(query: TalksQuery): (edge: Edge<MarkdownRemark<TalksFront
 
 function imageForTalk(frontmatter: TalksFrontmatter, query: TalksQuery): FluidObject {
   return query[frontmatter.image].childImageSharp.fluid
+}
+
+function buttons(frontmatter: TalksFrontmatter): JSX.Element[] {
+  const elements: JSX.Element[] = []
+  if (frontmatter.slides) {
+    elements.push(
+      <a href={frontmatter.slides} style={{paddingTop: 20, paddingLeft: 8, alignSelf: "center"}}>
+        <i className="material-icons md-light md-36" >desktop_mac</i>
+      </a>
+    )
+  }
+  if (frontmatter.video) {
+    elements.push(
+      <a href={frontmatter.video} style={{paddingTop: 20, paddingLeft: 8, alignSelf: "center"}}>
+        <i className="material-icons md-light md-36" >ondemand_video</i>
+      </a>
+    )
+  }
+  return elements
 }
 
 export const pageQuery = graphql`{
@@ -96,6 +113,7 @@ export const pageQuery = graphql`{
             slides
             presentedAt
             image
+            video
           }
         }
       }
