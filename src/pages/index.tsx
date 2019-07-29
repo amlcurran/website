@@ -35,26 +35,26 @@ const NewIndexPage = (query: any) => (
       <div className="left-shifted">
         <LargeTitledLinkCard
             title="Portfolio"
-            text="A collection of the projects I’ve worked on in my professional career"
+            text="The projects I’ve worked on in my career"
             goesTo="/portfolio" />
         <LargeTitledLinkCard
             title="Talks"
-            text="My public speaking about tech, code, and more."
+            text="Public speaking about tech, code, and more."
             goesTo="/talks" />
         <LargeTitledLinkCard
             title="A bit on the side"
-            text="My suite of side projects in various states of abandonment"
+            text="Side projects in various states of abandonment"
             goesTo="/side-projects"
             doNotWrapTitle={true} />
       </div>
       <div className="right-shifted">
         <LargeTitledLinkCard
             title="Articles"
-            text="Sometimes, I write. Here are the things I write. The last thing I wrote was…"
+            text="Sometimes, I write. Here are the things I write."
             goesTo="/articles" />
         <LargeTitledLinkCard
             title="Not Tech"
-            text="Not all that I do revolves around tech, here's some of my hobbies"
+            text="Not all that I do revolves around tech."
             goesTo="/not-tech" />
         <LargeTitledExternalLinkCard
             title="Contact"

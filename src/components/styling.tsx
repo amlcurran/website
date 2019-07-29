@@ -18,6 +18,10 @@ class Styling {
   static onPrimary = {
     text: "white"
   }
+
+  static card = {
+    cornerRadius: 8
+  }
 }
 
 export default Styling

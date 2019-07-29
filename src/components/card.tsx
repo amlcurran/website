@@ -12,7 +12,7 @@ const cardStyle: CSSProperties = {
   minHeight: 200,
   background: 'white',
   padding: 12,
-  borderRadius: 4
+  borderRadius: Styling.card.cornerRadius
 }
 
 const cardTitle: CSSProperties = {
@@ -53,7 +53,7 @@ const LargeTitledLinkCard = (props: LinkCardProps) => {
     <div style={{...cardStyle, margin: 16}}>
       <Link to={props.goesTo} style={linkStyle}>
         <h1 style={{ ...cardTitle }} className={classNames}>{props.title}</h1>
-        <div style={cardText}>{props.text}</div>
+        <p style={cardText}>{props.text}</p>
       </Link>
     </div>
   )
@@ -63,7 +63,7 @@ export const LargeTitledExternalLinkCard = (props: LinkCardProps) => (
     <div style={{...cardStyle, margin: 16}} className="card">
         <a href={props.goesTo} style={linkStyle} target="_blank">
             <h1 style={cardTitle}>{props.title}</h1>
-            <div style={cardText}>{props.text}</div>
+            <p style={cardText}>{props.text}</p>
         </a>
     </div>
 )
@@ -77,7 +77,7 @@ export const BasicHtmlCard = (props: BasicHtmlCardProps) => {
   return (
     <div style={cardStyle}>
       <h2>{props.title}</h2>
-      <div style={cardText} dangerouslySetInnerHTML={{ __html: props.html }} />
+      <p style={cardText} dangerouslySetInnerHTML={{ __html: props.html }} />
     </div>
   )
 }
@@ -86,7 +86,7 @@ export const SmallCard = (props: BasicHtmlCardProps) => {
   return (
     <div style={{...cardStyle, minHeight: 0}}>
       <h3>{props.title}</h3>
-      <div style={cardText} dangerouslySetInnerHTML={{ __html: props.html }} />
+      <p style={cardText} dangerouslySetInnerHTML={{ __html: props.html }} />
     </div>
   )
 }
