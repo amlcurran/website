@@ -37,7 +37,7 @@ const Talks = ({ data }: { data: TalksQuery }) => {
   const talks = data.allMarkdownRemark.edges.map(asTalkElement(data))
   return (
     <Layout seo={seo}>
-      <div style={talksStyle} className="talks">{talks}</div>
+      <div style={talksStyle} className="collapsingGrid">{talks}</div>
       <div />
     </Layout>
   )

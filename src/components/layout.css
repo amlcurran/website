@@ -30,7 +30,7 @@ body {
   row-gap: 16px;
   column-gap: 16px;
 }
-.talks {
+.collapsingGrid {
   grid-template-columns: auto auto;
 }
 article,
@@ -310,7 +310,7 @@ code {
   .headlineLink {
     grid-column: 1 / span 2;
   }
-  .talks {
+  .collapsingGrid {
     grid-template-columns: auto;
   }
 }
