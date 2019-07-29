@@ -2,6 +2,7 @@ html {
   font-family: 'Open Sans', sans-serif;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
+  /* line-height: 1.35; */
 
   --primary: #FF5900;
   --secondary: #242835;
@@ -10,6 +11,9 @@ html {
   --link-on-surface: var(--primary);
   --text-on-surface: var(--secondary);
   --surface: white;
+}
+p {
+  line-height: 1.35;
 }
 body {
   margin: 0;
