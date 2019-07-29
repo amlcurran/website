@@ -5,34 +5,17 @@ import Img from "gatsby-image";
 import { Edge, SharpImage } from "../models/graphql";
 
 const imageStyle: CSSProperties = {
+    borderRadius: 8
 }
 
-export function ui(notTechBits: Edge<SharpImage>[]): JSX.Element[] {
-    const rounds = (notTechBits.length / 3)
-    const elements: JSX.Element[] = []
-    for (let i = 0; i < rounds; i++) {
-        const initialStep = i * 3
-        const images = notTechBits.slice(initialStep, initialStep + 3)
-        elements.push(buildRow(images))
-    }
-    return elements
+export function images(name: string, notTechBits: Edge<SharpImage & File>[]): JSX.Element {
+    return buildRow(notTechBits.filter((edge) => edge.node.name.indexOf(name) !== -1))
 }
 
-function buildRow(images: Edge<SharpImage>[]): JSX.Element {
-    return <div style={{ display: "flex", position: "relative" }}>
-        <Img fluid={images[0].node.childImageSharp.fluid} style={{ flexBasis: '60%', ...imageStyle }} />
-        <div style={{ display: "flex", flexDirection: "column", flexBasis: '40%', ...imageStyle }}>
-            <Img fluid={images[1].node.childImageSharp.fluid} style={{ flexBasis: '50%', ...imageStyle }} />
-            {final(images[2])}
-        </div>
-    </div>;
-}
-
-function final(imageNode: Edge<SharpImage> | null): JSX.Element | null {
-    if (imageNode && imageNode.node.childImageSharp) {
-        return <Img fluid={imageNode.node.childImageSharp.fluid} style={{flexBasis: '50%', ...imageStyle}} />                 
-    }
-    return null;
+function buildRow(images: Edge<SharpImage & File>[]): JSX.Element {
+    return <div style={{display: "grid", gridTemplateColumns: 'auto auto auto', gridColumnGap: 8, minHeight: 150, paddingBottom: 24}}>
+        {images.map((image) => <Img key={image.node.name} fluid={image.node.childImageSharp.fluid} style={{...imageStyle}}/>)}
+    </div>
 }
 
 export const seo = <SEO
@@ -41,4 +24,4 @@ export const seo = <SEO
     description="Here's what I get up to when I'm not coding"
     key="SEO" />
 
-export default ui
+export default images
