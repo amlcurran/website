@@ -2,9 +2,6 @@
 title: "Managing my stress levels"
 date: "2018-08-20"
 ---
-
-# Managing my stress levels
-
 I've struggled a lot with stress levels over the last few years. I am aware that I am a naturally uptight person, and highly competitive, so that I believe is as much a product of who I am as the situations I'm in. But this doesn't mean I should just ignore it! 
 
 It seems like [other people](https://ppinera.es/2018/05/25/stress.html) are in a similar situation, so I felt like being open about how I try to reduce my stress would be a Good Thing To Do. Like Pedro, linked above, I feel a lot of my stress comes from tech.
