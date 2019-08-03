@@ -3,6 +3,8 @@ html {
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
 
+  --horziontal-margin: 1.0875rem;
+
   --primary: #FF5900;
   --secondary: #242835;
   --tertiary: rgb(242, 242, 246);
@@ -99,6 +101,11 @@ small {
 }
 .card {
   color: var(--text-on-surface);
+}
+.imageRow {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-column-gap: 8;
 }
 .portfolio-image {
   flex-shrink: 0;
@@ -302,6 +309,14 @@ code {
   }
   .emphasisBox {
     overflow: scroll;
+  }
+  .imageRow {
+    overflow: scroll;
+    margin: 0rem calc(-1 * var(--horziontal-margin));
+    padding: 0rem var(--horziontal-margin) 0rem var(--horziontal-margin);
+  }
+  .imageItem {
+    min-width: 200px;
   }
   .headlineTop {
     display: grid;
