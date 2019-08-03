@@ -31,7 +31,7 @@ const Layout = ({ children, seo }: LayoutProps) => (
       style={contentStyle}
     >
       <main>{children}</main>
-      <footer style={{ marginTop: 32 }}>
+      <footer style={{ marginTop: 16, marginBottom: 16 }}>
         ALEX CURRAN © {new Date().getFullYear()}
       </footer>
     </div>
