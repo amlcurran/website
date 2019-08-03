@@ -1,6 +1,7 @@
 ---
 title: "Managing my stress levels"
 date: "2018-08-20"
+slug: "managing-stress"
 ---
 I've struggled a lot with stress levels over the last few years. I am aware that I am a naturally uptight person, and highly competitive, so that I believe is as much a product of who I am as the situations I'm in. But this doesn't mean I should just ignore it! 
 

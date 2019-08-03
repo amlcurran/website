@@ -29,14 +29,14 @@ const linkStyle: CSSProperties = {
 }
 
 const badgeHostStyle: CSSProperties = {
-  display: "flex", 
-  backgroundColor: Styling.primaryColor, 
-  paddingBottom: 8, 
-  marginLeft: -12, 
-  marginRight: -12, 
-  marginBottom: -12, 
-  marginTop: -48, 
-  borderBottomLeftRadius: 4, 
+  display: "flex",
+  backgroundColor: Styling.primaryColor,
+  paddingBottom: 8,
+  marginLeft: -12,
+  marginRight: -12,
+  marginBottom: -12,
+  marginTop: -48,
+  borderBottomLeftRadius: 4,
   borderBottomRightRadius: 4
 }
 
@@ -47,10 +47,14 @@ interface LinkCardProps {
   doNotWrapTitle?: boolean
 }
 
+interface Linkable {
+  url: string
+}
+
 const LargeTitledLinkCard = (props: LinkCardProps) => {
   const classNames = props.doNotWrapTitle ? "on-the-side" : ""
   return (
-    <div style={{...cardStyle, margin: 16}}>
+    <div style={{ ...cardStyle, margin: 16 }}>
       <Link to={props.goesTo} style={linkStyle}>
         <h1 style={{ ...cardTitle }} className={classNames}>{props.title}</h1>
         <p style={cardText}>{props.text}</p>
@@ -60,12 +64,12 @@ const LargeTitledLinkCard = (props: LinkCardProps) => {
 }
 
 export const LargeTitledExternalLinkCard = (props: LinkCardProps) => (
-    <div style={{...cardStyle, margin: 16}} className="card">
-        <a href={props.goesTo} style={linkStyle} target="_blank">
-            <h1 style={cardTitle}>{props.title}</h1>
-            <p style={cardText}>{props.text}</p>
-        </a>
-    </div>
+  <div style={{ ...cardStyle, margin: 16 }} className="card">
+    <a href={props.goesTo} style={linkStyle} target="_blank">
+      <h1 style={cardTitle}>{props.title}</h1>
+      <p style={cardText}>{props.text}</p>
+    </a>
+  </div>
 )
 
 interface BasicHtmlCardProps {
@@ -82,12 +86,14 @@ export const BasicHtmlCard = (props: BasicHtmlCardProps) => {
   )
 }
 
-export const SmallCard = (props: BasicHtmlCardProps) => {
+export const SmallCard = (props: BasicHtmlCardProps & Linkable) => {
   return (
-    <div style={{...cardStyle, minHeight: 0}}>
-      <h3>{props.title}</h3>
-      <p style={cardText} dangerouslySetInnerHTML={{ __html: props.html }} />
-    </div>
+    <Link to={props.url}>
+      <div style={{ ...cardStyle, minHeight: 0 }}>
+        <h3>{props.title}</h3>
+        <p style={cardText} dangerouslySetInnerHTML={{ __html: props.html }} />
+      </div>
+    </Link>
   )
 }
 

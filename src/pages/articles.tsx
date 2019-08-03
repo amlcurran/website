@@ -9,6 +9,7 @@ import { SmallCard } from "../components/card";
 
 interface ArticleFrontmatter {
     title: string
+    slug: string
 }
 
 interface ArticlesQuery {
@@ -32,7 +33,8 @@ function asArticle(edge: Edge<MarkdownRemark<ArticleFrontmatter>>): JSX.Element 
     return <SmallCard
         key={edge.node.id}
         title={edge.node.frontmatter.title}
-        html={edge.node.excerpt || ""} />
+        html={edge.node.excerpt || ""}
+        url={`/articles/${edge.node.frontmatter.slug}`} />
 }
 
 export const query = graphql`
@@ -45,6 +47,7 @@ export const query = graphql`
                     frontmatter {
                         title
                         date
+                        slug
                     }
             }
         }
