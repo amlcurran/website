@@ -68,7 +68,7 @@ function asTalkElement(query: TalksQuery): (edge: Edge<MarkdownRemark<TalksFront
         <Img fluid={imageForTalk(edge.node.frontmatter, query)} style={{ height: 250, borderRadius: 8 }} />
         <div style={{...textStyle, display: "flex"}}>
           <div style={{flexGrow: 1}}>
-            <h5 style={{color: Styling.talks.textColor}}>{edge.node.frontmatter.presentedAt}</h5>
+            <h4 style={{color: Styling.talks.textColor}}>{edge.node.frontmatter.presentedAt}</h4>
             <h3 style={{marginBottom: 0, color: Styling.talks.textColor}}>{edge.node.frontmatter.title}</h3>
           </div>
           {buttons(edge.node.frontmatter)}

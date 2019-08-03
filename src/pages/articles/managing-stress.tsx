@@ -17,7 +17,7 @@ const Article = ({ data }: { data: ArticleQuery }) => {
     const seo = <SEO title={data.markdownRemark.frontmatter.title} keywords={[`articles`, `blog`, `vlog`, `tech`, `thoughts`]} description="Articles and piece I've written" key="SEO" />
     return (
         <Layout seo={seo}>
-            <h5>{data.markdownRemark.timeToRead + " minutes to read"}</h5>
+            <h4>{data.markdownRemark.timeToRead + " minutes to read"}</h4>
             <h1>{data.markdownRemark.frontmatter.title}</h1>
             <div dangerouslySetInnerHTML={{__html: data.markdownRemark.html}} />
         </Layout>

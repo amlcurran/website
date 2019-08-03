@@ -13,9 +13,6 @@ html {
   --text-on-surface: var(--secondary);
   --surface: white;
 }
-p {
-  line-height: 1.35;
-}
 body {
   margin: 0;
   background-color: var(--tertiary);
@@ -87,11 +84,6 @@ abbr[title] {
   text-decoration: underline;
   text-decoration: underline dotted;
 }
-h1 {
-  font-family: 'Raleway', sans-serif;
-  font-size: 2em;
-  margin: 0.67em 0;
-}
 mark {
   background-color: #ff0;
   color: #000;
@@ -123,6 +115,7 @@ img {
   margin-bottom: 1.45rem;
 }
 h1 {
+  font-family: 'Raleway', sans-serif;
   margin-left: 0;
   margin-right: 0;
   margin-top: 0;
@@ -177,44 +170,12 @@ h4 {
   padding-bottom: 0;
   padding-left: 0;
   padding-right: 0;
-  padding-top: 0;
-  margin-bottom: 1.45rem;
-  color: inherit;
-  font-weight: bold;
-  text-rendering: optimizeLegibility;
-  font-size: 1rem;
-  line-height: 1.1;
-}
-h5 {
-  font-family: 'Raleway', sans-serif;
-  margin-left: 0;
-  margin-right: 0;
-  margin-top: 0;
-  padding-bottom: 0;
-  padding-left: 0;
-  padding-right: 0;
   padding-top: 0.9rem;
   margin-bottom: 0.45rem;
   color: var(--text-on-surface);
   font-weight: bold;
   text-rendering: optimizeLegibility;
   font-size: 0.85028rem;
-  line-height: 1.1;
-}
-h6 {
-  font-family: 'Raleway', sans-serif;
-  margin-left: 0;
-  margin-right: 0;
-  margin-top: 0;
-  padding-bottom: 0;
-  padding-left: 0;
-  padding-right: 0;
-  padding-top: 0;
-  margin-bottom: 1.45rem;
-  color: inherit;
-  font-weight: bold;
-  text-rendering: optimizeLegibility;
-  font-size: 0.78405rem;
   line-height: 1.1;
 }
 p {
@@ -226,6 +187,7 @@ p {
   padding-right: 0;
   padding-top: 0;
   margin-bottom: 1.45rem;
+  line-height: 1.35;
 }
 blockquote {
   margin-left: 1.45rem;

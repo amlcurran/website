@@ -112,9 +112,9 @@ export const LargeCard = (props: LargeCardProps) => {
       <div style={{ display: 'flex' }} className="card-internal">
         <div>
           <div style={{ marginBottom: 24 }}>
-            <h5>{props.date}</h5>
+            <h4>{props.date}</h4>
             <h2 style={{ marginBottom: 0 }}>{props.title}</h2>
-            <h5 style={{ color: Styling.primaryColor }}>with {props.with}</h5>
+            <h4 style={{ color: Styling.primaryColor }}>with {props.with}</h4>
           </div>
           <div style={{ paddingBottom: 48, paddingRight: 16 }} dangerouslySetInnerHTML={{ __html: props.html }} />
         </div>
