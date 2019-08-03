@@ -4,12 +4,12 @@ position: "Principle Engineer"
 start: "2019-01-01"
 title: "Current client"
 with: "a large multinational company"
-team: 4
-platforms: ["android"]
+team: 6
+platforms: ["android", "iOS"]
 images: ["secret-android"]
 ---
 My current project is a small but vibrant app for a new client.
 
 We are working on a product that interfaces with a Bluetooth device and a web backend, to give the user information about usage patterns.
 
-Whilst small, this project has required my strong technical knowledge and project planning to ensure that the three teams (app, backend, and firmware) work in harmony to deliver the end product on time.
+Whilst small, this project has required my strong technical knowledge and project planning to ensure that the three teams (app, backend, and firmware) work in harmony to deliver the end product on time. It has also required strong project planning in order to ensure the team adapts to the changes in size it has undergone in the last 6 months.
