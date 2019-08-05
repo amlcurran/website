@@ -13,7 +13,7 @@ export function images(name: string, notTechBits: Edge<SharpImage & File>[]): JS
 }
 
 function buildRow(images: Edge<SharpImage & File>[]): JSX.Element {
-    return <div style={{display: "grid", gridTemplateColumns: 'auto auto auto', gridColumnGap: 8, minHeight: 150, paddingBottom: 24}} className="imageRow">
+    return <div style={{display: "grid", gridTemplateColumns: 'auto auto auto', gridColumnGap: 8, minHeight: 150}} className="imageRow">
         {images.map((image) => <Img key={image.node.name} fluid={image.node.childImageSharp.fluid} style={{...imageStyle}} className="imageItem" />)}
     </div>
 }

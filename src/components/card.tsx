@@ -80,7 +80,7 @@ interface BasicHtmlCardProps {
 export const BasicHtmlCard = (props: BasicHtmlCardProps) => {
   return (
     <div style={cardStyle}>
-      <h2>{props.title}</h2>
+      <h2 className="in-card">{props.title}</h2>
       <p style={cardText} dangerouslySetInnerHTML={{ __html: props.html }} />
     </div>
   )
@@ -90,7 +90,7 @@ export const SmallCard = (props: BasicHtmlCardProps & Linkable) => {
   return (
     <Link to={props.url}>
       <div style={{ ...cardStyle, minHeight: 0 }}>
-        <h3>{props.title}</h3>
+        <h3 className="in-card">{props.title}</h3>
         <p style={cardText} dangerouslySetInnerHTML={{ __html: props.html }} />
       </div>
     </Link>
@@ -113,7 +113,7 @@ export const LargeCard = (props: LargeCardProps) => {
         <div>
           <div style={{ marginBottom: 24 }}>
             <h4>{props.date}</h4>
-            <h2 style={{ marginBottom: 0 }}>{props.title}</h2>
+            <h2 style={{ marginBottom: 0 }}className="in-card" >{props.title}</h2>
             <h4 style={{ color: Styling.primaryColor }}>with {props.with}</h4>
           </div>
           <div style={{ paddingBottom: 48, paddingRight: 16 }} dangerouslySetInnerHTML={{ __html: props.html }} />
