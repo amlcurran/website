@@ -8,21 +8,23 @@ html {
   --primary: #FF5900;
   --secondary: #242835;
   --tertiary: rgb(242, 242, 246);
+  --background: var(--tertiary);
   --text-on-primary: var(--tertiary);
   --text-on-secondary: var(--tertiary);
   --link-on-surface: var(--primary);
   --text-on-surface: var(--secondary);
+  --text-on-background: var(--secondary);
   --surface: white;
 }
 body {
   margin: 0;
-  background-color: var(--tertiary);
-  color: var(--secondary);
+  background-color: var(--background);
+  color: var(--text-on-background);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 .emphasisBox a, .emphasisBox a:visited, .emphasisBox div {
-  color: var(--surface);
+  color: var(--text-on-primary);
 }
 .material-icons.md-light { color: rgba(255, 255, 255, 1); }
 .material-icons.md-36 { font-size: 36px; }
@@ -188,6 +190,7 @@ p {
   padding-top: 0;
   margin-bottom: 1.45rem;
   line-height: 1.35;
+  color: var(--text-on-surface);
 }
 blockquote {
   margin-left: 1.45rem;
@@ -292,5 +295,17 @@ code {
   }
   .collapsingGrid {
     grid-template-columns: auto;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    --primary: hsl(21, 80%, 50%);
+    --secondary: #242835;
+    --background: #191a1f;
+    --tertiary: hsl(240, 18%, 86%);
+    --text-on-background: var(--tertiary);
+    --text-on-surface: var(--tertiary);
+    --surface: var(--secondary);
   }
 }

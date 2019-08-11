@@ -14,7 +14,11 @@ class Styling {
   }
 
   static onPrimary = {
-    text: "var(--text-on-secondary)"
+    text: "var(--text-on-primary)"
+  }
+
+  static onBackground = {
+    text: "var(--text-on-background)"
   }
 
   static card = {

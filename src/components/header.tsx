@@ -19,7 +19,7 @@ const myLinkStyle: CSSProperties = {
   fontFamily: 'Raleway, sans-serif',
   letterSpacing: '0.15rem',
   justifySelf: 'start',
-  color: Styling.secondaryColor
+  color: Styling.onBackground.text
 }
 
 const linkHostInnerStyle: CSSProperties = {
