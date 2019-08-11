@@ -8,6 +8,7 @@ html {
   --primary: #FF5900;
   --secondary: #242835;
   --tertiary: rgb(242, 242, 246);
+  --text-on-primary: var(--tertiary);
   --text-on-secondary: var(--tertiary);
   --link-on-surface: var(--primary);
   --text-on-surface: var(--secondary);

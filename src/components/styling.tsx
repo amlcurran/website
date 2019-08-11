@@ -1,13 +1,11 @@
 
 class Styling {
-  static primaryColor = "#FF5900"
-  static secondaryColor = "#242935"
-  static lightTextColor = "#dbdbeb"
-  static white = "white"
-  static cardBackground = "white"
+  static primaryColor = "var(--primary)"
+  static secondaryColor = "var(--secondary)"
+  static cardBackground = "var(--surface)"
 
   static talks = {
-    textColor: "white" 
+    textColor: "var(--text-on-secondary)" 
   }
 
   static bigButtons = {
@@ -16,7 +14,7 @@ class Styling {
   }
 
   static onPrimary = {
-    text: "white"
+    text: "var(--text-on-secondary)"
   }
 
   static card = {
