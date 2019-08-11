@@ -13,7 +13,7 @@
     "gatsby-plugin-offline": "^2.0.25",
     "gatsby-plugin-react-helmet": "^3.0.9",
     "gatsby-plugin-react-svg": "^2.1.1",
-    "gatsby-plugin-sharp": "^2.0.28",
+    "gatsby-plugin-sharp": "^2.2.11",
     "gatsby-plugin-typescript": "^2.0.11",
     "gatsby-plugin-web-font-loader": "^1.0.4",
     "gatsby-source-filesystem": "^2.0.25",
