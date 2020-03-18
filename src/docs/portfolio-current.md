@@ -1,9 +1,9 @@
 ---
-date: "Jan 2019 - current"
+date: "Jan 2019 - Oct 2020"
 position: "Principle Engineer"
 start: "2019-01-01"
-title: "Current client"
-with: "a large multinational company"
+title: "myBlu"
+with: "Blu & Fontem Ventures"
 team: 6
 platforms: ["android", "iOS"]
 images: ["secret-android"]
