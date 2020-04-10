@@ -40,23 +40,21 @@ const linkInnerStyle: CSSProperties = {
   fontWeight: 700,
   marginLeft: 4,
   marginRight: 4,
-  textDecoration: 'none'
+  textDecoration: 'none',
+  transition: 'background 0.2s',
+  paddingTop: 8,
+  paddingBottom: 8,
+  borderRadius: 24
 }
 
 const currentPageStyle: CSSProperties = {
-  borderRadius: 24,
   backgroundColor: Styling.bigButtons.background,
   color: Styling.primaryColor,
-  paddingTop: 8,
-  paddingBottom: 8
 }
 
 const hoverPageStyle: CSSProperties = {
-  borderRadius: 24,
   backgroundColor: Styling.bigButtonHover.background,
-  color: Styling.bigButtonHover.color,
-  paddingTop: 8,
-  paddingBottom: 8
+  color: Styling.bigButtonHover.color
 }
 
 interface HeaderLinkProps {

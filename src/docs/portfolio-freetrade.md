@@ -3,7 +3,7 @@ date: "Oct 2020 - current"
 position: "Principle Engineer"
 start: "2019-09-01"
 title: "Freetrade"
-with: "Freetrade (Discovery and Insights"
+with: "Freetrade (Discovery and Insights)"
 team: 6
 platforms: ["android", "iOS"]
 images: ["freetrade-android"]
