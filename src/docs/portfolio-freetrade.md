@@ -6,7 +6,7 @@ title: "Freetrade"
 with: "Freetrade (Discovery and Insights"
 team: 6
 platforms: ["android", "iOS"]
-images: ["secret-android"]
+images: ["freetrade-android"]
 ---
 Freetrade is a investment platform aiming to make investing open to all.
 

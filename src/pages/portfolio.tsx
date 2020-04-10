@@ -39,7 +39,7 @@ const Portfolio = ({ data }: { data: PortfolioQuery }) => {
 
 function asPortfolioExcerpt({ node }: Edge<MarkdownRemark<PortfolioFrontmatter>>): JSX.Element {
   const badges = [
-    <Badge key="devs" text="Devs" component={(<div style={{ fontWeight: 700, fontSize: 20, color: Styling.cardBackground }}>{node.frontmatter.team}</div>)} />,
+    <Badge key="devs" text="Devs" component={(<div style={{ fontWeight: 700, fontSize: 20, color: Styling.onPrimary.text }}>{node.frontmatter.team}</div>)} />,
     platforms(node.frontmatter.platforms)
   ]
   return (
