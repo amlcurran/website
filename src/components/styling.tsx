@@ -13,6 +13,11 @@ class Styling {
     color: Styling.primaryColor
   }
 
+  static bigButtonHover = {
+    background: '#FFFFFF66',
+    color: 'white'
+  }
+
   static onPrimary = {
     text: "var(--text-on-primary)"
   }

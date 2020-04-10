@@ -1,5 +1,5 @@
 import { Link, StaticQuery, graphql } from "gatsby"
-import React, { CSSProperties } from "react"
+import React, { CSSProperties, Component } from "react"
 import { contentStyle } from "./layout"
 import Styling from "./styling";
 
@@ -38,6 +38,8 @@ const linkInnerStyle: CSSProperties = {
   minWidth: 160,
   textTransform: 'uppercase',
   fontWeight: 700,
+  marginLeft: 4,
+  marginRight: 4,
   textDecoration: 'none'
 }
 
@@ -49,22 +51,60 @@ const currentPageStyle: CSSProperties = {
   paddingBottom: 8
 }
 
+const hoverPageStyle: CSSProperties = {
+  borderRadius: 24,
+  backgroundColor: Styling.bigButtonHover.background,
+  color: Styling.bigButtonHover.color,
+  paddingTop: 8,
+  paddingBottom: 8
+}
+
 interface HeaderLinkProps {
   to: string
   text: string
   current: Location | null
 }
 
-const HeaderLink = ({ to, text, current }: HeaderLinkProps) => {
-  let style = {...linkInnerStyle}
-  if (isCurrentPage(to, current)) {
-    style = {...style, ...currentPageStyle}
+interface HeaderLinkState {
+  hover: boolean
+}
+
+class HeaderLink extends Component<HeaderLinkProps, HeaderLinkState> {
+
+  constructor(props: any) {
+    super(props)
+    this.state = {
+      hover: false
+    }
   }
-  return (
-    <Link to={to} style={{ flexGrow: 1, ...style }}>
-      {text}
-    </Link>
-)}
+
+  onHoverStart = () => {
+    this.setState({
+      hover: true
+    })
+  }
+
+  onHoverEnd = () => {
+    this.setState({
+      hover: false
+    })
+  }
+
+  render() {
+    let style = {...linkInnerStyle}
+    if (this.state.hover) {
+      style = {...style, ...hoverPageStyle}
+    }
+    if (isCurrentPage(this.props.to, this.props.current)) {
+      style = {...style, ...currentPageStyle}
+    }
+    return (
+      <Link to={this.props.to} onMouseEnter={this.onHoverStart} onMouseLeave={this.onHoverEnd} style={{ flexGrow: 1, ...style }}>
+        {this.props.text}
+      </Link>
+    )
+  }
+}
 
 function isCurrentPage(to: string, current: Location | null): boolean {
   return current && (current.pathname == to || current.pathname == to + "/") || false

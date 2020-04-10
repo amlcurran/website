@@ -298,9 +298,9 @@ code {
   }
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   html {
-    --primary: hsl(21, 80%, 50%);
+    --primary: hsl(21, 65%, 45%);
     --secondary: #242835;
     --background: #191a1f;
     --tertiary: hsl(240, 18%, 86%);
@@ -308,4 +308,4 @@ code {
     --text-on-surface: var(--tertiary);
     --surface: var(--secondary);
   }
-}
+} */
