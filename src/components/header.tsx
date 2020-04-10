@@ -41,24 +41,33 @@ const linkInnerStyle: CSSProperties = {
   textDecoration: 'none'
 }
 
+const currentPageStyle: CSSProperties = {
+  borderRadius: 24,
+  backgroundColor: Styling.bigButtons.background,
+  color: Styling.primaryColor,
+  paddingTop: 8,
+  paddingBottom: 8
+}
+
 interface HeaderLinkProps {
   to: string
   text: string
   current: Location | null
 }
 
-const HeaderLink = ({ to, text, current }: HeaderLinkProps) => (
-  <Link to={to} style={{ flexGrow: 1 }}>
-    <div style={linkInnerStyle}>{dotIfCurrent(to, current) + text}</div>
-  </Link>
-)
-
-function dotIfCurrent(to: string, current: Location | null): string {
-  if (current && (current.pathname == to || current.pathname == to + "/")) {
-    return "● "
-  } else {
-    return ""
+const HeaderLink = ({ to, text, current }: HeaderLinkProps) => {
+  let style = {...linkInnerStyle}
+  if (isCurrentPage(to, current)) {
+    style = {...style, ...currentPageStyle}
   }
+  return (
+    <Link to={to} style={{ flexGrow: 1, ...style }}>
+      {text}
+    </Link>
+)}
+
+function isCurrentPage(to: string, current: Location | null): boolean {
+  return current && (current.pathname == to || current.pathname == to + "/") || false
 }
 
 const contactButton: CSSProperties = {
