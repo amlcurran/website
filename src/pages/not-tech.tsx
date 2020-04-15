@@ -12,7 +12,7 @@ interface NotTechQuery {
 const NotTech = ({ data }: { data: NotTechQuery }) => {
     return (
         <Layout seo={seo}>
-            <p>I try hard to make sure that I don't spend all my time on my computer. Whilst not easy in my field of work, I feel it is important to try to make things with my hands, regardless of how imperfect they are. Here's just a small taste of some of my hobbies.</p>
+            <p style={{marginTop: 16}}>I try hard to make sure that I don't spend all my time on my computer. Whilst not easy in my field of work, I feel it is important to try to make things with my hands, regardless of how imperfect they are. Here's just a small taste of some of my hobbies.</p>
             <h2>Soap making</h2>
             <p>A popular hobby with friends; I make soap and bath bombs. Using melt-and-pour soaps is an easy way to get started with this, and it is great and fun to investigate different styles and techniques of soap making. It makes your flat smell great and gives you a constant stream of good presents to give people!</p>
             <>{images("soap", data.allFile.edges)}</>

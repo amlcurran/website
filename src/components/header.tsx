@@ -4,7 +4,6 @@ import { contentStyle } from "./layout"
 import Styling from "./styling";
 
 const linkHostStyle: CSSProperties = {
-  marginBottom: 24,
   backgroundColor: Styling.primaryColor,
 }
 

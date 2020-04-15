@@ -189,7 +189,7 @@ p {
   padding-right: 0;
   padding-top: 0;
   margin-bottom: 1.45rem;
-  line-height: 1.35;
+  line-height: 1.55;
   color: var(--text-on-surface);
 }
 blockquote {
@@ -255,6 +255,13 @@ code {
   padding: 0;
   padding-top: 0.2em;
   padding-bottom: 0.2em;
+}
+
+article {
+  font-size: large;
+}
+article ul {
+  line-height: 170%;
 }
 @media only screen and (max-width: 600px) {
   html {

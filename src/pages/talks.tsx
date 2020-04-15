@@ -28,6 +28,7 @@ interface TalksQuery {
 
 const talksStyle: CSSProperties = {
   display: "grid",
+  marginTop: 16,
   gridRowGap: 16,
   gridColumnGap: 16
 }
