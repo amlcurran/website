@@ -49,11 +49,11 @@ My current hobby is to try out hand lettering. It seems interesting and is purpo
 
 I've also taken to writing more on actual paper (for example, shopping lists and talk preparation). Not only does this bring you back to analogue, it helps you to not use your phone when you come to read the notes! Double whammy.
 
-/JPEG image-F6777DDF99A8-1.jpeg
+![Starting calligraphy](./IMG_2161.jpg)
 
 I've been trying DIY and even built a little garden as well! Things like learning how to keep plants alive or to build things are ~~not my strong suit~~ tactile and slow-pace skills compared to tech. Here's a table I built last year, following [this guide](https://www.abeautifulmess.com/2015/01/diy-wooden-coffee-table.html). I actually rushed it, as I was so excited to make it. I wish I had taken more time!
 
-/JPEG image-87D1DBCDFCC8-1.jpeg
+![My hand-built table](./IMG_0046.jpg)
 
 ## Read more
 
