@@ -106,6 +106,10 @@ small {
   flex-shrink: 0;
   width: 25%;
 }
+.portfolio-image-large {
+  flex-shrink: 0;
+  width: 45%;
+}
 img {
   max-width: 100%;
   margin-left: 0;

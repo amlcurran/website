@@ -100,9 +100,11 @@ interface LargeCardProps {
   with: string
   badges?: JSX.Element[]
   image: JSX.Element
+  largeImage: boolean
 }
 
 export const LargeCard = (props: LargeCardProps) => {
+  const clazz = props.largeImage ? "portfolio-image-large" : "portfolio-image"
   return (
     <div style={cardStyle} className="card">
       <div style={{ display: 'flex' }} className="card-internal">
@@ -114,7 +116,7 @@ export const LargeCard = (props: LargeCardProps) => {
           </div>
           <div style={{ paddingBottom: 48, paddingRight: 16 }} dangerouslySetInnerHTML={{ __html: props.html }} />
         </div>
-        <div className="portfolio-image">{props.image}</div>
+        <div className={clazz}>{props.image}</div>
       </div>
       <div style={badgeHostStyle}>{props.badges}</div>
     </div>
