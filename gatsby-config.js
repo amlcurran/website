@@ -68,7 +68,7 @@ module.exports = {
       resolve: 'gatsby-plugin-web-font-loader',
       options: {
         google: {
-          families: ['Raleway:300,700', 'Material Icons:400', 'Open Sans:400', 'Source Serif Pro:400,700']
+          families: ['Domine:300,700', 'Material Icons:400', 'Open Sans:400', 'Source Serif Pro:400,700']
         }
       }
     },

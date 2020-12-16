@@ -12,15 +12,6 @@ const myStyle: CSSProperties = {
   paddingBottom: 12
 }
 
-const myLinkStyle: CSSProperties = {
-  fontSize: 32,
-  fontWeight: 700,
-  fontFamily: 'Raleway, sans-serif',
-  letterSpacing: '0.15rem',
-  justifySelf: 'start',
-  color: Styling.onBackground.text
-}
-
 const linkHostInnerStyle: CSSProperties = {
   display: "flex",
   alignItems: "center",
@@ -129,7 +120,7 @@ const Header = () => {
       return (
         <header>
           <div style={{ ...contentStyle, ...myStyle }} className="headlineTop">
-            <Link to="/" style={myLinkStyle} className="headlineLink">Hey, I'm Alex Curran.</Link>
+            <Link to="/" className="headlineLink headline" style={{ color: Styling.secondaryColor }}>Hey, I'm Alex Curran.</Link>
             <a href={query.file.publicURL} style={contactButton} className="emphasisBox">CV</a>
             <a href="mailto:aml.curran+website@gmail.com" style={contactButton} className="emphasisBox">Contact</a>
           </div>
