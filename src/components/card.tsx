@@ -7,33 +7,23 @@ const cardStyle: CSSProperties = {
   minWidth: 250,
   flexGrow: 1,
   flexBasis: 0,
-  marginTop: 16,
+  marginTop: 24,
   marginBottom: 16,
-  minHeight: 200,
   background: Styling.cardBackground,
-  padding: 12,
   borderRadius: Styling.card.cornerRadius
 }
 
+const frontPageCard: CSSProperties = {
+  ...cardStyle,
+  padding: 12
+}
+
 const cardTitle: CSSProperties = {
-  color: Styling.primaryColor,
-  fontSize: 56,
+  color: Styling.primaryColor
 }
 
 const linkStyle: CSSProperties = {
   textDecoration: 'none'
-}
-
-const badgeHostStyle: CSSProperties = {
-  display: "flex",
-  backgroundColor: Styling.primaryColor,
-  paddingBottom: 8,
-  marginLeft: -12,
-  marginRight: -12,
-  marginBottom: -12,
-  marginTop: -48,
-  borderBottomLeftRadius: 4,
-  borderBottomRightRadius: 4
 }
 
 interface LinkCardProps {
@@ -50,7 +40,7 @@ interface Linkable {
 const LargeTitledLinkCard = (props: LinkCardProps) => {
   const classNames = props.doNotWrapTitle ? "on-the-side" : ""
   return (
-    <div style={{ ...cardStyle, margin: 16 }}>
+    <div style={{ ...frontPageCard, margin: 16 }}>
       <Link to={props.goesTo} style={linkStyle}>
         <h1 style={{ ...cardTitle }} className={classNames}>{props.title}</h1>
         <p>{props.text}</p>
@@ -86,7 +76,7 @@ export const SmallCard = (props: BasicHtmlCardProps & Linkable) => {
   return (
     <Link to={props.url}>
       <div style={{ ...cardStyle, minHeight: 0 }}>
-        <h3 className="in-card">{props.title}</h3>
+        <h2 className="in-card">{props.title}</h2>
         <p dangerouslySetInnerHTML={{ __html: props.html }} />
       </div>
     </Link>
@@ -108,17 +98,16 @@ export const LargeCard = (props: LargeCardProps) => {
   return (
     <div style={cardStyle} className="card">
       <div style={{ display: 'flex' }} className="card-internal">
-        <div>
-          <div style={{ marginBottom: 24 }}>
+        <div className={clazz}>{props.image}</div>
+        <div style={{ marginLeft: 24 }}>
+          <div style={{ marginBottom: 24, marginTop: 32 }}>
             <h2 style={{ marginBottom: 0 }} className="in-card" >{props.title}</h2>
             <h4 style={{ color: Styling.primaryColor }}>with {props.with}</h4>
             <h4>{props.date}</h4>
           </div>
           <div style={{ paddingBottom: 48, paddingRight: 16 }} dangerouslySetInnerHTML={{ __html: props.html }} />
         </div>
-        <div className={clazz}>{props.image}</div>
       </div>
-      <div style={badgeHostStyle}>{props.badges}</div>
     </div>
   )
 }

@@ -5,7 +5,7 @@ import SEO from "../components/seo"
 import { GraphQLList, Edge } from "../models/graphql";
 import { MarkdownRemark } from "../models/remark";
 import { graphql } from "gatsby";
-import LargeTitledLinkCard, { BasicHtmlCard } from "../components/card";
+import { BasicHtmlCard } from "../components/card";
 
 interface SideProjectFrontmatter {
   start: Date

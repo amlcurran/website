@@ -6,6 +6,7 @@ import LargeTitledLinkCard, { LargeTitledExternalLinkCard } from '../components/
 import "./index.css"
 import { graphql } from "gatsby";
 import Img from "gatsby-image";
+import Styling from "../components/styling"
 
 const backgroundImageStyle: CSSProperties = {
   position: "absolute",
@@ -18,20 +19,16 @@ const backgroundImageStyle: CSSProperties = {
 }
 
 const myStyle: CSSProperties = {
-  fontSize: 32,
   paddingTop: 12,
-  paddingBottom: 12,
-  fontWeight: 700,
-  fontFamily: 'Raleway, sans-serif',
-  letterSpacing: '0.15rem'
+  paddingBottom: 6
 }
 
 const NewIndexPage = (query: any) => (
   <>
     <main style={contentStyle}>
       <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} description="Alex Curran's portfolio website" />
-      <div style={{ ...myStyle }}>Hey, I'm Alex Curran.</div>
-      <div style={{ marginBottom: 72 }}>I’m a software developer, specialising in mobile applications across Android and iOS.</div>
+      <div style={{ ...myStyle, color: Styling.secondaryColor }} className="headlineLink headline">Hey, I'm Alex Curran.</div>
+      <div style={{ marginBottom: 48 }}>I’m a software developer, specialising in mobile applications across Android and iOS.</div>
       <div className="left-shifted">
         <LargeTitledLinkCard
             title="Portfolio"
