@@ -108,7 +108,7 @@ small {
 }
 .portfolio-image-large {
   flex-shrink: 0;
-  width: 45%;
+  width: 33%;
 }
 img {
   max-width: 100%;

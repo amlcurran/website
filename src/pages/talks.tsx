@@ -8,6 +8,7 @@ import { Url } from "url";
 import { GraphQLList, Edge } from "../models/graphql";
 import { MarkdownRemark } from "../models/remark";
 import Styling from "../components/styling";
+import { LargeCard } from "../components/card";
 
 interface TalksFrontmatter {
   title: string
@@ -27,7 +28,7 @@ interface TalksQuery {
 }
 
 const talksStyle: CSSProperties = {
-  display: "grid",
+  display: "block",
   marginTop: 16,
   gridRowGap: 16,
   gridColumnGap: 16
@@ -65,19 +66,15 @@ const textStyle: CSSProperties = {
 
 function asTalkElement(query: TalksQuery): (edge: Edge<MarkdownRemark<TalksFrontmatter>>) => JSX.Element {
   return (edge) => (
-    <div key={edge.node.frontmatter.title}>
-      <div style={containerStyle}>
-        <Img fluid={imageForTalk(edge.node.frontmatter, query)} style={{ height: 250, borderRadius: 8 }} />
-        <div style={{...textStyle, display: "flex"}}>
-          <div style={{flexGrow: 1}}>
-            <h4 style={{color: Styling.talks.textColor}}>{edge.node.frontmatter.presentedAt}</h4>
-            <h3 style={{marginBottom: 0, color: Styling.talks.textColor}}>{edge.node.frontmatter.title}</h3>
-          </div>
-          {buttons(edge.node.frontmatter)}
-        </div>
-      </div>
-      <div dangerouslySetInnerHTML={{ __html: edge.node.html }} />
-    </div>
+    <LargeCard
+    key={edge.node.frontmatter.title}
+    title={edge.node.frontmatter.title}
+    date={""}
+    badges={[<div />]}
+    html={edge.node.html}
+    with={edge.node.frontmatter.presentedAt}
+    image={<Img fluid={imageForTalk(edge.node.frontmatter, query)} style={{ height: 250, borderRadius: 8 }} />}
+    largeImage={true} />
   )
 }
 

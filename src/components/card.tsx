@@ -105,7 +105,7 @@ export const LargeCard = (props: LargeCardProps) => {
             <h4 style={{ color: Styling.primaryColor }}>with {props.with}</h4>
             <h4>{props.date}</h4>
           </div>
-          <div style={{ paddingBottom: 48, paddingRight: 16 }} dangerouslySetInnerHTML={{ __html: props.html }} />
+          <div style={{ paddingRight: 16 }} dangerouslySetInnerHTML={{ __html: props.html }} />
         </div>
       </div>
     </div>
