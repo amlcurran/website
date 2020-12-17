@@ -39,30 +39,16 @@ const Portfolio = ({ data }: { data: PortfolioQuery }) => {
 }
 
 function asPortfolioExcerpt({ node }: Edge<MarkdownRemark<PortfolioFrontmatter>>): JSX.Element {
-  const badges = [
-    <Badge key="devs" text="Devs" component={(<div style={{ fontWeight: 700, fontSize: 20, color: Styling.onPrimary.text }}>{node.frontmatter.team}</div>)} />,
-    platforms(node.frontmatter.platforms)
-  ]
   return (
     <LargeCard
       key={node.frontmatter.title}
       title={node.frontmatter.title}
       date={node.frontmatter.date + " ● " + node.frontmatter.position}
-      badges={badges}
       html={node.html}
       with={node.frontmatter.with}
       image={<PhoneFrame name={node.frontmatter.images[0]} />}
       largeImage={node.frontmatter.largeImage} />
   )
-}
-
-function platforms(platforms: string[]): JSX.Element {
-  const apple = platforms.includes("iOS") ? <Badge key="ios" text="iOS" component={<AppleLogo height="26px" style={{ fill: "white" }} />} /> : null
-  const android = platforms.includes("android") ? <Badge key="android" text="Android" component={<AndroidLogo height="26px" style={{ fill: "white" }} />} /> : null
-  return (<>
-    {apple}
-    {android}
-  </>)
 }
 
 export const pageQuery = graphql`{
