@@ -318,14 +318,14 @@ article ul {
   }
 }
 
-/* @media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: dark) {
   html {
-    --primary: hsl(21, 65%, 45%);
-    --secondary: #242835;
+    --primary: hsl(21, 75%, 55%);
+    --secondary: hsl(240, 18%, 94%);
     --background: #191a1f;
-    --tertiary: hsl(240, 18%, 86%);
+    --tertiary: hsl(240, 18%, 90%);
     --text-on-background: var(--tertiary);
     --text-on-surface: var(--tertiary);
-    --surface: var(--secondary);
+    --surface: var(--background);
   }
-} */
+}
