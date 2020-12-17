@@ -96,6 +96,7 @@ interface LargeCardProps {
 
 export const LargeCard = (props: LargeCardProps) => {
   const clazz = props.largeImage ? "portfolio-image-large" : "portfolio-image"
+  const date2 = props.date.length > 0 ? (<h4>{props.date}</h4>) : undefined
   return (
     <div style={cardStyle} className="card">
       <div style={{ display: 'flex' }} className="card-internal">
@@ -104,9 +105,9 @@ export const LargeCard = (props: LargeCardProps) => {
           <div style={{ marginTop: 16 }}>
             <h2 style={{ marginBottom: 0 }} className="in-card" >{props.title}</h2>
             <h4 style={{ color: Styling.primaryColor }}>with {props.with}</h4>
-            <h4>{props.date}</h4>
+            {date2}
           </div>
-          <div style={{ paddingRight: 16 }} dangerouslySetInnerHTML={{ __html: props.html }} />
+          <div style={{ paddingRight: 16, marginTop: 16 }} dangerouslySetInnerHTML={{ __html: props.html }} />
         </div>
       </div>
     </div>
