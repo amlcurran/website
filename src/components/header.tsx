@@ -99,7 +99,7 @@ function isCurrentPage(to: string, current: Location | null): boolean {
 }
 
 const contactButton: CSSProperties = {
-  padding: '8px 0px',
+  padding: '10px 0px',
   borderRadius: 24,
   backgroundColor: Styling.bigButtons.background,
   color: Styling.primaryColor,

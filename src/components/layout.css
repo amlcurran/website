@@ -1,5 +1,5 @@
 html {
-  font-family: 'Open Sans', sans-serif;
+  font-family: sans-serif;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
 
@@ -291,6 +291,9 @@ article ul {
   .portfolio-image {
     height: 0px;
     width: 0px
+  }
+  .portfolio-image-large {
+    width: 100%
   }
   .emphasisBox {
     overflow: scroll;

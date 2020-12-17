@@ -2,18 +2,17 @@ import React, { CSSProperties } from "react"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { graphql, StaticQuery } from "gatsby";
+import { graphql } from "gatsby";
 import Img, { FluidObject } from "gatsby-image";
 import { Url } from "url";
 import { GraphQLList, Edge } from "../models/graphql";
 import { MarkdownRemark } from "../models/remark";
-import Styling from "../components/styling";
 import { LargeCard } from "../components/card";
 
 interface TalksFrontmatter {
   title: string
   slides: string
-  video?: Url
+  video: Url
   image: string
   presentedAt: string
   date: Date
@@ -45,32 +44,13 @@ const Talks = ({ data }: { data: TalksQuery }) => {
   )
 }
 
-const containerStyle: CSSProperties = {
-  position: "relative", 
-  marginBottom: 16
-}
-
-const textStyle: CSSProperties = {
-  position: "absolute", 
-  bottom: 0, 
-  left: 0, 
-  right:0, 
-  paddingRight: 16, 
-  borderBottomLeftRadius: 8,
-  borderBottomRightRadius: 8,
-  paddingLeft: 16, 
-  paddingBottom: 12, 
-  paddingTop: 8,
-  backgroundColor: "#0009"
-}
-
 function asTalkElement(query: TalksQuery): (edge: Edge<MarkdownRemark<TalksFrontmatter>>) => JSX.Element {
   return (edge) => (
     <LargeCard
     key={edge.node.frontmatter.title}
     title={edge.node.frontmatter.title}
     date={""}
-    badges={[<div />]}
+    link={String(edge.node.frontmatter.video)}
     html={edge.node.html}
     with={edge.node.frontmatter.presentedAt}
     image={<Img fluid={imageForTalk(edge.node.frontmatter, query)} style={{ height: 250, borderRadius: 8 }} />}
@@ -80,25 +60,6 @@ function asTalkElement(query: TalksQuery): (edge: Edge<MarkdownRemark<TalksFront
 
 function imageForTalk(frontmatter: TalksFrontmatter, query: TalksQuery): FluidObject {
   return query[frontmatter.image].childImageSharp.fluid
-}
-
-function buttons(frontmatter: TalksFrontmatter): JSX.Element[] {
-  const elements: JSX.Element[] = []
-  if (frontmatter.slides) {
-    elements.push(
-      <a href={frontmatter.slides} target="_blank" style={{paddingLeft: 8, alignSelf: "center"}}>
-        <i className="material-icons md-light md-36" >desktop_mac</i>
-      </a>
-    )
-  }
-  if (frontmatter.video) {
-    elements.push(
-      <a href={frontmatter.video} target="_blank" style={{paddingLeft: 8, alignSelf: "center"}}>
-        <i className="material-icons md-light md-36" >ondemand_video</i>
-      </a>
-    )
-  }
-  return elements
 }
 
 export const pageQuery = graphql`{
