@@ -7,7 +7,7 @@ const Article = ({ data }: { data: ArticleQuery }) => (<ArticlePage {...data} />
 
 export const query = graphql`
   query {
-    markdownRemark(fileAbsolutePath: { glob: "**/articles/managing-stress.md" }) {
+    markdownRemark(fileAbsolutePath: { glob: "**/articles/profiling-freetrade.md" }) {
         html
         id
         timeToRead

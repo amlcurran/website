@@ -24,7 +24,7 @@ const Articles = ({ data }: { data: ArticlesQuery }) => {
     const articles = data.allMarkdownRemark.edges.map((edge) => asArticle(edge, data.image))
     return (
         <Layout seo={seo}>
-            {<main style={{display: "grid", gridRowGap: 16, gridColumnGap: 16}} className="collapsingGrid">
+            {<main className="collapsingGrid">
                 {articles}
             </main>}
             {<h3 style={{ textAlign: "center" }}><a href="https://www.medium.com/@amlcurran" target="_blank"> Older articles →</a></h3>}

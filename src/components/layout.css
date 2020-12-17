@@ -36,7 +36,7 @@ body {
   column-gap: 16px;
 }
 .collapsingGrid {
-  grid-template-columns: auto auto;
+  grid-template-columns: auto;
 }
 article,
 aside,
