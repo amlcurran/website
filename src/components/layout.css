@@ -205,14 +205,11 @@ p {
   color: var(--text-on-surface);
 }
 blockquote {
-  margin-left: 1.45rem;
-  margin-right: 1.45rem;
-  margin-top: 0;
-  padding-bottom: 0;
-  padding-left: 0;
-  padding-right: 0;
-  padding-top: 0;
-  margin-bottom: 1.45rem;
+  font-family: sans-serif;
+  border-left: 2px solid var(--text-on-surface);
+  padding-left: 12px;
+  font-style: oblique;
+  margin: 1.45rem;
   font-size: x-large;
 }
 b {
