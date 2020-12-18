@@ -64,7 +64,7 @@ interface BasicHtmlCardProps {
   html: string
 }
 
-export cFixonst BasicHtmlCard = (props: BasicHtmlCardProps) => {
+export const BasicHtmlCard = (props: BasicHtmlCardProps) => {
   return (
     <div style={cardStyle}>
       <h2 className="in-card">{props.title}</h2>
