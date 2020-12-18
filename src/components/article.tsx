@@ -1,8 +1,8 @@
 import React from "react"
 
-import Layout from "../../components/layout"
-import SEO from "../../components/seo"
-import { MarkdownRemark } from "../../models/remark";
+import Layout from "./layout"
+import SEO from "./seo"
+import { MarkdownRemark } from "../models/remark";
 
 export interface ArticleFrontmatter {
     title: string

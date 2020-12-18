@@ -1,7 +1,7 @@
 import React from "react"
 
 import { graphql } from "gatsby";
-import { ArticlePage, ArticleQuery } from "./article";
+import { ArticlePage, ArticleQuery } from "../../components/article";
 
 const Article = ({ data }: { data: ArticleQuery }) => (<ArticlePage {...data} />)
 
