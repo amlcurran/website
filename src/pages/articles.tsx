@@ -12,16 +12,18 @@ interface ArticleFrontmatter {
     title: string
     slug: string
     date: string
+    image: string
 }
 
 interface ArticlesQuery {
     allMarkdownRemark: GraphQLList<MarkdownRemark<ArticleFrontmatter>>
-    image: SharpImage
+    stress: SharpImage
+    profile: SharpImage
 }
 
 const Articles = ({ data }: { data: ArticlesQuery }) => {
     const seo = <SEO title="Articles" keywords={[`articles`, `blog`, `vlog`, `tech`, `thoughts`]} description="Articles and piece I've written" key="SEO" />
-    const articles = data.allMarkdownRemark.edges.map((edge) => asArticle(edge, data.image))
+    const articles = data.allMarkdownRemark.edges.map((edge) => asArticle(edge, data))
     return (
         <Layout seo={seo}>
             {<main className="collapsingGrid">
@@ -32,14 +34,16 @@ const Articles = ({ data }: { data: ArticlesQuery }) => {
     )
 }
 
-function asArticle(edge: Edge<MarkdownRemark<ArticleFrontmatter>>, image: SharpImage): JSX.Element {
+function asArticle(edge: Edge<MarkdownRemark<ArticleFrontmatter>>, data: any): JSX.Element {
+    console.log(data)
+    console.log(edge)
     return <SmallCard
         key={edge.node.id}
         title={edge.node.frontmatter.title}
         date={edge.node.frontmatter.date}
         with={""}
         link={`/articles/${edge.node.frontmatter.slug}`}
-        image={<Img fluid={image.childImageSharp.fluid} style={{ borderRadius: 8 }} />}
+        image={<Img fluid={data[edge.node.frontmatter.image].childImageSharp.fluid} style={{ borderRadius: 8 }} />}
         largeImage={true}
         html={edge.node.excerpt || ""}
         url={`/articles/${edge.node.frontmatter.slug}`} />
@@ -56,18 +60,26 @@ export const query = graphql`
                         title
                         date
                         slug
+                        image
                     }
             }
         }
     }
-    image: file(relativePath: { eq: "IMG_2161.jpg" }) {
+    stress: file(relativePath: { eq: "IMG_2161.jpg" }) {
         childImageSharp {
           fluid(maxWidth: 300) {
             ...GatsbyImageSharpFluid
           }
         }
       }
-  }  
+    profile: file(relativePath: { eq: "6-output.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 300) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    } 
 `
 
 export default Articles
