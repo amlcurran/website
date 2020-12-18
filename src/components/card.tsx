@@ -51,7 +51,7 @@ const LargeTitledLinkCard = (props: LinkCardProps) => {
 }
 
 export const LargeTitledExternalLinkCard = (props: LinkCardProps) => (
-  <div style={{ ...cardStyle, margin: 16 }} className="card">
+  <div style={{ ...frontPageCard, margin: 16 }} className="card">
     <a href={props.goesTo} style={linkStyle} target="_blank">
       <h1 style={cardTitle}>{props.title}</h1>
       <p>{props.text}</p>
@@ -64,7 +64,7 @@ interface BasicHtmlCardProps {
   html: string
 }
 
-export const BasicHtmlCard = (props: BasicHtmlCardProps) => {
+export cFixonst BasicHtmlCard = (props: BasicHtmlCardProps) => {
   return (
     <div style={cardStyle}>
       <h2 className="in-card">{props.title}</h2>
