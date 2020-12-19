@@ -1,5 +1,5 @@
 import { Link, StaticQuery, graphql } from "gatsby"
-import React, { CSSProperties, Component } from "react"
+import React, { CSSProperties, useEffect, useState } from "react"
 import { contentStyle } from "./layout"
 import Styling from "./styling";
 
@@ -57,41 +57,27 @@ interface HeaderLinkState {
   hover: boolean
 }
 
-class HeaderLink extends Component<HeaderLinkProps, HeaderLinkState> {
+function HeaderLink2(props: HeaderLinkProps) {
+  const [hover, setHover] = useState(false)
+  let style = {...linkInnerStyle}
+  if (hover) {
+    style = {...style, ...hoverPageStyle}
+  }
+  if (isCurrentPage(props.to, props.current)) {
+    style = {...style, ...currentPageStyle}
+  }
 
-  constructor(props: any) {
-    super(props)
-    this.state = {
-      hover: false
+  const fieldRef = React.useRef<HTMLAnchorElement>(null);
+  useEffect(() => {
+    if (isCurrentPage(props.to, props.current) && fieldRef?.current) {
+      fieldRef.current.scrollIntoView({ block: "nearest", inline: "end", behavior: "smooth" })
     }
-  }
-
-  onHoverStart = () => {
-    this.setState({
-      hover: true
-    })
-  }
-
-  onHoverEnd = () => {
-    this.setState({
-      hover: false
-    })
-  }
-
-  render() {
-    let style = {...linkInnerStyle}
-    if (this.state.hover) {
-      style = {...style, ...hoverPageStyle}
-    }
-    if (isCurrentPage(this.props.to, this.props.current)) {
-      style = {...style, ...currentPageStyle}
-    }
-    return (
-      <Link to={this.props.to} onMouseEnter={this.onHoverStart} onMouseLeave={this.onHoverEnd} style={{ flexGrow: 1, ...style }}>
-        {this.props.text}
-      </Link>
-    )
-  }
+  }, [])
+  return (
+    <Link to={props.to} ref={fieldRef} onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)} style={{ flexGrow: 1, ...style }}>
+      {props.text}
+    </Link>
+  )
 }
 
 function isCurrentPage(to: string, current: Location | null): boolean {
@@ -124,13 +110,13 @@ const Header = () => {
             <a href={query.file.publicURL} style={contactButton} className="emphasisBox">CV</a>
             <a href="mailto:aml.curran+website@gmail.com" style={contactButton} className="emphasisBox">Contact</a>
           </div>
-          <div style={linkHostStyle} className="emphasisBox">
-            <nav style={{ ...contentStyle, ...linkHostInnerStyle }}>
-              <HeaderLink to="/portfolio" text="Portfolio" current={location} />
-              <HeaderLink to="/talks" text="Talks" current={location} />
-              <HeaderLink to="/side-projects" text="On the side" current={location} />
-              <HeaderLink to="/articles" current={location} text="Articles" />
-              <HeaderLink to="/not-tech" text="Not tech" current={location} />
+          <div style={linkHostStyle} >
+            <nav style={{ ...contentStyle, ...linkHostInnerStyle }} className="emphasisBox">
+              <HeaderLink2 to="/portfolio" text="Portfolio" current={location} />
+              <HeaderLink2 to="/talks" text="Talks" current={location} />
+              <HeaderLink2 to="/side-projects" text="On the side" current={location} />
+              <HeaderLink2 to="/articles" current={location} text="Articles" />
+              <HeaderLink2 to="/not-tech" text="Not tech" current={location} />
             </nav>
           </div>
         </header>
