@@ -1,15 +1,11 @@
 import React from "react"
 import { graphql } from "gatsby"
 
-import Badge from "../components/badge"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import AppleLogo from "../images/apple_logo.svg"
-import AndroidLogo from "../images/android.svg"
 import { GraphQLList, Edge } from "../models/graphql";
 import { MarkdownRemark } from "../models/remark";
 import { LargeCard } from "../components/card";
-import Styling from "../components/styling";
 import PhoneFrame from "../components/phone-frames";
 
 interface PortfolioFrontmatter {

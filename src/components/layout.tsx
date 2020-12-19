@@ -7,7 +7,7 @@
 
 import React, { CSSProperties } from "react"
 
-import Header from "./header"
+import Header from "./Header"
 import "./layout.css"
 import SEO from "./seo";
 

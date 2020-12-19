@@ -53,10 +53,6 @@ interface HeaderLinkProps {
   current: Location | null
 }
 
-interface HeaderLinkState {
-  hover: boolean
-}
-
 function HeaderLink2(props: HeaderLinkProps) {
   const [hover, setHover] = useState(false)
   let style = {...linkInnerStyle}
