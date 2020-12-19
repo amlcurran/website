@@ -2,11 +2,11 @@ import React, { CSSProperties } from "react"
 
 import { contentStyle } from "../components/layout"
 import SEO from "../components/seo"
-import LargeTitledLinkCard, { LargeTitledExternalLinkCard } from '../components/card'
 import "./index.css"
 import { graphql } from "gatsby";
 import Img from "gatsby-image";
 import Styling from "../components/styling"
+import FrontPageCard, { ExternalLinkFrontPageCard } from "../components/FrontPageCard";
 
 const backgroundImageStyle: CSSProperties = {
   position: "absolute",
@@ -30,30 +30,30 @@ const NewIndexPage = (query: any) => (
       <div style={{ ...myStyle, color: Styling.secondaryColor }} className="headlineLink headline">Hey, I'm Alex Curran.</div>
       <div style={{ marginBottom: 48 }}>I’m a software developer, specialising in mobile applications across Android and iOS.</div>
       <div className="left-shifted">
-        <LargeTitledLinkCard
+        <FrontPageCard
             title="Portfolio"
             text="The projects I’ve worked on in my career"
             goesTo="/portfolio" />
-        <LargeTitledLinkCard
+        <FrontPageCard
             title="Talks"
             text="Public speaking about tech, code, and more."
             goesTo="/talks" />
-        <LargeTitledLinkCard
+        <FrontPageCard
             title="A bit on the side"
             text="Side projects in various states of abandonment"
             goesTo="/side-projects"
             doNotWrapTitle={true} />
       </div>
       <div className="right-shifted">
-        <LargeTitledLinkCard
+        <FrontPageCard
             title="Articles"
             text="Sometimes, I write. Here are the things I write."
             goesTo="/articles" />
-        <LargeTitledLinkCard
+        <FrontPageCard
             title="Not Tech"
             text="Not all that I do revolves around tech."
             goesTo="/not-tech" />
-        <LargeTitledExternalLinkCard
+        <ExternalLinkFrontPageCard
             title="Contact"
             text="Want to chat about something? Then get in touch"
             goesTo="mailto:aml.curran+website@gmail.com" />

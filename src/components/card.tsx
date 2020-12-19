@@ -1,10 +1,9 @@
 import React, { CSSProperties } from "react"
 import { Link } from "@reach/router";
-import { Url } from "url";
 import Styling from "./styling";
 import "./layout.css"
 
-const cardStyle: CSSProperties = {
+export const cardStyle: CSSProperties = {
   minWidth: 250,
   flexGrow: 1,
   flexBasis: 0,
@@ -13,50 +12,9 @@ const cardStyle: CSSProperties = {
   background: Styling.cardBackground
 }
 
-const frontPageCard: CSSProperties = {
-  ...cardStyle,
-  padding: 12
-}
-
-const cardTitle: CSSProperties = {
-  color: Styling.primaryColor
-}
-
-const linkStyle: CSSProperties = {
-  textDecoration: 'none'
-}
-
-interface LinkCardProps {
-  title: string
-  text: string
-  goesTo: string
-  doNotWrapTitle?: boolean
-}
-
 interface Linkable {
   url: string
 }
-
-const LargeTitledLinkCard = (props: LinkCardProps) => {
-  const classNames = props.doNotWrapTitle ? "on-the-side" : ""
-  return (
-    <div style={{ ...frontPageCard, margin: 16 }}>
-      <Link to={props.goesTo} style={linkStyle}>
-        <h1 style={{ ...cardTitle }} className={classNames}>{props.title}</h1>
-        <p>{props.text}</p>
-      </Link>
-    </div>
-  )
-}
-
-export const LargeTitledExternalLinkCard = (props: LinkCardProps) => (
-  <div style={{ ...frontPageCard, margin: 16 }} className="card">
-    <a href={props.goesTo} style={linkStyle} target="_blank">
-      <h1 style={cardTitle}>{props.title}</h1>
-      <p>{props.text}</p>
-    </a>
-  </div>
-)
 
 interface BasicHtmlCardProps {
   title: string
@@ -109,4 +67,3 @@ export const LargeCard = (props: LargeCardProps) => {
     </div>
   )
 }
-export default LargeTitledLinkCard
