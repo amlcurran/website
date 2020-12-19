@@ -35,8 +35,6 @@ const Articles = ({ data }: { data: ArticlesQuery }) => {
 }
 
 function asArticle(edge: Edge<MarkdownRemark<ArticleFrontmatter>>, data: any): JSX.Element {
-    console.log(data)
-    console.log(edge)
     return <SmallCard
         key={edge.node.id}
         title={edge.node.frontmatter.title}

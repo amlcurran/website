@@ -28,7 +28,7 @@ const SideProjects = ({ data }: { data: SideProjectsQuery }) => {
 
 function asSideProject({ node }: Edge<MarkdownRemark<SideProjectFrontmatter>>): JSX.Element {
   return (
-    <BasicHtmlCard title={node.frontmatter.title} html={node.html} />
+    <BasicHtmlCard title={node.frontmatter.title} html={node.html} key={node.id} />
   )
 }
 

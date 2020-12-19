@@ -10,8 +10,7 @@ const cardStyle: CSSProperties = {
   flexBasis: 0,
   marginTop: 24,
   marginBottom: 16,
-  background: Styling.cardBackground,
-  borderRadius: Styling.card.cornerRadius
+  background: Styling.cardBackground
 }
 
 const frontPageCard: CSSProperties = {
@@ -99,7 +98,7 @@ export const LargeCard = (props: LargeCardProps) => {
     <div style={cardStyle} className="card">
       <div style={{ display: 'flex' }} className="card-internal">
         <div className={clazz}>{props.image}</div>
-        <div style={{ marginLeft: 24 }}>
+        <div>
           <div style={{ marginTop: 16 }}>
             <h2 style={{ marginBottom: 0 }} className="in-card" >{props.title}</h2>
             {[withText, date2]}

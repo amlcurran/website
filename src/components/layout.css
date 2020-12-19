@@ -105,10 +105,12 @@ small {
 .portfolio-image {
   flex-shrink: 0;
   width: 20%;
+  margin-right: 24px;
 }
 .portfolio-image-large {
   flex-shrink: 0;
   width: 33%;
+  margin-right: 24px;
 }
 img {
   max-width: 100%;
@@ -278,7 +280,6 @@ article ul {
     font-size: 100%;
   } 
   nav {
-    width: 600px;
     display: table;
     table-layout: fixed;
   }
@@ -287,10 +288,12 @@ article ul {
   }
   .portfolio-image {
     height: 0px;
-    width: 0px
+    width: 0px;
+    margin-right: 0px;
   }
   .portfolio-image-large {
-    width: 100%
+    width: 100%;
+    margin-right: 0px;
   }
   .emphasisBox {
     overflow: scroll;
