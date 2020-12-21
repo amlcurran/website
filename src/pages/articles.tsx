@@ -5,7 +5,7 @@ import SEO from "../components/seo"
 import { graphql } from "gatsby";
 import { GraphQLList, Edge, SharpImage } from "../models/graphql";
 import { MarkdownRemark } from "../models/remark";
-import { SmallCard } from "../components/card";
+import { LinkedItem } from "../components/card";
 import Img from "gatsby-image";
 
 interface ArticleFrontmatter {
@@ -35,7 +35,7 @@ const Articles = ({ data }: { data: ArticlesQuery }) => {
 }
 
 function asArticle(edge: Edge<MarkdownRemark<ArticleFrontmatter>>, data: any): JSX.Element {
-    return <SmallCard
+    return <LinkedItem
         key={edge.node.id}
         title={edge.node.frontmatter.title}
         date={edge.node.frontmatter.date}

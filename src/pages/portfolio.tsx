@@ -5,7 +5,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { GraphQLList, Edge } from "../models/graphql";
 import { MarkdownRemark } from "../models/remark";
-import { LargeCard } from "../components/card";
+import { Item } from "../components/card";
 import PhoneFrame from "../components/phone-frames";
 
 interface PortfolioFrontmatter {
@@ -36,7 +36,7 @@ const Portfolio = ({ data }: { data: PortfolioQuery }) => {
 
 function asPortfolioExcerpt({ node }: Edge<MarkdownRemark<PortfolioFrontmatter>>): JSX.Element {
   return (
-    <LargeCard
+    <Item
       key={node.frontmatter.title}
       title={node.frontmatter.title}
       date={node.frontmatter.date + " ● " + node.frontmatter.position}

@@ -7,7 +7,7 @@ import Img, { FluidObject } from "gatsby-image";
 import { Url } from "url";
 import { GraphQLList, Edge } from "../models/graphql";
 import { MarkdownRemark } from "../models/remark";
-import { LargeCard } from "../components/card";
+import { Item } from "../components/card";
 
 interface TalksFrontmatter {
   title: string
@@ -46,7 +46,7 @@ const Talks = ({ data }: { data: TalksQuery }) => {
 
 function asTalkElement(query: TalksQuery): (edge: Edge<MarkdownRemark<TalksFrontmatter>>) => JSX.Element {
   return (edge) => (
-    <LargeCard
+    <Item
     key={edge.node.frontmatter.title}
     title={edge.node.frontmatter.title}
     date={""}
