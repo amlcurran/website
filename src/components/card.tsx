@@ -32,6 +32,7 @@ interface LargeCardProps {
   link?: string
   image?: JSX.Element
   largeImage: boolean
+  materialIcon?: string
 }
 
 export const Item = (props: LargeCardProps) => {
@@ -39,13 +40,14 @@ export const Item = (props: LargeCardProps) => {
   const date2 = (props.date?.length || 0) > 0 ? (<h4>{props.date}</h4>) : undefined
   const withText = (props.with?.length || 0) > 0 ? (<h4 style={{ color: Styling.primaryColor }}>with {props.with}</h4>) : undefined
   const image = props.image ? <div className={clazz}>{props.image}</div> : undefined
+  const icon = props.materialIcon ? <span className="material-icons" style={{paddingRight: 4}}>{props.materialIcon}</span> : undefined
   return (
     <div style={cardStyle} className="card">
       <div style={{ display: 'flex' }} className="card-internal">
         {image}
         <div>
           <div style={{ marginTop: 16 }}>
-            <h2 style={{ marginBottom: 0 }} className="in-card" >{props.title}</h2>
+            <h2 style={{ marginBottom: 0 }} className="in-card" >{icon}{props.title}</h2>
             {[withText, date2]}
           </div>
           <div style={{ paddingRight: 16, marginTop: 16 }} dangerouslySetInnerHTML={{ __html: props.html }} />

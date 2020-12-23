@@ -3,7 +3,7 @@ date: "Sept 2018 – Dec 2018"
 position: "Principle Engineer"
 start: "2018-09-01"
 title: "Harman Spark"
-with: "Tantalum Corporation"
+with: "Tantalum Corporation & Novoda"
 team: 20
 platforms: ["android", "iOS"]
 images: ["tantalum-iphone"]

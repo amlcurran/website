@@ -7,7 +7,7 @@ import Img, { FluidObject } from "gatsby-image";
 import { Url } from "url";
 import { GraphQLList, Edge } from "../models/graphql";
 import { MarkdownRemark } from "../models/remark";
-import { Item } from "../components/card";
+import { Item, LinkedItem } from "../components/card";
 
 interface TalksFrontmatter {
   title: string
@@ -45,17 +45,36 @@ const Talks = ({ data }: { data: TalksQuery }) => {
 }
 
 function asTalkElement(query: TalksQuery): (edge: Edge<MarkdownRemark<TalksFrontmatter>>) => JSX.Element {
-  return (edge) => (
-    <Item
-    key={edge.node.frontmatter.title}
-    title={edge.node.frontmatter.title}
-    date={""}
-    link={String(edge.node.frontmatter.video)}
-    html={edge.node.html}
-    with={edge.node.frontmatter.presentedAt}
-    image={<Img fluid={imageForTalk(edge.node.frontmatter, query)} style={{ height: 250, borderRadius: 8 }} />}
-    largeImage={true} />
-  )
+  return (edge) => {
+    if (edge.node.frontmatter.video) {
+      return (<a href={edge.node.frontmatter.video.toString()} target="_blank" rel="noopener noreferrer"><Item
+        key={edge.node.frontmatter.title}
+        title={edge.node.frontmatter.title}
+        date={""}
+        link={String(edge.node.frontmatter.video)}
+        html={edge.node.html}
+        with={edge.node.frontmatter.presentedAt}
+        image={<Img fluid={imageForTalk(edge.node.frontmatter, query)} style={{ height: 250, borderRadius: 8 }} />}
+        largeImage={true}
+        materialIcon={"play_circle_outline"} /></a>)
+    } else if (edge.node.frontmatter.slides) {
+      return (
+        <a href={edge.node.frontmatter.slides.toString()} target="_blank" rel="noopener noreferrer">
+          <Item
+            key={edge.node.frontmatter.title}
+            title={edge.node.frontmatter.title}
+            date={""}
+            link={String(edge.node.frontmatter.video)}
+            html={edge.node.html}
+            with={edge.node.frontmatter.presentedAt}
+            image={<Img fluid={imageForTalk(edge.node.frontmatter, query)} style={{ height: 250, borderRadius: 8 }} />}
+            largeImage={true} />
+        </a>
+        )
+    } else { 
+        throw new Error(`Talk ${edge.node.frontmatter.title} needs slides or a video`)
+    }
+  }
 }
 
 function imageForTalk(frontmatter: TalksFrontmatter, query: TalksQuery): FluidObject {
