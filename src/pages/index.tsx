@@ -28,7 +28,7 @@ const NewIndexPage = (query: any) => (
     <main style={contentStyle}>
       <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} description="Alex Curran's portfolio website" />
       <div style={{ ...myStyle, color: Styling.secondaryColor }} className="headlineLink headline">Hey, I'm Alex Curran.</div>
-      <div style={{ marginBottom: 48 }}>I’m a software developer, specialising in mobile applications across Android and iOS.</div>
+      <div className="index-top">I’m a software developer, specialising in mobile applications across Android and iOS.</div>
       <div className="left-shifted">
         <FrontPageCard
             title="Portfolio"

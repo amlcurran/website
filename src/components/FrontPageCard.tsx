@@ -18,7 +18,7 @@ interface LinkCardProps {
 const FrontPageCard = (props: LinkCardProps) => {
     const classNames = props.doNotWrapTitle ? "on-the-side" : ""
     return (
-      <div style={{ ...frontPageCard, margin: 16 }}>
+      <div style={{ ...frontPageCard, marginLeft: 16, marginRight: 16, marginTop: 8, marginBottom: 8 }}>
         <Link to={props.goesTo}>
           <h1 className={classNames}>{props.title}</h1>
           <p>{props.text}</p>
@@ -28,7 +28,7 @@ const FrontPageCard = (props: LinkCardProps) => {
   }
   
 export const ExternalLinkFrontPageCard = (props: LinkCardProps) => (
-    <div style={{ ...frontPageCard, margin: 16 }} className="card">
+    <div style={{ ...frontPageCard, marginLeft: 16, marginRight: 16, marginTop: 8, marginBottom: 8 }} className="card">
         <a href={props.goesTo} target="_blank">
             <h1>{props.title}</h1>
             <p>{props.text}</p>

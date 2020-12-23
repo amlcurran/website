@@ -1,13 +1,21 @@
 .left-shifted {
   display: flex; 
   flex-wrap: wrap;
-  margin: 12px 36px 0 -60px;
+  margin: 12px 36px 12px -60px;
 }
 
 .right-shifted {
   display: flex; 
   flex-wrap: wrap;
-  margin: 0 -36px 12px 60px;
+  margin: 12px -36px 12px 60px;
+}
+
+.index-top {
+  margin-bottom: 96px;
+}
+
+.front-page-card {
+  margin: 16px;
 }
 
 .on-the-side {
@@ -18,16 +26,24 @@
   .left-shifted {
     display: flex; 
     flex-wrap: wrap;
-    margin: 0 -12px 12px;
+    margin: 0px -16px;
   }
   
   .right-shifted {
     display: flex; 
     flex-wrap: wrap; 
-    margin: -12px;
+    margin: 0px -16px;
   }
 
   .on-the-side {
     white-space: inherit;
+  }
+
+  .index-top {
+    margin-bottom: 8px;
+  }
+
+  .front-page-card {
+    margin: 8px 16px;
   }
 }

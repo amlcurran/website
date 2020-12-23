@@ -7,7 +7,7 @@ export const cardStyle: CSSProperties = {
   minWidth: 250,
   flexGrow: 1,
   flexBasis: 0,
-  marginTop: 24,
+  marginTop: 16,
   marginBottom: 16,
   background: Styling.cardBackground
 }

@@ -28,9 +28,7 @@ const Layout = ({ children, seo, style }: LayoutProps) => (
   <>
     {seo}
     <Header />
-    <div
-      style={{...contentStyle, ...style}}
-    >
+    <div style={{...contentStyle, ...style}} >
       <main>{children}</main>
       <footer style={{ marginTop: 16, paddingBottom: 16 }}>
         ALEX CURRAN © {new Date().getFullYear()}
