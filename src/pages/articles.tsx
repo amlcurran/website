@@ -49,7 +49,7 @@ function asArticle(edge: Edge<MarkdownRemark<ArticleFrontmatter>>, data: any): J
 
 export const query = graphql`
   query {
-    allMarkdownRemark(filter: { fileAbsolutePath: { regex: "\/articles/" } }, sort: { fields: [frontmatter___date], order: DESC }) {
+    allMarkdownRemark(filter: { fileAbsolutePath: { regex: "\/articles/" } }, sort: { fields: [frontmatter___rawDate], order: DESC }) {
         edges {
             node {
                     excerpt(pruneLength: 200)
@@ -59,6 +59,7 @@ export const query = graphql`
                         date
                         slug
                         image
+                        rawDate
                     }
             }
         }
@@ -71,6 +72,13 @@ export const query = graphql`
         }
       }
     profile: file(relativePath: { eq: "6-output.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 300) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    catalyst: file(relativePath: { eq: "ec-both-apps.png" }) {
         childImageSharp {
           fluid(maxWidth: 300) {
             ...GatsbyImageSharpFluid

@@ -3,6 +3,7 @@ title: "How we profile Android bugs at Freetrade"
 date: "8 Jan 2020"
 slug: "profiling-at-freetrade"
 image: "profile"
+rawDate: "2020-01-08"
 ---
 
 _Previously posted on the [Freetrade blog](https://blog.freetrade.io/how-we-profile-android-bugs-at-freetrade-35c3bf5ed408)._

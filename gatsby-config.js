@@ -78,7 +78,10 @@ module.exports = {
       options: {
         plugins: [
           {
-            resolve: `gatsby-remark-images`
+            resolve: `gatsby-remark-images`,
+            options: {
+              backgroundColor: 'transparent'
+            }
           }
         ]
       }
