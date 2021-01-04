@@ -2,7 +2,7 @@
 title: "How we profile Android bugs at Freetrade"
 date: "8 Jan 2020"
 slug: "profiling-at-freetrade"
-image: "profile"
+image: "6-output"
 rawDate: "2020-01-08"
 ---
 

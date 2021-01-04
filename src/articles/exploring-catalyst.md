@@ -2,7 +2,7 @@
 title: "Exploring Mac Catalyst"
 date: "4 Jan 2021"
 slug: "getting-started-mac-catalyst"
-image: "catalyst"
+image: "ec-both-apps"
 rawDate: "2021-01-04"
 ---
 
