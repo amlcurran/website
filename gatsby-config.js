@@ -43,19 +43,6 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-remark-video',
-      options: {
-        width: 800,
-        height: 'auto',
-        preload: 'auto',
-        muted: true,
-        autoplay: true,
-        playsinline: true,
-        controls: true,
-        loop: true
-      }
-    },
-    {
       resolve: "gatsby-plugin-react-svg",
       options: {
         rule: {
@@ -64,7 +51,6 @@ module.exports = {
       }
     },
     `gatsby-transformer-sharp`,
-    'gatsby-remark-videos',
     `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-manifest`,

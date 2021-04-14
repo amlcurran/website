@@ -6,7 +6,7 @@ image: "6-output"
 rawDate: "2020-01-08"
 ---
 
-_Previously posted on the [Freetrade blog](https://blog.freetrade.io/how-we-profile-android-bugs-at-freetrade-35c3bf5ed408)._
+_Previously posted on the [Freetrade blog](https://freetrade.io/blog/how-we-profile-android-bugs-at-freetrade)._
 
 A few weeks ago, a Freetrade customer reported that the Android app was being slow.
 

@@ -17,6 +17,7 @@ html {
   --secondary: #242835;
   --tertiary: rgb(255, 255, 255);
   --background: var(--tertiary);
+  --background-alpha: #24283521;
   --text-on-primary: var(--tertiary);
   --text-on-secondary: var(--tertiary);
   --link-on-surface: var(--primary);
@@ -227,7 +228,7 @@ b {
 }
 pre {
   padding: 16px;
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: var(--background-alpha);
   margin: 20px 40px;
   border-radius: 8px;
   overflow: scroll;
@@ -332,6 +333,13 @@ article ul {
   .collapsingGrid {
     grid-template-columns: auto;
   }
+  pre {
+    padding: 16px;
+    background-color: var(--background-alpha);
+    margin: 20px 0px;
+    border-radius: 8px;
+    overflow: scroll;
+  }
 }
 
 @media (prefers-color-scheme: dark) {
@@ -339,6 +347,7 @@ article ul {
     --primary: hsl(21, 75%, 55%);
     --secondary: hsl(240, 18%, 94%);
     --background: #191a1f;
+    --background-alpha: hsla(240, 16%, 94%, 0.1);
     --tertiary: hsl(240, 18%, 90%);
     --text-on-background: var(--tertiary);
     --text-on-surface: var(--tertiary);
