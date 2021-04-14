@@ -1,5 +1,5 @@
 ---
-date: "Jan 2019 - Oct 2020"
+date: "Jan 2019 – Oct 2020"
 position: "Principle Engineer"
 start: "2019-01-01"
 title: "myBlu"
