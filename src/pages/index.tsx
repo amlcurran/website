@@ -39,7 +39,7 @@ const NewIndexPage = (query: any) => (
             text="Public speaking about tech, code, and more."
             goesTo="/talks" />
         <FrontPageCard
-            title="A bit on the side"
+            title="Projects"
             text="Side projects in various states of abandonment"
             goesTo="/side-projects"
             doNotWrapTitle={true} />

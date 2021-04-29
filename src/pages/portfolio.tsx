@@ -14,6 +14,7 @@ interface PortfolioFrontmatter extends PortfolioSmall {
   date: string
   links: string[]
   with: string
+  secondImage?: string
 }
 
 interface PortfolioSmall {
@@ -38,6 +39,12 @@ const Portfolio = ({ data }: { data: PortfolioQuery }) => {
 }
 
 function asPortfolioExcerpt({ node }: Edge<MarkdownRemark<PortfolioFrontmatter>>): JSX.Element {
+  let foo: JSX.Element[]
+  if (node.frontmatter.secondImage) {
+    foo = [<div style={{position: 'absolute', width: '95%', bottom: 0, zIndex: 1, right: -16}}><PhoneFrame name={node.frontmatter.secondImage} /></div>]
+  } else {
+    foo = []
+  }
   return (
     <Item
       key={node.frontmatter.title}
@@ -45,7 +52,7 @@ function asPortfolioExcerpt({ node }: Edge<MarkdownRemark<PortfolioFrontmatter>>
       date={node.frontmatter.date + " ● " + node.frontmatter.position}
       html={node.html}
       with={node.frontmatter.with}
-      image={<PhoneFrame name={node.frontmatter.images[0]} />}
+      image={<div style={{position: 'relative'}}><PhoneFrame name={node.frontmatter.images[0]} />{foo}</div>}
       largeImage={node.frontmatter.largeImage} />
   )
 }
@@ -131,6 +138,7 @@ export const pageQuery = graphql`{
             position
             images
             largeImage
+            secondImage
           }
         }
       }

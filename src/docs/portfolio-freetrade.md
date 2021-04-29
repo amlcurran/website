@@ -7,6 +7,7 @@ with: "the Discovery and Insights team"
 team: 6
 platforms: ["android", "iOS"]
 images: ["freetrade-android"]
+secondImage: "freetrade-ios-dark"
 ---
 Freetrade is a investment platform aiming to make investing open to all.
 
