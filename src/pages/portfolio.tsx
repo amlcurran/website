@@ -39,12 +39,17 @@ const Portfolio = ({ data }: { data: PortfolioQuery }) => {
 }
 
 function asPortfolioExcerpt({ node }: Edge<MarkdownRemark<PortfolioFrontmatter>>): JSX.Element {
-  let foo: JSX.Element[]
+  let secondImage: JSX.Element | undefined = undefined
   if (node.frontmatter.secondImage) {
-    foo = [<div style={{position: 'absolute', width: '95%', bottom: 0, zIndex: 1, right: -16}}><PhoneFrame name={node.frontmatter.secondImage} /></div>]
-  } else {
-    foo = []
+    secondImage = <div style={{position: 'absolute', width: '95%', bottom: 0, zIndex: 1, right: -16}}><PhoneFrame name={node.frontmatter.secondImage} /></div>
   }
+  const image = (
+    <div style={{position: 'relative'}}>
+        <div className="hover-up"><PhoneFrame name={node.frontmatter.images[0]} />
+      </div>
+      {secondImage}
+    </div>
+  )
   return (
     <Item
       key={node.frontmatter.title}
@@ -52,7 +57,7 @@ function asPortfolioExcerpt({ node }: Edge<MarkdownRemark<PortfolioFrontmatter>>
       date={node.frontmatter.date + " ● " + node.frontmatter.position}
       html={node.html}
       with={node.frontmatter.with}
-      image={<div style={{position: 'relative'}}><PhoneFrame name={node.frontmatter.images[0]} />{foo}</div>}
+      image={image}
       largeImage={node.frontmatter.largeImage} />
   )
 }
