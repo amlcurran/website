@@ -53,6 +53,18 @@ function asPortfolioExcerpt({ node }: Edge<MarkdownRemark<PortfolioFrontmatter>>
 function older(): JSX.Element[] {
   const frontmatters: PortfolioSmall[] = [
     {
+      title: "AutoScout24",
+      images: [],
+      largeImage: false,
+      position: "Project Lead"
+    },
+    {
+      title: "ImmoScout24",
+      images: [],
+      largeImage: false,
+      position: "Project Lead"
+    },
+    {
       title: "Oddschecker",
       images: [],
       largeImage: false,
@@ -87,7 +99,8 @@ function older(): JSX.Element[] {
     (<div style={{ display: "grid", 
       gridTemplateColumns: "repeat(3, 1fr)",  
       gridRowGap: 32,
-      gridColumnGap: 16 }}>
+      gridColumnGap: 16,
+      marginTop: 40 }}>
       {frontmatters.map((frontmatter) => small(frontmatter))}
     </div>)
   ]

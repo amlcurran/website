@@ -23,8 +23,7 @@ const linkHostInnerStyle: CSSProperties = {
 
 const linkInnerStyle: CSSProperties = {
   textAlign: "center",
-  fontFamily: 'Raleway, sans-serif',
-  letterSpacing: '0.15rem',
+  letterSpacing: '0.1rem',
   minWidth: 160,
   textTransform: 'uppercase',
   fontWeight: 700,
@@ -103,8 +102,9 @@ const Header = () => {
         <header>
           <div style={{ ...contentStyle, ...myStyle }} className="headlineTop">
             <Link to="/" className="headlineLink headline" style={{ color: Styling.secondaryColor }}>Hey, I'm Alex Curran.</Link>
-            <a href={query.file.publicURL} style={contactButton} className="emphasisBox">CV</a>
-            <a href="mailto:aml.curran+website@gmail.com" style={contactButton} className="emphasisBox">Contact</a>
+            <a href={query.file.publicURL} style={contactButton} className="emphasisBox">CV <span className="material-icons" style={{ verticalAlign: "text-bottom" }}>file_download</span></a>
+            <a href="mailto:aml.curran+website@gmail.com" style={contactButton} className="emphasisBox">Contact <span className="material-icons"  style={{ verticalAlign: "text-bottom" }}>email
+</span></a>
           </div>
           <div style={linkHostStyle} >
             <nav style={{ ...contentStyle, ...linkHostInnerStyle }} className="emphasisBox">
