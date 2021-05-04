@@ -6,8 +6,9 @@ title: "Backen.de"
 with: "Oetker Digital & Novoda"
 team: 6
 platforms: ["android", "iOS"]
-images: ["backen-iphone"]
+images: ["backen-android"]
 largeImage: false
+secondImage: "backen-iphone"
 ---
 Backen.de was produced in collaboration with Oetker Digital, of the Dr. Oetker brand.
 

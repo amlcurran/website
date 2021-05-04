@@ -91,10 +91,21 @@ a:active,
 a:hover {
   outline-width: 0;
 }
+.hover-up {
+  transition: margin-left 0.2s ease-in-out,
+              margin-right 0.2s ease-in-out;
+}
+.hover-up.left:hover {
+  margin-left: -36px;
+  margin-right: 36px;
+}
+.hover-up.right:hover {
+  margin-left: 36px;
+  margin-right: -36px;
+}
 abbr[title] {
   border-bottom: none;
   text-decoration: underline;
-  text-decoration: underline dotted;
 }
 mark {
   background-color: #ff0;
@@ -109,7 +120,7 @@ small {
 .imageRow {
   display: grid;
   grid-template-columns: auto auto auto;
-  grid-column-gap: 8;
+  grid-column-gap: 8px;
 }
 .portfolio-image {
   flex-shrink: 0;
@@ -167,20 +178,14 @@ h2 {
   font-size: 26pt;
   font-weight: 700;
   font-family: 'Domine', serif;
-  letter-spacing: '0.10rem';
-  justify-self: 'start';
+  letter-spacing: 0.10rem;
+  justify-self: start;
   color: var(--secondary);
 }
 h3 {
   font-family: 'Domine', serif;
-  margin-left: 0;
-  margin-right: 0;
-  margin-top: 0;
-  padding-bottom: 0;
-  padding-left: 0;
-  padding-right: 0;
-  padding-top: 0;
-  margin-bottom: 0.35rem;
+  padding: 0;
+  margin: 0 0 0.35rem;
   color: var(--primary);
   font-weight: bold;
   text-rendering: optimizeLegibility;
@@ -299,21 +304,21 @@ article ul {
     flex-direction: column;
   }
   .portfolio-image {
-    height: 0px;
-    width: 0px;
-    margin-right: 0px;
+    height: 0;
+    width: 0;
+    margin-right: 0;
   }
   .portfolio-image-large {
     width: 100%;
-    margin-right: 0px;
+    margin-right: 0;
   }
   .emphasisBox {
     overflow: scroll;
   }
   .imageRow {
     overflow: scroll;
-    margin: 0rem calc(-1 * var(--horziontal-margin));
-    padding: 0rem var(--horziontal-margin) 0rem var(--horziontal-margin);
+    margin: 0 calc(-1 * var(--horziontal-margin));
+    padding: 0 var(--horziontal-margin) 0 var(--horziontal-margin);
   }
   .imageItem {
     min-width: 200px;
@@ -334,7 +339,7 @@ article ul {
   pre {
     padding: 16px;
     background-color: var(--background-alpha);
-    margin: 20px 0px;
+    margin: 20px 0;
     border-radius: 8px;
     overflow: scroll;
   }

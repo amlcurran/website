@@ -7,6 +7,7 @@ import { GraphQLList, Edge } from "../models/graphql";
 import { MarkdownRemark } from "../models/remark";
 import { Item } from "../components/card";
 import PhoneFrame from "../components/phone-frames";
+import {Splitter} from "../components/Splitter"
 
 interface PortfolioFrontmatter extends PortfolioSmall {
   team: number
@@ -39,17 +40,15 @@ const Portfolio = ({ data }: { data: PortfolioQuery }) => {
 }
 
 function asPortfolioExcerpt({ node }: Edge<MarkdownRemark<PortfolioFrontmatter>>): JSX.Element {
-  let secondImage: JSX.Element | undefined = undefined
+  let secondImage: JSX.Element
   if (node.frontmatter.secondImage) {
-    secondImage = <div style={{position: 'absolute', width: '95%', bottom: 0, zIndex: 1, right: -16}}><PhoneFrame name={node.frontmatter.secondImage} /></div>
+    secondImage = <Splitter
+      left={<PhoneFrame name={node.frontmatter.secondImage} />}
+      right={<PhoneFrame name={node.frontmatter.images[0]} />} />
+  } else {
+    secondImage = <PhoneFrame name={node.frontmatter.images[0]}/>
   }
-  const image = (
-    <div style={{position: 'relative'}}>
-        <div className="hover-up"><PhoneFrame name={node.frontmatter.images[0]} />
-      </div>
-      {secondImage}
-    </div>
-  )
+  const image = secondImage
   return (
     <Item
       key={node.frontmatter.title}
