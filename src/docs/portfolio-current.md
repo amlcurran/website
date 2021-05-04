@@ -1,6 +1,6 @@
 ---
 date: "Jan 2019 – Oct 2020"
-position: "Principle Engineer"
+position: "Principle Engineer/Tech Lead"
 start: "2019-01-01"
 title: "myBlu"
 with: "Blu & Novoda"

@@ -23,6 +23,7 @@ interface PortfolioSmall {
   images: string[]
   largeImage: boolean
   position: string
+  description: string
 }
 
 interface PortfolioQuery {
@@ -67,51 +68,54 @@ function older(): JSX.Element[] {
       title: "AutoScout24",
       images: [],
       largeImage: false,
-      position: "Project Lead"
+      position: "Project Lead",
+      description: "Helping the current team skill up and handle technical debt."
     },
     {
       title: "ImmoScout24",
       images: [],
       largeImage: false,
-      position: "Project Lead"
+      position: "Project Lead",
+      description: "Scaling up the teams and helping their technical process."
     },
     {
       title: "Oddschecker",
       images: [],
       largeImage: false,
-      position: "Senior Software Engineer"
+      position: "Senior Software Engineer",
+      description: "Building a brand new gambling app."
     },
     {
       title: "All 4",
       images: [],
       largeImage: false,
-      position: "Software Engineer"
+      position: "Software Engineer",
+      description: "Continuing my work in video playback to build a new All 4 app from scratch."
     },
     {
       title: "iPlayer for Chromecast",
       images: [],
       largeImage: false,
-      position: "Junior Software Engineer"
+      position: "Software Engineer",
+      description: "Building Chromecast functionality into the iPlayer app in collaboration with Google."
     },
     {
       title: "Downloads on iPlayer",
       images: [],
       largeImage: false,
-      position: "Junior Software Engineer"
+      position: "Junior Software Engineer",
+      description: "Building and improving the video download and DRM solutions into iPlayer."
     },
     {
       title: "BBC Android Video Player",
       images: [],
       largeImage: false,
-      position: "Junior Software Engineer"
+      position: "Junior Software Engineer",
+      description: "Building the next generation of video playback into the Android iPlayer app using ExoPlayer."
     }
   ]
   return [
-    (<div style={{ display: "grid", 
-      gridTemplateColumns: "repeat(3, 1fr)",  
-      gridRowGap: 32,
-      gridColumnGap: 16,
-      marginTop: 40 }}>
+    (<div className="smaller-projects">
       {frontmatters.map((frontmatter) => small(frontmatter))}
     </div>)
   ]
@@ -122,6 +126,7 @@ function small(frontmatter: PortfolioSmall): JSX.Element {
     <div>
       <h3>{frontmatter.title}</h3>
       <h4>{frontmatter.position}</h4>
+      <section style={{ marginTop: 8 }}>{frontmatter.description}</section>
     </div>
   )
 }
