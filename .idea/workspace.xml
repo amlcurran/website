@@ -3,10 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="1267f947-84de-4bdb-92af-1b652b48dcf2" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Splitter.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Splitter.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/card.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/card.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/layout.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/docs/portfolio-current.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/docs/portfolio-current.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/docs/portfolio-oetker.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/docs/portfolio-oetker.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/docs/portfolio-tantalum.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/docs/portfolio-tantalum.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/portfolio.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/portfolio.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -170,7 +169,7 @@
       <updated>1555688297703</updated>
       <workItem from="1555688300377" duration="699000" />
       <workItem from="1555704084298" duration="1768000" />
-      <workItem from="1619957177515" duration="9006000" />
+      <workItem from="1619957177515" duration="11974000" />
     </task>
     <task id="LOCAL-00001" summary="Fix dodgy margins on cards">
       <created>1555704376448</created>
@@ -221,7 +220,14 @@
       <option name="project" value="LOCAL" />
       <updated>1620159044687</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Update the portfolio bits">
+      <created>1620160338682</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1620160338682</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -263,7 +269,8 @@
     <MESSAGE value="Rename props to match class" />
     <MESSAGE value="Match style better" />
     <MESSAGE value="Add splitters for iOS and Android" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add splitters for iOS and Android" />
+    <MESSAGE value="Update the portfolio bits" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update the portfolio bits" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/pages/not-tech.tsx">

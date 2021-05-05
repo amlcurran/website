@@ -4,6 +4,7 @@ import PhoneFrame from "./phone-frames"
 interface SplitterProps {
     left: JSX.Element
     right: JSX.Element
+    expandRight: boolean
 }
 
 function defaultStyle() {
@@ -17,13 +18,15 @@ function defaultStyle() {
 export function Splitter(props: SplitterProps) {
 
     const [isHovered, setHovered] = useState(false)
+    const leftOffset = props.expandRight ? 1 : -1
+    const rightOffset = props.expandRight ? -1 : 1
 
     return (
         <div onMouseEnter={() => setHovered(true)}
              onMouseLeave={() => setHovered(false)}
              style={{position: 'relative'}}>
-            <div style={{transform: isHovered ? 'translateX(-60px)' : 'translateX(-16px)', position: 'absolute', zIndex: 1, ...defaultStyle()}}>{props.left}</div>
-            <div style={{transform: isHovered ? 'translateX(32px)' : 'translateX(16px)', ...defaultStyle()}}>{props.right}</div>
+            <div style={{transform: isHovered ? `translateX(${leftOffset * 60}px)` : `translateX(${leftOffset * 16}px)`, position: 'absolute', zIndex: 1, ...defaultStyle()}}>{props.left}</div>
+            <div style={{transform: isHovered ? `translateX(${rightOffset * 32}px)` : `translateX(${rightOffset * 16}px)`, ...defaultStyle()}}>{props.right}</div>
         </div>
     )
 

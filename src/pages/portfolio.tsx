@@ -40,25 +40,29 @@ const Portfolio = ({ data }: { data: PortfolioQuery }) => {
   )
 }
 
-function asPortfolioExcerpt({ node }: Edge<MarkdownRemark<PortfolioFrontmatter>>): JSX.Element {
+function asPortfolioExcerpt({ node }: Edge<MarkdownRemark<PortfolioFrontmatter>>, index: number): JSX.Element {
   let secondImage: JSX.Element
   if (node.frontmatter.secondImage) {
     secondImage = <Splitter
       left={<PhoneFrame name={node.frontmatter.secondImage} />}
-      right={<PhoneFrame name={node.frontmatter.images[0]} />} />
+      right={<PhoneFrame name={node.frontmatter.images[0]} />}
+    expandRight={index % 2 == 1}/>
   } else {
     secondImage = <PhoneFrame name={node.frontmatter.images[0]}/>
   }
   const image = secondImage
   return (
-    <Item
-      key={node.frontmatter.title}
-      title={node.frontmatter.title}
-      date={node.frontmatter.date + " ● " + node.frontmatter.position}
-      html={node.html}
-      with={node.frontmatter.with}
-      image={image}
-      largeImage={node.frontmatter.largeImage} />
+      <div style={{marginBottom: 72}}>
+        <Item
+            key={node.frontmatter.title}
+            title={node.frontmatter.title}
+            date={node.frontmatter.date + " ● " + node.frontmatter.position}
+            html={node.html}
+            with={node.frontmatter.with}
+            image={image}
+            largeImage={node.frontmatter.largeImage}
+            imageOnRight={index % 2 == 1}/>
+      </div>
   )
 }
 
