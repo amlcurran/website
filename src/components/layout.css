@@ -47,39 +47,8 @@ body {
 .collapsingGrid {
   grid-template-columns: auto;
 }
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-main,
-menu,
-nav,
-section,
-summary {
-  display: block;
-}
 footer {
   font-size: 10pt
-}
-audio,
-canvas,
-progress,
-video {
-  display: inline-block;
-}
-audio:not([controls]) {
-  display: none;
-  height: 0;
-}
-progress {
-  vertical-align: baseline;
-}
-[hidden],
-template {
-  display: none;
 }
 a, a:visited {
   background-color: transparent;
@@ -114,16 +83,6 @@ abbr[title] {
   border-bottom: none;
   text-decoration: underline;
 }
-mark {
-  background-color: #ff0;
-  color: #000;
-}
-small {
-  font-size: 80%;
-}
-.card {
-  color: var(--text-on-surface);
-}
 .imageRow {
   display: grid;
   grid-template-columns: auto auto auto;
@@ -155,26 +114,13 @@ h1 {
 }
 h2 {
   font-family: 'Domine', serif;
+  margin-top: 0;
   margin-bottom: 0.35rem;
   color: var(--primary);
   font-weight: bold;
   text-rendering: optimizeLegibility;
   font-size: 28pt;
   line-height: 1.1;
-}
-.in-card {
-  padding: 0 0 0 0;
-  margin-left: 0;
-  margin-right: 0;
-  margin-top: 0;
-}
-.headline {
-  font-size: 26pt;
-  font-weight: 700;
-  font-family: 'Domine', serif;
-  letter-spacing: 0.10rem;
-  justify-self: start;
-  color: var(--secondary);
 }
 h3 {
   font-family: 'Domine', serif;
@@ -194,6 +140,20 @@ h4 {
   text-rendering: optimizeLegibility;
   line-height: 1.1;
 }
+.headline {
+  font-size: 26pt;
+  font-weight: 700;
+  font-family: 'Domine', serif;
+  letter-spacing: 0.10rem;
+  justify-self: start;
+  color: var(--secondary);
+}
+.in-card {
+  padding: 0 0 0 0;
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: 0;
+}
 p {
   padding: 0;
   margin: 0 0 0.35rem;
@@ -205,56 +165,12 @@ blockquote {
   padding-left: 12px;
   font-style: oblique;
   margin: 1.45rem;
-  font-size: x-large;
-}
-b {
-  font-weight: bold;
 }
 pre {
   padding: 16px;
   background-color: var(--background-alpha);
   border-radius: 8px;
   overflow: scroll;
-}
-strong {
-  font-weight: bold;
-}
-dt {
-  font-weight: bold;
-}
-th {
-  font-weight: bold;
-}
-li {
-  margin-bottom: calc(1.45rem / 2);
-}
-ol li {
-  padding-left: 0;
-}
-ul li {
-  padding-left: 0;
-}
-li > ol {
-  margin-left: 1.45rem;
-  margin-bottom: calc(1.45rem / 2);
-  margin-top: calc(1.45rem / 2);
-}
-li > ul {
-  margin-left: 1.45rem;
-  margin-bottom: calc(1.45rem / 2);
-  margin-top: calc(1.45rem / 2);
-}
-blockquote *:last-child {
-  margin-bottom: 0;
-}
-li *:last-child {
-  margin-bottom: 0;
-}
-p *:last-child {
-  margin-bottom: 0;
-}
-li > p {
-  margin-bottom: calc(1.45rem / 2);
 }
 code {
   font-size: 0.95rem;
@@ -269,7 +185,6 @@ pre code {
   padding: 0.2em;
   background-color: transparent;
 }
-
 article {
   font-size: 20px;
   max-width: 720px;
@@ -310,8 +225,6 @@ article ul {
   }
   .imageRow {
     overflow: scroll;
-    margin: 0 calc(-1 * var(--horziontal-margin));
-    padding: 0 var(--horziontal-margin) 0 var(--horziontal-margin);
   }
   .imageItem {
     min-width: 200px;
@@ -328,12 +241,6 @@ article ul {
   }
   .collapsingGrid {
     grid-template-columns: auto;
-  }
-  pre {
-    padding: 16px;
-    background-color: var(--background-alpha);
-    border-radius: 8px;
-    overflow: scroll;
   }
   .smaller-projects {
     display: grid;

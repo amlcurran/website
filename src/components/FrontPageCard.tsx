@@ -28,7 +28,7 @@ const FrontPageCard = (props: LinkCardProps) => {
   }
   
 export const ExternalLinkFrontPageCard = (props: LinkCardProps) => (
-    <div style={{ ...frontPageCard, marginLeft: 16, marginRight: 16, marginTop: 8, marginBottom: 8 }} className="card">
+    <div style={{ ...frontPageCard, marginLeft: 16, marginRight: 16, marginTop: 8, marginBottom: 8 }}>
         <a href={props.goesTo} target="_blank">
             <h1>{props.title}</h1>
             <p>{props.text}</p>
