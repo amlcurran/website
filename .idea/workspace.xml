@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1267f947-84de-4bdb-92af-1b652b48dcf2" name="Default Changelist" comment="">
+    <list default="true" id="1267f947-84de-4bdb-92af-1b652b48dcf2" name="Default Changelist" comment="Some better formatting of code">
+      <change beforePath="$PROJECT_DIR$/.idea/website.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/website.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/layout.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout.css" afterDir="false" />
     </list>
@@ -224,7 +225,14 @@
       <option name="project" value="LOCAL" />
       <updated>1620160338682</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Some better formatting of code">
+      <created>1620500208901</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1620500208901</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -258,6 +266,17 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Fix dodgy margins on cards" />
     <MESSAGE value="Add webstorm config" />
@@ -267,7 +286,8 @@
     <MESSAGE value="Match style better" />
     <MESSAGE value="Add splitters for iOS and Android" />
     <MESSAGE value="Update the portfolio bits" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update the portfolio bits" />
+    <MESSAGE value="Some better formatting of code" />
+    <option name="LAST_COMMIT_MESSAGE" value="Some better formatting of code" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/pages/not-tech.tsx">

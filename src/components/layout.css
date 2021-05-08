@@ -141,26 +141,13 @@ small {
 }
 img {
   max-width: 100%;
-  margin-left: 0;
-  margin-right: 0;
-  margin-top: 0;
-  padding-bottom: 0;
-  padding-left: 0;
-  padding-right: 0;
-  padding-top: 0;
-  margin-bottom: 1.45rem;
+  padding: 0;
+  margin: 0 0 1.45rem;
 }
 h1 {
   font-family: 'Domine', serif;
   color: var(--primary);
-  margin-left: 0;
-  margin-right: 0;
-  margin-top: 0;
-  padding-bottom: 0;
-  padding-left: 0;
-  padding-right: 0;
-  padding-top: 0;
-  margin-bottom: 1.45rem;
+  margin: 0 0 0.45rem;
   font-weight: bold;
   text-rendering: optimizeLegibility;
   font-size: 36pt;
@@ -200,14 +187,8 @@ h3 {
   line-height: 1.1;
 }
 h4 {
-  margin-left: 0;
-  margin-right: 0;
-  margin-top: 0;
-  padding-bottom: 0;
-  padding-left: 0;
-  padding-right: 0;
-  padding-top: 0.25rem;
-  margin-bottom: 0.25rem;
+  font-size: initial;
+  margin: 0 0 0.35rem;
   color: var(--text-on-surface);
   font-weight: bold;
   text-rendering: optimizeLegibility;
@@ -215,7 +196,7 @@ h4 {
 }
 p {
   padding: 0;
-  margin: 0 0 0.45rem;
+  margin: 0 0 0.35rem;
   line-height: 1.45;
   color: var(--text-on-surface);
 }

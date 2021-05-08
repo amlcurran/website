@@ -48,7 +48,7 @@ export const Item = (props: LargeCardProps) => {
         {props.imageOnRight ? <></> : image}
         <div>
           <div style={{ marginTop: 16 }}>
-            <h2 style={{ marginBottom: 0 }} className="in-card" >{icon}{props.title}</h2>
+            <h2 className="in-card" >{icon}{props.title}</h2>
             {[withText, date2]}
           </div>
           <p style={{ paddingRight: 16, marginTop: 16 }} dangerouslySetInnerHTML={{ __html: props.html }} />
