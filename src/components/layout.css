@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,700;1,400&display=swap');
 
 html {
   font-family: 'IBM Plex Sans', sans-serif;
@@ -201,7 +201,6 @@ p {
   color: var(--text-on-surface);
 }
 blockquote {
-  font-family: sans-serif;
   border-left: 2px solid var(--text-on-surface);
   padding-left: 12px;
   font-style: oblique;
