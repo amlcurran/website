@@ -8,6 +8,7 @@ import { MarkdownRemark } from "../models/remark";
 import { Item } from "../components/card";
 import PhoneFrame from "../components/phone-frames";
 import {Splitter} from "../components/Splitter"
+import {ScrollFader} from "../components/ScrollFader"
 
 interface PortfolioFrontmatter extends PortfolioSmall {
   team: number
@@ -44,6 +45,7 @@ function asPortfolioExcerpt({ node }: Edge<MarkdownRemark<PortfolioFrontmatter>>
   let secondImage: JSX.Element
   if (node.frontmatter.secondImage) {
     secondImage = <Splitter
+        key={node.id}
       left={<PhoneFrame name={node.frontmatter.secondImage} />}
       right={<PhoneFrame name={node.frontmatter.images[0]} />}
     expandRight={index % 2 == 1}/>
@@ -59,7 +61,7 @@ function asPortfolioExcerpt({ node }: Edge<MarkdownRemark<PortfolioFrontmatter>>
             date={node.frontmatter.date + " ● " + node.frontmatter.position}
             html={node.html}
             with={node.frontmatter.with}
-            image={image}
+            image={<ScrollFader enabled={window.location.toString().indexOf("localhost") != -1}>{image}</ScrollFader>}
             largeImage={node.frontmatter.largeImage}
             imageOnRight={index % 2 == 1}/>
       </div>
@@ -137,7 +139,7 @@ function small(frontmatter: PortfolioSmall): JSX.Element {
 
 
 export const pageQuery = graphql`{
-    allMarkdownRemark(sort: { order: DESC , fields: [frontmatter___start]},
+    allMarkdownRemark(sort: { order: ASC , fields: [frontmatter___rank]},
         filter: {fileAbsolutePath: {glob: "**/portfolio-*.md"} }) {
       edges {
         node {
@@ -152,6 +154,7 @@ export const pageQuery = graphql`{
             images
             largeImage
             secondImage
+            rank
           }
         }
       }

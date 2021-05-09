@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1267f947-84de-4bdb-92af-1b652b48dcf2" name="Default Changelist" comment="Better formatting of block-quote">
+    <list default="true" id="1267f947-84de-4bdb-92af-1b652b48dcf2" name="Default Changelist" comment="Tidy up some more CSS classes">
+      <change afterPath="$PROJECT_DIR$/src/components/ScrollFader.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/layout.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Splitter.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Splitter.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/portfolio-current.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/docs/portfolio-current.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/portfolio-freetrade.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/docs/portfolio-freetrade.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/portfolio-oetker.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/docs/portfolio-oetker.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/portfolio-tantalum.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/docs/portfolio-tantalum.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/portfolio.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/portfolio.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,6 +107,7 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="prettierjs.PrettierConfiguration.Package" value="$PROJECT_DIR$/node_modules/prettier" />
+    <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="preferences.editor" />
     <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -245,7 +252,14 @@
       <option name="project" value="LOCAL" />
       <updated>1620504220523</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Tidy up some more CSS classes">
+      <created>1620508698022</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1620508698022</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -302,7 +316,8 @@
     <MESSAGE value="Some better formatting of code" />
     <MESSAGE value="Better formatting of heading" />
     <MESSAGE value="Better formatting of block-quote" />
-    <option name="LAST_COMMIT_MESSAGE" value="Better formatting of block-quote" />
+    <MESSAGE value="Tidy up some more CSS classes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Tidy up some more CSS classes" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/pages/not-tech.tsx">

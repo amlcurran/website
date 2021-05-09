@@ -9,6 +9,7 @@ platforms: ["android", "iOS"]
 images: ["backen-android"]
 largeImage: false
 secondImage: "backen-iphone"
+rank: 2
 ---
 Backen.de was produced in collaboration with Oetker Digital, of the Dr. Oetker brand.
 

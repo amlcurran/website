@@ -7,6 +7,7 @@ with: "Blu & Novoda"
 team: 6
 platforms: ["android", "iOS"]
 images: ["secret-android"]
+rank: 3
 ---
 My final project with Novoda was a small but vibrant app for a new client.
 

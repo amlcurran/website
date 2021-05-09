@@ -1,5 +1,4 @@
 import React, {useState} from "react"
-import PhoneFrame from "./phone-frames"
 
 interface SplitterProps {
     left: JSX.Element

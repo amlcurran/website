@@ -7,6 +7,7 @@ with: "Tantalum Corporation & Novoda"
 team: 20
 platforms: ["android", "iOS"]
 images: ["tantalum-iphone"]
+rank: 4
 ---
 Harman Spark is a connected car app developed in collaboration with Harman and Tantalum Corporation.
 
