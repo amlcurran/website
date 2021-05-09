@@ -61,7 +61,7 @@ function asPortfolioExcerpt({ node }: Edge<MarkdownRemark<PortfolioFrontmatter>>
             date={node.frontmatter.date + " ● " + node.frontmatter.position}
             html={node.html}
             with={node.frontmatter.with}
-            image={<ScrollFader enabled={window.location.toString().indexOf("localhost") != -1}>{image}</ScrollFader>}
+            image={<ScrollFader enabled={false}>{image}</ScrollFader>}
             largeImage={node.frontmatter.largeImage}
             imageOnRight={index % 2 == 1}/>
       </div>

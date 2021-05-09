@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1267f947-84de-4bdb-92af-1b652b48dcf2" name="Default Changelist" comment="Tidy up some more CSS classes">
-      <change afterPath="$PROJECT_DIR$/src/components/ScrollFader.tsx" afterDir="false" />
+    <list default="true" id="1267f947-84de-4bdb-92af-1b652b48dcf2" name="Default Changelist" comment="Add fader, re-rank portfolio">
+      <change beforePath="$PROJECT_DIR$/.idea/website.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/website.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Splitter.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Splitter.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/docs/portfolio-current.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/docs/portfolio-current.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/docs/portfolio-freetrade.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/docs/portfolio-freetrade.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/docs/portfolio-oetker.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/docs/portfolio-oetker.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/docs/portfolio-tantalum.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/docs/portfolio-tantalum.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/portfolio.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/portfolio.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -259,7 +254,14 @@
       <option name="project" value="LOCAL" />
       <updated>1620508698022</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Add fader, re-rank portfolio">
+      <created>1620554553008</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1620554553008</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -317,7 +319,8 @@
     <MESSAGE value="Better formatting of heading" />
     <MESSAGE value="Better formatting of block-quote" />
     <MESSAGE value="Tidy up some more CSS classes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Tidy up some more CSS classes" />
+    <MESSAGE value="Add fader, re-rank portfolio" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add fader, re-rank portfolio" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/pages/not-tech.tsx">
