@@ -43,18 +43,14 @@ export const Item = (props: LargeCardProps) => {
   const image = props.image ? <div className={clazz}>{props.image}</div> : undefined
   const icon = props.materialIcon ? <span className="material-icons" style={{paddingRight: 4}}>{props.materialIcon}</span> : undefined
   return (
-    <div style={cardStyle}>
-      <section style={{ display: 'flex' }} className="card-internal">
+      <section style={{...cardStyle, display: 'flex'}} className="card-internal">
         {props.imageOnRight ? <></> : image}
-        <div>
-          <div style={{ marginTop: 16 }}>
-            <h2>{icon}{props.title}</h2>
-            {[withText, date2]}
-          </div>
-          <p style={{ paddingRight: 16, marginTop: 16 }} dangerouslySetInnerHTML={{ __html: props.html }} />
+        <div style={{marginTop: 16}}>
+          <h2>{icon}{props.title}</h2>
+          {[withText, date2]}
+          <div dangerouslySetInnerHTML={{__html: props.html}}/>
         </div>
         {props.imageOnRight ? image : <></>}
       </section>
-    </div>
   )
 }

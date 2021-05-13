@@ -54,19 +54,17 @@ function asPortfolioExcerpt({ node }: Edge<MarkdownRemark<PortfolioFrontmatter>>
   }
   const image = secondImage
   return (
-      <div style={{marginBottom: 72, scrollSnapAlign: 'start'}}>
-        <ScrollFader enabled={true}>
-          <Item
-              key={node.frontmatter.title}
-              title={node.frontmatter.title}
-              date={node.frontmatter.date + " ● " + node.frontmatter.position}
-              html={node.html}
-              with={node.frontmatter.with}
-              image={image}
-              largeImage={node.frontmatter.largeImage}
-              imageOnRight={index % 2 == 1}/>
-        </ScrollFader>
-      </div>
+      <ScrollFader enabled={true} style={{marginBottom: 72, scrollSnapAlign: 'start'}}>
+        <Item
+            key={node.frontmatter.title}
+            title={node.frontmatter.title}
+            date={node.frontmatter.date + " ● " + node.frontmatter.position}
+            html={node.html}
+            with={node.frontmatter.with}
+            image={image}
+            largeImage={node.frontmatter.largeImage}
+            imageOnRight={index % 2 == 1}/>
+      </ScrollFader>
   )
 }
 

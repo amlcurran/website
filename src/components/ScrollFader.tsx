@@ -1,18 +1,22 @@
-import React, {Component} from "react"
+import React, {Component, CSSProperties} from "react"
 import {number} from "prop-types"
 
 interface ScrollFaderProps {
     enabled: boolean
 }
 
+interface Styled {
+    style?: CSSProperties
+}
+
 interface ScrollFaderState {
     alpha: number
 }
 
-export class ScrollFader extends Component<ScrollFaderProps, ScrollFaderState> {
+export class ScrollFader extends Component<ScrollFaderProps & Styled, ScrollFaderState> {
     private readonly selfReference: React.RefObject<HTMLDivElement>
 
-    constructor(props: ScrollFaderProps) {
+    constructor(props: ScrollFaderProps & Styled) {
         super(props)
         this.state = { alpha: 1.0 }
         this.selfReference = React.createRef()
@@ -49,7 +53,7 @@ export class ScrollFader extends Component<ScrollFaderProps, ScrollFaderState> {
 
     render() {
         return (
-            <div style={{opacity: this.state.alpha}}
+            <div style={{...this.props.style, opacity: this.state.alpha}}
                  ref={this.selfReference}>
                 {this.props.children}
             </div>

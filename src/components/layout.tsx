@@ -13,7 +13,7 @@ import SEO from "./seo";
 
 interface LayoutProps {
   children: JSX.Element[]
-  seo: SEO
+  seo: JSX.Element
   style?: CSSProperties
 }
 
