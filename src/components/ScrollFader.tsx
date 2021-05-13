@@ -34,7 +34,7 @@ export class ScrollFader extends Component<ScrollFaderProps, ScrollFaderState> {
             const bottomPosition = this.selfReference.current?.getBoundingClientRect().bottom || 1000
             const height = this.selfReference.current?.getBoundingClientRect().height || 1000
             const screenHeight = window.innerHeight
-            const endPosition = height / 1.5
+            const endPosition = height
             if (bottomPosition < endPosition) {
                 this.setState({alpha: Math.min((bottomPosition / endPosition), 1)})
             } else if (topPosition > screenHeight - endPosition) {

@@ -212,9 +212,10 @@ article ul {
     flex-direction: column;
   }
   .portfolio-image {
-    height: 0;
-    width: 0;
-    margin-right: 0;
+    order: -1;
+    width: 40%;
+    margin-left: auto;
+    margin-right: auto;
   }
   .portfolio-image-large {
     width: 100%;

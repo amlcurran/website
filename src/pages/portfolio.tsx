@@ -32,7 +32,7 @@ interface PortfolioQuery {
 }
 
 const Portfolio = ({ data }: { data: PortfolioQuery }) => {
-  const elements = data.allMarkdownRemark.edges.map(asPortfolioExcerpt).concat(older())
+  const elements = (<div  style={{scrollSnapType: 'y mandatory'}}>{data.allMarkdownRemark.edges.map(asPortfolioExcerpt).concat(older())}</div>)
   const seo = <SEO title="Portfolio" keywords={[`portfolio`, `developer`, `engineer`, `mobile`, `ios`, `android`]} description="A series of my most popular projects" key="SEO" />
   return (
     <Layout seo={seo}>
@@ -46,24 +46,26 @@ function asPortfolioExcerpt({ node }: Edge<MarkdownRemark<PortfolioFrontmatter>>
   if (node.frontmatter.secondImage) {
     secondImage = <Splitter
         key={node.id}
-      left={<PhoneFrame name={node.frontmatter.secondImage} />}
-      right={<PhoneFrame name={node.frontmatter.images[0]} />}
-    expandRight={index % 2 == 1}/>
+        left={<PhoneFrame name={node.frontmatter.secondImage}/>}
+        right={<PhoneFrame name={node.frontmatter.images[0]}/>}
+        expandRight={index % 2 == 1}/>
   } else {
     secondImage = <PhoneFrame name={node.frontmatter.images[0]}/>
   }
   const image = secondImage
   return (
-      <div style={{marginBottom: 72}}>
-        <Item
-            key={node.frontmatter.title}
-            title={node.frontmatter.title}
-            date={node.frontmatter.date + " ● " + node.frontmatter.position}
-            html={node.html}
-            with={node.frontmatter.with}
-            image={<ScrollFader enabled={false}>{image}</ScrollFader>}
-            largeImage={node.frontmatter.largeImage}
-            imageOnRight={index % 2 == 1}/>
+      <div style={{marginBottom: 72, scrollSnapAlign: 'start'}}>
+        <ScrollFader enabled={true}>
+          <Item
+              key={node.frontmatter.title}
+              title={node.frontmatter.title}
+              date={node.frontmatter.date + " ● " + node.frontmatter.position}
+              html={node.html}
+              with={node.frontmatter.with}
+              image={image}
+              largeImage={node.frontmatter.largeImage}
+              imageOnRight={index % 2 == 1}/>
+        </ScrollFader>
       </div>
   )
 }
