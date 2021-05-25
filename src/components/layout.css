@@ -33,6 +33,11 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+.content {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 1.0875rem;
+}
 .emphasisBox a, .emphasisBox a:visited, .emphasisBox div {
   color: var(--text-on-primary);
 }

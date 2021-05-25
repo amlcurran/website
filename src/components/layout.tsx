@@ -17,18 +17,11 @@ interface LayoutProps {
   style?: CSSProperties
 }
 
-export const contentStyle: CSSProperties = {
-  maxWidth: 960,
-  marginLeft: "auto",
-  marginRight: "auto",
-  padding: "0px 1.0875rem 0px 1.0875rem"
-}
-
 const Layout = ({ children, seo, style }: LayoutProps) => (
   <>
     {seo}
     <Header />
-    <div style={{...contentStyle, ...style}} >
+    <div style={{ ...style}} className="content" >
       <main>{children}</main>
       <footer style={{ marginTop: 16, paddingBottom: 16 }}>
         ALEX CURRAN © {new Date().getFullYear()}

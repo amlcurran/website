@@ -1,6 +1,5 @@
 import { Link, StaticQuery, graphql } from "gatsby"
 import React, { CSSProperties, useEffect, useState } from "react"
-import { contentStyle } from "./layout"
 import Styling from "./styling";
 
 const linkHostStyle: CSSProperties = {
@@ -100,14 +99,14 @@ const Header = () => {
       const location = typeof window !== `undefined` ? window.location : null
       return (
         <header>
-          <div style={{ ...contentStyle, ...myStyle }} className="headlineTop">
+          <div style={myStyle} className="content headlineTop">
             <Link to="/" className="headlineLink headline" style={{ color: Styling.secondaryColor }}>Hey, I'm Alex Curran.</Link>
             <a href={query.file.publicURL} style={contactButton} className="emphasisBox">CV <span className="material-icons" style={{ verticalAlign: "text-bottom" }}>file_download</span></a>
             <a href="mailto:aml.curran+website@gmail.com" style={contactButton} className="emphasisBox">Contact <span className="material-icons"  style={{ verticalAlign: "text-bottom" }}>email
 </span></a>
           </div>
           <div style={linkHostStyle} >
-            <nav style={{ ...contentStyle, ...linkHostInnerStyle }} className="emphasisBox">
+            <nav style={linkHostInnerStyle} className="emphasisBox content">
               <HeaderLink2 to="/portfolio" text="Portfolio" current={location} />
               <HeaderLink2 to="/talks" text="Talks" current={location} />
               <HeaderLink2 to="/side-projects" text="On the side" current={location} />

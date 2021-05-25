@@ -1,6 +1,5 @@
 import React, { CSSProperties } from "react"
 
-import { contentStyle } from "../components/layout"
 import SEO from "../components/seo"
 import "./index.css"
 import { graphql } from "gatsby";
@@ -25,7 +24,7 @@ const myStyle: CSSProperties = {
 
 const NewIndexPage = (query: any) => (
   <>
-    <main style={contentStyle}>
+    <main className="content">
       <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} description="Alex Curran's portfolio website" />
       <div style={{ ...myStyle, color: Styling.secondaryColor }} className="headlineLink headline">Hey, I'm Alex Curran.</div>
       <div className="index-top">I’m a software developer, specialising in mobile applications across Android and iOS.</div>
