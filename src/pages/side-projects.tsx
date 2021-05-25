@@ -6,6 +6,7 @@ import { GraphQLList, Edge } from "../models/graphql";
 import { MarkdownRemark } from "../models/remark";
 import { graphql } from "gatsby";
 import { Item } from "../components/card";
+import {Chip} from "../components/Chip"
 
 interface SideProjectFrontmatter {
   start: Date
@@ -27,8 +28,16 @@ const SideProjects = ({ data }: { data: SideProjectsQuery }) => {
 }
 
 function asSideProject({ node }: Edge<MarkdownRemark<SideProjectFrontmatter>>): JSX.Element {
+  const foo = (
+      <div style={{display: 'inline-flex', overflow: 'scroll x', marginBottom: 36 }}>
+        {node.frontmatter.technologies.map((chip) => <Chip text={chip}/>)}
+      </div>
+  )
   return (
-    <Item title={node.frontmatter.title} html={node.html} key={node.id} largeImage={false} />
+      <>
+        <Item title={node.frontmatter.title} html={node.html} key={node.id} largeImage={false} />
+          {foo}
+      </>
   )
 }
 
