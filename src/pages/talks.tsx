@@ -47,11 +47,12 @@ const Talks = ({ data }: { data: TalksQuery }) => {
 function asTalkElement(query: TalksQuery): (edge: Edge<MarkdownRemark<TalksFrontmatter>>) => JSX.Element {
   return (edge) => {
     if (edge.node.frontmatter.video) {
-      return (<a href={edge.node.frontmatter.video.toString()} target="_blank" rel="noopener noreferrer"><Item
+      return (<a href={edge.node.frontmatter.video.toString()} target="_blank" rel="noopener noreferrer" className="hover-background"><Item
         key={edge.node.frontmatter.title}
         title={edge.node.frontmatter.title}
         date={""}
         link={String(edge.node.frontmatter.video)}
+        hover={true}
         html={edge.node.html}
         with={edge.node.frontmatter.presentedAt}
         image={<Img fluid={imageForTalk(edge.node.frontmatter, query)} style={{ height: 250, borderRadius: 8 }} />}
@@ -59,12 +60,13 @@ function asTalkElement(query: TalksQuery): (edge: Edge<MarkdownRemark<TalksFront
         materialIcon={"play_circle_outline"} /></a>)
     } else if (edge.node.frontmatter.slides) {
       return (
-        <a href={edge.node.frontmatter.slides.toString()} target="_blank" rel="noopener noreferrer">
+        <a href={edge.node.frontmatter.slides.toString()} target="_blank" rel="noopener noreferrer" className="hover-background">
           <Item
             key={edge.node.frontmatter.title}
             title={edge.node.frontmatter.title}
             date={""}
             link={String(edge.node.frontmatter.video)}
+            hover={true}
             html={edge.node.html}
             with={edge.node.frontmatter.presentedAt}
             image={<Img fluid={imageForTalk(edge.node.frontmatter, query)} style={{ height: 250, borderRadius: 8 }} />}

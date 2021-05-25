@@ -14,6 +14,7 @@ html {
   --horizontal-margin: 1.0875rem;
 
   --primary: #FF5900;
+  --primary-hover: rgba(255, 89, 0, 0.22);
   --secondary: #242835;
   --tertiary: rgb(255, 255, 255);
   --background: var(--tertiary);
@@ -56,6 +57,11 @@ a, a:visited {
   -webkit-text-decoration-skip: objects;
   text-decoration: none;
 }
+
+a .no-links {
+  color: var(--text-on-surface);
+}
+
 a:active,
 a:hover {
   outline-width: 0;
@@ -63,6 +69,15 @@ a:hover {
 .hover-up {
   transition: margin-left 0.2s ease-in-out,
               margin-right 0.2s ease-in-out;
+}
+
+.hover-background {
+  transition: background 0.2s ease-in-out;
+  background: transparent;
+  border-radius: 8px;
+}
+.hover-background:hover {
+  background: var(--primary-hover);
 }
 .hover-up.left:hover {
   margin-left: -36px;
@@ -255,6 +270,7 @@ article ul {
 @media (prefers-color-scheme: dark) {
   html {
     --primary: hsl(21, 75%, 55%);
+    --primary-hover: hsla(21, 75%, 55%, 0.22);
     --secondary: hsl(240, 18%, 94%);
     --background: #191a1f;
     --background-alpha: hsla(240, 16%, 94%, 0.1);

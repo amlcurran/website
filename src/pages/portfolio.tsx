@@ -1,14 +1,13 @@
 import React from "react"
-import { graphql } from "gatsby"
+import {graphql} from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { GraphQLList, Edge } from "../models/graphql";
-import { MarkdownRemark } from "../models/remark";
-import { Item } from "../components/card";
-import PhoneFrame from "../components/phone-frames";
+import {Edge, GraphQLList} from "../models/graphql"
+import {MarkdownRemark} from "../models/remark"
+import {Item} from "../components/card"
+import PhoneFrame from "../components/phone-frames"
 import {Splitter} from "../components/Splitter"
-import {ScrollFader} from "../components/ScrollFader"
 
 interface PortfolioFrontmatter extends PortfolioSmall {
   team: number
@@ -32,11 +31,12 @@ interface PortfolioQuery {
 }
 
 const Portfolio = ({ data }: { data: PortfolioQuery }) => {
-  const elements = (<div  style={{scrollSnapType: 'y mandatory'}}>{data.allMarkdownRemark.edges.map(asPortfolioExcerpt).concat(older())}</div>)
   const seo = <SEO title="Portfolio" keywords={[`portfolio`, `developer`, `engineer`, `mobile`, `ios`, `android`]} description="A series of my most popular projects" key="SEO" />
   return (
     <Layout seo={seo}>
-      {elements}
+      <div style={{scrollSnapType: 'y mandatory'}}>
+        {data.allMarkdownRemark.edges.map(asPortfolioExcerpt).concat(older())}
+      </div>
     </Layout>
   )
 }
@@ -52,19 +52,17 @@ function asPortfolioExcerpt({ node }: Edge<MarkdownRemark<PortfolioFrontmatter>>
   } else {
     secondImage = <PhoneFrame name={node.frontmatter.images[0]}/>
   }
-  const image = secondImage
   return (
-      <ScrollFader enabled={true} style={{marginBottom: 72, scrollSnapAlign: 'start'}}>
-        <Item
-            key={node.frontmatter.title}
-            title={node.frontmatter.title}
-            date={node.frontmatter.date + " ● " + node.frontmatter.position}
-            html={node.html}
-            with={node.frontmatter.with}
-            image={image}
-            largeImage={node.frontmatter.largeImage}
-            imageOnRight={index % 2 == 1}/>
-      </ScrollFader>
+      <Item
+          key={node.frontmatter.title}
+          title={node.frontmatter.title}
+          date={node.frontmatter.date + " ● " + node.frontmatter.position}
+          html={node.html}
+          with={node.frontmatter.with}
+          image={secondImage}
+          largeImage={node.frontmatter.largeImage}
+          imageOnRight={index % 2 == 1}
+          style={{marginBottom: 72, scrollSnapAlign: 'start'}}/>
   )
 }
 
