@@ -29,7 +29,7 @@ const SideProjects = ({ data }: { data: SideProjectsQuery }) => {
 
 function asSideProject({ node }: Edge<MarkdownRemark<SideProjectFrontmatter>>): JSX.Element {
   const foo = (
-      <div style={{display: 'inline-flex', overflow: 'scroll x', marginBottom: 36 }}>
+      <div style={{display: 'flex', overflow: 'scroll', marginBottom: 36 }}>
         {node.frontmatter.technologies.map((chip) => <Chip text={chip}/>)}
       </div>
   )
