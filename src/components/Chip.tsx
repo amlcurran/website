@@ -8,7 +8,7 @@ interface ChipProps {
 
 export const Chip = (props: ChipProps) => {
     return (
-        <div style={{backgroundColor: 'antiquewhite',
+        <div style={{backgroundColor: 'var(--primary-hover)',
             marginRight: 5,
             padding: '5px 10px',
             borderRadius: 20,
