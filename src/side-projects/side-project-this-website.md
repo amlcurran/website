@@ -2,6 +2,7 @@
 start: "2019-03-01"
 title: "This website"
 technologies: ["gatsby", "typescript", "react"]
+link: "https://github.com/amlcurran/website"
 ---
 This website is one of my side projects, of course!
 
