@@ -2,17 +2,19 @@ import React from "react"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import {GraphQLList, Edge} from "../models/graphql"
+import {Edge, GraphQLList} from "../models/graphql"
 import {MarkdownRemark} from "../models/remark"
 import {graphql} from "gatsby"
 import {Icon, Item} from "../components/card"
 import {Chip} from "../components/Chip"
+import PhoneFrame from "../components/phone-frames"
 
 interface SideProjectFrontmatter {
     start: Date
     title: string
     technologies: string[]
     link?: string
+    image?: string
 }
 
 interface SideProjectsQuery {
@@ -31,14 +33,20 @@ const SideProjects = ({data}: { data: SideProjectsQuery }) => {
 
 function asSideProject({node}: Edge<MarkdownRemark<SideProjectFrontmatter>>): JSX.Element {
     const foo = (
-        <div style={{display: 'flex', overflow: 'scroll', marginBottom: 36}}>
+        <div style={{display: 'flex', overflow: 'scroll'}}>
             {node.frontmatter.technologies.map((chip) => <Chip text={chip}/>)}
         </div>
     )
     if (node.frontmatter.link) {
-        const icon: Icon = { name: "launch" }
+        const image = node.frontmatter.image ? <PhoneFrame name={node.frontmatter.image} /> : undefined
         return (<a href={node.frontmatter.link}>
-            <Item title={node.frontmatter.title} html={node.html} key={node.id} largeImage={false} icon={icon}/>
+            <Item title={node.frontmatter.title}
+                  html={node.html}
+                  key={node.id}
+                  largeImage={false}
+                  image={image}
+                  hover={true}
+                  icon={{name: "launch"}}/>
             {foo}
         </a>)
     } else {
@@ -62,6 +70,7 @@ export const pageQuery = graphql`{
           start
           technologies
           link
+          image
         }
       }
     }

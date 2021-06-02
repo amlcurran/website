@@ -2,6 +2,7 @@
 start: "2019-01-01"
 title: "Accountability"
 technologies: ["flutter"]
+image: "accountability"
 ---
 Modern life has so many distractions and little things that are easy to forget or even easier to continuely put off. 
 

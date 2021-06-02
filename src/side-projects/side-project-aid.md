@@ -3,6 +3,7 @@ start: "2018-01-01"
 title: "Aid"
 technologies: ["firebase", "android", "ios"]
 link: "https://www.aidapp.co.uk"
+image: "aid"
 ---
 Aid is a charity giving app I developed during a one-month sabbatical at the start of 2018. 
 

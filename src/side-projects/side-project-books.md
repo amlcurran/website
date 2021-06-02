@@ -2,6 +2,7 @@
 start: "2020-06-01"
 title: "Books"
 technologies: ["firebase", "android", "ios", "catalyst", "AR", "arkit"]
+image: "books"
 ---
 I wanted to build an app to track the books I read over the year.
 
