@@ -31,31 +31,27 @@ const SideProjects = ({data}: { data: SideProjectsQuery }) => {
     )
 }
 
-function asSideProject({node}: Edge<MarkdownRemark<SideProjectFrontmatter>>): JSX.Element {
+function asSideProject({node}: Edge<MarkdownRemark<SideProjectFrontmatter>>, index: number): JSX.Element {
     const foo = (
-        <div style={{display: 'flex', overflow: 'scroll'}}>
+        <div style={{display: 'flex', overflow: 'scroll', marginBottom: 4}}>
             {node.frontmatter.technologies.map((chip) => <Chip text={chip}/>)}
         </div>
     )
+    const image = node.frontmatter.image ? <PhoneFrame name={node.frontmatter.image}/> : undefined
+    const icon: Icon | undefined = node.frontmatter.link ? { name: "launch" } : undefined
+    const item = (<Item title={node.frontmatter.title}
+                        html={node.html}
+                        key={node.id}
+                        imageSize={'small'}
+                        imageOnRight={index % 2 == 1}
+                        image={image}
+                        belowTitle={foo}
+                        icon={icon}
+                        style={{marginBottom: 72}}/>)
     if (node.frontmatter.link) {
-        const image = node.frontmatter.image ? <PhoneFrame name={node.frontmatter.image} /> : undefined
-        return (<a href={node.frontmatter.link}>
-            <Item title={node.frontmatter.title}
-                  html={node.html}
-                  key={node.id}
-                  largeImage={false}
-                  image={image}
-                  hover={true}
-                  icon={{name: "launch"}}/>
-            {foo}
-        </a>)
+        return (<a href={node.frontmatter.link}>{item}</a>)
     } else {
-        return (
-            <>
-                <Item title={node.frontmatter.title} html={node.html} key={node.id} largeImage={false}/>
-                {foo}
-            </>
-        )
+        return item
     }
 }
 

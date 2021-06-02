@@ -35,8 +35,9 @@ interface LargeCardProps {
   date?: string
   with?: string
   link?: string
+  belowTitle?: JSX.Element
   image?: JSX.Element
-  largeImage: boolean
+  imageSize: 'small' | 'normal' | 'large'
   icon?: Icon
   imageOnRight?: boolean
   hover?: boolean
@@ -45,7 +46,7 @@ interface LargeCardProps {
 
 function imageClasses(props: LargeCardProps): string {
   const margins = props.imageOnRight ? "margin-left" : "margin-right"
-  const className = props.largeImage ? "portfolio-image-large" : "portfolio-image"
+  const className = props.imageSize == 'large' ? "portfolio-image-large" : (props.imageSize == 'small' ? "portfolio-image-small" : "portfolio-image")
   return [margins, className].join(" ")
 }
 
@@ -60,7 +61,7 @@ export const Item = (props: LargeCardProps) => {
       <section style={{...cardStyle, display: 'flex', ...props.style}} className={"card-internal " + classes}>
         {props.imageOnRight ? <></> : image}
         <div style={{marginTop: 16}}>
-          {[title, withText, date2]}
+          {[title, withText, date2, props.belowTitle]}
           <div dangerouslySetInnerHTML={{__html: props.html}} className="no-links"/>
         </div>
         {props.imageOnRight ? image : <></>}

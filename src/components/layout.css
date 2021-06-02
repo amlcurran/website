@@ -112,11 +112,13 @@ abbr[title] {
   flex-shrink: 0;
   width: 30%;
 }
+.portfolio-image-small {
+  flex-shrink: 0;
+  width: 22%;
+}
 .portfolio-image-large {
   flex-shrink: 0;
   width: 33%;
-  margin-right: 24px;
-  margin-left: 24px;
 }
 .splitter {
   width: 80%;
@@ -251,6 +253,12 @@ article ul {
     flex-direction: column;
   }
   .portfolio-image {
+    order: -1;
+    width: 40%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .portfolio-image-small {
     order: -1;
     width: 40%;
     margin-left: auto;

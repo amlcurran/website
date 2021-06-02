@@ -9,6 +9,7 @@ export const PhoneFrame = ({ name }: { name: any}) => (
       allFile(filter: {relativeDirectory: {eq: "portfolio-images"}}) {
         edges {
           node {
+          name
             childImageSharp {
               fluid(maxWidth: 600) {
                 ...GatsbyImageSharpFluid
@@ -20,8 +21,10 @@ export const PhoneFrame = ({ name }: { name: any}) => (
     }    
     `}
     render={data => {
+        console.log(name)
+        console.log(data.allFile.edges.map((edge: any) => edge.node.name))
       const filtered = data.allFile.edges.filter((edge: any) => {
-        return edge.node.childImageSharp.fluid.src.indexOf(name) != -1
+        return edge.node.name === name
       })
       return (
         <Img fluid={filtered[0].node.childImageSharp.fluid} />

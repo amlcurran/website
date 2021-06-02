@@ -56,7 +56,7 @@ function asTalkElement(query: TalksQuery): (edge: Edge<MarkdownRemark<TalksFront
         html={edge.node.html}
         with={edge.node.frontmatter.presentedAt}
         image={<Img fluid={imageForTalk(edge.node.frontmatter, query)} style={{ height: 250, borderRadius: 8 }} />}
-        largeImage={true}
+        imageSize={'large'}
         icon={{name: "launch"}} /></a>)
     } else if (edge.node.frontmatter.slides) {
       return (
@@ -70,7 +70,7 @@ function asTalkElement(query: TalksQuery): (edge: Edge<MarkdownRemark<TalksFront
             html={edge.node.html}
             with={edge.node.frontmatter.presentedAt}
             image={<Img fluid={imageForTalk(edge.node.frontmatter, query)} style={{ height: 250, borderRadius: 8 }} />}
-            largeImage={true} />
+            imageSize={'large'} />
         </a>
         )
     } else { 

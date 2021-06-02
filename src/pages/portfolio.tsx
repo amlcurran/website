@@ -60,7 +60,7 @@ function asPortfolioExcerpt({ node }: Edge<MarkdownRemark<PortfolioFrontmatter>>
           html={node.html}
           with={node.frontmatter.with}
           image={secondImage}
-          largeImage={node.frontmatter.largeImage}
+          imageSize={'normal'}
           imageOnRight={index % 2 == 1}
           style={{marginBottom: 72, scrollSnapAlign: 'start'}}/>
   )
