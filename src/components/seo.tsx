@@ -76,6 +76,10 @@ function SEO({ description, lang, meta, keywords, title }: SEOProps) {
           name: `twitter:description`,
           content: metaDescription,
         },
+        {
+          name: `theme-color`,
+          content: "var(--background)",
+        },
       ]
         .concat(
           defKeywords.length > 0
