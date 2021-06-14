@@ -8,6 +8,7 @@
 import React from "react"
 import Helmet from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
+import Styling from "./styling"
 
 interface SEOProps {
   description: string
@@ -78,7 +79,13 @@ function SEO({ description, lang, meta, keywords, title }: SEOProps) {
         },
         {
           name: `theme-color`,
-          content: "var(--background)",
+          content: 'rgb(255, 255, 255)',
+          media: '(prefers-color-scheme: light)'
+        },
+        {
+          name: `theme-color`,
+          content: '#191a1f',
+          media: '(prefers-color-scheme: dark)'
         },
       ]
         .concat(
