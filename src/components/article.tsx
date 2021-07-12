@@ -1,10 +1,9 @@
 import { graphql } from "gatsby"
-import React, {useEffect, useState} from "react"
+import React from "react"
 import { MarkdownRemark } from "../models/remark"
 import Layout from "./layout"
 import SEO from "./seo"
 import ogs, {OpenGraphProperties} from "open-graph-scraper"
-import {Item} from "./card"
 
 interface ArticleFrontmatter {
     title: string
@@ -19,7 +18,7 @@ interface ArticleQuery {
 function previouslyOnCard(previousOpenGraph: OpenGraphProperties | undefined, previous: string | undefined): JSX.Element {
     if (previousOpenGraph) {
         return <>
-            <div style={{fontSize: 16, backgroundColor: "var(--background-alpha)", marginTop: 32, marginBottom: 32, borderRadius: 8, display: "flex" }}>
+            <div className="tiny-card">
                 <img src={previousOpenGraph.ogImage.url} style={{ maxWidth: 200, marginRight: 16, marginBottom: 0, objectFit: "cover", alignSelf: "stretch", borderRadius: 8 }} />
                 <div style={{ paddingTop: 16, paddingBottom: 16 }}>
                     <i>Previously posted on the <a href={previous}>Freetrade blog</a>:</i>
