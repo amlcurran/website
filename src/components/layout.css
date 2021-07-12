@@ -235,6 +235,14 @@ article {
   display: flex;
 }
 
+.tiny-card img {
+  max-width: 200px;
+  margin: 0 16px 0 0;
+  object-fit: cover;
+  align-self: stretch;
+  border-radius: 8px;
+}
+
 .tiny-card h4 {
   color: var(--text-on-secondary);
 }

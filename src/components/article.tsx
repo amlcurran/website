@@ -19,7 +19,7 @@ function previouslyOnCard(previousOpenGraph: OpenGraphProperties | undefined, pr
     if (previousOpenGraph) {
         return <>
             <div className="tiny-card">
-                <img src={previousOpenGraph.ogImage.url} style={{ maxWidth: 200, marginRight: 16, marginBottom: 0, objectFit: "cover", alignSelf: "stretch", borderRadius: 8 }} />
+                <img src={previousOpenGraph.ogImage.url} />
                 <div style={{ paddingTop: 16, paddingBottom: 16 }}>
                     <i>Previously posted on the <a href={previous}>Freetrade blog</a>:</i>
                     <h4 style={{ marginTop: 8 }}>{previousOpenGraph.ogTitle}</h4>
