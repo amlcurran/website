@@ -19,14 +19,13 @@ interface ArticleQuery {
 function previouslyOnCard(previousOpenGraph: OpenGraphProperties | undefined, previous: string | undefined): JSX.Element {
     if (previousOpenGraph) {
         return <>
-            <i>Previously posted on the <a href={previous}>Freetrade blog</a>.</i>
-            <div style={{fontSize: 16, backgroundColor: "var(--background-alpha)", borderRadius: 8}}>
-                <Item imageSize={"small"}
-                      image={<img src={(previousOpenGraph.ogImage as any).url} style={{borderRadius: 8}}/>}
-                      title={previousOpenGraph.ogTitle || ""}
-                      html={previousOpenGraph.ogDescription || ""}
-                      className="tiny-card"
-                />
+            <div style={{fontSize: 16, backgroundColor: "var(--background-alpha)", marginTop: 32, marginBottom: 32, borderRadius: 8, display: "flex" }}>
+                <img src={previousOpenGraph.ogImage.url} style={{ maxWidth: 200, marginRight: 16, marginBottom: 0, objectFit: "cover", alignSelf: "stretch", borderRadius: 8 }} />
+                <div style={{ paddingTop: 16, paddingBottom: 16 }}>
+                    <i>Previously posted on the <a href={previous}>Freetrade blog</a>:</i>
+                    <h4 style={{ marginTop: 8 }}>{previousOpenGraph.ogTitle}</h4>
+                    {previousOpenGraph.ogDescription}
+                </div>
             </div>
         </>
     } else {
