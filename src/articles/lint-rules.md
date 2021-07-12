@@ -4,10 +4,8 @@ date: "22 Jan 2021"
 slug: "lint-rules"
 image: "IMG_2161"
 rawDate: "2021-01-22"
+previous: "https://freetrade.io/blog/using-lint-rules-to-prevent-bugs"
 ---
-
-_Previously posted on the [Freetrade blog](https://freetrade.io/blog/using-lint-rules-to-prevent-bugs)._
-
 
 At Freetrade, developers work cross-platform to deliver features from beginning to end. The main benefit of this is that it avoids mistaken assumptions or differing behaviour over our platforms. 
 

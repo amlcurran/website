@@ -226,6 +226,10 @@ article {
   margin-left: auto;
 }
 
+.tiny-card h2 {
+  font-size: 16pt;
+}
+
 article p {
   margin: 0 0 1.2rem;
   line-height: 1.7;

@@ -41,6 +41,7 @@ interface LargeCardProps {
   icon?: Icon
   imageOnRight?: boolean
   hover?: boolean
+  className?: string
   style?: CSSProperties
 }
 
@@ -55,7 +56,8 @@ export const Item = (props: LargeCardProps) => {
   const withText = (props.with?.length || 0) > 0 ? (<h4 style={{ color: Styling.primaryColor }}>with {props.with}</h4>) : undefined
   const image = props.image ? <div className={imageClasses(props)}>{props.image}</div> : undefined
   const icon = props.icon ? <span className="material-icons" style={{paddingLeft: 8}}>{props.icon.name}</span> : undefined
-  const classes = props.hover ? "hover-background" : ""
+  let classes = props.hover ? "hover-background " : " "
+  classes += props.className || ""
   const title = props.icon?.positionAfterTitle ? <h2>{props.title}{icon}</h2> : <h2>{props.title}{icon}</h2>
   return (
       <section style={{...cardStyle, display: 'flex', ...props.style}} className={"card-internal " + classes}>
