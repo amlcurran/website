@@ -51,7 +51,7 @@ function asArticle(edge: Edge<MarkdownRemark<ArticleFrontmatter>>, data: Article
     date={edge.node.frontmatter.date}
     with={""}
     link={`/articles/${edge.node.frontmatter.slug}`}
-    image={<Img fluid={image.childImageSharp.fluid} style={{ borderRadius: 8 }} />}
+    image={<Img fluid={image.childImageSharp.fluid} className="article-image" />}
     imageSize={'large'}
     html={edge.node.excerpt || ""}
     url={`/articles/${edge.node.frontmatter.slug}`} />
