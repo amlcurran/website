@@ -326,6 +326,36 @@ article ul {
     margin-left: auto;
     margin-right: auto;
   }
+
+  .tiny-card img {
+    max-width: 100px;
+    margin: 0 16px 0 0;
+    object-fit: cover;
+    align-self: stretch;
+    border-radius: 8px;
+  }
+  .tiny-card .description {
+    display: none;
+  }
+  h1 {
+    font-family: 'Domine', serif;
+    color: var(--primary);
+    margin: 0 0 0.45rem;
+    font-weight: bold;
+    text-rendering: optimizeLegibility;
+    font-size: 24pt;
+    line-height: 1.1;
+  }
+  h2 {
+    font-family: 'Domine', serif;
+    margin-top: 0;
+    margin-bottom: 0.35rem;
+    color: var(--primary);
+    font-weight: bold;
+    text-rendering: optimizeLegibility;
+    font-size: 18pt;
+    line-height: 1.1;
+  }
 }
 
 @media (prefers-color-scheme: dark) {

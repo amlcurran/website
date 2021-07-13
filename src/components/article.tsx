@@ -16,14 +16,14 @@ interface ArticleQuery {
 }
 
 function previouslyOnCard(previousOpenGraph: OpenGraphProperties | undefined, previous: string | undefined): JSX.Element {
-    if (previousOpenGraph) {
+    if (previousOpenGraph && previousOpenGraph.ogImage.url) {
         return <>
             <div className="tiny-card">
                 <img src={previousOpenGraph.ogImage.url} />
                 <div style={{ paddingTop: 16, paddingBottom: 16 }}>
                     <i>Previously posted on the <a href={previous}>Freetrade blog</a>:</i>
                     <h4 style={{ marginTop: 8 }}>{previousOpenGraph.ogTitle}</h4>
-                    {previousOpenGraph.ogDescription}
+                    <div className="tiny-card description">{previousOpenGraph.ogDescription}</div>
                 </div>
             </div>
         </>
