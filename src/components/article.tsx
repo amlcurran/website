@@ -23,7 +23,7 @@ function previouslyOnCard(previousOpenGraph: OpenGraphProperties | undefined, pr
                 <div style={{ paddingTop: 16, paddingBottom: 16 }}>
                     <i>Previously posted on the <a href={previous}>Freetrade blog</a>:</i>
                     <h4 style={{ marginTop: 8 }}>{previousOpenGraph.ogTitle}</h4>
-                    <div className="tiny-card description">{previousOpenGraph.ogDescription}</div>
+                    <div className="tiny-card-description">{previousOpenGraph.ogDescription}</div>
                 </div>
             </div>
         </>

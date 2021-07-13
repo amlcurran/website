@@ -29,7 +29,7 @@ This would be great if it is all you need to get started with Dagger, but you al
 They're a bit confusing, and we ended up with large modules (for example, our `ViewModelModule`). Developers new to Android struggled to know that all Android classes required a function in a Component to get their dependencies injected. It's a hurdle that didn't need to exist!
 
 
-Using Hilt
+# Using Hilt
 
 Hilt mostly abstracts these concepts away from you. All your injectable objects still work as is, as do any modules you need.
 

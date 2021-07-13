@@ -233,6 +233,7 @@ article {
   margin: 32px 0;
   border-radius: 8px;
   display: flex;
+  max-height: 120px;
 }
 
 .tiny-card img {
@@ -290,9 +291,8 @@ article ul {
     margin-right: 0;
   }
   .article-image {
-    max-height: 200px;
-    object-fit: cover;
-    object-position: center;
+    max-height: 150px;
+    border-radius: 8px;
   }
   .emphasisBox {
     overflow: scroll;
@@ -338,7 +338,7 @@ article ul {
     align-self: stretch;
     border-radius: 8px;
   }
-  .tiny-card .description {
+  .tiny-card-description {
     display: none;
   }
   h1 {
@@ -359,12 +359,6 @@ article ul {
     text-rendering: optimizeLegibility;
     font-size: 18pt;
     line-height: 1.1;
-  }
-  .article-image {
-    max-height: 150px;
-    object-fit: cover;
-    object-position: top;
-    border-radius: 8px;
   }
 }
 
