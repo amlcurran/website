@@ -20,21 +20,6 @@ const linkHostInnerStyle: CSSProperties = {
   minHeight: 56
 }
 
-const linkInnerStyle: CSSProperties = {
-  textAlign: "center",
-  letterSpacing: '0.1rem',
-  minWidth: 160,
-  textTransform: 'uppercase',
-  fontWeight: 700,
-  marginLeft: 4,
-  marginRight: 4,
-  textDecoration: 'none',
-  transition: 'background 0.2s',
-  paddingTop: 8,
-  paddingBottom: 8,
-  borderRadius: 24
-}
-
 const currentPageStyle: CSSProperties = {
   backgroundColor: Styling.bigButtons.background,
   color: Styling.primaryColor,
@@ -53,7 +38,7 @@ interface HeaderLinkProps {
 
 function HeaderLink2(props: HeaderLinkProps) {
   const [hover, setHover] = useState(false)
-  let style = {...linkInnerStyle}
+  let style = {}
   if (hover) {
     style = {...style, ...hoverPageStyle}
   }
@@ -68,7 +53,7 @@ function HeaderLink2(props: HeaderLinkProps) {
     }
   }, [])
   return (
-    <Link to={props.to} ref={fieldRef} onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)} style={{ flexGrow: 1, ...style }}>
+    <Link to={props.to} ref={fieldRef} onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)} style={{ flexGrow: 1, ...style }} className="inner-link">
       {props.text}
     </Link>
   )
@@ -76,15 +61,6 @@ function HeaderLink2(props: HeaderLinkProps) {
 
 function isCurrentPage(to: string, current: Location | null): boolean {
   return current && (current.pathname == to || current.pathname == to + "/") || false
-}
-
-const contactButton: CSSProperties = {
-  padding: '10px 0px',
-  borderRadius: 24,
-  backgroundColor: Styling.bigButtons.background,
-  color: Styling.primaryColor,
-  ...linkInnerStyle,
-  minWidth: 0
 }
 
 const Header = () => {
@@ -101,9 +77,8 @@ const Header = () => {
         <header>
           <div style={myStyle} className="content headlineTop">
             <Link to="/" className="headlineLink headline" style={{ color: Styling.secondaryColor }}>Hey, I'm Alex Curran.</Link>
-            <a href={query.file.publicURL} style={contactButton} className="emphasisBox">CV <span className="material-icons" style={{ verticalAlign: "text-bottom" }}>file_download</span></a>
-            <a href="mailto:aml.curran+website@gmail.com" style={contactButton} className="emphasisBox">Contact <span className="material-icons"  style={{ verticalAlign: "text-bottom" }}>email
-</span></a>
+            <ContactButton url={query.file.publicURL} text="CV" icon="file_download" />
+            <ContactButton url="mailto:aml.curran+website@gmail.com" text="Contact" icon="email" />
           </div>
           <div style={linkHostStyle} >
             <nav style={linkHostInnerStyle} className="emphasisBox content">
@@ -118,5 +93,12 @@ const Header = () => {
       )}}
   />
 }
+
+const ContactButton = ({url, text, icon}: {url: string, text: string, icon: string}) => (
+    <a href={url} className="emphasisBox inner-link contact-button">
+      <span>{text}</span>
+      <span className="material-icons" style={{ verticalAlign: "middle", paddingBottom: -2, paddingLeft: 4 }}>{icon}</span>
+    </a>
+)
 
 export default Header
