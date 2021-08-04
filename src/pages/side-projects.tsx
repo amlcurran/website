@@ -38,7 +38,7 @@ function asSideProject({node}: Edge<MarkdownRemark<SideProjectFrontmatter>>, ind
         </div>
     )
     const image = node.frontmatter.image ? <PhoneFrame name={node.frontmatter.image}/> : undefined
-    const icon: Icon | undefined = node.frontmatter.link ? { name: "launch" } : undefined
+    const icon: Icon | undefined = node.frontmatter.link ? "launch" : undefined
     const item = (<Item title={node.frontmatter.title}
                         html={node.html}
                         key={node.id}

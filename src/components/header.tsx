@@ -1,6 +1,7 @@
 import { Link, StaticQuery, graphql } from "gatsby"
 import React, { CSSProperties, useEffect, useState } from "react"
 import Styling from "./styling";
+import {Icon} from "./card"
 
 const linkHostStyle: CSSProperties = {
   backgroundColor: Styling.primaryColor,
@@ -77,8 +78,8 @@ const Header = () => {
         <header>
           <div style={myStyle} className="content headlineTop">
             <Link to="/" className="headlineLink headline" style={{ color: Styling.secondaryColor }}>Hey, I'm Alex Curran.</Link>
-            <ContactButton url={query.file.publicURL} text="CV" icon="file_download" />
-            <ContactButton url="mailto:aml.curran+website@gmail.com" text="Contact" icon="email" />
+            <ContactButton url={query.file.publicURL} text="CV" icon={"file_download"} />
+            <ContactButton url="mailto:aml.curran+website@gmail.com" text="Contact" icon={"email"} />
           </div>
           <div style={linkHostStyle} >
             <nav style={linkHostInnerStyle} className="emphasisBox content">
@@ -94,7 +95,7 @@ const Header = () => {
   />
 }
 
-const ContactButton = ({url, text, icon}: {url: string, text: string, icon: string}) => (
+const ContactButton = ({url, text, icon}: {url: string, text: string, icon: Icon}) => (
     <a href={url} className="emphasisBox inner-link contact-button">
       <span>{text}</span>
       <span className="material-icons" style={{ verticalAlign: "middle", paddingBottom: -2, paddingLeft: 4 }}>{icon}</span>

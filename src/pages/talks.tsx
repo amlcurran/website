@@ -57,7 +57,7 @@ function asTalkElement(query: TalksQuery): (edge: Edge<MarkdownRemark<TalksFront
         with={edge.node.frontmatter.presentedAt}
         image={<Img fluid={imageForTalk(edge.node.frontmatter, query)} style={{ height: 250, borderRadius: 8 }} />}
         imageSize={'large'}
-        icon={{name: "launch"}} /></a>)
+        icon={"launch"} /></a>)
     } else if (edge.node.frontmatter.slides) {
       return (
         <a href={edge.node.frontmatter.slides.toString()} target="_blank" rel="noopener noreferrer" className="hover-background">

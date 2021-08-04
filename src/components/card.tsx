@@ -25,9 +25,7 @@ export const LinkedItem = (props: LargeCardProps & Linkable) => {
   )
 }
 
-export interface Icon {
-  name: "launch" | "play_circle_outline"
-}
+export type Icon = "launch" | "play_circle_outline" | "email" | "file_download"
 
 interface LargeCardProps {
   title: string
@@ -55,7 +53,7 @@ export const Item = (props: LargeCardProps) => {
   const date2 = (props.date?.length || 0) > 0 ? (<h4>{props.date}</h4>) : undefined
   const withText = (props.with?.length || 0) > 0 ? (<h4 style={{ color: Styling.primaryColor }}>with {props.with}</h4>) : undefined
   const image = props.image ? <div className={imageClasses(props)}>{props.image}</div> : undefined
-  const icon = props.icon ? <span className="material-icons" style={{paddingLeft: 8}}>{props.icon.name}</span> : undefined
+  const icon = props.icon ? <span className="material-icons" style={{paddingLeft: 8}}>{props.icon}</span> : undefined
   let classes = props.hover ? "hover-background " : " "
   classes += props.className || ""
   const title = props.icon?.positionAfterTitle ? <h2>{props.title}{icon}</h2> : <h2>{props.title}{icon}</h2>
