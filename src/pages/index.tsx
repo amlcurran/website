@@ -46,7 +46,7 @@ const NewIndexPage = (query: any) => (
             text="Want to chat about something? Then get in touch"
             goesTo="mailto:aml.curran+website@gmail.com" />
       </div>
-      <Img fluid={query.data.file.childImageSharp.fluid} className="background-image" />
+      <Img fluid={query.data.file.childImageSharp.fluid} style={{ position: "absolute" }} className="background-image" />
     </main>
   </>
 )

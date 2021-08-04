@@ -41,10 +41,10 @@ function HeaderLink2(props: HeaderLinkProps) {
   const [hover, setHover] = useState(false)
   let style = {}
   if (hover) {
-    style = {...style, ...hoverPageStyle}
+    style = {...hoverPageStyle}
   }
   if (isCurrentPage(props.to, props.current)) {
-    style = {...style, ...currentPageStyle}
+    style = {...currentPageStyle}
   }
 
   const fieldRef = React.useRef<HTMLAnchorElement>(null);
