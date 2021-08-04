@@ -36,7 +36,7 @@ Now you can run them side-by-side:
 ![Freetrade running side by side with other apps](./freetrade-ipad-2.png)
 
 
-# Developing Freetrade for iPad
+## Developing Freetrade for iPad
 
 
 As you might notice, the app looks very similar on iPad compared to on iPhone.

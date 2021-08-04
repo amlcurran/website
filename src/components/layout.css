@@ -248,6 +248,19 @@ article {
   color: var(--text-on-secondary);
 }
 
+.front-page {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 24px;
+}
+
+
+.front-page-card {
+  background-color: var(--surface);
+  border-radius: 12px;
+  padding: 12px;
+}
+
 article p {
   margin: 0 0 1.2rem;
   line-height: 1.7;

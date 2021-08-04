@@ -7,16 +7,6 @@ import Img from "gatsby-image";
 import Styling from "../components/styling"
 import FrontPageCard, { ExternalLinkFrontPageCard } from "../components/FrontPageCard";
 
-const backgroundImageStyle: CSSProperties = {
-  position: "absolute",
-  left: 0,
-  right: 0,
-  top: 0,
-  bottom: 0,
-  opacity: 0.15,
-  zIndex: -1
-}
-
 const myStyle: CSSProperties = {
   paddingTop: 12,
   paddingBottom: 6
@@ -26,9 +16,11 @@ const NewIndexPage = (query: any) => (
   <>
     <main className="content">
       <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} description="Alex Curran's portfolio website" />
+      <div className="index-top">
       <div style={{ ...myStyle, color: Styling.secondaryColor }} className="headlineLink headline">Hey, I'm Alex Curran.</div>
-      <div className="index-top">I’m a software developer, specialising in mobile applications across Android and iOS.</div>
-      <div className="left-shifted">
+      I’m a software developer, specialising in mobile applications across Android and iOS.
+      </div>
+      <div className="front-page">
         <FrontPageCard
             title="Portfolio"
             text="The projects I’ve worked on in my career"
@@ -40,10 +32,7 @@ const NewIndexPage = (query: any) => (
         <FrontPageCard
             title="Projects"
             text="Side projects in various states of abandonment"
-            goesTo="/side-projects"
-            doNotWrapTitle={true} />
-      </div>
-      <div className="right-shifted">
+            goesTo="/side-projects" />
         <FrontPageCard
             title="Articles"
             text="Sometimes, I write. Here are the things I write."
@@ -57,7 +46,7 @@ const NewIndexPage = (query: any) => (
             text="Want to chat about something? Then get in touch"
             goesTo="mailto:aml.curran+website@gmail.com" />
       </div>
-      <Img fluid={query.data.file.childImageSharp.fluid} style={backgroundImageStyle} />
+      <Img fluid={query.data.file.childImageSharp.fluid} className="background-image" />
     </main>
   </>
 )
