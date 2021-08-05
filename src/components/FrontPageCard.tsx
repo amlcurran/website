@@ -4,7 +4,7 @@ import { CSSProperties } from "react"
 import { cardStyle } from "./card"
 
 const frontPageCard: CSSProperties = {
-    ...cardStyle
+    // ...cardStyle
 }
 
 interface LinkCardProps {
