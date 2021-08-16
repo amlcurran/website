@@ -2,17 +2,16 @@ import React, { CSSProperties } from "react"
 
 import SEO from "../components/seo"
 import "./index.css"
-import { graphql } from "gatsby";
-import Img from "gatsby-image";
 import Styling from "../components/styling"
 import FrontPageCard, { ExternalLinkFrontPageCard } from "../components/FrontPageCard";
+import { StaticImage } from "gatsby-plugin-image"
 
 const myStyle: CSSProperties = {
   paddingTop: 12,
   paddingBottom: 6
 }
 
-const NewIndexPage = (query: any) => (
+const NewIndexPage = () => (
   <>
     <main className="content">
       <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} description="Alex Curran's portfolio website" />
@@ -46,21 +45,9 @@ const NewIndexPage = (query: any) => (
             text="Want to chat about something? Then get in touch"
             goesTo="mailto:aml.curran+website@gmail.com" />
       </div>
-      <Img fluid={query.data.file.childImageSharp.fluid} style={{ position: "absolute" }} className="background-image" />
+      <StaticImage src={"../images/writing-better-code.jpg"} alt={""} style={{ position: "absolute" }} className="background-image"  />
     </main>
   </>
 )
-
-export const query = graphql`
-  query {
-    file(relativePath: { eq: "writing-better-code.jpg" }) {
-      childImageSharp {
-        fluid(maxWidth: 600) {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
-  }
-`
 
 export default NewIndexPage

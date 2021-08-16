@@ -73,6 +73,7 @@ module.exports = {
       }
     },
     `gatsby-plugin-typescript`,
+    `gatsby-plugin-image`,
     {
       resolve: `gatsby-transformer-remark`,
       options: {
