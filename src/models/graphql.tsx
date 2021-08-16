@@ -1,4 +1,5 @@
 import { FluidObject, FixedObject } from "gatsby-image";
+import {IGatsbyImageData} from "gatsby-plugin-image"
 
 export interface Edge<T> {
     node: T
@@ -12,5 +13,6 @@ export interface SharpImage {
     childImageSharp: {
         fluid?: FluidObject
         fixed?: FixedObject
+        gatsbyImageData: IGatsbyImageData
     }
 }

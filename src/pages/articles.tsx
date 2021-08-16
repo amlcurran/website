@@ -6,7 +6,7 @@ import { graphql } from "gatsby";
 import { GraphQLList, Edge, SharpImage } from "../models/graphql";
 import { MarkdownRemark } from "../models/remark";
 import { LinkedItem } from "../components/card";
-import Img from "gatsby-image";
+import { GatsbyImage } from "gatsby-plugin-image"
 
 interface ArticleFrontmatter {
   title: string
@@ -51,7 +51,13 @@ function asArticle(edge: Edge<MarkdownRemark<ArticleFrontmatter>>, data: Article
     date={edge.node.frontmatter.date}
     with={""}
     link={`/articles/${edge.node.frontmatter.slug}`}
-    image={<Img fluid={image.childImageSharp.fluid} className="article-image" style={{ borderRadius: 8 }}/>}
+    image={
+      <GatsbyImage
+          image={image.childImageSharp.gatsbyImageData}
+          alt={`Image for ${edge.node.frontmatter.title}`}
+          className="article-image"
+          style={{borderRadius: 8}} />
+    }
     imageSize={'large'}
     html={edge.node.excerpt || ""}
     url={`/articles/${edge.node.frontmatter.slug}`} />
@@ -79,9 +85,7 @@ export const query = graphql`
         node {
           name
           childImageSharp {
-            fluid(maxWidth: 300) {
-              ...GatsbyImageSharpFluid
-            }
+            gatsbyImageData(layout: CONSTRAINED)
           }
         }
       }
