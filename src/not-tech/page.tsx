@@ -1,8 +1,8 @@
-import React, { CSSProperties } from "react"
+import React, {CSSProperties} from "react"
 
 import SEO from "../components/seo"
-import Img from "gatsby-image";
-import { Edge, SharpImage } from "../models/graphql";
+import {Edge, SharpImage} from "../models/graphql"
+import {GatsbyImage} from "gatsby-plugin-image"
 
 const imageStyle: CSSProperties = {
     borderRadius: 8
@@ -14,7 +14,13 @@ export function images(name: string, notTechBits: Edge<SharpImage & File>[]): JS
 
 function buildRow(images: Edge<SharpImage & File>[]): JSX.Element {
     return <div style={{display: "grid", gridTemplateColumns: 'auto auto auto', gridColumnGap: 8, minHeight: 150}} className="imageRow">
-        {images.map((image) => imageDiv(image))}
+        {images.map(image => <GatsbyImage
+            key={image.node.name}
+            image={image.node.childImageSharp.gatsbyImageData}
+            alt=""
+            style={imageStyle}
+            imgStyle={imageStyle}
+            className="imageItem"/>)}
     </div>
 }
 
@@ -26,10 +32,3 @@ export const seo = <SEO
 
 export default images
 
-function imageDiv(image: Edge<SharpImage & File>): JSX.Element {
-    return <Img
-        key={image.node.name}
-        fluid={image.node.childImageSharp.fluid}
-        style={{ ...imageStyle }}
-        className="imageItem" />
-}
