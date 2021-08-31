@@ -26,7 +26,9 @@ const SideProjects = ({data}: { data: SideProjectsQuery }) => {
                      description="Here's what I get up to when I'm not coding" key="SEO"/>
     return (
         <Layout seo={seo}>
-            {data.allMarkdownRemark.edges.map(asSideProject)}
+            <div className="collapsingGrid">
+                {data.allMarkdownRemark.edges.map(asSideProject)}
+            </div>
         </Layout>
     )
 }

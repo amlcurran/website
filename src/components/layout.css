@@ -52,7 +52,10 @@ body {
   column-gap: 16px;
 }
 .collapsingGrid {
+  display: grid;
   grid-template-columns: auto;
+  gap: 32px;
+  margin: 32px 0;
 }
 footer {
   font-size: 10pt
@@ -289,12 +292,12 @@ article ul {
   display: flex;
   flex: 1 1 0;
   flex-direction: row;
-  margin: var(--article-padding) 0;
   gap: var(--article-padding);
 }
 
 .article-snippet {
-  --webkit-line-clamp: 3
+  --webkit-line-clamp: 1;
+  line-clamp: 1;
 }
 
 .card-internal {
@@ -313,7 +316,7 @@ article ul {
   html {
     font-size: 100%;
     --article-padding: 8px;
-  } 
+  }
   nav {
     display: table;
     table-layout: fixed;
@@ -413,7 +416,8 @@ article ul {
   }
 
   .article-snippet {
-    display: none;
+    --webkit-line-clamp: 2;
+    line-clamp: 2;
   }
   h2 {
     font-size: 14pt;

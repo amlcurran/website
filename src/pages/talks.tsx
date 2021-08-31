@@ -26,19 +26,12 @@ interface TalksQuery {
   codeWhispering: any
 }
 
-const talksStyle: CSSProperties = {
-  display: "block",
-  marginTop: 16,
-  gridRowGap: 16,
-  gridColumnGap: 16
-}
-
 const Talks = ({ data }: { data: TalksQuery }) => {
   const seo = <SEO title="Talks" keywords={[`talks`, `developer`, `engineer`, `mobile`, `ios`, `android`]} description="A summary of the talks I've done over my career" key="SEO" />
   const talks = data.allMarkdownRemark.edges.map(asTalkElement(data))
   return (
     <Layout seo={seo}>
-      <div style={talksStyle} className="collapsingGrid">{talks}</div>
+      <div className="collapsingGrid">{talks}</div>
       <div />
     </Layout>
   )

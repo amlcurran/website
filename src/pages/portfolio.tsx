@@ -34,7 +34,7 @@ const Portfolio = ({ data }: { data: PortfolioQuery }) => {
   const seo = <SEO title="Portfolio" keywords={[`portfolio`, `developer`, `engineer`, `mobile`, `ios`, `android`]} description="A series of my most popular projects" key="SEO" />
   return (
     <Layout seo={seo}>
-      <div style={{scrollSnapType: 'y mandatory'}}>
+      <div style={{scrollSnapType: 'y mandatory'}} className="collapsingGrid">
         {data.allMarkdownRemark.edges.map(asPortfolioExcerpt).concat(older())}
       </div>
     </Layout>
