@@ -37,9 +37,7 @@ interface LargeCardProps {
 }
 
 function imageClasses(props: LargeCardProps): string {
-  const margins = props.imageOnRight ? "margin-left" : "margin-right"
-  const className = props.imageSize == 'large' ? "portfolio-image-large" : (props.imageSize == 'small' ? "portfolio-image-small" : "portfolio-image")
-  return [margins, className].join(" ")
+  return props.imageSize == 'large' ? "portfolio-image-large" : (props.imageSize == 'small' ? "portfolio-image-small" : "portfolio-image")
 }
 
 export const Item = (props: LargeCardProps) => {
@@ -49,12 +47,12 @@ export const Item = (props: LargeCardProps) => {
   const icon = props.icon ? <span className="material-icons" style={{paddingLeft: 8}}>{props.icon}</span> : undefined
   let classes = props.hover ? "hover-background " : " "
   classes += props.className || ""
-  const title = props.icon?.positionAfterTitle ? <h2>{props.title}{icon}</h2> : <h2>{props.title}{icon}</h2>
   return (
-      <section style={props.style} className={"card-internal card-total" + classes}>
+      <section style={props.style} className={"card-internal card-total " + classes}>
         {props.imageOnRight ? <></> : image}
-        <div style={{marginTop: 16}}>
-          {[title, withText, date2, props.belowTitle]}
+        <div className="article-text">
+          <h2>{props.title}{icon}</h2>
+          {[withText, date2, props.belowTitle]}
           <div dangerouslySetInnerHTML={{__html: props.html}} className="no-links"/>
         </div>
         {props.imageOnRight ? image : <></>}
@@ -68,21 +66,17 @@ interface ArticleProps {
   date: string
   link?: string
   image: Image
-  hover?: boolean
-  style?: CSSProperties
 }
 
 export const LinkedArticle = (props: ArticleProps & Linkable) => {
   return (
       <Link to={props.url}>
-        <section style={{...props.style}} className="card-total hover-background">
-          <div className="portfolio-image">
-            <GatsbyImage
-                image={props.image.childImageSharp.gatsbyImageData}
-                alt={`Image for ${props.title}`}
-                className="article-image"
-                style={{borderRadius: 8}} />
-          </div>
+        <section className="card-total hover-background">
+          <GatsbyImage
+              image={props.image.childImageSharp.gatsbyImageData}
+              alt={`Image for ${props.title}`}
+              className="article-image portfolio-image"
+              imgStyle={{borderRadius: 8}}/>
           <div className="article-text">
             <h2>{props.title}</h2>
             <h4>{props.date}</h4>

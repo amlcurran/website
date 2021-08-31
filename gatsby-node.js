@@ -25,11 +25,11 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   }
 
   for (const {node} of result.data.allMarkdownRemark.edges) {
-    await foo(node, createPage)
+    await createArticle(node, createPage)
   }
 }
 
-async function foo(node, createPage) {
+async function createArticle(node, createPage) {
   const blogPostTemplate = path.resolve(`src/components/article.tsx`)
   let fetchResult;
   if (node.frontmatter.previous) {

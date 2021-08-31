@@ -288,12 +288,21 @@ article ul {
   min-width: 250px;
   display: flex;
   flex: 1 1 0;
+  flex-direction: row;
   margin: var(--article-padding) 0;
   gap: var(--article-padding);
 }
 
 .article-snippet {
   --webkit-line-clamp: 3
+}
+
+.card-internal {
+  flex-direction: row;
+}
+
+.card-inside {
+
 }
 
 .article-text {
@@ -311,6 +320,10 @@ article ul {
   }
   .card-internal {
     flex-direction: column;
+  }
+
+  .card-inside {
+
   }
   .portfolio-image {
     order: -1;
@@ -402,10 +415,10 @@ article ul {
   .article-snippet {
     display: none;
   }
-  .article-text h2 {
+  h2 {
     font-size: 14pt;
   }
-  .article-text h4 {
+  h4 {
     font-size: 10pt;
   }
 }
