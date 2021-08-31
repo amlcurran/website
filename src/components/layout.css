@@ -25,6 +25,7 @@ html {
   --text-on-surface: var(--secondary);
   --text-on-background: var(--secondary);
   --surface: white;
+  --article-padding: 16px;
 }
 body {
   margin: 0;
@@ -283,9 +284,26 @@ article ul {
   margin-right: 24px;
 }
 
+.card-total {
+  min-width: 250px;
+  display: flex;
+  flex: 1 1 0;
+  margin: var(--article-padding) 0;
+  gap: var(--article-padding);
+}
+
+.article-snippet {
+  --webkit-line-clamp: 3
+}
+
+.article-text {
+  padding: var(--article-padding) var(--article-padding) var(--article-padding) 0;
+}
+
 @media only screen and (max-width: 600px) {
   html {
     font-size: 100%;
+    --article-padding: 8px;
   } 
   nav {
     display: table;
@@ -379,6 +397,16 @@ article ul {
     text-rendering: optimizeLegibility;
     font-size: 18pt;
     line-height: 1.1;
+  }
+
+  .article-snippet {
+    display: none;
+  }
+  .article-text h2 {
+    font-size: 14pt;
+  }
+  .article-text h4 {
+    font-size: 10pt;
   }
 }
 

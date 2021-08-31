@@ -2,15 +2,8 @@ import React, {CSSProperties} from "react"
 import {Link} from "@reach/router"
 import Styling from "./styling"
 import "./layout.css"
-
-export const cardStyle: CSSProperties = {
-  minWidth: 250,
-  flexGrow: 1,
-  flexBasis: 0,
-  marginTop: 16,
-  marginBottom: 16,
-  paddingRight: 16
-}
+import {GatsbyImage} from "gatsby-plugin-image"
+import {Image} from "../pages/articles"
 
 interface Linkable {
   url: string
@@ -58,7 +51,7 @@ export const Item = (props: LargeCardProps) => {
   classes += props.className || ""
   const title = props.icon?.positionAfterTitle ? <h2>{props.title}{icon}</h2> : <h2>{props.title}{icon}</h2>
   return (
-      <section style={{...cardStyle, display: 'flex', ...props.style}} className={"card-internal " + classes}>
+      <section style={props.style} className={"card-internal card-total" + classes}>
         {props.imageOnRight ? <></> : image}
         <div style={{marginTop: 16}}>
           {[title, withText, date2, props.belowTitle]}
@@ -66,5 +59,36 @@ export const Item = (props: LargeCardProps) => {
         </div>
         {props.imageOnRight ? image : <></>}
       </section>
+  )
+}
+
+interface ArticleProps {
+  title: string
+  html: string
+  date: string
+  link?: string
+  image: Image
+  hover?: boolean
+  style?: CSSProperties
+}
+
+export const LinkedArticle = (props: ArticleProps & Linkable) => {
+  return (
+      <Link to={props.url}>
+        <section style={{...props.style}} className="card-total hover-background">
+          <div className="portfolio-image">
+            <GatsbyImage
+                image={props.image.childImageSharp.gatsbyImageData}
+                alt={`Image for ${props.title}`}
+                className="article-image"
+                style={{borderRadius: 8}} />
+          </div>
+          <div className="article-text">
+            <h2>{props.title}</h2>
+            <h4>{props.date}</h4>
+            <div dangerouslySetInnerHTML={{__html: props.html}} className="no-links article-snippet" style={{lineClamp: 3}}/>
+          </div>
+        </section>
+      </Link>
   )
 }

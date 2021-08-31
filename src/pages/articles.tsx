@@ -5,7 +5,7 @@ import SEO from "../components/seo"
 import { graphql } from "gatsby";
 import { GraphQLList, Edge, SharpImage } from "../models/graphql";
 import { MarkdownRemark } from "../models/remark";
-import { LinkedItem } from "../components/card";
+import {LinkedArticle, LinkedItem} from "../components/card"
 import { GatsbyImage } from "gatsby-plugin-image"
 
 interface ArticleFrontmatter {
@@ -15,7 +15,7 @@ interface ArticleFrontmatter {
   image: string
 }
 
-type Image = { name: String } & SharpImage
+export type Image = { name: String } & SharpImage
 
 interface ArticlesQuery {
   allMarkdownRemark: GraphQLList<MarkdownRemark<ArticleFrontmatter>>
@@ -45,20 +45,12 @@ function asArticle(edge: Edge<MarkdownRemark<ArticleFrontmatter>>, data: Article
     console.log(data)
     throw new Error(`Couldn't find image ${edge.node.frontmatter.image} for ${edge.node.frontmatter.slug}`)
   }
-  return <LinkedItem
+  return <LinkedArticle
     key={edge.node.id}
     title={edge.node.frontmatter.title}
     date={edge.node.frontmatter.date}
-    with={""}
     link={`/articles/${edge.node.frontmatter.slug}`}
-    image={
-      <GatsbyImage
-          image={image.childImageSharp.gatsbyImageData}
-          alt={`Image for ${edge.node.frontmatter.title}`}
-          className="article-image"
-          style={{borderRadius: 8}} />
-    }
-    imageSize={'large'}
+    image={image}
     html={edge.node.excerpt || ""}
     url={`/articles/${edge.node.frontmatter.slug}`} />
 }

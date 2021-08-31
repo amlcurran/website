@@ -1,7 +1,6 @@
 import { Link } from "gatsby"
 import React from "react"
 import { CSSProperties } from "react"
-import { cardStyle } from "./card"
 
 const frontPageCard: CSSProperties = {
     // ...cardStyle
