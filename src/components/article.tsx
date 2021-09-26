@@ -9,6 +9,7 @@ interface ArticleFrontmatter {
     title: string
     date: string
     previous?: string
+    snippet?: string
 }
 
 interface ArticleQuery {
@@ -33,7 +34,8 @@ function previouslyOnCard(previousOpenGraph: OpenGraphProperties | undefined, pr
 }
 
 export default function ArticlePage({data, pageContext}: {data: ArticleQuery, pageContext: { previousOpenGraph?: ogs.OpenGraphProperties }}) {
-    const seo = <SEO title={data.markdownRemark.frontmatter.title} keywords={[`articles`, `blog`, `vlog`, `tech`, `thoughts`]} description="Articles and piece I've written" key="SEO" />
+    const snippet = data.markdownRemark.frontmatter.snippet || "Articles and piece I've written"
+    const seo = <SEO title={data.markdownRemark.frontmatter.title} keywords={[`articles`, `blog`, `vlog`, `tech`, `thoughts`]} description={snippet} key="SEO" />
     const object = (previouslyOnCard(pageContext.previousOpenGraph, data.markdownRemark.frontmatter.previous))
     return (
         <Layout seo={seo} style={{paddingTop: 16}}>
@@ -56,6 +58,7 @@ export const pageQuery = graphql`
         date
         title
         previous
+        snippet
       }
     }
   }

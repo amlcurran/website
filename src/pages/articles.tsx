@@ -13,6 +13,7 @@ interface ArticleFrontmatter {
   slug: string
   date: string
   image: string
+  snippet?: string
 }
 
 export type Image = { name: String } & SharpImage
@@ -51,7 +52,7 @@ function asArticle(edge: Edge<MarkdownRemark<ArticleFrontmatter>>, data: Article
     date={edge.node.frontmatter.date}
     link={`/articles/${edge.node.frontmatter.slug}`}
     image={image}
-    html={edge.node.excerpt || ""}
+    html={edge.node.frontmatter.snippet || edge.node.excerpt || ""}
     url={`/articles/${edge.node.frontmatter.slug}`} />
 }
 
@@ -68,6 +69,7 @@ export const query = graphql`
               slug
               image
               rawDate
+              snippet
           }
         }
       }
