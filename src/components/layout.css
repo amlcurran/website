@@ -347,6 +347,7 @@ article ul {
   .article-image {
     max-height: 150px;
     border-radius: 8px;
+    aspect-ratio: 4 / 3;
   }
   .emphasisBox {
     overflow: scroll;
