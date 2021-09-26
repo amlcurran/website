@@ -10,6 +10,7 @@ interface ArticleFrontmatter {
     date: string
     previous?: string
     snippet?: string
+    image?: string
 }
 
 interface ArticleQuery {
@@ -35,7 +36,13 @@ function previouslyOnCard(previousOpenGraph: OpenGraphProperties | undefined, pr
 
 export default function ArticlePage({data, pageContext}: {data: ArticleQuery, pageContext: { previousOpenGraph?: ogs.OpenGraphProperties }}) {
     const snippet = data.markdownRemark.frontmatter.snippet || "Articles and piece I've written"
-    const seo = <SEO title={data.markdownRemark.frontmatter.title} keywords={[`articles`, `blog`, `vlog`, `tech`, `thoughts`]} description={snippet} key="SEO" />
+    const seo = <SEO
+        title={data.markdownRemark.frontmatter.title}
+        keywords={[`articles`, `blog`, `vlog`, `tech`, `thoughts`]}
+        description={snippet}
+        key="SEO"
+        image={data.markdownRemark.frontmatter.image}
+    />
     const object = (previouslyOnCard(pageContext.previousOpenGraph, data.markdownRemark.frontmatter.previous))
     return (
         <Layout seo={seo} style={{paddingTop: 16}}>
@@ -59,6 +66,7 @@ export const pageQuery = graphql`
         title
         previous
         snippet
+        image
       }
     }
   }

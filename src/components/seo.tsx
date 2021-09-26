@@ -16,9 +16,10 @@ interface SEOProps {
   meta?: any[]
   keywords?: string[],
   title: string
+  image?: string
 }
 
-function SEO({ description, lang, meta, keywords, title }: SEOProps) {
+function SEO({ description, lang, meta, keywords, title, image }: SEOProps) {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -87,6 +88,10 @@ function SEO({ description, lang, meta, keywords, title }: SEOProps) {
           content: '#191a1f',
           media: '(prefers-color-scheme: dark)'
         },
+        {
+          name: 'og:image',
+          content: image
+        }
       ]
         .concat(
           defKeywords.length > 0
