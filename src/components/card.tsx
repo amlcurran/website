@@ -63,9 +63,9 @@ export const Item = (props: LargeCardProps) => {
 interface ArticleProps {
   title: string
   html: string
-  date: string
   link?: string
   image: Image
+  rawDate: string
 }
 
 export const LinkedArticle = (props: ArticleProps & Linkable) => {
@@ -79,7 +79,11 @@ export const LinkedArticle = (props: ArticleProps & Linkable) => {
               imgStyle={{borderRadius: 8}}/>
           <div className="article-text">
             <h2>{props.title}</h2>
-            <h4>{props.date}</h4>
+            <h4>{new Date(props.rawDate).toLocaleDateString(undefined, {
+              day: "numeric",
+              month: "short",
+              year: "numeric"
+            })}</h4>
             <div dangerouslySetInnerHTML={{__html: props.html}} className="no-links article-snippet" style={{lineClamp: 3}}/>
           </div>
         </section>

@@ -5,15 +5,14 @@ import SEO from "../components/seo"
 import { graphql } from "gatsby";
 import { GraphQLList, Edge, SharpImage } from "../models/graphql";
 import { MarkdownRemark } from "../models/remark";
-import {LinkedArticle, LinkedItem} from "../components/card"
-import { GatsbyImage } from "gatsby-plugin-image"
+import {LinkedArticle} from "../components/card"
 
 interface ArticleFrontmatter {
   title: string
   slug: string
-  date: string
   image: string
   snippet?: string
+  rawDate: string
 }
 
 export type Image = { name: String } & SharpImage
@@ -49,11 +48,11 @@ function asArticle(edge: Edge<MarkdownRemark<ArticleFrontmatter>>, data: Article
   return <LinkedArticle
     key={edge.node.id}
     title={edge.node.frontmatter.title}
-    date={edge.node.frontmatter.date}
     link={`/articles/${edge.node.frontmatter.slug}`}
     image={image}
     html={edge.node.frontmatter.snippet || edge.node.excerpt || ""}
-    url={`/articles/${edge.node.frontmatter.slug}`} />
+    url={`/articles/${edge.node.frontmatter.slug}`}
+  rawDate={edge.node.frontmatter.rawDate}/>
 }
 
 export const query = graphql`
