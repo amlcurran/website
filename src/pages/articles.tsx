@@ -78,7 +78,13 @@ export const query = graphql`
         node {
           name
           childImageSharp {
-            gatsbyImageData(layout: CONSTRAINED)
+            gatsbyImageData(
+              layout: CONSTRAINED,
+              aspectRatio: 1.33,
+              transformOptions: {
+                 cropFocus:CENTER
+              }
+            )
           }
         }
       }
