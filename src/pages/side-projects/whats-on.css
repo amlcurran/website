@@ -1,0 +1,35 @@
+/*h1 {*/
+/*    color: green;*/
+/*    font-family: 'IBM Plex Sans', sans-serif;*/
+/*}*/
+
+/*html {*/
+/*    font-family: 'IBM Plex Sans', sans-serif;*/
+/*    --icon-size: 156px;*/
+/*}*/
+
+/*body {*/
+/*    background-color: rgb(237, 241, 245);*/
+/*}*/
+
+/*.on-dark {*/
+/*    color: rgb(237, 241, 245);*/
+/*}*/
+
+.readable {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.upper {
+    background-color: rgb(36, 51, 77);
+    padding: 72px 0 16px;
+}
+
+.whats-on-image {
+    width: var(--icon-size);
+    height: var(--icon-size);
+}
+
+.whats-on-main {
+}

@@ -53,18 +53,6 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
-      resolve: `gatsby-plugin-manifest`,
-      options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
-        start_url: `/`,
-        background_color: `#242935`,
-        theme_color: `#FF5900`,
-        display: `minimal-ui`,
-        icon: `src/images/favicon3.png`, // This path is relative to the root of the site.
-      },
-    },
-    {
       resolve: 'gatsby-plugin-web-font-loader',
       options: {
         google: {
