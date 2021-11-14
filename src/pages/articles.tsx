@@ -7,12 +7,13 @@ import { GraphQLList, Edge, SharpImage } from "../models/graphql";
 import { MarkdownRemark } from "../models/remark";
 import {LinkedArticle} from "../components/card"
 
-interface ArticleFrontmatter {
+export interface ArticleFrontmatter {
   title: string
   slug: string
   image: string
   snippet?: string
   rawDate: string
+  previous?: string
 }
 
 export type Image = { name: String } & SharpImage
@@ -29,10 +30,9 @@ const Articles = ({ data }: { data: ArticlesQuery }) => {
   const articles = data.allMarkdownRemark.edges.map((edge) => asArticle(edge, data))
   return (
     <Layout seo={seo}>
-      {<main className="collapsingGrid">
+      <main className="collapsingGrid">
         {articles}
-      </main>}
-      {<h3 style={{ textAlign: "center" }}><a href="https://www.medium.com/@amlcurran" target="_blank"> Older articles →</a></h3>}
+      </main>
     </Layout>
   )
 }

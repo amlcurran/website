@@ -4,14 +4,7 @@ import { MarkdownRemark } from "../models/remark"
 import Layout from "./layout"
 import SEO from "./seo"
 import ogs, {OpenGraphProperties} from "open-graph-scraper"
-
-interface ArticleFrontmatter {
-    title: string
-    date: string
-    previous?: string
-    snippet?: string
-    image?: string
-}
+import {ArticleFrontmatter} from "../pages/articles"
 
 interface ArticleQuery {
     markdownRemark: MarkdownRemark<ArticleFrontmatter>
@@ -47,7 +40,11 @@ export default function ArticlePage({data, pageContext}: {data: ArticleQuery, pa
     return (
         <Layout seo={seo} style={{paddingTop: 16}}>
             <article>
-                <h4>{data.markdownRemark.timeToRead + " minutes to read  ● "}<time>{data.markdownRemark.frontmatter.date}</time></h4>
+                <h4>{data.markdownRemark.timeToRead + " minutes to read  ● "}<time>{new Date(data.markdownRemark.frontmatter.rawDate).toLocaleDateString(undefined, {
+                    day: "numeric",
+                    month: "short",
+                    year: "numeric"
+                })}</time></h4>
                 <h1>{data.markdownRemark.frontmatter.title}</h1>
                 {object}
                 <div dangerouslySetInnerHTML={{__html: data.markdownRemark.html}} />
@@ -67,6 +64,7 @@ export const pageQuery = graphql`
         previous
         snippet
         image
+        rawDate
       }
     }
   }
