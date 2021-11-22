@@ -27,7 +27,7 @@ interface ArticlesQuery {
 
 const Articles = ({ data }: { data: ArticlesQuery }) => {
   const seo = <SEO title="Articles" keywords={[`articles`, `blog`, `vlog`, `tech`, `thoughts`]} description="Articles and piece I've written" key="SEO" />
-  const articles = data.allMarkdownRemark.edges.map((edge) => asArticle(edge, data))
+  const articles = data.allMarkdownRemark.edges.map(edge => <Article edge={edge} data={data} />)
   return (
     <Layout seo={seo}>
       <main className="collapsingGrid">
@@ -37,23 +37,17 @@ const Articles = ({ data }: { data: ArticlesQuery }) => {
   )
 }
 
-function asArticle(edge: Edge<MarkdownRemark<ArticleFrontmatter>>, data: ArticlesQuery): JSX.Element {
-  const image: Image = data.allFile.edges
-    .map((edge) => edge.node)
-    .filter((file: Image) => file.name == edge.node.frontmatter.image)[0]
-  if (image === undefined) {
-    console.log(data)
-    throw new Error(`Couldn't find image ${edge.node.frontmatter.image} for ${edge.node.frontmatter.slug}`)
-  }
-  return <LinkedArticle
-    key={edge.node.id}
-    title={edge.node.frontmatter.title}
-    link={`/articles/${edge.node.frontmatter.slug}`}
-    image={image}
-    html={edge.node.frontmatter.snippet || edge.node.excerpt || ""}
-    url={`/articles/${edge.node.frontmatter.slug}`}
-  rawDate={edge.node.frontmatter.rawDate}/>
-}
+const Article = ({edge, data}: { edge: Edge<MarkdownRemark<ArticleFrontmatter>>, data: ArticlesQuery }) =>
+    <LinkedArticle
+        key={edge.node.id}
+        title={edge.node.frontmatter.title}
+        link={`/articles/${edge.node.frontmatter.slug}`}
+        image={data.allFile.edges
+            .map((edge) => edge.node)
+            .filter((file: Image) => file.name == edge.node.frontmatter.image)[0]}
+        html={edge.node.frontmatter.snippet || edge.node.excerpt || ""}
+        url={`/articles/${edge.node.frontmatter.slug}`}
+        rawDate={edge.node.frontmatter.rawDate}/>
 
 export const query = graphql`
   query {

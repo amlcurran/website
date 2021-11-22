@@ -141,6 +141,13 @@ export const pageQuery = graphql`{
         }
       }
     }
+    greatRealtimeApps: file(relativePath: { eq: "great-realtime-apps.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 600) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
   }
 `
 
