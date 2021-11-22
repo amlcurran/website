@@ -9,15 +9,6 @@ interface Linkable {
   url: string
 }
 
-export const LinkedItem = (props: LargeCardProps & Linkable) => {
-  const newProps = {...props, hover: true}
-  return (
-    <Link to={props.url}>
-      <Item {...newProps} />
-    </Link>
-  )
-}
-
 export type Icon = "launch" | "play_circle_outline" | "email" | "file_download"
 
 interface LargeCardProps {

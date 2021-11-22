@@ -1,7 +1,7 @@
 ---
 slides: "https://2021.nsspain.com"
 title: "Building great real-time apps"
-image: "greatRealtimeApps"
+image: "great-realtime-apps"
 presentedAt: "NSSpain 2021"
 date: "2021-11-08"
 ---

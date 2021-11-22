@@ -1,7 +1,7 @@
 ---
 slides: "https://www.raywenderlich.com/5164-spring-cleaning-your-app"
 title: "Spring Cleaning Your App"
-image: "springCleaning"
+image: "rwdevcon"
 presentedAt: "Workshop at RWDevCon 2018"
 date: "2018-04-01"
 video: "https://www.raywenderlich.com/5164-spring-cleaning-your-app"

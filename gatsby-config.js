@@ -16,6 +16,13 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
+        name: `talk-images`,
+        path: `${__dirname}/src/talks`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
         name: `docs`,
         path: `${__dirname}/src/docs`,
       },

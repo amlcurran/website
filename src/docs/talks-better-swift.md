@@ -1,7 +1,7 @@
 ---
 slides: "https://speakerdeck.com/amlcurran/using-swift-to-write-better-code"
 title: "Using Swift to write better code"
-image: "betterSwift"
+image: "better-swift"
 presentedAt: "Swift Berlin #21"
 date: "2016-10-11"
 ---

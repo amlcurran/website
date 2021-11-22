@@ -5,14 +5,14 @@
  * See: https://www.gatsbyjs.org/docs/static-query/
  */
 
-import React, { CSSProperties } from "react"
+import React, {CSSProperties, ReactNode} from "react"
 
 import Header from "./header"
 import "./layout.css"
 import SEO from "./seo";
 
 interface LayoutProps {
-  children: JSX.Element[]
+  children: ReactNode
   seo: JSX.Element
   style?: CSSProperties
 }

@@ -1,7 +1,7 @@
 ---
 slides: "https://speakerdeck.com/amlcurran/code-whispering"
 title: "Code Whispering"
-image: "codeWhispering"
+image: "code-whispering-2"
 presentedAt: "Android Manchester"
 date: "2015-03-13"
 ---

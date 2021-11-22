@@ -1,7 +1,7 @@
 ---
 slides: "https://drive.google.com/file/d/0B80ykRbfmxQHNjNpRWE4eTRKeE0/view"
 title: "Writing Better Code"
-image: "betterCode"
+image: "writing-better-code"
 video: "https://www.youtube.com/watch?v=hYlz48mRJg0"
 presentedAt: "Droidcon France 2015"
 date: "2015-11-01"

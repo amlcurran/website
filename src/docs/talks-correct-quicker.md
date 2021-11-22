@@ -1,7 +1,7 @@
 ---
 slides: "https://speakerdeck.com/amlcurran/being-correct-quicker"
 title: "Being correct, quicker"
-image: "correctQuicker"
+image: "being-correct-quicker"
 presentedAt: "Cocoaheads May 2018"
 date: "2018-05-01"
 ---
