@@ -1,6 +1,7 @@
 import React, {useState} from "react"
 import "../components/christmas.css"
 import {StaticImage} from "gatsby-plugin-image"
+import SEO from "../components/seo"
 const sha1 = require("sha1")
 
 interface ChristmasState {
@@ -64,6 +65,7 @@ const ChristmasParty2021 = () => {
     return (
         <>
             <main>
+                <SEO description="You're invited!" title="Christmas Party 2021" />
                 <marquee>
                     <h1>
                         <span style={{color: "red"}}>You're </span>
