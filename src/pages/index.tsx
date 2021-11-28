@@ -45,7 +45,7 @@ const NewIndexPage = () => (
             text="Want to chat about something? Then get in touch"
             goesTo="mailto:aml.curran+website@gmail.com" />
       </div>
-      <StaticImage src={"../images/writing-better-code.jpg"} alt={""} style={{ position: "absolute" }} className="background-image"  />
+      <StaticImage src={"../talks/writing-better-code.jpg"} alt={""} style={{ position: "absolute" }} className="background-image"  />
     </main>
   </>
 )
