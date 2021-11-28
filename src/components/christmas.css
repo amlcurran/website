@@ -1,0 +1,8 @@
+html * {
+    all: revert;
+    font-family: serif;
+}
+
+body * {
+    all: revert;
+}

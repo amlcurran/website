@@ -1,5 +1,6 @@
-import React, {CSSProperties, ReactNode, useState} from "react"
-
+import React, {useState} from "react"
+import "../components/christmas.css"
+import {StaticImage} from "gatsby-plugin-image"
 const sha1 = require("sha1")
 
 interface ChristmasState {
@@ -7,15 +8,22 @@ interface ChristmasState {
     address: string
 }
 
-const redactedType: CSSProperties = {
-    backgroundColor: "lightgray",
-    borderRadius: 4,
-    padding: 4,
-    fontFamily: "monospace"
-}
+const LoggedIn = ({state}: { state: ChristmasState }) => (
+    <div style={{borderImage: "url(../images/christmas-clipart-with-transparent-background-11.png)"}}>
+        <StaticImage src="../images/christmas-clipart-with-transparent-background-11.png" alt="" placeholder="none" />
+        <p>From 8.30pm on {state!.date}</p>
+        <p>At my address: {state!.address} (please
+            buzz
+            at the main door if it isn't open)</p>
+        <img src="https://media.giphy.com/media/Zx2hXm2ocvFDN8032P/source.gif" style={{width: '100%', height: 100, objectFit: 'cover' }} />
+        <p>Nearest tube stops are Arsenal (Piccadilly) or Finsbury Park (Victoria)</p>
+        <p>Nibbles, drinks will be provided, just bring some fun!</p>
+        <p>Please let me know about any dietary requirements</p>
+        <p>And please take a lateral flow before you get here!</p>
+    </div>
+)
 
-const ChristmasParty2021 = () => {
-    const [state, setState] = useState<ChristmasState>()
+const LoggedOut = ({setState}: {setState: (arg0: ChristmasState) => void}) => {
     const [isSending, setIsSending] = useState<boolean>()
     const [passwordInput, setPasswordInput] = useState<string>()
     const onClick = () => {
@@ -38,7 +46,24 @@ const ChristmasParty2021 = () => {
     }
     return (
         <>
-            <main id="all-unset">
+            <div >
+                <span>But you need to put the password in first...</span>
+                <input id="password"
+                       onChange={value => setPasswordInput(value.target.value)}
+                       placeholder="Enter the password here"
+                       type="password"/>
+                <br />
+                <button onClick={onClick} disabled={isSending} style={{width: '100%'}}>Enter</button>
+            </div>
+        </>
+    )
+}
+
+const ChristmasParty2021 = () => {
+    const [state, setState] = useState<ChristmasState>()
+    return (
+        <>
+            <main>
                 <marquee>
                     <h1>
                         <span style={{color: "red"}}>You're </span>
@@ -49,24 +74,7 @@ const ChristmasParty2021 = () => {
                         <span style={{color: "purple"}}>Party </span>
                     </h1>
                 </marquee>
-                <div>
-                    <input id="password"
-                           onChange={value => setPasswordInput(value.target.value)}
-                           placeholder="Enter the password here"
-                           type="password" />
-                    <button onClick={onClick} disabled={isSending}>Enter</button>
-                </div>
-                <iframe src="https://giphy.com/embed/Zx2hXm2ocvFDN8032P" width="480" height="480" frameBorder="0"
-                        className="giphy-embed" allowFullScreen />
-                <p>From 8.30pm on {state !== undefined ? state!.date : <span style={redactedType}>redacted</span>}</p>
-                <p>At my address: {state !== undefined ? state!.address : <span style={redactedType}>redacted</span>} (please buzz at the main door if it isn't open)</p>
-                <iframe allowFullScreen frameBorder="0" height="100%"
-                        src="https://giphy.com/embed/FaHOtxa23Tb4wtygMg/video"
-                        style={{left: 0, top: 0}} width="100%"/>
-                <p>Nearest tube stops are Arsenal (Piccadilly) or Finsbury Park (Victoria)</p>
-                <p>Nibbles, drinks will be provided, just bring some fun!</p>
-                <p>Please let me know about any dietary requirements</p>
-                <p>And please take a lateral flow before you get here!</p>
+                {state !== undefined ? <LoggedIn state={state}/> : <LoggedOut setState={setState}/>}
             </main>
         </>
     )
