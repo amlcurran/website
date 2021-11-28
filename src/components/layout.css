@@ -308,6 +308,11 @@ article ul {
 
 }
 
+#all-unset * {
+  all: revert;
+  font-family: serif;
+}
+
 .article-text {
   padding: var(--article-padding) var(--article-padding) var(--article-padding) 0;
 }
