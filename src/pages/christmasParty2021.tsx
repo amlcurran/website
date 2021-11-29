@@ -12,7 +12,7 @@ interface ChristmasState {
 const LoggedIn = ({state}: { state: ChristmasState }) => (
     <div style={{borderImage: "url(../images/christmas-clipart-with-transparent-background-11.png)"}}>
         <StaticImage src="../images/christmas-clipart-with-transparent-background-11.png" alt="" placeholder="none" />
-        <p>From 8.30pm on {state!.date}</p>
+        <p>From 8.00pm on {state!.date}</p>
         <p>At my address: {state!.address} (please
             buzz
             at the main door if it isn't open)</p>
