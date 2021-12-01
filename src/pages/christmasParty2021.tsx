@@ -1,5 +1,5 @@
 import React, {useState} from "react"
-import "../components/christmas.css"
+import "../components/christmas.module.css"
 import {StaticImage} from "gatsby-plugin-image"
 import SEO from "../components/seo"
 const sha1 = require("sha1")
@@ -47,7 +47,7 @@ const LoggedOut = ({setState}: {setState: (arg0: ChristmasState) => void}) => {
     }
     return (
         <>
-            <div >
+            <div>
                 <span>But you need to put the password in first...</span>
                 <input id="password"
                        onChange={value => setPasswordInput(value.target.value)}
@@ -64,10 +64,10 @@ const ChristmasParty2021 = () => {
     const [state, setState] = useState<ChristmasState>()
     return (
         <>
-            <main>
+            <main style={{all: "revert", fontFamily: "serif"}} className="christmas">
                 <SEO description="You're invited!" title="Christmas Party 2021" />
                 <marquee>
-                    <h1>
+                    <h1 style={{all: "revert"}}>
                         <span style={{color: "red"}}>You're </span>
                         <span style={{color: "orange"}}>invited </span>
                         <span style={{color: "yellow"}}>to </span>

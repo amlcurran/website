@@ -1,8 +1,4 @@
-html * {
+.christmas * {
     all: revert;
     font-family: serif;
-}
-
-body * {
-    all: revert;
 }
