@@ -261,7 +261,7 @@ article {
 }
 
 .tiny-card img {
-  max-width: 200px;
+  width: 200px;
   margin: 0 16px 0 0;
   object-fit: cover;
   align-self: stretch;
@@ -392,7 +392,7 @@ article ul {
     margin-right: auto;
   }
   .tiny-card img {
-    max-width: 100px;
+    width: 100px;
     margin: 0 16px 0 0;
     object-fit: cover;
     align-self: stretch;

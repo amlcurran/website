@@ -13,7 +13,7 @@ export interface ArticleFrontmatter {
   image: string
   snippet?: string
   rawDate: string
-  previous?: string
+  previous: string
 }
 
 export type Image = { name: String } & SharpImage
