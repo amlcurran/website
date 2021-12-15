@@ -7,6 +7,12 @@ import ogs from "open-graph-scraper"
 import {ArticleFrontmatter} from "../pages/articles"
 import {PreviouslyOn} from "./PreviouslyOn";
 
+const dateOptions: Intl.DateTimeFormatOptions = {
+    day: "numeric",
+    month: "short",
+    year: "numeric"
+}
+
 interface ArticleQuery {
     markdownRemark: MarkdownRemark<ArticleFrontmatter>
 }
@@ -29,11 +35,7 @@ export default function ArticlePage({data, pageContext}: {data: ArticleQuery, pa
     return (
         <Layout seo={seo} style={{paddingTop: 16}}>
             <article>
-                <h4>{data.markdownRemark.timeToRead + " minutes to read  ● "}<time>{new Date(data.markdownRemark.frontmatter.rawDate).toLocaleDateString(undefined, {
-                    day: "numeric",
-                    month: "short",
-                    year: "numeric"
-                })}</time></h4>
+                <h4>{data.markdownRemark.timeToRead + " minutes to read  ● "}<time>{new Date(data.markdownRemark.frontmatter.rawDate).toLocaleDateString(undefined, dateOptions)}</time></h4>
                 <h1>{data.markdownRemark.frontmatter.title}</h1>
                 {previouslyOn}
                 <div dangerouslySetInnerHTML={{__html: data.markdownRemark.html}} />
