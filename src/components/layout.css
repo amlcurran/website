@@ -313,6 +313,14 @@ article ul {
   font-family: serif;
 }
 
+.kotlin .language-swift {
+  display: none;
+}
+
+.swift .language-kotlin {
+  display: none;
+}
+
 .article-text {
   padding: var(--article-padding) var(--article-padding) var(--article-padding) 0;
 }
