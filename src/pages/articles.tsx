@@ -14,6 +14,7 @@ export interface ArticleFrontmatter {
   snippet?: string
   rawDate: string
   previous?: string
+  unlisted?: boolean
 }
 
 export type Image = { name: String } & SharpImage
@@ -27,7 +28,9 @@ interface ArticlesQuery {
 
 const Articles = ({ data }: { data: ArticlesQuery }) => {
   const seo = <SEO title="Articles" keywords={[`articles`, `blog`, `vlog`, `tech`, `thoughts`]} description="Articles and piece I've written" key="SEO" />
-  const articles = data.allMarkdownRemark.edges.map(edge => <Article edge={edge} data={data} />)
+  const articles = data.allMarkdownRemark.edges
+      .filter(edge => edge.node.frontmatter.unlisted === false)
+      .map(edge => <Article edge={edge} data={data} />)
   return (
     <Layout seo={seo}>
       <main className="collapsingGrid">
@@ -63,6 +66,7 @@ export const query = graphql`
               image
               rawDate
               snippet
+              unlisted
           }
         }
       }
