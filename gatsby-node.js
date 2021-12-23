@@ -13,6 +13,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
             frontmatter {
                 slug
                 previous
+                unlisted
             }
             fileAbsolutePath
             id
@@ -38,6 +39,10 @@ async function createArticle(node, createPage) {
     fetchResult = await openGraphScraper({url: node.frontmatter.previous});
   } else {
     fetchResult = { }
+  }
+  
+  if (node.frontmatter.unlisted === true) {
+     console.log(`${node.frontmatter.slug} is unlisted`)
   }
 
   createPage({
