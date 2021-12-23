@@ -29,7 +29,13 @@ interface ArticlesQuery {
 const Articles = ({ data }: { data: ArticlesQuery }) => {
   const seo = <SEO title="Articles" keywords={[`articles`, `blog`, `vlog`, `tech`, `thoughts`]} description="Articles and piece I've written" key="SEO" />
   const articles = data.allMarkdownRemark.edges
-      .filter(edge => edge.node.frontmatter.unlisted === false)
+      .filter(edge => {
+        if (edge.node.frontmatter.unlisted) {
+          return !edge.node.frontmatter.unlisted
+        } else {
+          return true
+        }
+      })
       .map(edge => <Article edge={edge} data={data} />)
   return (
     <Layout seo={seo}>

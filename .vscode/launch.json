@@ -2,13 +2,15 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "type": "pwa-node",
+            "name": "Gatsby develop",
+            "type": "node",
             "request": "launch",
-            "name": "Launch Program",
-            "skipFiles": [
-                "<node_internals>/**"
-            ],
-            "program": "${file}"
-        }
+            "protocol": "inspector",
+            "program": "${workspaceRoot}/node_modules/gatsby/dist/bin/gatsby",
+            "args": ["develop"],
+            "stopOnEntry": false,
+            "runtimeArgs": ["--nolazy"],
+            "sourceMaps": false
+          }
     ]
 }
