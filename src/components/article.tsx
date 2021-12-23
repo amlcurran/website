@@ -1,43 +1,21 @@
-import { graphql } from "gatsby"
+import {graphql} from "gatsby"
 import React from "react"
-import { MarkdownRemark } from "../models/remark"
+import {MarkdownRemark} from "../models/remark"
 import Layout from "./layout"
 import SEO from "./seo"
-import ogs, {OpenGraphProperties} from "open-graph-scraper"
+import ogs from "open-graph-scraper"
 import {ArticleFrontmatter} from "../pages/articles"
+import {PreviouslyOn} from "./PreviouslyOn";
+
+const dateOptions: Intl.DateTimeFormatOptions = {
+    day: "numeric",
+    month: "short",
+    year: "numeric"
+}
 
 interface ArticleQuery {
     markdownRemark: MarkdownRemark<ArticleFrontmatter>
 }
-
-function previousPlace(previousOpenGraph: OpenGraphProperties): string {
-    if (previousOpenGraph.ogUrl?.includes("freetrade")) {
-        return "Freetrade blog"
-    } else if (previousOpenGraph.ogUrl?.includes("novoda")) {
-        return "Novoda Insights"
-    } else {
-        console.error(`Not sure where this previous URL is ${previousOpenGraph.ogUrl}`)
-        return ""
-    }
-}
-
-function previouslyOnCard(previousOpenGraph: OpenGraphProperties | undefined, previous: string | undefined): JSX.Element {
-    if (previousOpenGraph && previousOpenGraph.ogImage.url) {
-        return <>
-            <div className="tiny-card">
-                <img src={previousOpenGraph.ogImage.url} />
-                <div style={{ paddingTop: 16, paddingBottom: 16 }}>
-                    <i>Previously posted on <a href={previous}>{previousPlace(previousOpenGraph)}</a>:</i>
-                    <h4 style={{ marginTop: 8 }}>{previousOpenGraph.ogTitle}</h4>
-                    <div className="tiny-card-description">{previousOpenGraph.ogDescription}</div>
-                </div>
-            </div>
-        </>
-    } else {
-        return <></>
-    }
-}
-
 export default function ArticlePage({data, pageContext}: {data: ArticleQuery, pageContext: { previousOpenGraph?: ogs.OpenGraphProperties }}) {
     const snippet = data.markdownRemark.frontmatter.snippet || "Articles and piece I've written"
     const seo = <SEO
@@ -47,18 +25,20 @@ export default function ArticlePage({data, pageContext}: {data: ArticleQuery, pa
         key="SEO"
         image={data.markdownRemark.frontmatter.image}
     />
-    const object = (previouslyOnCard(pageContext.previousOpenGraph, data.markdownRemark.frontmatter.previous))
+    let previouslyOn;
+    if (pageContext.previousOpenGraph && pageContext.previousOpenGraph.ogImage?.url) {
+        previouslyOn = <PreviouslyOn previousOpenGraph={pageContext.previousOpenGraph}
+                                     previous={data.markdownRemark.frontmatter.previous}/>
+    } else {
+        previouslyOn = <></>
+    }
     return (
         <Layout seo={seo} style={{paddingTop: 16}}>
             <article>
-                <h4>{data.markdownRemark.timeToRead + " minutes to read  ● "}<time>{new Date(data.markdownRemark.frontmatter.rawDate).toLocaleDateString(undefined, {
-                    day: "numeric",
-                    month: "short",
-                    year: "numeric"
-                })}</time></h4>
+                <h4>{data.markdownRemark.timeToRead + " minutes to read  ● "}<time>{new Date(data.markdownRemark.frontmatter.rawDate).toLocaleDateString(undefined, dateOptions)}</time></h4>
                 <h1>{data.markdownRemark.frontmatter.title}</h1>
-                {object}
-                <div dangerouslySetInnerHTML={{__html: data.markdownRemark.html}} />
+                {previouslyOn}
+                <div className={"swift"} dangerouslySetInnerHTML={{__html: data.markdownRemark.html}} />
             </article>
         </Layout>
     )

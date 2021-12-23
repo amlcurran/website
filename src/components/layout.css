@@ -261,7 +261,7 @@ article {
 }
 
 .tiny-card img {
-  max-width: 200px;
+  width: 200px;
   margin: 0 16px 0 0;
   object-fit: cover;
   align-self: stretch;
@@ -311,6 +311,14 @@ article ul {
 #all-unset * {
   all: revert;
   font-family: serif;
+}
+
+.kotlin .language-swift {
+  display: none;
+}
+
+.swift .language-kotlin {
+  display: none;
 }
 
 .article-text {
@@ -392,7 +400,7 @@ article ul {
     margin-right: auto;
   }
   .tiny-card img {
-    max-width: 100px;
+    width: 100px;
     margin: 0 16px 0 0;
     object-fit: cover;
     align-self: stretch;
