@@ -13,6 +13,7 @@ export interface SharpImage {
     childImageSharp: {
         fluid?: FluidObject
         fixed?: FixedObject
+        resize?: { src: string }
         gatsbyImageData: IGatsbyImageData
     }
 }

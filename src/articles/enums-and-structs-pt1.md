@@ -2,6 +2,7 @@
 title: "Using enums and structs in Swift part 1: data vs state"
 slug: "enums-and-structs-part1"
 image: "ec-both-apps"
+featured: ./ec-both-apps.png
 rawDate: "2021-12-30"
 snippet: "Enums and structs are some of Swift's most powerful APIs, and they can greatly improve code comprehension. But how do you decide which one to use?"
 ---

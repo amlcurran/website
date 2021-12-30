@@ -23,7 +23,7 @@ export default function ArticlePage({data, pageContext}: {data: ArticleQuery, pa
         keywords={[`articles`, `blog`, `vlog`, `tech`, `thoughts`]}
         description={snippet}
         key="SEO"
-        image={data.markdownRemark.frontmatter.image}
+        image={data.markdownRemark.frontmatter.featured?.childImageSharp.resize?.src}
     />
     let previouslyOn;
     if (pageContext.previousOpenGraph && pageContext.previousOpenGraph.ogImage?.url) {
@@ -55,6 +55,15 @@ export const pageQuery = graphql`
         previous
         snippet
         image
+        featured: featured {
+          childImageSharp {
+            resize(width: 1200) {
+              src
+              height
+              width
+            }
+          }
+        }
         rawDate
       }
     }
