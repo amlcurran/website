@@ -71,7 +71,7 @@ In order to make UIKit previews work quickly, you want to avoid these things. If
 - Create the class, with a preview
 - Override the initialiser and `viewDidLoad()`
 - **Here I click Resume on the preview**
-- Now I develop the UI, providing I am only adding code inside the `viewDidLoad()` method. No recompilations needed!
+- Now I develop the UI, trying only to add code inside the `viewDidLoad()` method. No recompilations needed!
 - If I need to extract properties or override new functions, I make sure I do them all in one go, so I only need to recompile once.
 
 ## Conclusion
