@@ -10,3 +10,4 @@ node_modules
 public/
 .firebase/
 .idea/workspace.xml
+.env

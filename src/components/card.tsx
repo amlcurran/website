@@ -4,6 +4,7 @@ import Styling from "./styling"
 import "./layout.css"
 import {GatsbyImage} from "gatsby-plugin-image"
 import {Image} from "../pages/articles"
+import Img from "gatsby-image";
 
 interface Linkable {
   url: string
@@ -55,19 +56,31 @@ interface ArticleProps {
   title: string
   html: string
   link?: string
-  image: Image
+  image: Image | string
   rawDate: string
+}
+
+function imagePart(props: ArticleProps & Linkable) {
+  if (typeof props.image == "string") {
+      return <img
+        src={props.image}
+        alt={`Image for ${props.title}`}
+        className="article-image portfolio-image"
+        style={{borderRadius: 8}} />
+  } else {
+      return <GatsbyImage
+          image={props.image.childImageSharp.gatsbyImageData}
+          alt={`Image for ${props.title}`}
+          className="article-image portfolio-image"
+          imgStyle={{borderRadius: 8}}/>
+  }
 }
 
 export const LinkedArticle = (props: ArticleProps & Linkable) => {
   return (
       <Link to={props.url}>
         <section className="card-total hover-background">
-          <GatsbyImage
-              image={props.image.childImageSharp.gatsbyImageData}
-              alt={`Image for ${props.title}`}
-              className="article-image portfolio-image"
-              imgStyle={{borderRadius: 8}}/>
+          {imagePart(props)}
           <div className="article-text">
             <h2>{props.title}</h2>
             <h4>{new Date(props.rawDate).toLocaleDateString(undefined, {
@@ -75,7 +88,8 @@ export const LinkedArticle = (props: ArticleProps & Linkable) => {
               month: "short",
               year: "numeric"
             })}</h4>
-            <div dangerouslySetInnerHTML={{__html: props.html}} className="no-links article-snippet" style={{lineClamp: 3}}/>
+            <div dangerouslySetInnerHTML={{__html: props.html}} className="no-links article-snippet"
+                 style={{lineClamp: 3}}/>
           </div>
         </section>
       </Link>

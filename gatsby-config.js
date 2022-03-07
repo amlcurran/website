@@ -1,3 +1,7 @@
+require("dotenv").config({
+  path: `.env`,
+})
+
 module.exports = {
   siteMetadata: {
     title: `Alex Curran`,
@@ -87,6 +91,25 @@ module.exports = {
       options: {
         trackingId: "UA-137664530-1",
       },
+    },
+    {
+      resolve: `gatsby-source-pocket`,
+      options: {
+        consumerKey: process.env.POCKET_CONSUMER_KEY,
+        accessToken: process.env.POCKET_AUTH_TOKEN,
+        weeksOfHistory: 52 * 4,
+        apiMaxRecordsToReturn: 3000,
+        getCurrentWeekOnly: `n`,
+        stateFilterString: "archive",
+        tagFilter: false,
+        tagFilterString: "_untagged_",
+        favouriteFilter: true,
+        favouriteFilterValue: 1,
+        searchFilter: false,
+        searchFilterString: "These 21 things",
+        domainFilter: false,
+        domainFilterString: "buzzfeed.com"
+      }
     }
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
