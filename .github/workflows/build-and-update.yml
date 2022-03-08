@@ -10,7 +10,7 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 14
-        run: |
+      - run: |
           touch .env
           echo POCKET_CONSUMER_KEY=${{ secrets.POCKET_CONSUMER_KEY }} >> .env
           echo POCKET_AUTH_TOKEN=${{ secrets.POCKET_AUTH_TOKEN }} >> .env
