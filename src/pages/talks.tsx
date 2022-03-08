@@ -82,7 +82,8 @@ const TalkItem = ({edge, query, showIcon}: {
         image={
           <GatsbyImage
               image={imageForTalk(edge.node.frontmatter, query)}
-              imgStyle={{height: 250, borderRadius: 8}} alt=""/>
+              style={{maxHeight: 250}}
+              imgStyle={{maxHeight: 250, borderRadius: 8}} alt=""/>
         }
         imageSize={'large'}
         icon={showIcon ? 'launch' : undefined}/>

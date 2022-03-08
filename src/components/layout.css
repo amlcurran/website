@@ -132,9 +132,9 @@ abbr[title] {
   grid-template-columns: auto auto auto;
   grid-column-gap: 8px;
 }
-.portfolio-image {
+.card-image {
   flex-shrink: 0;
-  width: 30%;
+  width: 25%;
 }
 .portfolio-image-small {
   flex-shrink: 0;
@@ -307,6 +307,9 @@ article ul {
 .card-inside {
 
 }
+.hidden-on-small {
+  display: initial;
+}
 
 #all-unset * {
   all: revert;
@@ -333,12 +336,6 @@ article ul {
   .card-inside {
 
   }
-  .portfolio-image {
-    order: -1;
-    width: 40%;
-    margin-left: auto;
-    margin-right: auto;
-  }
   .portfolio-image-small {
     order: -1;
     width: 40%;
@@ -350,9 +347,9 @@ article ul {
     margin-right: 0;
   }
   .article-image {
-    max-height: 150px;
+    height: 100px;
     border-radius: 8px;
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 16 / 9;
   }
   .emphasisBox {
     overflow: scroll;
@@ -420,7 +417,9 @@ article ul {
     font-size: 18pt;
     line-height: 1.1;
   }
-
+  .hidden-on-small {
+    display: none;
+  }
   .article-snippet {
     --webkit-line-clamp: 2;
     line-clamp: 2;

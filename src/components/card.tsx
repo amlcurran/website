@@ -65,14 +65,15 @@ function imagePart(props: ArticleProps & Linkable) {
       return <img
         src={props.image}
         alt={`Image for ${props.title}`}
-        className="article-image portfolio-image"
+        className="article-image card-image"
         style={{borderRadius: 8}} />
   } else {
       return <GatsbyImage
           image={props.image.childImageSharp.gatsbyImageData}
           alt={`Image for ${props.title}`}
-          className="article-image portfolio-image"
-          imgStyle={{borderRadius: 8}}/>
+          className="article-image card-image"
+          imgClassName="article-image"
+      imgStyle={{borderRadius: 8}}/>
   }
 }
 
@@ -83,7 +84,7 @@ export const LinkedArticle = (props: ArticleProps & Linkable) => {
           {imagePart(props)}
           <div className="article-text">
             <h2>{props.title}</h2>
-            <h4>{new Date(props.rawDate).toLocaleDateString(undefined, {
+            <h4 className="hidden-on-small">{new Date(props.rawDate).toLocaleDateString(undefined, {
               day: "numeric",
               month: "short",
               year: "numeric"
