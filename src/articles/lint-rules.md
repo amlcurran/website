@@ -5,6 +5,7 @@ slug: "lint-rules"
 image: "IMG_2161"
 rawDate: "2021-01-22"
 previous: "https://freetrade.io/blog/using-lint-rules-to-prevent-bugs"
+snippet: "How we've started to build our own custom lint rules to enforce code style and easy-to-miss subtle gotchas."
 ---
 
 At Freetrade, developers work cross-platform to deliver features from beginning to end. The main benefit of this is that it avoids mistaken assumptions or differing behaviour over our platforms. 

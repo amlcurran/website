@@ -4,6 +4,7 @@ date: "4 Jan 2021"
 slug: "getting-started-mac-catalyst"
 image: "ec-both-apps"
 rawDate: "2021-01-04"
+snippet: "Trying to migrate an iOS app to Mac Catalyst and the issues and benefits along with it."
 ---
 
 Over the Christmas period I had energy to finally explore Mac Catalyst. 

@@ -5,6 +5,7 @@ slug: "migrating-to-hilt"
 image: "freetrade-hilt-1"
 rawDate: "2021-06-16"
 previous: "https://freetrade.io/blog/migrating-our-android-app-from-dagger-to-hilt"
+snippet: "How we used migrated from Dagger to Hilt for our Android app to make dependency injection simpler"
 ---
 
 Recently Google announced [Hilt](https://dagger.dev/hilt/), a dependency injection framework for Android. It works on top of Dagger to make injecting dependencies into our classes easier, but has some nice features specific to Android.

@@ -5,9 +5,8 @@ slug: "freetrade-for-ipad"
 image: "freetrade-ipad-1"
 rawDate: "2021-03-02"
 previous: "https://freetrade.io/blog/introducing-freetrade-for-ipad"
+snippet: "How we developed the app with a brand new UI."
 ---
-How we developed the app with a brand new UI.
-
 Today, we're starting the rollout of the Freetrade app on iPad.
 
 

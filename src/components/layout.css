@@ -134,6 +134,7 @@ abbr[title] {
 }
 .card-image {
   flex-shrink: 0;
+  margin-top: 8px;
   width: 25%;
 }
 .portfolio-image-small {

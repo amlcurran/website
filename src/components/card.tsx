@@ -84,7 +84,7 @@ export const LinkedArticle = (props: ArticleProps & Linkable) => {
           {imagePart(props)}
           <div className="article-text">
             <h2>{props.title}</h2>
-            <h4 className="hidden-on-small">{new Date(props.rawDate).toLocaleDateString(undefined, {
+            <h4>{new Date(props.rawDate).toLocaleDateString(undefined, {
               day: "numeric",
               month: "short",
               year: "numeric"

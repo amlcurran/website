@@ -1,5 +1,5 @@
 ---
-title: "Using enums and structs in Swift part 1: data vs state"
+title: "Enums and structs in Swift #1: data vs state"
 slug: "enums-and-structs-part1"
 image: "ec-both-apps"
 featured: ./ec-both-apps.png

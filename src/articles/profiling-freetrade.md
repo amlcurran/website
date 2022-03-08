@@ -5,6 +5,7 @@ slug: "profiling-at-freetrade"
 image: "6-output"
 rawDate: "2020-01-08"
 previous: "https://freetrade.io/blog/how-we-profile-android-bugs-at-freetrade"
+snippet: "A few weeks ago, a Freetrade customer reported that the Android app was being slow. This follows our deep-dive into finding and solving the issue."
 ---
 
 A few weeks ago, a Freetrade customer reported that the Android app was being slow.
