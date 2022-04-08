@@ -19,16 +19,15 @@ interface LargeCardProps {
   link?: string
   belowTitle?: JSX.Element
   image?: JSX.Element
-  imageSize: 'small' | 'normal' | 'large'
+  imageSize: 'normal' | 'large'
   icon?: Icon
   imageOnRight?: boolean
   hover?: boolean
-  className?: string
   style?: CSSProperties
 }
 
 function imageClasses(props: LargeCardProps): string {
-  return props.imageSize == 'large' ? "portfolio-image-large" : (props.imageSize == 'small' ? "portfolio-image-small" : "portfolio-image")
+  return props.imageSize == 'large' ? "portfolio-image-large" : "portfolio-image"
 }
 
 export const Item = (props: LargeCardProps) => {
@@ -36,8 +35,7 @@ export const Item = (props: LargeCardProps) => {
   const withText = (props.with?.length || 0) > 0 ? (<h4 style={{ color: Styling.primaryColor }}>with {props.with}</h4>) : undefined
   const image = props.image ? <div className={imageClasses(props)}>{props.image}</div> : undefined
   const icon = props.icon ? <span className="material-icons" style={{paddingLeft: 8}}>{props.icon}</span> : undefined
-  let classes = props.hover ? "hover-background " : " "
-  classes += props.className || ""
+  const classes = props.hover ? "hover-background " : " "
   return (
       <section style={props.style} className={"card-internal card-total " + classes}>
         {props.imageOnRight ? <></> : image}
