@@ -1,4 +1,3 @@
-import { FluidObject, FixedObject } from "gatsby-image";
 import {IGatsbyImageData} from "gatsby-plugin-image"
 
 export interface Edge<T> {
@@ -11,8 +10,6 @@ export interface GraphQLList<T> {
 
 export interface SharpImage {
     childImageSharp: {
-        fluid?: FluidObject
-        fixed?: FixedObject
         resize?: { src: string }
         gatsbyImageData: IGatsbyImageData
     }

@@ -1,5 +1,4 @@
 const path = require("path")
-const fetch = require("node-fetch")
 const openGraphScraper = require("open-graph-scraper")
 
 exports.createPages = async ({ actions, graphql, reporter }) => {

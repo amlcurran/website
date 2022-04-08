@@ -4,7 +4,6 @@ import Styling from "./styling"
 import "./layout.css"
 import {GatsbyImage} from "gatsby-plugin-image"
 import {Image} from "../pages/articles"
-import Img from "gatsby-image";
 
 interface Linkable {
   url: string

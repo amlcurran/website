@@ -1,6 +1,6 @@
 import React from "react"
 import { StaticQuery, graphql } from "gatsby";
-import Img from "gatsby-image";
+import {GatsbyImage} from "gatsby-plugin-image";
 
 export const PhoneFrame = ({ name }: { name: any}) => (
   <StaticQuery
@@ -11,9 +11,12 @@ export const PhoneFrame = ({ name }: { name: any}) => (
           node {
           name
             childImageSharp {
-              fluid(maxWidth: 600) {
-                ...GatsbyImageSharpFluid
+              gatsbyImageData(
+              layout: CONSTRAINED,
+              transformOptions: {
+                 cropFocus:CENTER
               }
+            )
             }
           }
         }
@@ -25,7 +28,7 @@ export const PhoneFrame = ({ name }: { name: any}) => (
         return edge.node.name === name
       })
       return (
-        <Img fluid={filtered[0].node.childImageSharp.fluid} />
+        <GatsbyImage image={filtered[0].node.childImageSharp.gatsbyImageData} alt="" />
       )
     }}
   />
