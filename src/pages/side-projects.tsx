@@ -41,15 +41,16 @@ function asSideProject({node}: Edge<MarkdownRemark<SideProjectFrontmatter>>, ind
     )
     const image = node.frontmatter.image ? <PhoneFrame name={node.frontmatter.image}/> : undefined
     const icon: Icon | undefined = node.frontmatter.link ? "launch" : undefined
-    const item = (<Item title={node.frontmatter.title}
-                        html={node.html}
-                        key={node.id}
-                        imageSize={'normal'}
-                        imageOnRight={index % 2 == 1}
-                        image={image}
-                        belowTitle={foo}
-                        icon={icon}
-                        style={{marginBottom: 72}}/>)
+    const item = (<Item
+        key={node.id}
+        title={node.frontmatter.title}
+        body={node.html}
+        imageSize={'normal'}
+        imageOnRight={index % 2 == 1}
+        image={image}
+        belowTitle={foo}
+        icon={icon}
+        style={{marginBottom: 72}}/>)
     if (node.frontmatter.link) {
         return (<a href={node.frontmatter.link}>{item}</a>)
     } else {

@@ -74,11 +74,11 @@ const TalkItem = ({edge, query, showIcon}: {
     <Item
         key={edge.node.frontmatter.title}
         title={edge.node.frontmatter.title}
-        date={""}
+        subhead1={"Presented at " + edge.node.frontmatter.presentedAt}
+        subhead2={""}
+        body={edge.node.html}
         link={String(edge.node.frontmatter.video)}
         hover={true}
-        html={edge.node.html}
-        with={edge.node.frontmatter.presentedAt}
         image={
           <GatsbyImage
               image={imageForTalk(edge.node.frontmatter, query)}

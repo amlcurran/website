@@ -13,9 +13,9 @@ export type Icon = "launch" | "play_circle_outline" | "email" | "file_download"
 
 interface LargeCardProps {
   title: string
-  html: string
-  date?: string
-  with?: string
+  body: string
+  subhead2?: string
+  subhead1?: string
   link?: string
   belowTitle?: JSX.Element
   image?: JSX.Element
@@ -31,8 +31,8 @@ function imageClasses(props: LargeCardProps): string {
 }
 
 export const Item = (props: LargeCardProps) => {
-  const date2 = (props.date?.length || 0) > 0 ? (<h4>{props.date}</h4>) : undefined
-  const withText = (props.with?.length || 0) > 0 ? (<h4 style={{ color: Styling.primaryColor }}>with {props.with}</h4>) : undefined
+  const subhead1 = (props.subhead1?.length || 0) > 0 ? (<h4 style={{ color: Styling.primaryColor }}>{props.subhead1}</h4>) : undefined
+  const subhead2 = (props.subhead2?.length || 0) > 0 ? (<h4>{props.subhead2}</h4>) : undefined
   const image = props.image ? <div className={imageClasses(props)}>{props.image}</div> : undefined
   const icon = props.icon ? <span className="material-icons" style={{paddingLeft: 8}}>{props.icon}</span> : undefined
   const classes = props.hover ? "hover-background " : " "
@@ -41,8 +41,8 @@ export const Item = (props: LargeCardProps) => {
         {props.imageOnRight ? <></> : image}
         <div className="article-text">
           <h2>{props.title}{icon}</h2>
-          {[withText, date2, props.belowTitle]}
-          <div dangerouslySetInnerHTML={{__html: props.html}} className="no-links"/>
+          {[subhead1, subhead2, props.belowTitle]}
+          <div dangerouslySetInnerHTML={{__html: props.body}} className="no-links"/>
         </div>
         {props.imageOnRight ? image : <></>}
       </section>

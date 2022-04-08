@@ -57,9 +57,9 @@ function asPortfolioExcerpt({ node }: Edge<MarkdownRemark<PortfolioFrontmatter>>
       <Item
           key={node.frontmatter.title}
           title={node.frontmatter.title}
-          date={ node.frontmatter.position + " ● " + node.frontmatter.date}
-          html={node.html}
-          with={node.frontmatter.with}
+          subhead1={"with " + node.frontmatter.with}
+          subhead2={node.frontmatter.position + " ● " + node.frontmatter.date}
+          body={node.html}
           image={secondImage}
           imageSize={'normal'}
           imageOnRight={index % 2 == 1}
