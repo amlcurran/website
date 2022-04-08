@@ -60,7 +60,7 @@ interface ArticleProps {
   rawDate: string
 }
 
-function imagePart(props: ArticleProps & Linkable) {
+function imagePart(props: ArticleProps & Linkable): JSX.Element {
   if (typeof props.image == "string") {
       return <img
         src={props.image}

@@ -137,6 +137,11 @@ abbr[title] {
   margin-top: 8px;
   width: 25%;
 }
+.portfolio-image {
+  flex-shrink: 0;
+  margin-top: 8px;
+  width: 30%;
+}
 .portfolio-image-small {
   flex-shrink: 0;
   width: 22%;
@@ -308,9 +313,6 @@ article ul {
 .card-inside {
 
 }
-.hidden-on-small {
-  display: initial;
-}
 
 #all-unset * {
   all: revert;
@@ -337,6 +339,12 @@ article ul {
   .card-inside {
 
   }
+  .portfolio-image {
+    order: -1;
+    width: 40%;
+    margin-left: auto;
+    margin-right: auto;
+  }
   .portfolio-image-small {
     order: -1;
     width: 40%;
@@ -348,9 +356,9 @@ article ul {
     margin-right: 0;
   }
   .article-image {
-    height: 100px;
+    max-height: 150px;
     border-radius: 8px;
-    aspect-ratio: 16 / 9;
+    aspect-ratio: 4 / 3;
   }
   .emphasisBox {
     overflow: scroll;
@@ -418,9 +426,7 @@ article ul {
     font-size: 18pt;
     line-height: 1.1;
   }
-  .hidden-on-small {
-    display: none;
-  }
+
   .article-snippet {
     --webkit-line-clamp: 2;
     line-clamp: 2;
