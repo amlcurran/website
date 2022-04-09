@@ -74,8 +74,7 @@ const TalkItem = ({edge, query, showIcon}: {
     <Item
         key={edge.node.frontmatter.title}
         title={edge.node.frontmatter.title}
-        subhead1={"Presented at " + edge.node.frontmatter.presentedAt}
-        subhead2={""}
+        subhead2={"Presented at " + edge.node.frontmatter.presentedAt}
         body={edge.node.html}
         link={String(edge.node.frontmatter.video)}
         hover={true}
@@ -85,8 +84,7 @@ const TalkItem = ({edge, query, showIcon}: {
               style={{maxHeight: 250}}
               imgStyle={{maxHeight: 250, borderRadius: 8}} alt=""/>
         }
-        imageSize={'large'}
-        icon={showIcon ? 'launch' : undefined}/>
+        imageSize={'large'} />
 
 function imageForTalk(frontmatter: TalksFrontmatter, query: TalksQuery): IGatsbyImageData {
   let node = query.allFile.edges.find(edge => edge.node.name === frontmatter.image)?.node

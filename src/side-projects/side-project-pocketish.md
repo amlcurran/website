@@ -1,5 +1,6 @@
 ---
 start: "2021-01-01"
+lastUpdated: "2022-02-01"
 title: "Pocketish"
 technologies: ["kotlin", "kmm", "android", "ios", "react", "swiftui", "compose"]
 link: "https://github.com/amlcurran/Pocketish"

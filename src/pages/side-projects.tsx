@@ -41,25 +41,21 @@ function asSideProject({node}: Edge<MarkdownRemark<SideProjectFrontmatter>>, ind
     )
     const image = node.frontmatter.image ? <PhoneFrame name={node.frontmatter.image}/> : undefined
     const icon: Icon | undefined = node.frontmatter.link ? "launch" : undefined
-    const item = (<Item
+    return (<Item
         key={node.id}
         title={node.frontmatter.title}
         body={node.html}
         imageSize={'normal'}
         imageOnRight={index % 2 == 1}
         image={image}
+        link={node.frontmatter.link}
         belowTitle={foo}
         icon={icon}
         style={{marginBottom: 72}}/>)
-    if (node.frontmatter.link) {
-        return (<a href={node.frontmatter.link}>{item}</a>)
-    } else {
-        return item
-    }
 }
 
 export const pageQuery = graphql`{
-  allMarkdownRemark(sort: { order: DESC , fields: [frontmatter___start]},
+  allMarkdownRemark(sort: { order: DESC , fields: [frontmatter___lastUpdated]},
       filter: {fileAbsolutePath: {glob: "**/side-project-*.md"} }) {
     edges {
       node {

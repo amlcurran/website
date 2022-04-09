@@ -1,7 +1,8 @@
 ---
 start: "2017-03-01"
+lastUpdated: "2022-03-01"
 title: "What's On"
-technologies: ["j2objc", "android", "ios"]
+technologies: ["j2objc", "android", "ios", "swiftui"]
 link: "https://github.com/amlcurran/Whats-on"
 image: "whats-on"
 ---

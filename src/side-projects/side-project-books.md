@@ -1,5 +1,6 @@
 ---
 start: "2020-06-01"
+lastUpdated: "2022-01-01"
 title: "Books"
 technologies: ["firebase", "android", "ios", "catalyst", "AR", "arkit"]
 image: "books"

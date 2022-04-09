@@ -20,7 +20,6 @@ interface LargeCardProps {
   belowTitle?: JSX.Element
   image?: JSX.Element
   imageSize: 'normal' | 'large'
-  icon?: Icon
   imageOnRight?: boolean
   hover?: boolean
   style?: CSSProperties
@@ -34,13 +33,15 @@ export const Item = (props: LargeCardProps) => {
   const subhead1 = (props.subhead1?.length || 0) > 0 ? (<h4 style={{ color: Styling.primaryColor }}>{props.subhead1}</h4>) : undefined
   const subhead2 = (props.subhead2?.length || 0) > 0 ? (<h4>{props.subhead2}</h4>) : undefined
   const image = props.image ? <div className={imageClasses(props)}>{props.image}</div> : undefined
-  const icon = props.icon ? <span className="material-icons" style={{paddingLeft: 8}}>{props.icon}</span> : undefined
   const classes = props.hover ? "hover-background " : " "
+  const title = props.link ?
+      <a href={props.link}><h2>{props.title}<span className="material-icons" style={{paddingLeft: 8}}>launch</span></h2>
+      </a> : <h2>{props.title}</h2>
   return (
       <section style={props.style} className={"card-internal card-total " + classes}>
         {props.imageOnRight ? <></> : image}
         <div className="article-text">
-          <h2>{props.title}{icon}</h2>
+          {title}
           {[subhead1, subhead2, props.belowTitle]}
           <div dangerouslySetInnerHTML={{__html: props.body}} className="no-links"/>
         </div>

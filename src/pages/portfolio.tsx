@@ -14,7 +14,7 @@ interface PortfolioFrontmatter extends PortfolioSmall {
   platforms: string[]
   date: string
   links: string[]
-  with: string
+  with?: string
   secondImage?: string
 }
 
@@ -57,7 +57,7 @@ function asPortfolioExcerpt({ node }: Edge<MarkdownRemark<PortfolioFrontmatter>>
       <Item
           key={node.frontmatter.title}
           title={node.frontmatter.title}
-          subhead1={"with " + node.frontmatter.with}
+          subhead1={node.frontmatter.with ? "with " + node.frontmatter.with : undefined}
           subhead2={node.frontmatter.position + " ● " + node.frontmatter.date}
           body={node.html}
           image={secondImage}
