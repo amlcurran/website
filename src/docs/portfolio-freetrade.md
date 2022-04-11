@@ -1,6 +1,6 @@
 ---
 date: "Oct 2019 – Apr 2022"
-position: "Principle Engineer"
+position: "Staff Engineer"
 start: "2019-09-01"
 title: "Freetrade"
 with: "the Discovery and Insights team"
