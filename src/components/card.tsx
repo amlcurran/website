@@ -32,7 +32,7 @@ function imageClasses(props: LargeCardProps): string {
 export const Item = (props: LargeCardProps) => {
   const subhead1 = (props.subhead1?.length || 0) > 0 ? (<h4 style={{ color: Styling.primaryColor }}>{props.subhead1}</h4>) : undefined
   const subhead2 = (props.subhead2?.length || 0) > 0 ? (<h4>{props.subhead2}</h4>) : undefined
-  const image = props.image ? <div className={imageClasses(props)}>{props.image}</div> : undefined
+  const image = props.image ? <aside className={imageClasses(props)}>{props.image}</aside> : undefined
   const classes = props.hover ? "hover-background " : " "
   const title = props.link ?
       <a href={props.link}><h2>{props.title}<span className="material-icons" style={{paddingLeft: 8}}>launch</span></h2>
@@ -43,7 +43,7 @@ export const Item = (props: LargeCardProps) => {
         <div className="article-text">
           {title}
           {[subhead1, subhead2, props.belowTitle]}
-          <div dangerouslySetInnerHTML={{__html: props.body}} className="no-links"/>
+          <p dangerouslySetInnerHTML={{__html: props.body}} className="no-links"/>
         </div>
         {props.imageOnRight ? image : <></>}
       </section>

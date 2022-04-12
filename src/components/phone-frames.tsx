@@ -28,7 +28,7 @@ export const PhoneFrame = ({ name }: { name: any}) => (
         return edge.node.name === name
       })
       return (
-        <GatsbyImage image={filtered[0].node.childImageSharp.gatsbyImageData} alt="" />
+        <GatsbyImage image={filtered[0].node.childImageSharp.gatsbyImageData} alt="Something" />
       )
     }}
   />

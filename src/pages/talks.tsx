@@ -66,7 +66,7 @@ const TalkElement = ({query, edge}: TalkElementProps) => {
   }
 }
 
-const TalkItem = ({edge, query, showIcon}: {
+const TalkItem = ({edge, query}: {
   edge: Edge<MarkdownRemark<TalksFrontmatter>>,
   query: TalksQuery,
   showIcon: boolean

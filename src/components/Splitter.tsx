@@ -18,8 +18,10 @@ export function Splitter(props: SplitterProps) {
         <div onMouseEnter={() => setHovered(true)}
              onMouseLeave={() => setHovered(false)}
              style={{position: 'relative'}}>
-            <div style={frontStyle} className="splitter splitter-left-front">{props.left}</div>
-            <div style={backStyle} className="splitter">{props.right}</div>
+            <div style={frontStyle}
+                 className="splitter splitter-left-front">{props.left}</div>
+            <div style={backStyle}
+                 className="splitter">{props.right}</div>
         </div>
     )
 
