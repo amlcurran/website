@@ -1,5 +1,5 @@
 ---
-date: "Oct 2020 – Apr 2022"
+date: "Oct 2019 – Apr 2022"
 position: "Staff Engineer"
 start: "2019-09-01"
 title: "Freetrade"
