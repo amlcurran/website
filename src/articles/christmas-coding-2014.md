@@ -1,6 +1,5 @@
 ---
 title: "My Christmas coding challenge"
-date: "21 Dec 2014"
 slug: "christmas-coding-2014"
 image: "christmas-coding-hero"
 rawDate: "2014-12-21"

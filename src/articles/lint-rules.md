@@ -1,6 +1,5 @@
 ---
 title: "Using lint rules to prevent bugs"
-date: "22 Jan 2021"
 slug: "lint-rules"
 image: "IMG_2161"
 rawDate: "2021-01-22"

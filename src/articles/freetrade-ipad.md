@@ -1,6 +1,5 @@
 ---
 title: "Introducing Freetrade for iPad"
-date: "2 Mar 2021"
 slug: "freetrade-for-ipad"
 image: "freetrade-ipad-1"
 rawDate: "2021-03-02"

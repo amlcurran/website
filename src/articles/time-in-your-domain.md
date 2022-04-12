@@ -1,6 +1,5 @@
 ---
 title: "Time is always part of your domain"
-date: "10 Oct 2015"
 slug: "time-in-your-domain"
 image: "time-hero"
 rawDate: "2015-10-10"

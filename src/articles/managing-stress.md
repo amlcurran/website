@@ -1,6 +1,5 @@
 ---
 title: "Managing my stress levels"
-date: "12 July 2017"
 slug: "managing-stress"
 image: "IMG_2161"
 rawDate: "2017-07-12"

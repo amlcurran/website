@@ -1,6 +1,5 @@
 ---
 title: "Book reviews: Functional Swift & Protocol-Oriented Programming with Swift"
-date: "28 Mar 2016"
 slug: "book-reviews-functional-swift"
 image: "book-reviews"
 rawDate: "2016-03-28"

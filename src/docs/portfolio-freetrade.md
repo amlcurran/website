@@ -11,6 +11,8 @@ rank: 1
 ---
 Freetrade is a investment platform aiming to make investing open to all.
 
-I am part of the Discovery and Insights team. We're responsible for making sure users can find investments they're looking for and understanding their portfolio. 
+In my two and a half years there, I was a significant part of the team as one of the few with mobile expertise. I oversaw launches of many features across numerous teams (including Discovery & Insights, Onboarding, and Pensions). Towards the end of my time there I was responsible for hiring, onboarding, and aligning a team of mobile engineers who would be embdedded into teams other than my own. 
 
-Whilst being there, I've been a part of releasing many features including fractional trading, stronger insights, and self-invested personal pensions. I'm focusing on making the apps better for our users, including [dark mode](https://twitter.com/freetrade/status/1227537684450758657), [a brand-new iPad UI](https://freetrade.io/blog/introducing-freetrade-for-ipad) and [performance improvements](https://amlcurran.co.uk/articles/profiling-at-freetrade).
+I focused on making the apps better for our users, with features including [dark mode](https://twitter.com/freetrade/status/1227537684450758657), [a brand-new iPad UI](https://freetrade.io/blog/introducing-freetrade-for-ipad) and [performance improvements](articles/profiling-at-freetrade). 
+
+I was also responsible for making the developer experience better for non-mobile developers, including encouraging non-mobile developers to [write about mobile topics](https://freetrade.io/blog/mobile-architecture-at-freetrade), and increasing [our visibility](https://freetrade.io/blog/how-do-we-work-on-mobile) in the sector.

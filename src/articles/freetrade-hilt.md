@@ -1,6 +1,5 @@
 ---
 title: "Migrating from Dagger to Hilt"
-date: "16 Jun 2021"
 slug: "migrating-to-hilt"
 image: "freetrade-hilt-1"
 rawDate: "2021-06-16"

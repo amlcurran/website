@@ -1,6 +1,5 @@
 ---
 title: "Announcing What's on"
-date: "26 Sept 2021"
 slug: "whats-on-beta"
 image: "whats-on-small"
 rawDate: "2021-09-26"
