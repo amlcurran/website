@@ -179,8 +179,7 @@ h1 {
 }
 h2 {
   font-family: 'Domine', serif;
-  margin-top: 0;
-  margin-bottom: 0.35rem;
+  margin: 1rem 0 0.3rem;
   color: var(--primary);
   font-weight: bold;
   text-rendering: optimizeLegibility;
@@ -280,7 +279,7 @@ article {
 }
 
 article p {
-  margin: 0 0 1.2rem;
+  margin: 0 0 0.5rem;
   line-height: 1.7;
 }
 
@@ -325,6 +324,9 @@ article ul {
 }
 
 @media only screen and (max-width: 600px) {
+  article {
+    font-size: 16px;
+  }
   html {
     font-size: 100%;
     --article-padding: 8px;

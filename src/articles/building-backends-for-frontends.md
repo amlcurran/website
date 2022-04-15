@@ -1,5 +1,5 @@
 ---
-title: "Choosing between Backend-for-frontend and frontend"
+title: "Choosing between backend-for-frontend and frontend"
 slug: "building-backends-for-frontends"
 image: "christmas-coding-hero"
 rawDate: "2022-04-13"
@@ -50,9 +50,11 @@ In a BFF, the response will have the formatting within it, and would return some
 }
 ```
 
-There's a clear difference here, how what are advantages and disadvantages of each approach?
+The resulting architecture and differences can be summed up like this:
 
-# XXX Diagram
+![A diagram showing comparisions of BFFs versus traditional backends](bff-diagram.png)
+
+There's a clear difference here, how what are advantages and disadvantages of each approach?
 
 ## Advantages of BFFs
 
@@ -117,9 +119,9 @@ A vaguely scientific way of deciding whether to use a BFF or not is by answering
 - Is this design unlikely to change in the next month?
 - Do we have no localisation needs/do we have good backend localisation tools?
 
-The more of these questions you answer yes to, the more tempted I would be to go for a BFF
+The more of these questions you answer yes to, the more tempted I would be to go for a BFF:
 
-# XXX Diagram showing
+![A decision slider to help the decision](bff-decisions.png)
 
 ## Conclusion
 
