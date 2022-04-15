@@ -190,7 +190,7 @@ h2 {
 h3 {
   font-family: 'Domine', serif;
   padding: 0;
-  margin: 0 0 0.35rem;
+  margin: 16px 0 4px;
   color: var(--primary);
   font-weight: bold;
   text-rendering: optimizeLegibility;
