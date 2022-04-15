@@ -132,9 +132,8 @@ abbr[title] {
   grid-template-columns: auto auto auto;
   grid-column-gap: 8px;
 }
-.card-image {
+.article-card-image {
   flex-shrink: 0;
-  margin-top: 8px;
   width: 25%;
 }
 .portfolio-image {
@@ -180,6 +179,15 @@ h1 {
 h2 {
   font-family: 'Domine', serif;
   margin: 1rem 0 0.3rem;
+  color: var(--primary);
+  font-weight: bold;
+  text-rendering: optimizeLegibility;
+  font-size: 24pt;
+  line-height: 1.1;
+}
+h2:first-child {
+  font-family: 'Domine', serif;
+  margin: 0 0 0.3rem;
   color: var(--primary);
   font-weight: bold;
   text-rendering: optimizeLegibility;
