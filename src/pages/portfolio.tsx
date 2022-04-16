@@ -139,7 +139,7 @@ function older(): JSX.Element[] {
 
 function small(frontmatter: PortfolioSmall): JSX.Element {
   return (
-    <div>
+    <div style={{scrollSnapAlign: "start end"}}>
       <h3>{frontmatter.title}</h3>
       <h4>{frontmatter.position} ● {frontmatter.year}</h4>
       <section style={{ marginTop: 8 }}>{frontmatter.description}</section>

@@ -140,6 +140,7 @@ a:hover {
   grid-row-gap: 64px;
   grid-column-gap: 16px;
   margin-top: 40px;
+  scroll-snap-align: start end;
 
   @media (max-width: core.$breakpoint) {
     grid-template-columns: repeat(1, 1fr);

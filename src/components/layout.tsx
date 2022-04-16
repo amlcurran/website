@@ -23,7 +23,7 @@ const Layout = ({ children, seo, style }: LayoutProps) => (
     <Header />
     <div style={{ ...style}} className="content" >
       <main>{children}</main>
-      <footer style={{ marginTop: 16, paddingBottom: 16 }}>
+      <footer style={{ marginTop: 16, paddingBottom: 16, scrollSnapAlign: "end" }}>
         ALEX CURRAN © {new Date().getFullYear()}
       </footer>
     </div>
