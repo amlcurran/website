@@ -1,0 +1,13 @@
+
+.splitter {
+  width: 80%;
+  bottom: 0;
+  pointer-events: none;
+  transition: transform 0.2s ease-in-out;
+  margin: 0 auto;
+  transform: translateX(0);
+}
+.splitter-front {
+  position: absolute;
+  z-index: 1;
+}

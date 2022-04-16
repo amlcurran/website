@@ -1,4 +1,5 @@
 import React, {useState} from "react"
+import "./splitter.scss"
 
 interface SplitterProps {
     left: JSX.Element
@@ -19,7 +20,7 @@ export function Splitter(props: SplitterProps) {
              onMouseLeave={() => setHovered(false)}
              style={{position: 'relative'}}>
             <div style={frontStyle}
-                 className="splitter splitter-left-front">{props.left}</div>
+                 className="splitter splitter-front">{props.left}</div>
             <div style={backStyle}
                  className="splitter">{props.right}</div>
         </div>
