@@ -1,0 +1,22 @@
+@use "core";
+
+.imageRow {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-column-gap: 8px;
+  min-height: 150px;
+  padding-right: 24px;
+  margin-right: -24px;
+
+  @media (max-width: core.$breakpoint) {
+    overflow: scroll;
+  }
+}
+
+.imageItem {
+  border-radius: 8px;
+
+  @media (max-width: core.$breakpoint) {
+    min-width: 200px;
+  }
+}

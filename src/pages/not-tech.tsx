@@ -1,10 +1,10 @@
-import React, {CSSProperties} from "react"
+import React from "react"
 
 import Layout from "../components/layout"
-import { graphql } from "gatsby";
+import {graphql} from "gatsby";
 import {Edge, GraphQLList, SharpImage} from "../models/graphql";
-import {GatsbyImage} from "gatsby-plugin-image";
 import SEO from "../components/seo";
+import {ImageRail} from "../components/image-rail";
 
 interface NotTechQuery {
     allFile: GraphQLList<SharpImage & File>
@@ -20,7 +20,7 @@ const NotTech = ({ data }: { data: NotTechQuery }) => {
                     get started with this, and it is great and fun to investigate different styles and techniques of
                     soap making. It makes your flat smell great and gives you a constant stream of good presents to give
                     people!</p>
-                <>{images("soap", data.allFile.edges)}</>
+                <ImageRail images={imagesWithName(data.allFile.edges, "soap")}/>
             </section>
             <section style={{marginTop: 36}}>
                 <h2>Art</h2>
@@ -29,43 +29,28 @@ const NotTech = ({ data }: { data: NotTechQuery }) => {
                     boxes include lino printing and india ink. I have been trying out pottery courses at <a
                         href="https://claytime.london" target="_blank" rel="noopener noreferrer">Claytime</a> as well.
                 </p>
-                <>{images("art", data.allFile.edges)}</>
+                <ImageRail images={imagesWithName(data.allFile.edges, "art")}/>
             </section>
             <section style={{marginTop: 36}}>
                 <h2>Cooking, baking, drinks</h2>
                 <p>I've always been fascinated in making food and things like cocktails – perhaps it is a leftover from
                     my background in chemistry. I like making new things, such as my own tonic water, macarons (which
                     I'm trying to perfect), and water keffir.</p>
-                <>{images("cooking", data.allFile.edges)}</>
+                <ImageRail images={imagesWithName(data.allFile.edges, "cooking")}/>
             </section>
             <section style={{marginTop: 36}}>
                 <h2>Hiking and adventuring</h2>
                 <p>I'm the first to admit I'm not the most adventurous person. However I do like hiking and going on
                     trips around little areas of Germany. I grew up in the countryside and really miss seeing fields,
                     and getting hopelessly lost...</p>
-                <>{images("hiking", data.allFile.edges)}</>
+                <ImageRail images={imagesWithName(data.allFile.edges, "hiking")}/>
             </section>
         </Layout>
     )
 }
-const imageStyle: CSSProperties = {
-    borderRadius: 8
-}
 
-export function images(name: string, notTechBits: Edge<SharpImage & File>[]): JSX.Element {
-    return buildRow(notTechBits.filter((edge) => edge.node.name.indexOf(name) !== -1))
-}
-
-function buildRow(images: Edge<SharpImage & File>[]): JSX.Element {
-    return <div className="imageRow">
-        {images.map(image => <GatsbyImage
-            key={image.node.name}
-            image={image.node.childImageSharp.gatsbyImageData}
-            alt=""
-            style={imageStyle}
-            imgStyle={imageStyle}
-            className="imageItem"/>)}
-    </div>
+function imagesWithName(notTechBits: Edge<SharpImage & File>[], name: string) {
+    return notTechBits.filter((edge) => edge.node.name.indexOf(name) !== -1);
 }
 
 const seo = <SEO
