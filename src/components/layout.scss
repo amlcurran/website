@@ -123,6 +123,11 @@ a:hover {
   border-radius: 24px;
   background-color: white;
   color: var(--primary);
+
+  @media (max-width: core.$breakpoint) {
+    padding: 6px 0;
+    font-size: 12px;
+  }
 }
 
 .hover-background {
@@ -260,6 +265,7 @@ h4 {
 
   @media (max-width: core.$breakpoint) {
     grid-column: 1 / span 2;
+    font-size: 24px;
   }
 }
 .in-card {
