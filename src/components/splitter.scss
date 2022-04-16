@@ -15,18 +15,18 @@
   z-index: 1;
 }
 
-.right-front-hovered {
+.splitter-host:hover .right-front-hovered {
   transform: translateX(-24px);
 }
 
-.left-front-hovered {
+.splitter-host:hover .left-front-hovered {
   transform: translateX(-60px);
 }
 
-.right-back-hovered {
+.splitter-host:hover .right-back-hovered {
   transform: translateX(60px);
 }
 
-.left-back-hovered {
+.splitter-host:hover .left-back-hovered {
   transform: translateX(24px);
 }

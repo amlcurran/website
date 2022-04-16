@@ -8,15 +8,10 @@ interface SplitterProps {
 }
 
 export function Splitter(props: SplitterProps) {
-
-    const [isHovered, setHovered] = useState(false)
-    const frontStyle = isHovered ? (props.expandRight ? "right-front-hovered" : "left-front-hovered") : ""
-    const backStyle = isHovered ? (props.expandRight ? "right-back-hovered" : "left-back-hovered") : ""
-
+    const frontStyle = (props.expandRight ? "right-front-hovered" : "left-front-hovered")
+    const backStyle = (props.expandRight ? "right-back-hovered" : "left-back-hovered")
     return (
-        <div onMouseEnter={() => setHovered(true)}
-             onMouseLeave={() => setHovered(false)}
-             className="splitter-host">
+        <div className="splitter-host">
             <div className={`splitter-child splitter-front ${frontStyle}`}>{props.left}</div>
             <div className={`splitter-child ${backStyle}`}>{props.right}</div>
         </div>
