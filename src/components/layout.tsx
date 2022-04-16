@@ -8,7 +8,7 @@
 import React, {CSSProperties, ReactNode} from "react"
 
 import Header from "./header"
-import "./layout.css"
+import "./layout.scss"
 import SEO from "./seo";
 
 interface LayoutProps {

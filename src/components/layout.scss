@@ -26,6 +26,24 @@ html {
   --text-on-background: var(--secondary);
   --surface: white;
   --article-padding: 16px;
+
+  @media (max-width: 600px) {
+    font-size: 100%;
+    --article-padding: 8px;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    --primary: hsl(21, 75%, 55%);
+    --primary-hover: hsla(21, 75%, 55%, 0.22);
+    --secondary: hsl(240, 18%, 94%);
+    --background: #191a1f;
+    --background-alpha: hsla(240, 16%, 94%, 0.1);
+    --tertiary: hsl(240, 18%, 90%);
+    --text-on-secondary: #242835;
+    --text-on-background: var(--tertiary);
+    --text-on-surface: var(--tertiary);
+    --surface: var(--background);
+  }
 }
 body {
   margin: 0;
@@ -63,7 +81,6 @@ footer {
 a, a:visited {
   background-color: transparent;
   color: var(--link-on-surface);
-  -webkit-text-decoration-skip: objects;
   text-decoration: none;
 }
 
@@ -141,10 +158,6 @@ abbr[title] {
   margin-top: 8px;
   width: 30%;
 }
-.portfolio-image-small {
-  flex-shrink: 0;
-  width: 22%;
-}
 .portfolio-image-large {
   flex-shrink: 0;
   width: 33%;
@@ -175,6 +188,10 @@ h1 {
   text-rendering: optimizeLegibility;
   font-size: 36pt;
   line-height: 1.1;
+
+  @media (max-width: 600px) {
+    font-size: 24pt;
+  }
 }
 h2 {
   font-family: 'Domine', serif;
@@ -184,15 +201,15 @@ h2 {
   text-rendering: optimizeLegibility;
   font-size: 24pt;
   line-height: 1.1;
-}
-h2:first-child {
-  font-family: 'Domine', serif;
-  margin: 0 0 0.3rem;
-  color: var(--primary);
-  font-weight: bold;
-  text-rendering: optimizeLegibility;
-  font-size: 24pt;
-  line-height: 1.1;
+
+  &:first-of-type {
+    margin: 0 0 0.3rem;
+  }
+
+  @media (max-width: 600px) {
+    margin: 0 0 0.3rem;
+    font-size: 18pt;
+  }
 }
 h3 {
   font-family: 'Domine', serif;
@@ -203,6 +220,10 @@ h3 {
   text-rendering: optimizeLegibility;
   font-size: 18pt;
   line-height: 1.1;
+
+  @media (max-width: 600px) {
+    font-size: 16pt;
+  }
 }
 h4 {
   font-size: initial;
@@ -211,6 +232,10 @@ h4 {
   font-weight: bold;
   text-rendering: optimizeLegibility;
   line-height: 1.1;
+
+  @media (max-width: 600px) {
+    font-size: 10pt;
+  }
 }
 .headline {
   font-size: 26pt;
@@ -318,10 +343,6 @@ article ul {
   flex-direction: row;
 }
 
-.card-inside {
-
-}
-
 #all-unset * {
   all: revert;
   font-family: serif;
@@ -335,10 +356,6 @@ article ul {
   article {
     font-size: 16px;
   }
-  html {
-    font-size: 100%;
-    --article-padding: 8px;
-  }
   nav {
     display: table;
     table-layout: fixed;
@@ -346,17 +363,7 @@ article ul {
   .card-internal {
     flex-direction: column;
   }
-
-  .card-inside {
-
-  }
   .portfolio-image {
-    order: -1;
-    width: 40%;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  .portfolio-image-small {
     order: -1;
     width: 40%;
     margin-left: auto;
@@ -418,46 +425,9 @@ article ul {
   .tiny-card-description {
     display: none;
   }
-  h1 {
-    font-family: 'Domine', serif;
-    color: var(--primary);
-    margin: 0 0 0.45rem;
-    font-weight: bold;
-    text-rendering: optimizeLegibility;
-    font-size: 24pt;
-    line-height: 1.1;
-  }
-  h2 {
-    font-family: 'Domine', serif;
-    margin-top: 0;
-    margin-bottom: 0.35rem;
-    color: var(--primary);
-    font-weight: bold;
-    text-rendering: optimizeLegibility;
-    font-size: 18pt;
-    line-height: 1.1;
-  }
 
   .article-snippet {
     --webkit-line-clamp: 2;
     line-clamp: 2;
-  }
-  h4 {
-    font-size: 10pt;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    --primary: hsl(21, 75%, 55%);
-    --primary-hover: hsla(21, 75%, 55%, 0.22);
-    --secondary: hsl(240, 18%, 94%);
-    --background: #191a1f;
-    --background-alpha: hsla(240, 16%, 94%, 0.1);
-    --tertiary: hsl(240, 18%, 90%);
-    --text-on-secondary: #242835;
-    --text-on-background: var(--tertiary);
-    --text-on-surface: var(--tertiary);
-    --surface: var(--background);
   }
 }

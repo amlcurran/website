@@ -1,7 +1,7 @@
 import React, {CSSProperties} from "react"
 import {Link} from "@reach/router"
 import Styling from "./styling"
-import "./layout.css"
+import "./layout.scss"
 import {GatsbyImage} from "gatsby-plugin-image"
 import {Image} from "../pages/articles"
 
