@@ -1,5 +1,8 @@
+.splitter-host {
+  position: relative;
+}
 
-.splitter {
+.splitter-child {
   width: 80%;
   bottom: 0;
   pointer-events: none;
@@ -10,4 +13,20 @@
 .splitter-front {
   position: absolute;
   z-index: 1;
+}
+
+.right-front-hovered {
+  transform: translateX(-24px);
+}
+
+.left-front-hovered {
+  transform: translateX(-60px);
+}
+
+.right-back-hovered {
+  transform: translateX(60px);
+}
+
+.left-back-hovered {
+  transform: translateX(24px);
 }

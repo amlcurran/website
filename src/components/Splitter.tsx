@@ -10,19 +10,15 @@ interface SplitterProps {
 export function Splitter(props: SplitterProps) {
 
     const [isHovered, setHovered] = useState(false)
-    const translationFront = props.expandRight ? 24 : 60
-    const translationBack = props.expandRight ? 60 : 24
-    const frontStyle = isHovered ? {transform: `translateX(${-1 * translationFront}px)`} : {}
-    const backStyle = isHovered ? {transform: `translateX(${translationBack}px)`} : {}
+    const frontStyle = isHovered ? (props.expandRight ? "right-front-hovered" : "left-front-hovered") : ""
+    const backStyle = isHovered ? (props.expandRight ? "right-back-hovered" : "left-back-hovered") : ""
 
     return (
         <div onMouseEnter={() => setHovered(true)}
              onMouseLeave={() => setHovered(false)}
-             style={{position: 'relative'}}>
-            <div style={frontStyle}
-                 className="splitter splitter-front">{props.left}</div>
-            <div style={backStyle}
-                 className="splitter">{props.right}</div>
+             className="splitter-host">
+            <div className={`splitter-child splitter-front ${frontStyle}`}>{props.left}</div>
+            <div className={`splitter-child ${backStyle}`}>{props.right}</div>
         </div>
     )
 
