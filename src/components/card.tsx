@@ -63,14 +63,14 @@ function imagePart(props: ArticleProps & Linkable): JSX.Element {
       return <img
         src={props.image}
         alt={`Image for ${props.title}`}
-        className="article-image article-card-image"
+        className="article-card-image"
         style={{borderRadius: 8}} />
   } else {
       return <GatsbyImage
           image={props.image.childImageSharp.gatsbyImageData}
           alt={`Image for ${props.title}`}
-          className="article-image article-card-image"
-          imgClassName="article-image"
+          className="article-card-image"
+          imgClassName="article-card-image"
       imgStyle={{borderRadius: 8}}/>
   }
 }

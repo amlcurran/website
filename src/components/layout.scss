@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,700;1,400&display=swap');
 
+$breakpoint: 600px;
+
 html {
   font-family: 'IBM Plex Sans', sans-serif;
   -ms-text-size-adjust: 100%;
@@ -27,7 +29,7 @@ html {
   --surface: white;
   --article-padding: 16px;
 
-  @media (max-width: 600px) {
+  @media (max-width: $breakpoint) {
     font-size: 100%;
     --article-padding: 8px;
   }
@@ -57,6 +59,11 @@ body {
   margin: 0 auto;
   padding: 0 1.0875rem;
 }
+.emphasisBox {
+  @media (max-width: $breakpoint) {
+    overflow: scroll;
+  }
+}
 .emphasisBox a, .emphasisBox a:visited, .emphasisBox div {
   color: var(--text-on-primary);
 }
@@ -68,6 +75,11 @@ body {
   grid-template-columns: 1fr auto auto;
   row-gap: 16px;
   column-gap: 16px;
+
+  @media (max-width: $breakpoint) {
+    grid-template-columns: calc(50% - 8px) calc(50% - 8px);
+    grid-template-rows: auto auto;
+  }
 }
 .collapsingGrid {
   display: grid;
@@ -152,6 +164,12 @@ abbr[title] {
 .article-card-image {
   flex-shrink: 0;
   width: 25%;
+
+  @media (max-width: $breakpoint) {
+    max-height: 150px;
+    border-radius: 8px;
+    aspect-ratio: 4 / 3;
+  }
 }
 .portfolio-image {
   flex-shrink: 0;
@@ -189,7 +207,7 @@ h1 {
   font-size: 36pt;
   line-height: 1.1;
 
-  @media (max-width: 600px) {
+  @media (max-width: $breakpoint) {
     font-size: 24pt;
   }
 }
@@ -206,7 +224,7 @@ h2 {
     margin: 0 0 0.3rem;
   }
 
-  @media (max-width: 600px) {
+  @media (max-width: $breakpoint) {
     margin: 0 0 0.3rem;
     font-size: 18pt;
   }
@@ -221,7 +239,7 @@ h3 {
   font-size: 18pt;
   line-height: 1.1;
 
-  @media (max-width: 600px) {
+  @media (max-width: $breakpoint) {
     font-size: 16pt;
   }
 }
@@ -233,7 +251,7 @@ h4 {
   text-rendering: optimizeLegibility;
   line-height: 1.1;
 
-  @media (max-width: 600px) {
+  @media (max-width: $breakpoint) {
     font-size: 10pt;
   }
 }
@@ -287,6 +305,10 @@ article {
   max-width: 720px;
   margin-right: auto;
   margin-left: auto;
+
+  @media (max-width: $breakpoint) {
+    font-size: 16px;
+  }
 }
 
 .tiny-card {
@@ -319,12 +341,6 @@ article p {
 article ul {
   line-height: 170%;
 }
-.margin-left {
-  margin-left: 24px;
-}
-.margin-right {
-  margin-right: 24px;
-}
 
 .card-total {
   min-width: 250px;
@@ -337,6 +353,11 @@ article ul {
 .article-snippet {
   --webkit-line-clamp: 1;
   line-clamp: 1;
+
+  @media (max-width: $breakpoint) {
+    --webkit-line-clamp: 2;
+    line-clamp: 2;
+  }
 }
 
 .card-internal {
@@ -352,10 +373,7 @@ article ul {
   padding: var(--article-padding) var(--article-padding) var(--article-padding) 0;
 }
 
-@media only screen and (max-width: 600px) {
-  article {
-    font-size: 16px;
-  }
+@media only screen and (max-width: $breakpoint) {
   nav {
     display: table;
     table-layout: fixed;
@@ -373,32 +391,14 @@ article ul {
     width: 100%;
     margin-right: 0;
   }
-  .article-image {
-    max-height: 150px;
-    border-radius: 8px;
-    aspect-ratio: 4 / 3;
-  }
-  .emphasisBox {
-    overflow: scroll;
-  }
   .imageRow {
     overflow: scroll;
   }
   .imageItem {
     min-width: 200px;
   }
-  .headlineTop {
-    display: grid;
-    grid-template-columns: calc(50% - 8px) calc(50% - 8px);
-    grid-template-rows: auto auto;
-    row-gap: 16px;
-    column-gap: 16px;
-  }
   .headlineLink {
     grid-column: 1 / span 2;
-  }
-  .collapsingGrid {
-    grid-template-columns: auto;
   }
   .smaller-projects {
     display: grid;
@@ -406,14 +406,6 @@ article ul {
     grid-row-gap: 32px;
     grid-column-gap: 16px;
     margin-top: 40px;
-  }
-  .margin-left {
-    margin-left: auto;
-    margin-right: auto;
-  }
-  .margin-right {
-    margin-left: auto;
-    margin-right: auto;
   }
   .tiny-card img {
     width: 100px;
@@ -424,10 +416,5 @@ article ul {
   }
   .tiny-card-description {
     display: none;
-  }
-
-  .article-snippet {
-    --webkit-line-clamp: 2;
-    line-clamp: 2;
   }
 }
