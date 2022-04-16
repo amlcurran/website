@@ -1,9 +1,10 @@
-import React from "react"
+import React, {CSSProperties} from "react"
 
 import Layout from "../components/layout"
 import { graphql } from "gatsby";
-import { GraphQLList, SharpImage } from "../models/graphql";
-import { seo, images } from "../not-tech/page";
+import {Edge, GraphQLList, SharpImage} from "../models/graphql";
+import {GatsbyImage} from "gatsby-plugin-image";
+import SEO from "../components/seo";
 
 interface NotTechQuery {
     allFile: GraphQLList<SharpImage & File>
@@ -47,6 +48,31 @@ const NotTech = ({ data }: { data: NotTechQuery }) => {
         </Layout>
     )
 }
+const imageStyle: CSSProperties = {
+    borderRadius: 8
+}
+
+export function images(name: string, notTechBits: Edge<SharpImage & File>[]): JSX.Element {
+    return buildRow(notTechBits.filter((edge) => edge.node.name.indexOf(name) !== -1))
+}
+
+function buildRow(images: Edge<SharpImage & File>[]): JSX.Element {
+    return <div className="imageRow">
+        {images.map(image => <GatsbyImage
+            key={image.node.name}
+            image={image.node.childImageSharp.gatsbyImageData}
+            alt=""
+            style={imageStyle}
+            imgStyle={imageStyle}
+            className="imageItem"/>)}
+    </div>
+}
+
+const seo = <SEO
+    title="Not tech"
+    keywords={[`hands`, `developer`, `engineer`, `pottery`, `soap`]}
+    description="Here's what I get up to when I'm not coding"
+    key="SEO" />
 
 export const query = graphql`
   query {

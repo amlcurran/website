@@ -151,6 +151,11 @@ a:hover {
   grid-row-gap: 64px;
   grid-column-gap: 16px;
   margin-top: 40px;
+
+  @media (max-width: $breakpoint) {
+    grid-template-columns: repeat(1, 1fr);
+    grid-row-gap: 32px;
+  }
 }
 abbr[title] {
   border-bottom: none;
@@ -160,6 +165,18 @@ abbr[title] {
   display: grid;
   grid-template-columns: auto auto auto;
   grid-column-gap: 8px;
+  min-height: 150px;
+  padding-right: 24px;
+  margin-right: -24px;
+
+  @media (max-width: $breakpoint) {
+    overflow: scroll;
+  }
+}
+.imageItem {
+  @media (max-width: $breakpoint) {
+    min-width: 200px;
+  }
 }
 .article-card-image {
   flex-shrink: 0;
@@ -175,10 +192,22 @@ abbr[title] {
   flex-shrink: 0;
   margin-top: 8px;
   width: 30%;
+
+  @media (max-width: $breakpoint) {
+    order: -1;
+    width: 40%;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 .portfolio-image-large {
   flex-shrink: 0;
   width: 33%;
+
+  @media (max-width: $breakpoint) {
+    width: 100%;
+    margin-right: 0;
+  }
 }
 .splitter {
   width: 80%;
@@ -327,6 +356,10 @@ article {
   object-fit: cover;
   align-self: stretch;
   border-radius: 8px;
+
+  @media (max-width: $breakpoint) {
+    width: 100px;
+  }
 }
 
 .tiny-card h4 {
@@ -362,6 +395,10 @@ article ul {
 
 .card-internal {
   flex-direction: row;
+
+  @media (max-width: $breakpoint) {
+    flex-direction: column;
+  }
 }
 
 #all-unset * {
@@ -378,41 +415,8 @@ article ul {
     display: table;
     table-layout: fixed;
   }
-  .card-internal {
-    flex-direction: column;
-  }
-  .portfolio-image {
-    order: -1;
-    width: 40%;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  .portfolio-image-large {
-    width: 100%;
-    margin-right: 0;
-  }
-  .imageRow {
-    overflow: scroll;
-  }
-  .imageItem {
-    min-width: 200px;
-  }
   .headlineLink {
     grid-column: 1 / span 2;
-  }
-  .smaller-projects {
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    grid-row-gap: 32px;
-    grid-column-gap: 16px;
-    margin-top: 40px;
-  }
-  .tiny-card img {
-    width: 100px;
-    margin: 0 16px 0 0;
-    object-fit: cover;
-    align-self: stretch;
-    border-radius: 8px;
   }
   .tiny-card-description {
     display: none;
