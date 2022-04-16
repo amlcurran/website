@@ -172,6 +172,11 @@ abbr[title] {
     margin-right: auto;
   }
 }
+
+.snap-scroll {
+  scroll-snap-type: y mandatory;
+}
+
 .portfolio-image-large {
   flex-shrink: 0;
   width: 33%;

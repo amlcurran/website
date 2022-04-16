@@ -23,7 +23,8 @@ interface SideProjectsQuery {
 
 const SideProjects = ({data}: { data: SideProjectsQuery }) => {
     const seo = <SEO title="On the side" keywords={[`side projects`, `flutter`, `tech`, 'oo-er']}
-                     description="Here's what I get up to when I'm not coding" key="SEO"/>
+                     description="Here's what I get up to when I'm not coding" key="SEO"
+                     bodyAttributes={{class: "snap-scroll"}}/>
     return (
         <Layout seo={seo}>
             <div className="collapsingGrid">
@@ -51,7 +52,7 @@ function asSideProject({node}: Edge<MarkdownRemark<SideProjectFrontmatter>>, ind
         link={node.frontmatter.link}
         belowTitle={foo}
         icon={icon}
-        style={{marginBottom: 72}}/>)
+        style={{marginBottom: 72, scrollSnapAlign: "start"}}/>)
 }
 
 export const pageQuery = graphql`{

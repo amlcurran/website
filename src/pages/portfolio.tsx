@@ -32,7 +32,11 @@ interface PortfolioQuery {
 }
 
 const Portfolio = ({ data }: { data: PortfolioQuery }) => {
-  const seo = <SEO title="Portfolio" keywords={[`portfolio`, `developer`, `engineer`, `mobile`, `ios`, `android`]} description="A series of my most popular projects" key="SEO" />
+  const seo = <SEO title="Portfolio"
+                   keywords={[`portfolio`, `developer`, `engineer`, `mobile`, `ios`, `android`]}
+                   description="A series of my most popular projects"
+                   key="SEO"
+                   bodyAttributes={{class: "snap-scroll"}} />
   return (
     <Layout seo={seo}>
       <main className="collapsingGrid">
