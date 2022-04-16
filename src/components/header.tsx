@@ -77,7 +77,7 @@ const Header = () => {
       return (
         <header>
           <div style={myStyle} className="content headlineTop">
-            <Link to="/" className="headlineLink headline" style={{ color: Styling.secondaryColor }}>Hey, I'm Alex Curran.</Link>
+            <Link to="/" className="headlineLink" style={{ color: Styling.secondaryColor }}>Hey, I'm Alex Curran.</Link>
             <ContactButton url={query.file.publicURL} text="CV" icon={"file_download"} />
             <ContactButton url="mailto:aml.curran+website@gmail.com" text="Contact" icon={"email"} />
           </div>

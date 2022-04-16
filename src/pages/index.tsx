@@ -16,7 +16,7 @@ const NewIndexPage = () => (
     <main className="content">
       <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} description="Alex Curran's portfolio website" />
       <div className="index-top">
-      <div style={{ ...myStyle, color: Styling.secondaryColor }} className="headlineLink headline">Hey, I'm Alex Curran.</div>
+      <div style={{ ...myStyle, color: Styling.secondaryColor }} className="headlineLink">Hey, I'm Alex Curran.</div>
       I’m a software developer, specialising in mobile applications across Android and iOS.
       </div>
       <div className="front-page">

@@ -104,10 +104,6 @@ a:active,
 a:hover {
   outline-width: 0;
 }
-.hover-up {
-  transition: margin-left 0.2s ease-in-out,
-              margin-right 0.2s ease-in-out;
-}
 
 .inner-link {
   text-align: center;
@@ -133,17 +129,10 @@ a:hover {
   transition: background 0.2s ease-in-out;
   background: transparent;
   border-radius: 8px;
-}
-.hover-background:hover {
-  background: var(--primary-hover);
-}
-.hover-up.left:hover {
-  margin-left: -36px;
-  margin-right: 36px;
-}
-.hover-up.right:hover {
-  margin-left: 36px;
-  margin-right: -36px;
+
+  &:hover {
+    background: var(--primary-hover);
+  }
 }
 .smaller-projects {
   display: grid;
@@ -284,13 +273,17 @@ h4 {
     font-size: 10pt;
   }
 }
-.headline {
+.headlineLink {
   font-size: 26pt;
   font-weight: 700;
   font-family: 'Domine', serif;
   letter-spacing: 0.10rem;
   justify-self: start;
   color: var(--secondary);
+
+  @media (max-width: $breakpoint) {
+    grid-column: 1 / span 2;
+  }
 }
 .in-card {
   padding: 0 0 0 0;
@@ -410,15 +403,15 @@ article ul {
   padding: var(--article-padding) var(--article-padding) var(--article-padding) 0;
 }
 
-@media only screen and (max-width: $breakpoint) {
-  nav {
-    display: table;
-    table-layout: fixed;
+nav {
+  @media (max-width: $breakpoint) {
+      display: table;
+      table-layout: fixed;
   }
-  .headlineLink {
-    grid-column: 1 / span 2;
-  }
-  .tiny-card-description {
+}
+
+.tiny-card-description {
+  @media (max-width: $breakpoint) {
     display: none;
   }
 }
