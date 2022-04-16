@@ -1,8 +1,6 @@
-@use "colors";
+@use "core";
 
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,700;1,400&display=swap');
-
-$breakpoint: 600px;
 
 html {
   font-family: 'IBM Plex Sans', sans-serif;
@@ -31,7 +29,7 @@ html {
   --surface: white;
   --article-padding: 16px;
 
-  @media (max-width: $breakpoint) {
+  @media (max-width: core.$breakpoint) {
     font-size: 100%;
     --article-padding: 8px;
   }
@@ -62,7 +60,7 @@ body {
   padding: 0 1.0875rem;
 }
 .emphasisBox {
-  @media (max-width: $breakpoint) {
+  @media (max-width: core.$breakpoint) {
     overflow: scroll;
   }
 }
@@ -78,7 +76,7 @@ body {
   row-gap: 16px;
   column-gap: 16px;
 
-  @media (max-width: $breakpoint) {
+  @media (max-width: core.$breakpoint) {
     grid-template-columns: calc(50% - 8px) calc(50% - 8px);
     grid-template-rows: auto auto;
   }
@@ -143,7 +141,7 @@ a:hover {
   grid-column-gap: 16px;
   margin-top: 40px;
 
-  @media (max-width: $breakpoint) {
+  @media (max-width: core.$breakpoint) {
     grid-template-columns: repeat(1, 1fr);
     grid-row-gap: 32px;
   }
@@ -160,12 +158,12 @@ abbr[title] {
   padding-right: 24px;
   margin-right: -24px;
 
-  @media (max-width: $breakpoint) {
+  @media (max-width: core.$breakpoint) {
     overflow: scroll;
   }
 }
 .imageItem {
-  @media (max-width: $breakpoint) {
+  @media (max-width: core.$breakpoint) {
     min-width: 200px;
   }
 }
@@ -173,7 +171,7 @@ abbr[title] {
   flex-shrink: 0;
   width: 25%;
 
-  @media (max-width: $breakpoint) {
+  @media (max-width: core.$breakpoint) {
     max-height: 150px;
     border-radius: 8px;
     aspect-ratio: 4 / 3;
@@ -184,7 +182,7 @@ abbr[title] {
   margin-top: 8px;
   width: 30%;
 
-  @media (max-width: $breakpoint) {
+  @media (max-width: core.$breakpoint) {
     order: -1;
     width: 40%;
     margin-left: auto;
@@ -195,7 +193,7 @@ abbr[title] {
   flex-shrink: 0;
   width: 33%;
 
-  @media (max-width: $breakpoint) {
+  @media (max-width: core.$breakpoint) {
     width: 100%;
     margin-right: 0;
   }
@@ -227,7 +225,7 @@ h1 {
   font-size: 36pt;
   line-height: 1.1;
 
-  @media (max-width: $breakpoint) {
+  @media (max-width: core.$breakpoint) {
     font-size: 24pt;
   }
 }
@@ -244,7 +242,7 @@ h2 {
     margin: 0 0 0.3rem;
   }
 
-  @media (max-width: $breakpoint) {
+  @media (max-width: core.$breakpoint) {
     margin: 0 0 0.3rem;
     font-size: 18pt;
   }
@@ -259,7 +257,7 @@ h3 {
   font-size: 18pt;
   line-height: 1.1;
 
-  @media (max-width: $breakpoint) {
+  @media (max-width: core.$breakpoint) {
     font-size: 16pt;
   }
 }
@@ -271,7 +269,7 @@ h4 {
   text-rendering: optimizeLegibility;
   line-height: 1.1;
 
-  @media (max-width: $breakpoint) {
+  @media (max-width: core.$breakpoint) {
     font-size: 10pt;
   }
 }
@@ -283,7 +281,7 @@ h4 {
   justify-self: start;
   color: var(--secondary);
 
-  @media (max-width: $breakpoint) {
+  @media (max-width: core.$breakpoint) {
     grid-column: 1 / span 2;
   }
 }
@@ -330,35 +328,9 @@ article {
   margin-right: auto;
   margin-left: auto;
 
-  @media (max-width: $breakpoint) {
+  @media (max-width: core.$breakpoint) {
     font-size: 16px;
   }
-}
-
-.tiny-card {
-  font-size: 12pt !important;
-  background-color: var(--secondary);
-  color: var(--text-on-secondary);
-  margin: 32px 0;
-  border-radius: 8px;
-  display: flex;
-  max-height: 120px;
-}
-
-.tiny-card img {
-  width: 200px;
-  margin: 0 16px 0 0;
-  object-fit: cover;
-  align-self: stretch;
-  border-radius: 8px;
-
-  @media (max-width: $breakpoint) {
-    width: 100px;
-  }
-}
-
-.tiny-card h4 {
-  color: var(--text-on-secondary);
 }
 
 article p {
@@ -382,7 +354,7 @@ article ul {
   --webkit-line-clamp: 1;
   line-clamp: 1;
 
-  @media (max-width: $breakpoint) {
+  @media (max-width: core.$breakpoint) {
     --webkit-line-clamp: 2;
     line-clamp: 2;
   }
@@ -391,7 +363,7 @@ article ul {
 .card-internal {
   flex-direction: row;
 
-  @media (max-width: $breakpoint) {
+  @media (max-width: core.$breakpoint) {
     flex-direction: column;
   }
 }
@@ -406,14 +378,14 @@ article ul {
 }
 
 nav {
-  @media (max-width: $breakpoint) {
+  @media (max-width: core.$breakpoint) {
       display: table;
       table-layout: fixed;
   }
 }
 
 .tiny-card-description {
-  @media (max-width: $breakpoint) {
+  @media (max-width: core.$breakpoint) {
     display: none;
   }
 }

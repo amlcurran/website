@@ -1,5 +1,6 @@
 import {OpenGraphProperties} from "open-graph-scraper";
 import React from "react";
+import "./previouslyOn.scss"
 
 function previousPlace(previousOpenGraph: OpenGraphProperties): string {
     if (previousOpenGraph.ogUrl?.includes("freetrade")) {

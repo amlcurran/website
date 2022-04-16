@@ -1,0 +1,28 @@
+@use "core";
+
+.tiny-card {
+  font-size: 12pt !important;
+  background-color: core.$secondary;
+  color: core.$tertiary;
+  margin: 32px 0;
+  border-radius: 8px;
+  display: flex;
+  max-height: 120px;
+  padding-right: 16px;
+}
+
+.tiny-card img {
+  width: 200px;
+  margin: 0 16px 0 0;
+  object-fit: cover;
+  align-self: stretch;
+  border-radius: 8px;
+
+  @media (max-width: core.$breakpoint) {
+    width: 100px;
+  }
+}
+
+.tiny-card h4 {
+  color: core.$tertiary
+}
