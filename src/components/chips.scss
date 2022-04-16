@@ -1,0 +1,9 @@
+@use "colors";
+
+.chip {
+  background-color: colors.$primary-hover;
+  margin-right: 5px;
+  padding: 5px 10px;
+  border-radius: 20px;
+  color: colors.$primary
+}
