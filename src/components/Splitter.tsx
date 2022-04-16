@@ -8,8 +8,8 @@ interface SplitterProps {
 }
 
 export function Splitter(props: SplitterProps) {
-    const frontStyle = (props.expandRight ? "right-front-hovered" : "left-front-hovered")
-    const backStyle = (props.expandRight ? "right-back-hovered" : "left-back-hovered")
+    const frontStyle = (props.expandRight ? "right-front" : "left-front")
+    const backStyle = (props.expandRight ? "right-back" : "left-back")
     return (
         <div className="splitter-host">
             <div className={`splitter-child splitter-front ${frontStyle}`}>{props.left}</div>

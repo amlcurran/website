@@ -1,3 +1,5 @@
+@use "core";
+
 .splitter-host {
   position: relative;
 }
@@ -15,18 +17,62 @@
   z-index: 1;
 }
 
-.splitter-host:hover .right-front-hovered {
-  transform: translateX(-24px);
+// Front
+
+.right-front {
+  @media (max-width: core.$breakpoint) {
+    transform: translateX(-24px);
+  }
 }
 
-.splitter-host:hover .left-front-hovered {
+.splitter-host:hover .right-front {
+  transform: translateX(-40px);
+
+  @media (max-width: core.$breakpoint) {
+    transform: translateX(-24px);
+  }
+}
+
+.left-front {
+  @media (max-width: core.$breakpoint) {
+    transform: translateX(-40px);
+  }
+}
+
+.splitter-host:hover .left-front {
   transform: translateX(-60px);
+
+  @media (max-width: core.$breakpoint) {
+    transform: translateX(-40px);
+  }
 }
 
-.splitter-host:hover .right-back-hovered {
+// Back
+
+.right-back {
+  @media (max-width: core.$breakpoint) {
+    transform: translateX(40px);
+  }
+}
+
+.left-back {
+  @media (max-width: core.$breakpoint) {
+    transform: translateX(40px);
+  }
+}
+
+.splitter-host:hover .right-back {
   transform: translateX(60px);
+
+  @media (max-width: core.$breakpoint) {
+    transform: translateX(40px);
+  }
 }
 
-.splitter-host:hover .left-back-hovered {
+.splitter-host:hover .left-back {
   transform: translateX(24px);
+
+  @media (max-width: core.$breakpoint) {
+    transform: translateX(40px);
+  }
 }
