@@ -2,8 +2,8 @@
 date: "May 2018 – Aug 2018"
 position: "Principle Engineer/Tech Lead"
 start: "2018-05-01"
-title: "Backen.de"
-with: "Oetker Digital & Novoda"
+title: "Backen.de & Novoda"
+with: "Oetker Digital"
 team: 6
 platforms: ["android", "iOS"]
 images: ["backen-android"]

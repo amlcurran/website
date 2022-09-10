@@ -61,7 +61,6 @@ function asPortfolioExcerpt({ node }: Edge<MarkdownRemark<PortfolioFrontmatter>>
       <Item
           key={node.frontmatter.title}
           title={node.frontmatter.title}
-          subhead1={node.frontmatter.with ? "with " + node.frontmatter.with : undefined}
           subhead2={node.frontmatter.position + " ● " + node.frontmatter.date}
           body={node.html}
           image={secondImage}
@@ -74,7 +73,7 @@ function asPortfolioExcerpt({ node }: Edge<MarkdownRemark<PortfolioFrontmatter>>
 function older(): JSX.Element[] {
   const frontmatters: PortfolioSmall[] = [
     {
-      title: "AutoScout24",
+      title: "AutoScout24 & Novoda",
       images: [],
       largeImage: false,
       position: "Project Lead",
@@ -82,7 +81,7 @@ function older(): JSX.Element[] {
       year: "2017"
     },
     {
-      title: "ImmoScout24",
+      title: "ImmoScout24 & Novoda",
       images: [],
       largeImage: false,
       position: "Project Lead",
@@ -90,7 +89,7 @@ function older(): JSX.Element[] {
       year: "2016-2017"
     },
     {
-      title: "Oddschecker",
+      title: "Oddschecker & Novoda",
       images: [],
       largeImage: false,
       position: "Senior Software Engineer",
@@ -98,7 +97,7 @@ function older(): JSX.Element[] {
       year: "2015"
     },
     {
-      title: "All 4",
+      title: "All 4 & Novoda",
       images: [],
       largeImage: false,
       position: "Software Engineer",
