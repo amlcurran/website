@@ -5,7 +5,6 @@ image: "ec-both-apps"
 featured: ./ec-both-apps.png
 rawDate: "2022-04-30"
 snippet: "Enums and structs are some of Swift's most powerful APIs, and they can greatly improve code comprehension. But how do you decide which one to use?"
-unlisted: true
 ---
 
 Enums and structs are some of Swift's really powerful APIs, and they can improve code quality.
@@ -35,7 +34,7 @@ override func viewDidLoad() {
 
 Now `Screen` is often implemented in Swift as an enum but here I'd use a struct because the amount of cases `Screen` could have is *unbounded*.
 
-This comes back to the first part of this series – `Screen` here represents data, not state. Data is almost always unbounded, but state will have a bounded number of values it can take.
+This comes back to the [first part](./enums-and-structs-pt1.md) of this series – `Screen` here represents data, not state. Data is almost always unbounded, but state will have a bounded number of values it can take.
 
 It is common to use associated types to add data to an enum. However, structure the struct to have this behaviour – with no change in external API and even less code!
 
