@@ -34,7 +34,7 @@ export default function ArticlePage({data, pageContext}: {data: ArticleQuery, pa
     }
     return (
         <Layout seo={seo} style={{paddingTop: 16}}>
-            <article>
+            <article className={"readable-width"}>
                 <h4>{data.markdownRemark.timeToRead + " minutes to read  ● "}<time>{new Date(data.markdownRemark.frontmatter.rawDate).toLocaleDateString(undefined, dateOptions)}</time></h4>
                 <h1 style={{marginTop: 12}}>{data.markdownRemark.frontmatter.title}</h1>
                 {previouslyOn}

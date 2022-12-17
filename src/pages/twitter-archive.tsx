@@ -54,7 +54,7 @@ const TweetElement = ({edge}: TalkElementProps) => {
 
 const Item = ({tweet} :{tweet: Tweet}) => {
     return (
-        <section className={"card-internal card-total"} style={{borderStyle: "solid", borderColor: Styling.primaryColor, borderRadius: 16, borderWidth: 2, padding: 16}}>
+        <section className={"card-internal card-total bordered readable-width"}>
             <div className="article-text">
                 <caption>@amlcurran</caption>
                 <p dangerouslySetInnerHTML={{__html: tweet.tweet}} className="no-links"/>

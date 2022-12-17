@@ -307,13 +307,16 @@ pre code {
 }
 article {
   font-size: 20px;
-  max-width: 720px;
-  margin-right: auto;
-  margin-left: auto;
 
   @media (max-width: core.$breakpoint) {
     font-size: 16px;
   }
+}
+
+.readable-width {
+  max-width: 720px;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 article p {
@@ -331,6 +334,14 @@ article ul {
   flex: 1 1 0;
   flex-direction: row;
   gap: var(--article-padding);
+}
+
+.bordered {
+  border-style: solid;
+  border-color: var(--primary);
+  border-radius: 16px;
+  border-width: 2px;
+  padding: 0 16px;
 }
 
 .article-snippet {
