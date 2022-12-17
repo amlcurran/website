@@ -27,6 +27,7 @@ const SideProjects = ({data}: { data: SideProjectsQuery }) => {
                      bodyAttributes={{class: "snap-scroll"}}/>
     return (
         <Layout seo={seo}>
+            <p style={{marginTop: 16}}>Here's a collection of side projects not related to my actual job, aiming to learn new projects or technologies.</p>
             <div className="collapsingGrid">
                 {data.allMarkdownRemark.edges.map(asSideProject)}
             </div>
