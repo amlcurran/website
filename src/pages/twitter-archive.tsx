@@ -6,11 +6,16 @@ import {graphql} from "gatsby"
 import {GraphQLList} from "../models/graphql"
 import {MarkdownRemark} from "../models/remark"
 import {Image} from "./articles"
+const tweetJson = require("../twitter-archive/tweets.json") as TweetJsonElement[]
 
 interface Tweet {
     id: string
-    tweet: string
-    date: number
+    full_text: string
+    created_at: string
+}
+
+interface TweetJsonElement {
+    tweet: Tweet
 }
 
 interface TalksQuery {
@@ -26,18 +31,8 @@ const TwitterArchive = ({ data }: { data: TalksQuery }) => {
             <p style={{marginTop: 16}}>Since Elon has taken over Twitter I've decided to stop using it. Here is an archive of all my previous tweets which are no longer available there.</p>
             <div className="collapsingGrid">
                 {
-                    // data.allMarkdownRemark.edges
-                    //     .map(edge => edge.node.frontmatter)
-                        [{
-                            id: "abcd",
-                            tweet: "One thing I’d love to see from Apple (and Google gets very right) is much more sample code.\n\nThere’s things in that are easy UIKit but non-obvious in SwiftUI. StackOverflow is great but I’d love examples from the horses mouth more",
-                            date: Date.parse("2022-04-12T12:08:00.000Z")
-                        }, {
-                            id: "efgh",
-                            tweet: "We ran a SwiftUI workshop in the Freetrade mobile team this week. \n\nI enjoyed that the full range of feedback was \"this is awful\" all the way up to \"this is amazing\" \uD83D\uDE01",
-                            date: Date.parse("2022-02-12T11:45:00.000Z")
-                        }]
-                        .map(tweet => <TweetElement edge={tweet} key={tweet.id}/>)
+                    tweetJson
+                        .map(tweet => <TweetElement edge={tweet.tweet} key={tweet.tweet.id}/>)
                 }
             </div>
         </Layout>
@@ -55,16 +50,16 @@ const TweetElement = ({edge}: TalkElementProps) => {
 const Item = ({tweet} :{tweet: Tweet}) => {
     return (
         <section className={"card-internal card-total bordered readable-width"}>
-            <div className="article-text">
+            <div className="article-text" style={{width: "100%"}}>
                 <caption>@amlcurran</caption>
-                <p dangerouslySetInnerHTML={{__html: tweet.tweet}} className="no-links"/>
+                <p dangerouslySetInnerHTML={{__html: tweet.full_text}} className="no-links"/>
                 <h4>{Intl.DateTimeFormat("default", {
                     day: "numeric",
                     month: "short",
                     year: "numeric",
                     hour: "numeric",
                     minute: "numeric"
-                }).format(tweet.date)}</h4>
+                }).format(Date.parse(tweet.created_at))}</h4>
             </div>
         </section>
     )
