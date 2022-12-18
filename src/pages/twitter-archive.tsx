@@ -2,6 +2,7 @@ import React from "react"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import Styling from "../components/styling";
 const tweetJson = require("../twitter-archive/tweets.json") as TweetJsonElement[]
 
 interface Tweet {
@@ -85,8 +86,8 @@ function topLine(tweet: Tweet & Parsing) {
 
 const TweetElement = ({tweet}: TalkElementProps) => {
     return (
-        <section className={"card-internal card-total bordered readable-width"}>
-            <div className="article-text" style={{width: "100%"}} id={"tweet-" + tweet.id}>
+        <section className={"card-internal card-total bordered readable-width fill-parent"}>
+            <div className="article-text" style={{width: "100%"}} id={tweet.id}>
                 {topLine(tweet)}
                 <p dangerouslySetInnerHTML={{__html: tweet.full_text}} className="no-links"/>
                 <h4>{Intl.DateTimeFormat("default", {
