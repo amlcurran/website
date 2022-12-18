@@ -44,7 +44,7 @@ const TwitterArchive = () => {
     return (
         <Layout seo={<SEO title="Tweets"
                           keywords={[`talks`, `developer`, `engineer`, `mobile`, `ios`, `android`]}
-                          description="A summary of the talks I've done over my career" key="SEO"/>}>
+                          description="An archive of my tweets since deleted from Twitter" key="SEO"/>}>
             <p style={{marginTop: 16}}>Since Elon has taken over Twitter I've decided to stop using it. Here is an archive of all my previous tweets which are no longer available there.</p>
             <div className="collapsingGrid">
                 {
