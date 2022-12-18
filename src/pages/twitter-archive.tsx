@@ -19,6 +19,14 @@ interface Parsing {
     }
 }
 
+const urlRegex =/(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig;
+
+function format(text: string): string {
+    return text.replace(urlRegex, function(url) {
+        return '<a href="' + url + '">' + url + '</a>';
+    }).replace("\n", "<br />")
+}
+
 function parsedTweet(tweet: Tweet): Tweet & Parsing {
     if (tweet.full_text.indexOf("RT ") == 0) {
         const retweetRegex = /RT @(.*?):/
@@ -26,13 +34,16 @@ function parsedTweet(tweet: Tweet): Tweet & Parsing {
         const origin = regExpExecArray![1]
         return {
             ...tweet,
-            full_text: tweet.full_text.replace(retweetRegex, ""),
+            full_text: format(tweet.full_text.replace(retweetRegex, "")),
             retweet: {
                 origin: origin
             }
         }
     } else {
-        return tweet
+        return {
+            ...tweet,
+            full_text: format(tweet.full_text)
+        }
     }
 }
 
