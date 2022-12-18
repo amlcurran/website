@@ -9,7 +9,7 @@ interface Linkable {
   url: string
 }
 
-export type Icon = "launch" | "play_circle_outline" | "email" | "file_download"
+export type Icon = "launch" | "play_circle_outline" | "email" | "file_download" | "mail_outline"
 
 interface LargeCardProps {
   title: string
@@ -35,7 +35,7 @@ export const Item = (props: LargeCardProps) => {
   const image = props.image ? <aside className={imageClasses(props)}>{props.image}</aside> : undefined
   const classes = props.hover ? "hover-background " : " "
   const title = props.link ?
-      <a href={props.link}><h2>{props.title}<span className="material-icons" style={{paddingLeft: 8}}>launch</span></h2>
+      <a href={props.link}><h2>{props.title}<span className="material-icons-round" style={{paddingLeft: 8}}>launch</span></h2>
       </a> : <h2>{props.title}</h2>
   return (
       <section style={props.style} className={"card-internal card-total " + classes}>

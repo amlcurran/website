@@ -99,7 +99,7 @@ const Header = () => {
 const ContactButton = ({url, text, icon}: {url: string, text: string, icon: Icon}) => (
     <a href={url} className="emphasisBox inner-link contact-button">
       <span>{text}</span>
-      <span className="material-icons" style={{ verticalAlign: "middle", paddingBottom: -2, paddingLeft: 4 }}>{icon}</span>
+      <span className="material-icons-round" style={{ verticalAlign: "middle", paddingBottom: -2, paddingLeft: 4 }}>{icon}</span>
     </a>
 )
 

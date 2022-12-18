@@ -66,8 +66,14 @@ body {
 .emphasisBox a, .emphasisBox a:visited, .emphasisBox div {
   color: var(--text-on-primary);
 }
-.material-icons.md-light { color: rgba(255, 255, 255, 1); }
-.material-icons.md-36 { font-size: 36px; }
+.material-icons-round.md-36 {
+  font-size: 36px;
+  vertical-align: middle;
+}
+.material-icons-round.md-18 {
+  font-size: 16px;
+  vertical-align: middle;
+}
 
 .headlineTop {
   display: grid;
