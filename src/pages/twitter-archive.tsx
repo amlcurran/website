@@ -24,7 +24,7 @@ const urlRegex =/(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@
 function format(text: string): string {
     return text.replace(urlRegex, function(url) {
         return '<a href="' + url + '">' + url + '</a>';
-    }).replace("\n", "<br />")
+    }).replace(/\n/ig, "<br />")
 }
 
 function parsedTweet(tweet: Tweet): Tweet & Parsing {
