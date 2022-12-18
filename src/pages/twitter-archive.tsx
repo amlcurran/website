@@ -2,10 +2,6 @@ import React from "react"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import {graphql} from "gatsby"
-import {GraphQLList} from "../models/graphql"
-import {MarkdownRemark} from "../models/remark"
-import {Image} from "./articles"
 const tweetJson = require("../twitter-archive/tweets.json") as TweetJsonElement[]
 
 interface Tweet {
@@ -17,13 +13,31 @@ interface Tweet {
     favorite_count: string
 }
 
-interface TweetJsonElement {
-    tweet: Tweet
+interface Parsing {
+    retweet?: {
+        origin: string
+    }
 }
 
-interface TalksQuery {
-    allMarkdownRemark: GraphQLList<MarkdownRemark<Tweet>>
-    allFile: GraphQLList<Image>
+function parsedTweet(tweet: Tweet): Tweet & Parsing {
+    if (tweet.full_text.indexOf("RT ") == 0) {
+        const retweetRegex = /RT @(.*?):/
+        const regExpExecArray = retweetRegex.exec(tweet.full_text)
+        const origin = regExpExecArray![1]
+        return {
+            ...tweet,
+            full_text: tweet.full_text.replace(retweetRegex, ""),
+            retweet: {
+                origin: origin
+            }
+        }
+    } else {
+        return tweet
+    }
+}
+
+interface TweetJsonElement {
+    tweet: Tweet
 }
 
 const TwitterArchive = () => {
@@ -37,7 +51,7 @@ const TwitterArchive = () => {
                     tweetJson
                         .filter(tweet => tweet.tweet.in_reply_to_status_id === undefined)
                         .sort((a, b) => Date.parse(b.tweet.created_at) - Date.parse(a.tweet.created_at))
-                        .map(tweet => <TweetElement tweet={tweet.tweet} key={tweet.tweet.id}/>)
+                        .map(tweet => <TweetElement tweet={parsedTweet(tweet.tweet)} key={tweet.tweet.id}/>)
                 }
             </div>
         </Layout>
@@ -45,14 +59,24 @@ const TwitterArchive = () => {
 }
 
 interface TalkElementProps {
-    tweet: Tweet
+    tweet: Tweet & Parsing
+}
+
+function topLine(tweet: Tweet & Parsing) {
+    if (tweet.retweet) {
+        return <div style={{opacity: 0.6}}>@amlcurran <span className="material-icons-round md-18">repeat</span> @{tweet.retweet.origin}</div>
+    } else {
+        return <>
+            <caption style={{opacity: 0.6}}>@amlcurran</caption>
+        </>
+    }
 }
 
 const TweetElement = ({tweet}: TalkElementProps) => {
     return (
         <section className={"card-internal card-total bordered readable-width"}>
-            <div className="article-text" style={{width: "100%"}}>
-                <caption style={{opacity: 0.6}}>@amlcurran</caption>
+            <div className="article-text" style={{width: "100%"}} id={"tweet-" + tweet.id}>
+                {topLine(tweet)}
                 <p dangerouslySetInnerHTML={{__html: tweet.full_text}} className="no-links"/>
                 <h4>{Intl.DateTimeFormat("default", {
                     day: "numeric",
@@ -71,5 +95,7 @@ const TweetElement = ({tweet}: TalkElementProps) => {
         </section>
     )
 }
+
+
 
 export default TwitterArchive
