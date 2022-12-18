@@ -3,10 +3,9 @@ import React from "react"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import {graphql} from "gatsby"
-import {Edge, GraphQLList} from "../models/graphql"
+import {GraphQLList} from "../models/graphql"
 import {MarkdownRemark} from "../models/remark"
 import {Image} from "./articles"
-import Styling from "../components/styling";
 
 interface Tweet {
     id: string
@@ -24,6 +23,7 @@ const TwitterArchive = ({ data }: { data: TalksQuery }) => {
         <Layout seo={<SEO title="Talks"
                           keywords={[`talks`, `developer`, `engineer`, `mobile`, `ios`, `android`]}
                           description="A summary of the talks I've done over my career" key="SEO"/>}>
+            <p style={{marginTop: 16}}>Since Elon has taken over Twitter I've decided to stop using it. Here is an archive of all my previous tweets which are no longer available there.</p>
             <div className="collapsingGrid">
                 {
                     // data.allMarkdownRemark.edges

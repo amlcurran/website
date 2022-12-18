@@ -60,9 +60,8 @@ body {
   padding: 0 1.0875rem;
 }
 .emphasisBox {
-  @media (max-width: core.$breakpoint) {
-    overflow: scroll;
-  }
+  overflow: scroll;
+  background-color: var(--primary);
 }
 .emphasisBox a, .emphasisBox a:visited, .emphasisBox div {
   color: var(--text-on-primary);
