@@ -20,7 +20,7 @@
     "gatsby-remark-videos": "^0.5.1",
     "gatsby-source-filesystem": "^4.11.1",
     "gatsby-source-pocket": "^3.0.1",
-    "gatsby-transformer-remark": "^5.11.1",
+    "gatsby-transformer-remark": "^5.25.1",
     "gatsby-transformer-sharp": "^4.11.0",
     "node-fetch": "^3.2.3",
     "open-graph-scraper": "^4.11.0",
