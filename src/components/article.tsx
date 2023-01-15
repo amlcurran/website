@@ -1,6 +1,6 @@
 import {graphql} from "gatsby"
 import React from "react"
-import {MarkdownRemark} from "../models/remark"
+import {MarkdownRemark} from "../utils/remark"
 import Layout from "./layout"
 import SEO from "./seo"
 import ogs from "open-graph-scraper"

@@ -1,6 +1,6 @@
 import {GatsbyImage} from "gatsby-plugin-image";
 import React from "react";
-import {Edge, SharpImage} from "../models/graphql";
+import {Edge, SharpImage} from "../utils/graphql";
 import "./image-rail.scss"
 
 interface ImageRailProps {

@@ -1,6 +1,6 @@
 import React from "react";
 import {graphql} from "gatsby";
-import {Edge, GraphQLList} from "../models/graphql";
+import {Edge, GraphQLList} from "./graphql";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import {LinkedArticle} from "../components/card";

@@ -2,7 +2,7 @@ import React from "react"
 
 import Layout from "../components/layout"
 import {graphql} from "gatsby";
-import {Edge, GraphQLList, SharpImage} from "../models/graphql";
+import {Edge, GraphQLList, SharpImage} from "../utils/graphql";
 import SEO from "../components/seo";
 import {ImageRail} from "../components/image-rail";
 

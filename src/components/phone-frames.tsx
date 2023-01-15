@@ -6,7 +6,7 @@ export const PhoneFrame = ({ name }: { name: any}) => (
   <StaticQuery
     query={graphql`
     query allFrames {
-      allFile(filter: {relativeDirectory: {eq: "portfolio-images"}}) {
+        allFile(filter: {extension: {eq: "png"}}) {
         edges {
           node {
           name

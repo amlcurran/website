@@ -3,8 +3,8 @@ import React from "react"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { graphql } from "gatsby";
-import { GraphQLList, Edge, SharpImage } from "../models/graphql";
-import { MarkdownRemark } from "../models/remark";
+import { GraphQLList, Edge, SharpImage } from "../utils/graphql";
+import { MarkdownRemark } from "../utils/remark";
 import {LinkedArticle} from "../components/card"
 
 export interface ArticleFrontmatter {
