@@ -35,6 +35,13 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
+        name: `portfolio-bits`,
+        path: `${__dirname}/src/portfolio`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
         name: `side-projects`,
         path: `${__dirname}/src/side-projects`,
       },
