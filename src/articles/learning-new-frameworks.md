@@ -3,10 +3,7 @@ title: "How I learn new frameworks"
 slug: "learning-new-frameworks"
 image: "ec-both-apps"
 rawDate: "2022-01-01"
-unlisted: true
 ---
-
-#draft
 
 Over my career, I've had to learn a few frameworks, languages, and technologies. I've been asked a few times how I did it, and whilst there's no silver bullet, there's a set of rules I follow when trying to learn something new.
 
@@ -28,6 +25,7 @@ It's important to make sure your test project is complex enough for you to get a
 - A detail view (allows you to understand navigation and more complicated UI)
 - A third party integration (allows you to understand networking or a similar API)
 - A nicety from the platform (e.g. widgets)
+- Unit testing
 
 ## Understand the building blocks
 
@@ -99,12 +97,3 @@ interface KotlinClassAST {
 If you want to get an understanding of the building blocks of a language, learning about its AST is a good start, and the best way to learn about ASTs is by implementing a lint rule! 
 
 Both Android Lint and SwiftLint use ASTs to define their rules and they are a good place to look. You can read more about how I implemented lint rules in [this post](https://www.amlcurran.co.uk/articles/lint-rules).
-
-## Conclusion
-
-
-
-- Not hard
-- Use your enthusiasm 
-- Can always ask for help
-- 
