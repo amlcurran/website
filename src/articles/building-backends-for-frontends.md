@@ -3,6 +3,7 @@ title: "Choosing between backend-for-frontend and frontend"
 slug: "building-backends-for-frontends"
 image: "christmas-coding-hero"
 rawDate: "2022-04-13"
+unlisted: false
 ---
 Knowing where to put business logic is in my opinion one of the most important pieces of software development. When I have the choice of placing it in the backend or frontend, here are the decision points I think about.
 
