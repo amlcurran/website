@@ -6,10 +6,12 @@
       "**/.*",
       "**/node_modules/**"
     ],
-    "redirects": {
-      "source": "/",
-      "destination": "/portfolio",
-      "type": 302
-    }
+    "redirects": [
+      {
+        "source": "/",
+        "destination": "/portfolio",
+        "type": 302
+      }
+    ]
   }
 }
