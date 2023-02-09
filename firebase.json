@@ -5,6 +5,11 @@
       "firebase.json",
       "**/.*",
       "**/node_modules/**"
-    ]
+    ],
+    "redirects": {
+      "source": "/",
+      "destination": "/portfolio",
+      "type": 302
+    }
   }
 }
