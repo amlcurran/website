@@ -71,7 +71,8 @@ function image(node: MarkdownRemark<PortfolioFrontmatter>, index: number) {
 }
 
 function selectedTag() {
-  return window.location.hash.replace("%20", " ").replace("#", "");
+  const location = typeof window !== `undefined` ? window.location : null
+  return location?.hash.replace("%20", " ").replace("#", "") ?? ""
 }
 
 function asPortfolioExcerpt({ node }: Edge<MarkdownRemark<PortfolioFrontmatter>>, index: number): JSX.Element {
