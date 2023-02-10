@@ -15,8 +15,6 @@ const myStyle: CSSProperties = {
 const linkHostInnerStyle: CSSProperties = {
   display: "flex",
   alignItems: "center",
-  overflow: "auto",
-  whiteSpace: "nowrap",
   marginTop: 0,
   minHeight: 56
 }
@@ -82,7 +80,7 @@ const Header = () => {
             <ContactButton url="mailto:aml.curran+website@gmail.com" text="Contact" icon={"email"} />
           </div>
           <div style={linkHostStyle} >
-            <nav style={linkHostInnerStyle} className="emphasisBox content">
+            <nav style={linkHostInnerStyle} className="emphasisBox content scroll-container">
               <HeaderLink2 to="/portfolio" text="Portfolio" current={location} />
               <HeaderLink2 to="/talks" text="Talks" current={location} />
               <HeaderLink2 to="/side-projects" text="On the side" current={location} />

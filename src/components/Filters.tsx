@@ -7,7 +7,8 @@ import {decodedHash} from "../utils/decodedHash";
 
 
 export function Filters(props: { data: Edge<MarkdownRemark<PortfolioFrontmatter>>[] }) {
-    return <div style={{}}>
+    return <div className="filter-container">
+        Filter by:
         {allTags(props.data)
             .map(tag => <LocationChip tag={tag}/>)
         }

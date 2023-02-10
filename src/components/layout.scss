@@ -74,7 +74,16 @@ body {
   font-size: 16px;
   vertical-align: middle;
 }
-
+.scroll-container {
+  overflow: scroll;
+  white-space: nowrap;
+}
+.filter-container {
+  gap: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+}
 .headlineTop {
   display: grid;
   grid-template-columns: 1fr auto auto;
