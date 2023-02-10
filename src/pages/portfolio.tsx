@@ -8,9 +8,10 @@ import {MarkdownRemark} from "../utils/remark"
 import {Item} from "../components/card"
 import PhoneFrame from "../components/phone-frames"
 import {Splitter} from "../components/Splitter"
-import {Chip} from "../components/Chip";
+import {Filters} from "../components/Filters";
+import {selectedTag} from "../utils/decodedHash";
 
-interface PortfolioFrontmatter extends PortfolioSmall {
+export interface PortfolioFrontmatter extends PortfolioSmall {
   team: number
   platforms: string[]
   date: string
@@ -43,15 +44,7 @@ const Portfolio = ({ data }: { data: PortfolioQuery }) => {
   return (
     <Layout seo={seo}>
       <main className="collapsingGrid">
-        {
-          <div style={{  }}>
-            {new Array(...new Set(
-                data.allMarkdownRemark.edges
-                    .flatMap(portfolio => portfolio.node.frontmatter.tags)
-            ))
-                .map(tag => <a href={`#${tag}`}><Chip selected={selectedTag() == tag} style={{ display: "inline-block" }} text={tag} closeLocation={'#'}/></a>)}
-          </div>
-        }
+        <Filters data={data.allMarkdownRemark.edges} />
         {data.allMarkdownRemark.edges.map(asPortfolioExcerpt).concat(older())}
       </main>
     </Layout>
@@ -68,11 +61,6 @@ function image(node: MarkdownRemark<PortfolioFrontmatter>, index: number) {
   } else {
     return <PhoneFrame name={node.frontmatter.images[0]}/>
   }
-}
-
-function selectedTag() {
-  const location = typeof window !== `undefined` ? window.location : null
-  return location?.hash.replace("%20", " ").replace("#", "") ?? ""
 }
 
 function asPortfolioExcerpt({ node }: Edge<MarkdownRemark<PortfolioFrontmatter>>, index: number): JSX.Element {
