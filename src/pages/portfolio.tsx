@@ -9,7 +9,7 @@ import {Item} from "../components/card"
 import PhoneFrame from "../components/phone-frames"
 import {Splitter} from "../components/Splitter"
 import {Filters} from "../components/Filters";
-import {selectedTag} from "../utils/decodedHash";
+import {decodedHash} from "../utils/decodedHash";
 
 export interface PortfolioFrontmatter extends PortfolioSmall {
   team: number
@@ -64,9 +64,9 @@ function image(node: MarkdownRemark<PortfolioFrontmatter>, index: number) {
 }
 
 function asPortfolioExcerpt({ node }: Edge<MarkdownRemark<PortfolioFrontmatter>>, index: number): JSX.Element {
-  let secondImage = image(node, index)
-  let decodedHash = selectedTag()
-  const highlightForFilter = node.frontmatter.tags.indexOf(decodedHash) != -1 || decodedHash.length == 0
+  const secondImage = image(node, index)
+  const hash = decodedHash()
+  const highlightForFilter = node.frontmatter.tags.indexOf(hash) != -1 || hash.length == 0
   return (
       <Item
           key={node.frontmatter.title}
@@ -158,8 +158,8 @@ function older(): JSX.Element[] {
 }
 
 function small(frontmatter: PortfolioSmall): JSX.Element {
-  let decodedHash = selectedTag()
-  const highlightForFilter = frontmatter.tags.indexOf(decodedHash) != -1 || decodedHash.length == 0
+  const hash = decodedHash()
+  const highlightForFilter = frontmatter.tags.indexOf(hash) != -1 || hash.length == 0
   return (
     <div style={{scrollSnapAlign: "start end",
       opacity: highlightForFilter ? 1 : 0.4}}>

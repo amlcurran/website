@@ -1,5 +1,5 @@
 
-export function selectedTag(): string {
+export function decodedHash(): string {
     const location = typeof window !== `undefined` ? window.location : null
     return location?.hash.replace("%20", " ").replace("#", "") ?? ""
 }
