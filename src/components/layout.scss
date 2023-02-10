@@ -316,6 +316,10 @@ article {
   @media (max-width: core.$breakpoint) {
     font-size: 16px;
   }
+
+  table {
+    width: 100%;
+  }
 }
 
 .readable-width {

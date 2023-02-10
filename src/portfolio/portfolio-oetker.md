@@ -6,6 +6,7 @@ title: "Backen.de & Novoda"
 with: "Oetker Digital"
 team: 6
 platforms: ["android", "iOS"]
+tags: ["android", "ios", "backend", "technical leadership"]
 images: ["backen-android"]
 largeImage: false
 secondImage: "backen-iphone"

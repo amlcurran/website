@@ -5,5 +5,17 @@
   margin-right: 5px;
   padding: 3px 10px 5px;
   border-radius: 20px;
-  color: core.$primary
+  color: var(--primary);
+}
+
+.chip-selected {
+  background-color: var(--primary);
+  margin-right: 5px;
+  padding: 3px 10px 5px;
+  border-radius: 20px;
+  color: core.$tertiary;
+
+  a {
+    color: core.$tertiary;
+  }
 }

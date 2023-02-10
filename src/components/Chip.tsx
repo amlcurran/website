@@ -1,12 +1,30 @@
-import React from "react"
+import React, {CSSProperties} from "react"
 import "./chips.scss"
 
 interface ChipProps {
     text: string
+    selected?: boolean
+    style?: CSSProperties
 }
 
-export const Chip = (props: ChipProps) => {
+interface CloseButtonProps {
+    selected: boolean
+    closeLocation: string
+}
+
+const CloseButton = (props: { selected?: boolean, closeLocation: string }) => {
+    return <a href={"#"}>{props.selected ? <span className="material-icons-round md-18" style={{
+        verticalAlign: "middle",
+        paddingLeft: 4,
+        fontWeight: "bold"
+    }}>close</span> : <></>}</a>;
+}
+
+export const Chip = (props: ChipProps & CloseButtonProps) => {
     return (
-        <div className="chip">{props.text}</div>
+        <div className={`${props.selected ? "chip-selected" : "chip"}`} style={props.style}>
+            {props.text}
+            <CloseButton selected={props.selected} closeLocation={props.closeLocation} />
+        </div>
     )
 }

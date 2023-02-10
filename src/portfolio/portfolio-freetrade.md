@@ -6,6 +6,7 @@ title: "Freetrade"
 team: 6
 platforms: ["android", "iOS"]
 images: ["freetrade-android"]
+tags: ["android", "ios", "backend", "technical leadership"]
 secondImage: "freetrade-ios-dark"
 rank: 1
 ---
