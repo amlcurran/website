@@ -151,7 +151,7 @@ function older(): JSX.Element[] {
     }
   ]
   return [
-    (<div className="smaller-projects">
+    (<div className="smaller-projects" key="smaller-projects">
       {frontmatters.map((frontmatter) => small(frontmatter))}
     </div>)
   ]
@@ -161,7 +161,9 @@ function small(frontmatter: PortfolioSmall): JSX.Element {
   const hash = decodedHash()
   const highlightForFilter = frontmatter.tags.indexOf(hash) != -1 || hash.length == 0
   return (
-    <div style={{scrollSnapAlign: "start end",
+    <div
+        key={frontmatter.title}
+        style={{scrollSnapAlign: "start end",
       opacity: highlightForFilter ? 1 : 0.4}}>
       <h3>{frontmatter.title}</h3>
       <h4>{frontmatter.position} ● {frontmatter.year}</h4>

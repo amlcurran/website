@@ -42,7 +42,7 @@ export const Item = (props: LargeCardProps) => {
         {props.imageOnRight ? <></> : image}
         <div className="article-text">
           {title}
-          {[subhead1, subhead2, props.belowTitle]}
+          {subhead1}{subhead2}{props.belowTitle}
           <p dangerouslySetInnerHTML={{__html: props.body}} className="no-links"/>
         </div>
         {props.imageOnRight ? image : <></>}
