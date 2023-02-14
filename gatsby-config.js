@@ -101,6 +101,18 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-google-gtag`,
+      options: {
+        trackingIds: [
+          "G-916879VLE5",
+        ],
+        pluginConfig: {
+          // Puts tracking script in the head instead of the body
+          head: true
+        },
+      },
+    },
+    {
       resolve: `gatsby-source-pocket`,
       options: {
         consumerKey: process.env.POCKET_CONSUMER_KEY,
