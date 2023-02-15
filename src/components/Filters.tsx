@@ -10,6 +10,7 @@ export function Filters(props: { data: Edge<MarkdownRemark<PortfolioFrontmatter>
     return <div className="filter-container">
         Filter by:
         {allTags(props.data)
+            .sort()
             .map(tag => <LocationChip key={tag} tag={tag}/>)
         }
     </div>

@@ -6,7 +6,7 @@ title: "Harman Spark & Novoda"
 with: "Tantalum Corporation"
 team: 20
 platforms: ["android", "iOS"]
-tags: ["android", "ios", "technical leadership"]
+tags: ["android", "ios", "technical leadership", "consulting", "novoda"]
 images: ["tantalum-iphone"]
 rank: 4
 ---

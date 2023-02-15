@@ -6,7 +6,7 @@ title: "The Body Coach"
 team: 6
 platforms: ["android", "iOS"]
 images: ["bodycoach-android", "bodycoach-android"]
-tags: ["engineering management", "product management", "cross-functional teams", "technical leadership"]
+tags: ["engineering management", "product management", "cross-functional", "technical leadership"]
 secondImage: "bodycoach-iphone-2"
 rank: 0
 ---

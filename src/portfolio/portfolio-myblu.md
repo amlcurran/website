@@ -6,7 +6,7 @@ title: "myBlu & Novoda"
 with: "Blu"
 team: 6
 platforms: ["android", "iOS"]
-tags: ["android", "ios", "technical leadership"]
+tags: ["android", "ios", "technical leadership", "consulting", "novoda"]
 images: ["secret-android"]
 rank: 3
 ---

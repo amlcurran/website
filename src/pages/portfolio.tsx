@@ -93,7 +93,7 @@ function older(): JSX.Element[] {
       position: "Project Lead",
       description: "Helping the current team skill up and handle technical debt.",
       year: "2017",
-      tags: ["ios"]
+      tags: ["ios", "consulting", "novoda"]
     },
     {
       title: "ImmoScout24 & Novoda",
@@ -102,7 +102,7 @@ function older(): JSX.Element[] {
       position: "Project Lead",
       description: "Scaling up the teams and helping their technical process.",
       year: "2016-2017",
-      tags: ["ios", "android"]
+      tags: ["ios", "android", "consulting", "novoda"]
     },
     {
       title: "Oddschecker & Novoda",
@@ -111,7 +111,7 @@ function older(): JSX.Element[] {
       position: "Senior Software Engineer",
       description: "Building a brand new gambling app.",
       year: "2015",
-      tags: ["ios", "android"]
+      tags: ["ios", "android", "consulting", "novoda"]
     },
     {
       title: "All 4 & Novoda",
@@ -120,7 +120,7 @@ function older(): JSX.Element[] {
       position: "Software Engineer",
       description: "Continuing my work in video playback to build a new All 4 app from scratch.",
       year: "2014",
-      tags: ["android"]
+      tags: ["android", "consulting", "novoda"]
     },
     {
       title: "iPlayer for Chromecast",
