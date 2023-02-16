@@ -18,23 +18,22 @@ export interface PortfolioFrontmatter extends PortfolioSmall {
 }
 
 
-interface PortfolioQuery {
+export interface PortfolioQuery {
   allMarkdownRemark: GraphQLList<MarkdownRemark<PortfolioFrontmatter>>
 }
 
 const Portfolio = ({ data }: { data: PortfolioQuery }) => {
   // Use some state management to avoid rebuilding this all the time?
-    const viewModel = new PortfolioViewModel(window.location)
+    const viewModel = new PortfolioViewModel(window.location, data)
   const seo = <SEO title="Portfolio"
                    keywords={[`portfolio`, `developer`, `engineer`, `mobile`, `ios`, `android`]}
                    description="A series of my most popular projects"
-                   key="SEO"
-                   bodyAttributes={{class: "snap-scroll"}} />
+                   key="SEO" />
   return (
     <Layout seo={seo}>
       <main className="collapsingGrid">
-        <Filters data={data.allMarkdownRemark.edges}/>
-        {data.allMarkdownRemark.edges.map(asPortfolioExcerpt)}
+        <Filters tags={viewModel.tags()}/>
+        {data.allMarkdownRemark.edges.map((edge, index) => asPortfolioExcerpt(edge, index))}
         <div className="smaller-projects" key="smaller-projects">
           {viewModel.older().map((frontmatter) => small(frontmatter))}
         </div>

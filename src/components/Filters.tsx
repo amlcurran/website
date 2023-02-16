@@ -6,13 +6,10 @@ import {PortfolioFrontmatter} from "../pages/portfolio";
 import {filterParam} from "../utils/filterParam";
 
 
-export function Filters(props: { data: Edge<MarkdownRemark<PortfolioFrontmatter>>[] }) {
+export function Filters({tags}: {tags: string[]}) {
     return <div className="filter-container">
         Filter by:
-        {allTags(props.data)
-            .sort()
-            .map(tag => <LocationChip key={tag} tag={tag}/>)
-        }
+        {tags.map(tag => <LocationChip key={tag} tag={tag}/>) }
     </div>
 }
 
@@ -29,10 +26,4 @@ function LocationChip({tag}: { tag: string }) {
                   }
               }/>
     </a>
-}
-
-function allTags(props: Edge<MarkdownRemark<PortfolioFrontmatter>>[]) {
-    return new Array(...new Set(
-        props.flatMap(portfolio => portfolio.node.frontmatter.tags)
-    ))
 }

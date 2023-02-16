@@ -13,12 +13,16 @@ interface CloseButtonProps {
     closeLocation: string
 }
 
-const CloseButton = (props: CloseButtonProps) => {
-    return <a href={props.closeLocation}>{props.visible ? <span className="material-icons-round md-18" style={{
+const CloseIcon = () => {
+    return <span className="material-icons-round md-18" style={{
         verticalAlign: "middle",
         paddingLeft: 4,
         fontWeight: "bold"
-    }}>close</span> : <></>}</a>;
+    }}>close</span>
+}
+
+const CloseButton = (props: CloseButtonProps) => {
+    return <a href={props.closeLocation}>{props.visible ? <CloseIcon /> : <></>}</a>;
 }
 
 export const Chip = (props: ChipProps) => {
