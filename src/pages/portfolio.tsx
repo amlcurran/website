@@ -36,13 +36,10 @@ const Portfolio = ({ data }: { data: PortfolioQuery }) => {
         <Filters tags={viewModel.tags()}/>
         {data.allMarkdownRemark.edges.map((edge, index) => asPortfolioExcerpt(edge, index))}
         <div className="smaller-projects" key="smaller-projects">
-          {viewModel.older()
-            .map((frontmatter) => <SmallCard
-              title={frontmatter.title}
-              subtitle={frontmatter.subtitle}
-              text={frontmatter.text}
-              lowerPriority={frontmatter.lowerPriority}
-            />)}
+          {
+            viewModel.older()
+              .map(viewState => <SmallCard {...viewState} />)
+          }
         </div>
       </main>
     </Layout>
