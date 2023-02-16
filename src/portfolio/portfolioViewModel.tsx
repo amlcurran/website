@@ -2,7 +2,7 @@ import {parseFilterQuery} from "../utils/filterParam";
 import {PortfolioFrontmatter, PortfolioQuery} from "../pages/portfolio";
 import {Edge} from "../utils/graphql";
 import {MarkdownRemark} from "../utils/remark";
-import {CardTextProps} from "../pages/smallCard";
+import {CardTextProps} from "../components/smallCard";
 const data = require('./portfolio-small.json') as PortfolioSmall[]
 
 // Unexport once moved PortfolioFM into this file

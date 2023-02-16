@@ -11,7 +11,7 @@ import {Splitter} from "../components/Splitter"
 import {Filters} from "../components/Filters";
 import {filterParam} from "../utils/filterParam";
 import {PortfolioSmall, PortfolioViewModel} from "../portfolio/portfolioViewModel";
-import {SmallCard} from "./smallCard";
+import {SmallCard} from "../components/smallCard";
 
 export interface PortfolioFrontmatter extends PortfolioSmall {
   date: string
@@ -25,7 +25,8 @@ export interface PortfolioQuery {
 
 const Portfolio = ({ data }: { data: PortfolioQuery }) => {
   // Use some state management to avoid rebuilding this all the time?
-    const viewModel = new PortfolioViewModel(window.location, data)
+  const location = typeof window !== `undefined` ? window.location : undefined
+  const viewModel = new PortfolioViewModel(location, data)
   const seo = <SEO title="Portfolio"
                    keywords={[`portfolio`, `developer`, `engineer`, `mobile`, `ios`, `android`]}
                    description="A series of my most popular projects"
