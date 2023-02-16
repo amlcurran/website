@@ -11,16 +11,11 @@ import {Splitter} from "../components/Splitter"
 import {Filters} from "../components/Filters";
 import {
   PortfolioDoubleImage,
+  PortfolioFrontmatter,
   PortfolioSingleImage,
-  PortfolioSmall,
   PortfolioViewModel
 } from "../portfolio/portfolioViewModel";
 import {SmallCard} from "../components/smallCard";
-
-export interface PortfolioFrontmatter extends PortfolioSmall {
-  date: string
-  secondImage?: string
-}
 
 
 export interface PortfolioQuery {

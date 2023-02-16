@@ -1,13 +1,17 @@
 import {parseFilterQuery} from "../utils/filterParam";
-import {PortfolioFrontmatter, PortfolioQuery} from "../pages/portfolio";
+import {PortfolioQuery} from "../pages/portfolio";
 import {Edge} from "../utils/graphql";
 import {MarkdownRemark} from "../utils/remark";
 import {CardTextProps} from "../components/smallCard";
 import React from "react";
 const data = require('./portfolio-small.json') as PortfolioSmall[]
 
-// Unexport once moved PortfolioFM into this file
-export interface PortfolioSmall {
+export interface PortfolioFrontmatter extends PortfolioSmall {
+    date: string
+    secondImage?: string
+}
+
+interface PortfolioSmall {
     title: string
     images: string[]
     position: string
