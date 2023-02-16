@@ -1,9 +1,9 @@
-import {matchesFilter} from "gatsby/dist/datastore/lmdb/query/common";
-import {filterParam, parseFilterQuery} from "../utils/filterParam";
+import {parseFilterQuery} from "../utils/filterParam";
 import {PortfolioFrontmatter, PortfolioQuery} from "../pages/portfolio";
 import {Edge} from "../utils/graphql";
 import {MarkdownRemark} from "../utils/remark";
 import {CardTextProps} from "../pages/smallCard";
+const data: PortfolioSmall[] = require('../portfolio/portfolio-small.json')
 
 // Unexport once moved PortfolioFM into this file
 export interface PortfolioSmall {
@@ -36,7 +36,6 @@ export class PortfolioViewModel {
     }
 
     older(): CardTextProps[] {
-        const data: PortfolioSmall[] = require('../portfolio/portfolio-small.json')
         const filter = parseFilterQuery(this.location)
         return data.map((small) => {
             return {
