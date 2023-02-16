@@ -80,8 +80,10 @@ function small(frontmatter: PortfolioSmallViewState): JSX.Element {
   return (
     <div
         key={frontmatter.title}
-        style={{scrollSnapAlign: "start end",
-      opacity: frontmatter.matchesFilter ? 1 : 0.4}}>
+        style={{
+          scrollSnapAlign: "start end",
+          opacity: frontmatter.matchesFilter ? 1 : 0.4
+        }}>
       <h3>{frontmatter.title}</h3>
       <h4>{frontmatter.position} ● {frontmatter.year}</h4>
       <section style={{ marginTop: 8 }}>{frontmatter.description}</section>

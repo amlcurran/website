@@ -17,10 +17,17 @@ export function Filters(props: { data: Edge<MarkdownRemark<PortfolioFrontmatter>
 }
 
 function LocationChip({tag}: { tag: string }) {
+    let selected = filterParam() == tag;
     return <a href={`?filter=${tag}`}>
-        <Chip selected={filterParam() == tag}
-              style={{display: "inline-block"}}
-              text={tag} closeLocation={'?'}/>
+        <Chip style={{display: "inline-block"}}
+              selected={selected}
+              text={tag}
+              closeButton={
+                  {
+                      closeLocation: "?",
+                      visible: selected
+                  }
+              }/>
     </a>
 }
 
