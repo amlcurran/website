@@ -5,7 +5,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import {Edge, GraphQLList} from "../utils/graphql"
 import {MarkdownRemark} from "../utils/remark"
-import {Item} from "../components/card"
+import {LargeCard} from "../components/card"
 import PhoneFrame from "../components/phone-frames"
 import {Splitter} from "../components/Splitter"
 import {Filters} from "../components/Filters";
@@ -18,7 +18,6 @@ export interface PortfolioFrontmatter extends PortfolioSmall {
   links: string[]
   with?: string
   secondImage?: string
-  tags: string[]
 }
 
 interface PortfolioSmall {
@@ -68,7 +67,7 @@ function asPortfolioExcerpt({ node }: Edge<MarkdownRemark<PortfolioFrontmatter>>
   const hash = filterParam()
   const highlightForFilter = node.frontmatter.tags.indexOf(hash) != -1 || hash.length == 0
   return (
-      <Item
+      <LargeCard
           key={node.frontmatter.title}
           title={node.frontmatter.title}
           subhead2={node.frontmatter.position + " ● " + node.frontmatter.date}
@@ -85,71 +84,7 @@ function asPortfolioExcerpt({ node }: Edge<MarkdownRemark<PortfolioFrontmatter>>
 }
 
 function older(): JSX.Element[] {
-  const frontmatters: PortfolioSmall[] = [
-    {
-      title: "AutoScout24 & Novoda",
-      images: [],
-      largeImage: false,
-      position: "Project Lead",
-      description: "Helping the current team skill up and handle technical debt.",
-      year: "2017",
-      tags: ["ios", "consulting", "novoda"]
-    },
-    {
-      title: "ImmoScout24 & Novoda",
-      images: [],
-      largeImage: false,
-      position: "Project Lead",
-      description: "Scaling up the teams and helping their technical process.",
-      year: "2016-2017",
-      tags: ["ios", "android", "consulting", "novoda"]
-    },
-    {
-      title: "Oddschecker & Novoda",
-      images: [],
-      largeImage: false,
-      position: "Senior Software Engineer",
-      description: "Building a brand new gambling app.",
-      year: "2015",
-      tags: ["ios", "android", "consulting", "novoda"]
-    },
-    {
-      title: "All 4 & Novoda",
-      images: [],
-      largeImage: false,
-      position: "Software Engineer",
-      description: "Continuing my work in video playback to build a new All 4 app from scratch.",
-      year: "2014",
-      tags: ["android", "consulting", "novoda"]
-    },
-    {
-      title: "iPlayer for Chromecast",
-      images: [],
-      largeImage: false,
-      position: "Software Engineer",
-      description: "Building Chromecast functionality into the iPlayer app in collaboration with Google.",
-      year: "2014",
-      tags: ["ios", "android"]
-    },
-    {
-      title: "Downloads on iPlayer",
-      images: [],
-      largeImage: false,
-      position: "Junior Software Engineer",
-      description: "Building and improving the video download and DRM solutions into iPlayer.",
-      year: "2013-2014",
-      tags: ["ios", "android"]
-    },
-    {
-      title: "BBC Android Video Player",
-      images: [],
-      largeImage: false,
-      position: "Junior Software Engineer",
-      description: "Building the next generation of video playback into the Android iPlayer app using ExoPlayer.",
-      year: "2014",
-      tags: ["android"]
-    }
-  ]
+  const frontmatters: PortfolioSmall[] = require('../portfolio/portfolio-small.json')
   return [
     (<div className="smaller-projects" key="smaller-projects">
       {frontmatters.map((frontmatter) => small(frontmatter))}

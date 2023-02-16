@@ -6,7 +6,7 @@ import {graphql} from "gatsby"
 import {Url} from "url"
 import {Edge, GraphQLList} from "../utils/graphql"
 import {MarkdownRemark} from "../utils/remark"
-import {Item} from "../components/card"
+import {LargeCard} from "../components/card"
 import {Image} from "./articles"
 import {GatsbyImage, IGatsbyImageData} from "gatsby-plugin-image"
 
@@ -71,7 +71,7 @@ const TalkItem = ({edge, query}: {
   query: TalksQuery,
   showIcon: boolean
 }) =>
-    <Item
+    <LargeCard
         key={edge.node.frontmatter.title}
         title={edge.node.frontmatter.title}
         subhead2={"Presented at " + edge.node.frontmatter.presentedAt}

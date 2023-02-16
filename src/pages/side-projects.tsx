@@ -5,7 +5,7 @@ import SEO from "../components/seo"
 import {Edge, GraphQLList} from "../utils/graphql"
 import {MarkdownRemark} from "../utils/remark"
 import {graphql} from "gatsby"
-import {Icon, Item} from "../components/card"
+import {Icon, LargeCard} from "../components/card"
 import {Chip} from "../components/Chip"
 import PhoneFrame from "../components/phone-frames"
 
@@ -43,7 +43,7 @@ function asSideProject({node}: Edge<MarkdownRemark<SideProjectFrontmatter>>, ind
     )
     const image = node.frontmatter.image ? <PhoneFrame name={node.frontmatter.image}/> : undefined
     const icon: Icon | undefined = node.frontmatter.link ? "launch" : undefined
-    return (<Item
+    return (<LargeCard
         key={node.id}
         title={node.frontmatter.title}
         body={node.html}

@@ -3,7 +3,7 @@ import {graphql} from "gatsby";
 import {Edge, GraphQLList} from "./graphql";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
-import {LinkedArticle} from "../components/card";
+import {LinkedArticle} from "../components/linkedArticle";
 
 interface PocketApiArticle {
     title: string

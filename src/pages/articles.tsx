@@ -5,7 +5,7 @@ import SEO from "../components/seo"
 import { graphql } from "gatsby";
 import { GraphQLList, Edge, SharpImage } from "../utils/graphql";
 import { MarkdownRemark } from "../utils/remark";
-import {LinkedArticle} from "../components/card"
+import {LinkedArticle} from "../components/linkedArticle";
 
 export interface ArticleFrontmatter {
   title: string
