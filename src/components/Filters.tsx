@@ -3,7 +3,7 @@ import {MarkdownRemark} from "../utils/remark";
 import {Chip} from "./Chip";
 import React from "react";
 import {PortfolioFrontmatter} from "../pages/portfolio";
-import {decodedHash} from "../utils/decodedHash";
+import {filterParam} from "../utils/filterParam";
 
 
 export function Filters(props: { data: Edge<MarkdownRemark<PortfolioFrontmatter>>[] }) {
@@ -17,9 +17,10 @@ export function Filters(props: { data: Edge<MarkdownRemark<PortfolioFrontmatter>
 }
 
 function LocationChip({tag}: { tag: string }) {
-    return <a href={`#${tag}`}>
-        <Chip selected={decodedHash() == tag} style={{display: "inline-block"}}
-              text={tag} closeLocation={'#'}/>
+    return <a href={`?filter=${tag}`}>
+        <Chip selected={filterParam() == tag}
+              style={{display: "inline-block"}}
+              text={tag} closeLocation={'?'}/>
     </a>
 }
 

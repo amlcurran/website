@@ -9,7 +9,7 @@ import {Item} from "../components/card"
 import PhoneFrame from "../components/phone-frames"
 import {Splitter} from "../components/Splitter"
 import {Filters} from "../components/Filters";
-import {decodedHash} from "../utils/decodedHash";
+import {filterParam} from "../utils/filterParam";
 
 export interface PortfolioFrontmatter extends PortfolioSmall {
   team: number
@@ -65,7 +65,7 @@ function image(node: MarkdownRemark<PortfolioFrontmatter>, index: number) {
 
 function asPortfolioExcerpt({ node }: Edge<MarkdownRemark<PortfolioFrontmatter>>, index: number): JSX.Element {
   const secondImage = image(node, index)
-  const hash = decodedHash()
+  const hash = filterParam()
   const highlightForFilter = node.frontmatter.tags.indexOf(hash) != -1 || hash.length == 0
   return (
       <Item
@@ -158,7 +158,7 @@ function older(): JSX.Element[] {
 }
 
 function small(frontmatter: PortfolioSmall): JSX.Element {
-  const hash = decodedHash()
+  const hash = filterParam()
   const highlightForFilter = frontmatter.tags.indexOf(hash) != -1 || hash.length == 0
   return (
     <div

@@ -12,8 +12,8 @@ interface CloseButtonProps {
     closeLocation: string
 }
 
-const CloseButton = (props: { selected?: boolean, closeLocation: string }) => {
-    return <a href={"#"}>{props.selected ? <span className="material-icons-round md-18" style={{
+const CloseButton = (props: CloseButtonProps) => {
+    return <a href={props.closeLocation}>{props.selected ? <span className="material-icons-round md-18" style={{
         verticalAlign: "middle",
         paddingLeft: 4,
         fontWeight: "bold"
