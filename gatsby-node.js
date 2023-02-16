@@ -4,22 +4,24 @@ const openGraphScraper = require("open-graph-scraper")
 exports.createPages = async ({ actions, graphql, reporter }) => {
   const { createPage } = actions
 
-  const result = await graphql(`
-  {
-  allMarkdownRemark(filter: { fileAbsolutePath: { regex: "\/articles/" } }, sort: { fields: [frontmatter___rawDate], order: DESC }) {
+  const result = await graphql(`{
+  allMarkdownRemark(
+    filter: {fileAbsolutePath: {regex: "/articles/"}}
+    sort: {frontmatter: {rawDate: DESC}}
+  ) {
     edges {
-        node {
-            frontmatter {
-                slug
-                previous
-                unlisted
-            }
-            fileAbsolutePath
-            id
+      node {
+        frontmatter {
+          slug
+          previous
+          unlisted
         }
+        fileAbsolutePath
+        id
+      }
     }
-}}
-  `)
+  }
+}`)
 
   if (result.errors) {
     reporter.panicOnBuild(`Error while running GraphQL query.`)

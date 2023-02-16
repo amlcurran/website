@@ -82,28 +82,29 @@ function asPortfolioExcerpt({ node }: Edge<MarkdownRemark<PortfolioFrontmatter>>
 
 
 export const pageQuery = graphql`{
-    allMarkdownRemark(sort: { order: ASC , fields: [frontmatter___rank]},
-        filter: {fileAbsolutePath: {glob: "**/portfolio-*.md"} }) {
-      edges {
-        node {
-          html
-          frontmatter {
-            title
-            team
-            platforms
-            date
-            with
-            position
-            images
-            largeImage
-            secondImage
-            rank
-            tags
-          }
+  allMarkdownRemark(
+    sort: {frontmatter: {rank: ASC}}
+    filter: {fileAbsolutePath: {glob: "**/portfolio-*.md"}}
+  ) {
+    edges {
+      node {
+        html
+        frontmatter {
+          title
+          team
+          platforms
+          date
+          with
+          position
+          images
+          largeImage
+          secondImage
+          rank
+          tags
         }
       }
     }
   }
-`
+}`
 
 export default Portfolio

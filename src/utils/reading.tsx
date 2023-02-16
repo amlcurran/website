@@ -37,22 +37,20 @@ const Reading = (query: ReadingQuery) => {
   )
 }
 
-export const pageQuery = graphql`
-  query {
-    allPocketArticle(sort: {fields: time_added, order: DESC}) {
-      edges {
-        node {
-            title
-            url
-            image {
-              src
-            }
-            favorite
-            excerpt
+export const pageQuery = graphql`{
+  allPocketArticle(sort: {time_added: DESC}) {
+    edges {
+      node {
+        title
+        url
+        image {
+          src
         }
+        favorite
+        excerpt
       }
     }
   }
-`
+}`
 
 export default Reading

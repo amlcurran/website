@@ -92,38 +92,37 @@ function imageForTalk(frontmatter: TalksFrontmatter, query: TalksQuery): IGatsby
 }
 
 export const pageQuery = graphql`{
-    allMarkdownRemark(sort: { order: DESC , fields: [frontmatter___date]},
-        filter: {fileAbsolutePath: {glob: "**/talks-*.md"} }) {
-      edges {
-        node {
-          html
-          frontmatter {
-            title
-            slides
-            presentedAt
-            image
-            video
-          }
-        }
-      }
-    }
-    allFile(filter: {absolutePath: {regex: "/talks/.*\\.(png|jpg|jpeg)/"}}) {
-      edges {
-        node {
-          name
-          childImageSharp {
-            gatsbyImageData(
-              layout: CONSTRAINED,
-              aspectRatio: 1.33,
-              transformOptions: {
-                 cropFocus:CENTER
-              }
-            )
-          }
+  allMarkdownRemark(
+    sort: {frontmatter: {date: DESC}}
+    filter: {fileAbsolutePath: {glob: "**/talks-*.md"}}
+  ) {
+    edges {
+      node {
+        html
+        frontmatter {
+          title
+          slides
+          presentedAt
+          image
+          video
         }
       }
     }
   }
-`
+  allFile(filter: {absolutePath: {regex: "/talks/.*\\.(png|jpg|jpeg)/"}}) {
+    edges {
+      node {
+        name
+        childImageSharp {
+          gatsbyImageData(
+            layout: CONSTRAINED
+            aspectRatio: 1.33
+            transformOptions: {cropFocus: CENTER}
+          )
+        }
+      }
+    }
+  }
+}`
 
 export default Talks

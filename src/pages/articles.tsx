@@ -59,41 +59,40 @@ const Article = ({edge, data}: { edge: Edge<MarkdownRemark<ArticleFrontmatter>>,
         url={`/articles/${edge.node.frontmatter.slug}`}
         rawDate={edge.node.frontmatter.rawDate}/>
 
-export const query = graphql`
-  query {
-    allMarkdownRemark(filter: { fileAbsolutePath: { regex: "\/articles/" } }, sort: { fields: [frontmatter___rawDate], order: DESC }) {
-      edges {
-        node {
-          excerpt(pruneLength: 200)
-          id
-          frontmatter {
-              title
-              slug
-              image
-              rawDate
-              snippet
-              unlisted
-          }
+export const query = graphql`{
+  allMarkdownRemark(
+    filter: {fileAbsolutePath: {regex: "/articles/"}}
+    sort: {frontmatter: {rawDate: DESC}}
+  ) {
+    edges {
+      node {
+        excerpt(pruneLength: 200)
+        id
+        frontmatter {
+          title
+          slug
+          image
+          rawDate
+          snippet
+          unlisted
         }
       }
     }
-    allFile(filter: {absolutePath: {regex: "/articles/.*\\.(png|jpg)/"}}) {
-      edges {
-        node {
-          name
-          childImageSharp {
-            gatsbyImageData(
-              layout: CONSTRAINED,
-              aspectRatio: 1.33,
-              transformOptions: {
-                 cropFocus:CENTER
-              }
-            )
-          }
+  }
+  allFile(filter: {absolutePath: {regex: "/articles/.*\\.(png|jpg)/"}}) {
+    edges {
+      node {
+        name
+        childImageSharp {
+          gatsbyImageData(
+            layout: CONSTRAINED
+            aspectRatio: 1.33
+            transformOptions: {cropFocus: CENTER}
+          )
         }
       }
     }
-  } 
-`
+  }
+}`
 
 export default Articles

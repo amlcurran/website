@@ -57,8 +57,10 @@ function asSideProject({node}: Edge<MarkdownRemark<SideProjectFrontmatter>>, ind
 }
 
 export const pageQuery = graphql`{
-  allMarkdownRemark(sort: { order: DESC , fields: [frontmatter___lastUpdated]},
-      filter: {fileAbsolutePath: {glob: "**/side-project-*.md"} }) {
+  allMarkdownRemark(
+    sort: {frontmatter: {lastUpdated: DESC}}
+    filter: {fileAbsolutePath: {glob: "**/side-project-*.md"}}
+  ) {
     edges {
       node {
         html
@@ -72,7 +74,6 @@ export const pageQuery = graphql`{
       }
     }
   }
-}
-`
+}`
 
 export default SideProjects
