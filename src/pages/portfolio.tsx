@@ -10,31 +10,21 @@ import PhoneFrame from "../components/phone-frames"
 import {Splitter} from "../components/Splitter"
 import {Filters} from "../components/Filters";
 import {filterParam} from "../utils/filterParam";
+import {PortfolioSmall, PortfolioSmallViewState, PortfolioViewModel} from "../portfolio/portfolioViewModel";
 
 export interface PortfolioFrontmatter extends PortfolioSmall {
-  team: number
-  platforms: string[]
   date: string
-  links: string[]
-  with?: string
   secondImage?: string
 }
 
-interface PortfolioSmall {
-  title: string
-  images: string[]
-  largeImage: boolean
-  position: string
-  description: string
-  year: string
-  tags: string[]
-}
 
 interface PortfolioQuery {
   allMarkdownRemark: GraphQLList<MarkdownRemark<PortfolioFrontmatter>>
 }
 
 const Portfolio = ({ data }: { data: PortfolioQuery }) => {
+  // Use some state management to avoid rebuilding this all the time?
+    const viewModel = new PortfolioViewModel(window.location)
   const seo = <SEO title="Portfolio"
                    keywords={[`portfolio`, `developer`, `engineer`, `mobile`, `ios`, `android`]}
                    description="A series of my most popular projects"
@@ -43,8 +33,11 @@ const Portfolio = ({ data }: { data: PortfolioQuery }) => {
   return (
     <Layout seo={seo}>
       <main className="collapsingGrid">
-        <Filters data={data.allMarkdownRemark.edges} />
-        {data.allMarkdownRemark.edges.map(asPortfolioExcerpt).concat(older())}
+        <Filters data={data.allMarkdownRemark.edges}/>
+        {data.allMarkdownRemark.edges.map(asPortfolioExcerpt)}
+        <div className="smaller-projects" key="smaller-projects">
+          {viewModel.older().map((frontmatter) => small(frontmatter))}
+        </div>
       </main>
     </Layout>
   )
@@ -83,23 +76,12 @@ function asPortfolioExcerpt({ node }: Edge<MarkdownRemark<PortfolioFrontmatter>>
   )
 }
 
-function older(): JSX.Element[] {
-  const frontmatters: PortfolioSmall[] = require('../portfolio/portfolio-small.json')
-  return [
-    (<div className="smaller-projects" key="smaller-projects">
-      {frontmatters.map((frontmatter) => small(frontmatter))}
-    </div>)
-  ]
-}
-
-function small(frontmatter: PortfolioSmall): JSX.Element {
-  const hash = filterParam()
-  const highlightForFilter = frontmatter.tags.indexOf(hash) != -1 || hash.length == 0
+function small(frontmatter: PortfolioSmallViewState): JSX.Element {
   return (
     <div
         key={frontmatter.title}
         style={{scrollSnapAlign: "start end",
-      opacity: highlightForFilter ? 1 : 0.4}}>
+      opacity: frontmatter.matchesFilter ? 1 : 0.4}}>
       <h3>{frontmatter.title}</h3>
       <h4>{frontmatter.position} ● {frontmatter.year}</h4>
       <section style={{ marginTop: 8 }}>{frontmatter.description}</section>
