@@ -3,7 +3,7 @@ import {PortfolioFrontmatter, PortfolioQuery} from "../pages/portfolio";
 import {Edge} from "../utils/graphql";
 import {MarkdownRemark} from "../utils/remark";
 import {CardTextProps} from "../pages/smallCard";
-const data: PortfolioSmall[] = require('../portfolio/portfolio-small.json')
+const data = require('./portfolio-small.json') as PortfolioSmall[]
 
 // Unexport once moved PortfolioFM into this file
 export interface PortfolioSmall {

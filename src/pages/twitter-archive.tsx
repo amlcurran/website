@@ -2,7 +2,6 @@ import React from "react"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import Styling from "../components/styling";
 const tweetJson = require("../twitter-archive/tweets.json") as TweetJsonElement[]
 
 interface Tweet {
