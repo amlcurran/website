@@ -3,6 +3,7 @@ import {filterParam, parseFilterQuery} from "../utils/filterParam";
 import {PortfolioFrontmatter, PortfolioQuery} from "../pages/portfolio";
 import {Edge} from "../utils/graphql";
 import {MarkdownRemark} from "../utils/remark";
+import {CardTextProps} from "../pages/smallCard";
 
 // Unexport once moved PortfolioFM into this file
 export interface PortfolioSmall {
@@ -34,13 +35,15 @@ export class PortfolioViewModel {
           .sort()
     }
 
-    older(): PortfolioSmallViewState[] {
+    older(): CardTextProps[] {
         const data: PortfolioSmall[] = require('../portfolio/portfolio-small.json')
         const filter = parseFilterQuery(this.location)
         return data.map((small) => {
             return {
-                ...small,
-                matchesFilter: small.tags.includes(filter) || filter.length == 0
+                title: small.title,
+                text: small.description,
+                subtitle: `${small.position} ● ${small.year}`,
+                lowerPriority: !(small.tags.includes(filter) || filter.length == 0)
             }
         })
     }

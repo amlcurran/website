@@ -10,7 +10,8 @@ import PhoneFrame from "../components/phone-frames"
 import {Splitter} from "../components/Splitter"
 import {Filters} from "../components/Filters";
 import {filterParam} from "../utils/filterParam";
-import {PortfolioSmall, PortfolioSmallViewState, PortfolioViewModel} from "../portfolio/portfolioViewModel";
+import {PortfolioSmall, PortfolioViewModel} from "../portfolio/portfolioViewModel";
+import {SmallCard} from "./smallCard";
 
 export interface PortfolioFrontmatter extends PortfolioSmall {
   date: string
@@ -35,7 +36,13 @@ const Portfolio = ({ data }: { data: PortfolioQuery }) => {
         <Filters tags={viewModel.tags()}/>
         {data.allMarkdownRemark.edges.map((edge, index) => asPortfolioExcerpt(edge, index))}
         <div className="smaller-projects" key="smaller-projects">
-          {viewModel.older().map((frontmatter) => small(frontmatter))}
+          {viewModel.older()
+            .map((frontmatter) => <SmallCard
+              title={frontmatter.title}
+              subtitle={frontmatter.subtitle}
+              text={frontmatter.text}
+              lowerPriority={frontmatter.lowerPriority}
+            />)}
         </div>
       </main>
     </Layout>
@@ -72,21 +79,6 @@ function asPortfolioExcerpt({ node }: Edge<MarkdownRemark<PortfolioFrontmatter>>
             scrollSnapAlign: 'start',
             opacity: highlightForFilter ? 1 : 0.4
       }}/>
-  )
-}
-
-function small(frontmatter: PortfolioSmallViewState): JSX.Element {
-  return (
-    <div
-        key={frontmatter.title}
-        style={{
-          scrollSnapAlign: "start end",
-          opacity: frontmatter.matchesFilter ? 1 : 0.4
-        }}>
-      <h3>{frontmatter.title}</h3>
-      <h4>{frontmatter.position} ● {frontmatter.year}</h4>
-      <section style={{ marginTop: 8 }}>{frontmatter.description}</section>
-    </div>
   )
 }
 
