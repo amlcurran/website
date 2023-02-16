@@ -40,11 +40,12 @@ const Portfolio = ({ data }: { data: PortfolioQuery }) => {
               <LargeCard
                 key={viewState.title}
                 title={viewState.title}
-                subhead2={viewState.subtitle}
-                body={viewState.text}
+                subtitle={viewState.subtitle}
+                text={viewState.text}
                 image={image(viewState.image)}
                 imageSize={'normal'}
                 imageOnRight={viewState.imageOnRight}
+                lowerPriority={false}
                 style={{
                   marginBottom: 72,
                   scrollSnapAlign: 'start',

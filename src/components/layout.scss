@@ -153,6 +153,13 @@ a:hover {
     background: var(--primary-hover);
   }
 }
+.chips-host {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 8px;
+  margin-bottom: 4px;
+  // display: 'flex', flexWrap: "wrap", rowGap: 8, marginBottom: 4
+}
 .smaller-projects {
   display: grid;
   grid-template-columns: repeat(2, 1fr);

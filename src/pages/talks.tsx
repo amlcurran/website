@@ -74,10 +74,10 @@ const TalkItem = ({edge, query}: {
     <LargeCard
         key={edge.node.frontmatter.title}
         title={edge.node.frontmatter.title}
-        subhead2={"Presented at " + edge.node.frontmatter.presentedAt}
-        body={edge.node.html}
+        subtitle={"Presented at " + edge.node.frontmatter.presentedAt}
+        text={edge.node.html}
         link={String(edge.node.frontmatter.video)}
-        hover={true}
+        lowerPriority={false}
         image={
           <GatsbyImage
               image={imageForTalk(edge.node.frontmatter, query)}

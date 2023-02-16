@@ -37,22 +37,22 @@ const SideProjects = ({data}: { data: SideProjectsQuery }) => {
 
 function asSideProject({node}: Edge<MarkdownRemark<SideProjectFrontmatter>>, index: number): JSX.Element {
     const techChips = (
-        <div style={{display: 'flex', flexWrap: "wrap", rowGap: 8, marginBottom: 4}}>
+        <div className="chips-host">
             {node.frontmatter.technologies.map((chip) => <Chip text={chip}/>)}
         </div>
     )
     const image = node.frontmatter.image ? <PhoneFrame name={node.frontmatter.image}/> : undefined
-    const icon: Icon | undefined = node.frontmatter.link ? "launch" : undefined
     return (<LargeCard
         key={node.id}
         title={node.frontmatter.title}
-        body={node.html}
+        text={node.html}
         imageSize={'normal'}
         imageOnRight={index % 2 == 1}
         image={image}
+        subtitle={""}
+        lowerPriority={false}
         link={node.frontmatter.link}
         belowTitle={techChips}
-        icon={icon}
         style={{marginBottom: 72, scrollSnapAlign: "start"}}/>)
 }
 
