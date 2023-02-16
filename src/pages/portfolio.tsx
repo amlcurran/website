@@ -3,14 +3,18 @@ import {graphql} from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import {Edge, GraphQLList} from "../utils/graphql"
+import {GraphQLList} from "../utils/graphql"
 import {MarkdownRemark} from "../utils/remark"
 import {LargeCard} from "../components/card"
 import PhoneFrame from "../components/phone-frames"
 import {Splitter} from "../components/Splitter"
 import {Filters} from "../components/Filters";
-import {filterParam} from "../utils/filterParam";
-import {PortfolioSmall, PortfolioViewModel} from "../portfolio/portfolioViewModel";
+import {
+  PortfolioDoubleImage,
+  PortfolioSingleImage,
+  PortfolioSmall,
+  PortfolioViewModel
+} from "../portfolio/portfolioViewModel";
 import {SmallCard} from "../components/smallCard";
 
 export interface PortfolioFrontmatter extends PortfolioSmall {
@@ -35,7 +39,24 @@ const Portfolio = ({ data }: { data: PortfolioQuery }) => {
     <Layout seo={seo}>
       <main className="collapsingGrid">
         <Filters tags={viewModel.tags()}/>
-        {data.allMarkdownRemark.edges.map((edge, index) => asPortfolioExcerpt(edge, index))}
+        {
+          viewModel.newer()
+            .map(viewState =>
+              <LargeCard
+                key={viewState.title}
+                title={viewState.title}
+                subhead2={viewState.subtitle}
+                body={viewState.text}
+                image={image(viewState.image)}
+                imageSize={'normal'}
+                imageOnRight={viewState.imageOnRight}
+                style={{
+                  marginBottom: 72,
+                  scrollSnapAlign: 'start',
+                  opacity: viewState.lowerPriority ? 0.4 : 1
+                }}/>
+            )
+        }
         <div className="smaller-projects" key="smaller-projects">
           {
             viewModel.older()
@@ -47,39 +68,17 @@ const Portfolio = ({ data }: { data: PortfolioQuery }) => {
   )
 }
 
-function image(node: MarkdownRemark<PortfolioFrontmatter>, index: number) {
-  if (node.frontmatter.secondImage) {
-    return <Splitter
-        key={node.id}
-        left={<PhoneFrame name={node.frontmatter.secondImage}/>}
-        right={<PhoneFrame name={node.frontmatter.images[0]}/>}
-        expandRight={index % 2 == 1}/>
+function image(node: PortfolioSingleImage | PortfolioDoubleImage) {
+  if (typeof node === 'string') {
+    return <PhoneFrame name={node}/>
   } else {
-    return <PhoneFrame name={node.frontmatter.images[0]}/>
+    return <Splitter
+      key={node.key}
+      left={<PhoneFrame name={node.second}/>}
+      right={<PhoneFrame name={node.first}/>}
+      expandRight={node.expandRight}/>
   }
 }
-
-function asPortfolioExcerpt({ node }: Edge<MarkdownRemark<PortfolioFrontmatter>>, index: number): JSX.Element {
-  const secondImage = image(node, index)
-  const hash = filterParam()
-  const highlightForFilter = node.frontmatter.tags.indexOf(hash) != -1 || hash.length == 0
-  return (
-      <LargeCard
-          key={node.frontmatter.title}
-          title={node.frontmatter.title}
-          subhead2={node.frontmatter.position + " ● " + node.frontmatter.date}
-          body={node.html}
-          image={secondImage}
-          imageSize={'normal'}
-          imageOnRight={index % 2 == 1}
-          style={{
-            marginBottom: 72,
-            scrollSnapAlign: 'start',
-            opacity: highlightForFilter ? 1 : 0.4
-      }}/>
-  )
-}
-
 
 export const pageQuery = graphql`{
   allMarkdownRemark(
