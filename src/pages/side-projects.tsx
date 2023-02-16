@@ -36,7 +36,7 @@ const SideProjects = ({data}: { data: SideProjectsQuery }) => {
 }
 
 function asSideProject({node}: Edge<MarkdownRemark<SideProjectFrontmatter>>, index: number): JSX.Element {
-    const foo = (
+    const techChips = (
         <div style={{display: 'flex', flexWrap: "wrap", rowGap: 8, marginBottom: 4}}>
             {node.frontmatter.technologies.map((chip) => <Chip text={chip}/>)}
         </div>
@@ -51,7 +51,7 @@ function asSideProject({node}: Edge<MarkdownRemark<SideProjectFrontmatter>>, ind
         imageOnRight={index % 2 == 1}
         image={image}
         link={node.frontmatter.link}
-        belowTitle={foo}
+        belowTitle={techChips}
         icon={icon}
         style={{marginBottom: 72, scrollSnapAlign: "start"}}/>)
 }

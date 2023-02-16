@@ -5,6 +5,7 @@ interface ChipProps {
     text: string
     selected?: boolean
     style?: CSSProperties
+    closeButton?: CloseButtonProps
 }
 
 interface CloseButtonProps {
@@ -20,11 +21,11 @@ const CloseButton = (props: CloseButtonProps) => {
     }}>close</span> : <></>}</a>;
 }
 
-export const Chip = (props: ChipProps & CloseButtonProps) => {
+export const Chip = (props: ChipProps) => {
     return (
         <div className={`${props.selected ? "chip-selected" : "chip"}`} style={props.style}>
             {props.text}
-            <CloseButton selected={props.selected} closeLocation={props.closeLocation} />
+            {props.closeButton ? <CloseButton selected={props.closeButton.selected} closeLocation={props.closeButton.closeLocation} /> : <></> }
         </div>
     )
 }
