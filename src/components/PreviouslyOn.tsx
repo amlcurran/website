@@ -22,8 +22,8 @@ export const PreviouslyOn = ({previousOpenGraph, previous}: PreviouslyOnCardProp
     return (<div className="tiny-card">
         <img src={previousOpenGraph.ogImage.url} alt=""/>
         <div style={{paddingTop: 16, paddingBottom: 16}}>
-            <i>Previously posted on <a href={previous}>{previousPlace(previousOpenGraph)}</a>:</i>
-            <h4 style={{marginTop: 8}}>{previousOpenGraph.ogTitle}</h4>
+            <i style={{marginBottom: 8}}>Previously posted on <a href={previous}>{previousPlace(previousOpenGraph)}</a>:</i>
+            <h4>{previousOpenGraph.ogTitle}</h4>
             <div className="tiny-card-description">{previousOpenGraph.ogDescription}</div>
         </div>
     </div>)

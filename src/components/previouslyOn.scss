@@ -9,17 +9,17 @@
   display: flex;
   max-height: 120px;
   padding-right: 16px;
-}
 
-.tiny-card img {
-  width: 200px;
-  margin: 0 16px 0 0;
-  object-fit: cover;
-  align-self: stretch;
-  border-radius: 8px;
+  img {
+    width: 200px;
+    margin: 0 16px 0 0;
+    object-fit: cover;
+    align-self: stretch;
+    border-radius: 8px;
 
-  @media (max-width: core.$breakpoint) {
-    width: 100px;
+    @media (max-width: core.$breakpoint) {
+      width: 100px;
+    }
   }
 }
 
