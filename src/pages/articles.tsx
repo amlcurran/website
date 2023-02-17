@@ -15,7 +15,7 @@ export interface ArticleFrontmatter {
   rawDate: string
   previous?: string
   unlisted?: boolean
-    featured?: SharpImage
+  featured?: SharpImage
 }
 
 export type Image = { name: String } & SharpImage

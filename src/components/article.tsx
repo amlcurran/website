@@ -6,6 +6,7 @@ import SEO from "./seo"
 import ogs from "open-graph-scraper"
 import {ArticleFrontmatter} from "../pages/articles"
 import {PreviouslyOn} from "./PreviouslyOn";
+import {optionalComponent} from "../utils/optionalComponent";
 
 const dateOptions: Intl.DateTimeFormatOptions = {
     day: "numeric",
@@ -16,6 +17,7 @@ const dateOptions: Intl.DateTimeFormatOptions = {
 interface ArticleQuery {
     markdownRemark: MarkdownRemark<ArticleFrontmatter>
 }
+
 export default function ArticlePage({data, pageContext}: {data: ArticleQuery, pageContext: { previousOpenGraph?: ogs.OpenGraphProperties }}) {
     const snippet = data.markdownRemark.frontmatter.snippet || "Articles and piece I've written"
     const seo = <SEO
@@ -25,13 +27,10 @@ export default function ArticlePage({data, pageContext}: {data: ArticleQuery, pa
         key="SEO"
         image={data.markdownRemark.frontmatter.featured?.childImageSharp.resize?.src}
     />
-    let previouslyOn;
-    if (pageContext.previousOpenGraph && pageContext.previousOpenGraph.ogImage?.url) {
-        previouslyOn = <PreviouslyOn previousOpenGraph={pageContext.previousOpenGraph}
-                                     previous={data.markdownRemark.frontmatter.previous}/>
-    } else {
-        previouslyOn = <></>
-    }
+    const previouslyOn = optionalComponent(
+      pageContext.previousOpenGraph,
+      (properties) => <PreviouslyOn previousOpenGraph={properties} previous={data.markdownRemark.frontmatter.previous!}/>
+    )
     return (
         <Layout seo={seo} style={{paddingTop: 16}}>
             <article className={"readable-width"}>
