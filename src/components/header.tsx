@@ -86,7 +86,7 @@ const Header = () => {
               <HeaderLink2 to="/side-projects" text="On the side" current={location} />
               <HeaderLink2 to="/articles" current={location} text="Articles" />
               <HeaderLink2 to="/not-tech" text="Not tech" current={location} />
-              <HeaderLink2 to="/twitter-archive" text="Tweets" current={location} />
+              {/*<HeaderLink2 to="/twitter-archive" text="Tweets" current={location} />*/}
             </nav>
           </div>
         </header>
