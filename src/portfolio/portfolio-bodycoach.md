@@ -16,7 +16,7 @@ I managed a team of developers when the Body Coach app development was brought i
 
 During my time, I led a team reconfiguration from an Android and an iOS team into two cross-platform mission-based teams. This included the organisation, communication, and bootstrapping of the teams. 
 
-As Engineering Manager of the Get Moving mission team (install to first 30 days in-app) I led a team of developers to deliver multiple features, including an Easy Start week intended to help beginners; in-app messaging from Joe and the trainers to drive momentum; and a highly successful A/B test on our paywall which saw our Intent to Subscribe metric increase significantly.
+As Engineering Manager of the Get Moving mission team (install to first 30 days in-app) I led a team of developers to deliver multiple features, including an Easy Start week intended to help beginners; in-app messaging from Joe and the trainers to drive momentum; and a highly successful A/B test (see the [case study here](/articles/bodycoach-a-b-testing-paywall/)) on our paywall which saw our Intent to Subscribe metric increase significantly.
 
 I was sadly made redundant after 10 months in the role.
 
