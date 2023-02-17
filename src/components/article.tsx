@@ -6,7 +6,9 @@ import SEO from "./seo"
 import ogs from "open-graph-scraper"
 import {ArticleFrontmatter} from "../pages/articles"
 import {PreviouslyOn} from "./PreviouslyOn";
-import {optionalComponent} from "../utils/optionalComponent";
+import {booleanComponent, optionalComponent} from "../utils/optionalComponent";
+import {GatsbyImage, StaticImage} from "gatsby-plugin-image";
+import {UnlistedWarning} from "./UnlistedWarning";
 
 const dateOptions: Intl.DateTimeFormatOptions = {
     day: "numeric",
@@ -31,12 +33,17 @@ export default function ArticlePage({data, pageContext}: {data: ArticleQuery, pa
       pageContext.previousOpenGraph,
       (properties) => <PreviouslyOn previousOpenGraph={properties} previous={data.markdownRemark.frontmatter.previous!}/>
     )
+    const unlisted = booleanComponent(
+      data.markdownRemark.frontmatter.unlisted,
+      () => <UnlistedWarning />
+    )
     return (
         <Layout seo={seo} style={{paddingTop: 16}}>
             <article className={"readable-width"}>
                 <h4>{data.markdownRemark.timeToRead + " minutes to read  ● "}<time>{new Date(data.markdownRemark.frontmatter.rawDate).toLocaleDateString(undefined, dateOptions)}</time></h4>
                 <h1 style={{marginTop: 12}}>{data.markdownRemark.frontmatter.title}</h1>
                 {previouslyOn}
+                {unlisted}
                 <p dangerouslySetInnerHTML={{__html: data.markdownRemark.html}} />
             </article>
         </Layout>
@@ -54,6 +61,7 @@ export const pageQuery = graphql`
         previous
         snippet
         image
+        unlisted
         featured: featured {
           childImageSharp {
             resize(width: 1200) {

@@ -28,11 +28,3 @@ export const PreviouslyOn = ({previousOpenGraph, previous}: PreviouslyOnCardProp
         </div>
     </div>)
 }
-
-export function previouslyOnCard(previousOpenGraph: OpenGraphProperties | undefined, previous: string): JSX.Element {
-    if (previousOpenGraph && previousOpenGraph.ogImage.url) {
-        return <PreviouslyOn previousOpenGraph={previousOpenGraph} previous={previous} />
-    } else {
-        return <></>
-    }
-}
