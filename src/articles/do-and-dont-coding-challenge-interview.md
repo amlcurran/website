@@ -2,7 +2,9 @@
 title: "7 Dos and Don'ts for coding challenge interviews"
 slug: "do-and-dont-coding-challenge-interview"
 image: "humaaans-3char"
-rawDate: "2022-02-20"
+rawDate: "2023-02-20"
+snippet: "A coding challenge is an important part of hiring in engineering, Here's 7 do’s and dont’s for 
+designing coding challenges"
 ---
 A coding challenge is an important part of hiring in engineering, and I've seen both sides of them over the last ten years. 
 
