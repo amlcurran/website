@@ -5,6 +5,6 @@ title: "This website"
 technologies: ["gatsby", "typescript", "react"]
 link: "https://github.com/amlcurran/website"
 ---
-This website is one of my side projects, of course!
+This website is of course one of my side projects as well. It's built using [Gatsby](https://www.gatsbyjs.org/), React, with Typescript.
 
-I'm building it using [Gatsby](https://www.gatsbyjs.org/) and React. It's my first real React project aside from some brief dabbling, and my first project using modern web technologies through and through. 
+The code is open source and you can find it on [Github](https://github.com/amlcurran/website). My main aim here was to learn more about different technologies outside of the mobile space and improve my web development skills. 
