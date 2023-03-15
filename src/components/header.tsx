@@ -65,7 +65,7 @@ function isCurrentPage(to: string, current: Location | null): boolean {
 const Header = () => {
   return <StaticQuery
     query={graphql`
-     query{file(name: {eq: "CV-web-mar22"}) {
+     query{file(name: {eq: "CV-web"}) {
       publicURL
       name
     }}
