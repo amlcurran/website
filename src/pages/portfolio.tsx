@@ -56,7 +56,7 @@ const Portfolio = ({ data }: { data: PortfolioQuery }) => {
         <div className="smaller-projects" key="smaller-projects">
           {
             viewModel.older()
-              .map(viewState => <SmallCard {...viewState} />)
+              .map(viewState => <SmallCard key={viewState.text} {...viewState} />)
           }
         </div>
       </main>

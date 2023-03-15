@@ -1,9 +1,10 @@
 @use "core";
 
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500&display=swap');
 
 html {
   font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 400;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   -webkit-font-feature-settings: "kern" 1,"liga" 1,"calt" 1;

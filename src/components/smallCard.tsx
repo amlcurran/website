@@ -14,7 +14,6 @@ export const SmallCard = (props: CardTextProps) => {
     <div
       key={props.title}
       style={{
-        scrollSnapAlign: "start end",
         opacity: props.lowerPriority ? 0.4 : 1
       }}>
       <h3>{props.title}</h3>

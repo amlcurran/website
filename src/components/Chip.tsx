@@ -27,7 +27,7 @@ const CloseButton = (props: CloseButtonProps) => {
 
 export const Chip = (props: ChipProps) => {
     return (
-        <div className={`${props.selected ? "chip-selected" : "chip"}`} style={props.style}>
+        <div className={`${props.selected ? "chip-selected" : "chip"}`} style={props.style} key={props.text}>
             {props.text}
             {props.closeButton ? <CloseButton visible={props.closeButton.visible} closeLocation={props.closeButton.closeLocation} /> : <></> }
         </div>

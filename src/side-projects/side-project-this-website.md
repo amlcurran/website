@@ -1,6 +1,6 @@
 ---
 start: "2019-03-01"
-lastUpdated: "2028-03-01"
+lastUpdated: "2023-03-01"
 title: "This website"
 technologies: ["gatsby", "typescript", "react"]
 link: "https://github.com/amlcurran/website"
