@@ -1,3 +1,5 @@
+import {getWindow} from "./window";
+
 export function parseFilterQuery(location: Location | undefined): string {
     return location?.search.replace("%20", " ").replace("?filter=", "") ?? "";
 }
@@ -6,6 +8,6 @@ export function parseFilterQuery(location: Location | undefined): string {
  * @deprecated use parseFilterQuery instead
  */
 export function filterParam(): string {
-    const location = typeof window !== `undefined` ? window.location : undefined
+    const location = getWindow()?.location
     return parseFilterQuery(location)
 }
