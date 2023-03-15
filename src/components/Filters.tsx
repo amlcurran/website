@@ -1,8 +1,5 @@
-import {Edge} from "../utils/graphql";
-import {MarkdownRemark} from "../utils/remark";
 import {Chip} from "./Chip";
 import React from "react";
-import {PortfolioFrontmatter} from "../pages/portfolio";
 import {filterParam} from "../utils/filterParam";
 
 

@@ -16,6 +16,7 @@ import {
   PortfolioViewModel
 } from "../portfolio/portfolioViewModel";
 import {SmallCard} from "../components/smallCard";
+import {NonMatchingBanner} from "../components/NonMatchingBanner";
 
 
 export interface PortfolioQuery {
@@ -36,22 +37,26 @@ const Portfolio = ({ data }: { data: PortfolioQuery }) => {
         <Filters tags={viewModel.tags()}/>
         {
           viewModel.newer()
-            .map(viewState =>
-              <LargeCard
-                key={viewState.title}
-                title={viewState.title}
-                subtitle={viewState.subtitle}
-                text={viewState.text}
-                image={image(viewState.image)}
-                imageSize={'normal'}
-                imageOnRight={viewState.imageOnRight}
-                lowerPriority={false}
-                style={{
-                  marginBottom: 72,
-                  scrollSnapAlign: 'start',
-                  opacity: viewState.lowerPriority ? 0.4 : 1
-                }}/>
-            )
+            .map(viewState => {
+              if ('nonMatching' in viewState) {
+                return <NonMatchingBanner title={viewState.title} />
+              } else {
+                return <LargeCard
+                  key={viewState.title}
+                  title={viewState.title}
+                  subtitle={viewState.subtitle}
+                  text={viewState.text}
+                  image={image(viewState.image)}
+                  imageSize={'normal'}
+                  imageOnRight={viewState.imageOnRight}
+                  lowerPriority={false}
+                  style={{
+                    marginBottom: 24,
+                    scrollSnapAlign: 'start',
+                    opacity: viewState.lowerPriority ? 0.4 : 1
+                  }}/>
+              }
+            })
         }
         <div className="smaller-projects" key="smaller-projects">
           {

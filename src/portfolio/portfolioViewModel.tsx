@@ -4,6 +4,7 @@ import {Edge} from "../utils/graphql";
 import {MarkdownRemark} from "../utils/remark";
 import {CardTextProps} from "../components/smallCard";
 import React from "react";
+import {getWindow} from "../utils/window";
 const data = require('./portfolio-small.json') as PortfolioSmall[]
 
 export interface PortfolioFrontmatter extends PortfolioSmall {
@@ -18,6 +19,11 @@ interface PortfolioSmall {
     description: string
     year: string
     tags: string[]
+}
+
+export interface NonMatchingPortfolioViewState {
+    title: string
+    nonMatching: boolean
 }
 
 export interface PortfolioSmallViewState {
@@ -52,17 +58,24 @@ export class PortfolioViewModel {
         })
     }
 
-    newer(): PortfolioLargeViewState[] {
+    newer(): PortfolioViewState[] {
         return this.data.allMarkdownRemark.edges.map((edge, index) => this.asPortfolioExcerpt(edge, index))
     }
 
-    asPortfolioExcerpt({ node }: Edge<MarkdownRemark<PortfolioFrontmatter>>, index: number): PortfolioLargeViewState {
+    asPortfolioExcerpt({ node }: Edge<MarkdownRemark<PortfolioFrontmatter>>, index: number): PortfolioViewState {
         const filter = parseFilterQuery(this.location)
+        const matchedFilter = !(node.frontmatter.tags.includes(filter) || filter.length == 0);
+        if (matchedFilter) {
+            return {
+                title: node.frontmatter.title,
+                nonMatching: true
+            }
+        }
         return {
             title: node.frontmatter.title,
             text: node.html,
             subtitle: node.frontmatter.position + " ● " + node.frontmatter.date,
-            lowerPriority: !(node.frontmatter.tags.includes(filter) || filter.length == 0),
+            lowerPriority: matchedFilter,
             imageOnRight: index % 2 == 1,
             image: imageType(node, index)
         }
@@ -87,6 +100,8 @@ interface PortfolioLargeViewState extends CardTextProps {
     imageOnRight: boolean
     image: PortfolioDoubleImage | PortfolioSingleImage
 }
+
+type PortfolioViewState = PortfolioLargeViewState | NonMatchingPortfolioViewState
 
 export interface PortfolioDoubleImage {
     key: string
