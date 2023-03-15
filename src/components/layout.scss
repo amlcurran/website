@@ -1,9 +1,15 @@
 @use "core";
 
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap');
+
+$brandFont: 'Poppins';
+$brandFontFallback: sans-serif;
+$bodyFont: 'IBM Plex Sans';
+$bodyFontFallback: sans-serif;
 
 html {
-  font-family: 'IBM Plex Sans', sans-serif;
+  font-family: $bodyFont, $bodyFontFallback;
   font-weight: 400;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -121,6 +127,7 @@ a:hover {
 }
 
 .inner-link {
+  font-family: $brandFont, $brandFontFallback;
   text-align: center;
   letter-spacing: 0.1rem;
   min-width: 160px;
@@ -221,7 +228,7 @@ img {
   margin: 0 0 1.45rem;
 }
 h1 {
-  font-family: 'Domine', serif;
+  font-family: $brandFont, $brandFontFallback;
   color: var(--primary);
   margin: 0 0 0.45rem;
   font-weight: bold;
@@ -234,7 +241,7 @@ h1 {
   }
 }
 h2 {
-  font-family: 'Domine', serif;
+  font-family: $brandFont, $brandFontFallback;
   margin: 1rem 0 0.3rem;
   color: var(--primary);
   font-weight: bold;
@@ -252,7 +259,7 @@ h2 {
   }
 }
 h3 {
-  font-family: 'Domine', serif;
+  font-family: $brandFont, $brandFontFallback;
   padding: 0;
   margin: 16px 0 4px;
   color: var(--primary);
@@ -266,6 +273,7 @@ h3 {
   }
 }
 h4 {
+  font-family: $brandFont, $brandFontFallback;
   font-size: initial;
   margin: 0 0 0.35rem;
   color: var(--text-on-surface);
@@ -280,7 +288,7 @@ h4 {
 .headlineLink {
   font-size: 26pt;
   font-weight: 700;
-  font-family: 'Domine', serif;
+  font-family: $brandFont, serif;
   letter-spacing: 0.10rem;
   justify-self: start;
   color: var(--secondary);
