@@ -94,6 +94,7 @@ body {
 .headlineTop {
   display: grid;
   grid-template-columns: 1fr auto auto;
+  align-items: center;
   row-gap: 16px;
   column-gap: 16px;
 
