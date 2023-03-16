@@ -11,6 +11,7 @@ import {Image} from "./articles"
 import {GatsbyImage, IGatsbyImageData} from "gatsby-plugin-image"
 
 interface TalksFrontmatter {
+  id: string
   title: string
   slides: string
   video: Url
@@ -72,6 +73,7 @@ const TalkItem = ({edge, query}: {
   showIcon: boolean
 }) =>
     <LargeCard
+        id={edge.node.frontmatter.id}
         key={edge.node.frontmatter.title}
         title={edge.node.frontmatter.title}
         subtitle={"Presented at " + edge.node.frontmatter.presentedAt}
@@ -100,6 +102,7 @@ export const pageQuery = graphql`{
       node {
         html
         frontmatter {
+          id
           title
           slides
           presentedAt

@@ -41,14 +41,8 @@ function HeaderLink2(props: HeaderLinkProps) {
     style = {...currentPageStyle}
   }
 
-  const fieldRef = React.useRef<HTMLAnchorElement>(null);
-  useEffect(() => {
-    if (isCurrentPage(props.to, props.current) && fieldRef?.current) {
-      fieldRef.current.scrollIntoView({ block: "nearest", inline: "end", behavior: "smooth" })
-    }
-  }, [])
   return (
-    <Link to={props.to} ref={fieldRef} onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)} style={{ flexGrow: 1, ...style }} className="inner-link">
+    <Link to={props.to} onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)} style={{ flexGrow: 1, ...style }} className="inner-link">
       {props.text}
     </Link>
   )

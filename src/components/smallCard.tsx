@@ -2,7 +2,7 @@ import {PortfolioSmallViewState} from "../portfolio/portfolioViewModel";
 import React from "react";
 
 export interface CardTextProps {
-  id: string
+  id?: string
   title: string
   subtitle: string
   text: string
