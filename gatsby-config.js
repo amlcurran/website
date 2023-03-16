@@ -12,6 +12,14 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sass`,
     {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Alex Curran`,
+        short_name: `Alex Curran`,
+        icon: `src/utils/favicon.png`,
+      }
+    },
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
