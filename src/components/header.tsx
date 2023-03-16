@@ -2,6 +2,7 @@ import {Link, graphql, useStaticQuery} from "gatsby"
 import React, { CSSProperties, useEffect, useState } from "react"
 import Styling from "./styling";
 import {Icon} from "./card"
+import {ContactButton} from "./ContactButton";
 
 const linkHostStyle: CSSProperties = {
   backgroundColor: Styling.primaryColor,
@@ -85,12 +86,5 @@ const Header = () => {
     </header>
   )
 }
-
-const ContactButton = ({url, text, icon}: {url: string, text: string, icon: Icon}) => (
-    <a href={url} className="inner-link contact-button">
-      <span>{text}</span>
-      <span className="material-icons-round" style={{ verticalAlign: "middle", paddingBottom: -2, paddingLeft: 4 }}>{icon}</span>
-    </a>
-)
 
 export default Header
