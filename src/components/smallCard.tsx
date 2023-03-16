@@ -2,6 +2,7 @@ import {PortfolioSmallViewState} from "../portfolio/portfolioViewModel";
 import React from "react";
 
 export interface CardTextProps {
+  id: string
   title: string
   subtitle: string
   text: string
@@ -12,6 +13,7 @@ export interface CardTextProps {
 export const SmallCard = (props: CardTextProps) => {
   return (
     <div
+      id={props.id}
       key={props.title}
       style={{
         opacity: props.lowerPriority ? 0.4 : 1

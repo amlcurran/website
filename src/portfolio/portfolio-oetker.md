@@ -5,6 +5,7 @@ start: "2018-05-01"
 title: "Backen.de & Novoda"
 with: "Oetker Digital"
 team: 6
+id: "oetker-novoda"
 platforms: ["android", "iOS"]
 tags: ["engineering management", "technical leadership", "individual contributor", "project planning", "consulting"]
 images: ["backen-android"]

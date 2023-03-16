@@ -5,6 +5,7 @@ start: "2018-09-01"
 title: "Harman Spark & Novoda"
 with: "Tantalum Corporation"
 team: 20
+id: "tantalum-novoda"
 platforms: ["android", "iOS"]
 tags: ["individual contributor", "technical leadership", "consulting"]
 images: ["tantalum-iphone"]

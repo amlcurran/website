@@ -42,6 +42,7 @@ const Portfolio = ({ data }: { data: PortfolioQuery }) => {
                 return <NonMatchingBanner title={viewState.title} />
               } else {
                 return <LargeCard
+                  id={viewState.id}
                   key={viewState.title}
                   title={viewState.title}
                   subtitle={viewState.subtitle}
@@ -92,7 +93,7 @@ export const pageQuery = graphql`{
         frontmatter {
           title
           team
-          platforms
+          id
           date
           with
           position

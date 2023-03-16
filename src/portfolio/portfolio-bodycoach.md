@@ -4,6 +4,7 @@ position: "Engineering Manager"
 start: "2022-04-15"
 title: "The Body Coach"
 team: 6
+id: "bodycoach"
 platforms: ["android", "iOS"]
 images: ["bodycoach-android", "bodycoach-android"]
 tags: ["engineering management", "product management", "project planning"]

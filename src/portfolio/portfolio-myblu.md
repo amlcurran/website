@@ -5,6 +5,7 @@ start: "2019-01-01"
 title: "myBlu & Novoda"
 with: "Blu"
 team: 6
+id: "myblu-novoda"
 platforms: ["android", "iOS"]
 tags: ["engineering management", "technical leadership", "individual contributor", "project planning", "consulting"]
 images: ["secret-android"]

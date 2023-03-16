@@ -4,7 +4,7 @@ import {Edge} from "../utils/graphql";
 import {MarkdownRemark} from "../utils/remark";
 import {CardTextProps} from "../components/smallCard";
 import React from "react";
-import {getWindow} from "../utils/window";
+
 const data = require('./portfolio-small.json') as PortfolioSmall[]
 
 export interface PortfolioFrontmatter extends PortfolioSmall {
@@ -13,6 +13,7 @@ export interface PortfolioFrontmatter extends PortfolioSmall {
 }
 
 interface PortfolioSmall {
+    id: string
     title: string
     images: string[]
     position: string
@@ -50,6 +51,7 @@ export class PortfolioViewModel {
         const filter = parseFilterQuery(this.location)
         return data.map((small) => {
             return {
+                id: small.id,
                 title: small.title,
                 text: small.description,
                 subtitle: `${small.position} ● ${small.year}`,
@@ -72,6 +74,7 @@ export class PortfolioViewModel {
             }
         }
         return {
+            id: node.frontmatter.id,
             title: node.frontmatter.title,
             text: node.html,
             subtitle: node.frontmatter.position + " ● " + node.frontmatter.date,
@@ -98,6 +101,7 @@ function imageType(node: MarkdownRemark<PortfolioFrontmatter>, index: number): P
 
 interface PortfolioLargeViewState extends CardTextProps {
     imageOnRight: boolean
+    id: string
     image: PortfolioDoubleImage | PortfolioSingleImage
 }
 

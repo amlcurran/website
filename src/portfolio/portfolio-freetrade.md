@@ -4,6 +4,7 @@ position: "Staff Engineer"
 start: "2019-09-01"
 title: "Freetrade"
 team: 6
+id: "freetrade"
 platforms: ["android", "iOS"]
 images: ["freetrade-android"]
 tags: ["individual contributor", "project planning"]
