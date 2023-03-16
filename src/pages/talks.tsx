@@ -31,7 +31,7 @@ const Talks = ({ data }: { data: TalksQuery }) => {
                       keywords={[`talks`, `developer`, `engineer`, `mobile`, `ios`, `android`]}
                       description="A summary of the talks I've done over my career" key="SEO"/>}>
       <div className="collapsingGrid">
-        {data.allMarkdownRemark.edges.map(edge => <TalkElement edge={edge} query={data} key={edge.node.id}/>)}
+        {data.allMarkdownRemark.edges.map(edge => <TalkElement edge={edge} query={data} key={edge.node.frontmatter.id}/>)}
       </div>
     </Layout>
   )
@@ -74,7 +74,6 @@ const TalkItem = ({edge, query}: {
 }) =>
     <LargeCard
         id={edge.node.frontmatter.id}
-        key={edge.node.frontmatter.title}
         title={edge.node.frontmatter.title}
         subtitle={"Presented at " + edge.node.frontmatter.presentedAt}
         text={edge.node.html}
