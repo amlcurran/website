@@ -118,7 +118,7 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-source-pocket`,
+      resolve: `gatsby-source-pocketapi`,
       options: {
         consumerKey: process.env.POCKET_CONSUMER_KEY,
         accessToken: process.env.POCKET_AUTH_TOKEN,
