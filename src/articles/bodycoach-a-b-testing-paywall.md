@@ -22,13 +22,13 @@ After a lot of research by the team, in particular from the website [Superwall](
 
 For those new to A/B testing, this is where you show two sets of users two different variations of the app.
 
-Diagram
+![](a-b-test-flow.png)
 
-For example, it could be something as simple as changing the colour of a button to make it more noticeable, or as complicated as a whole new onboarding flow.
+In the example above, one variant (in yellow) allows a user to enter their address using their postcode. In the second variant (blue) they instead enter their address manually in a form.
 
 This might sound like feature flags and there is a lot of overlap but the key takeaway from an A/B test is that you're actively measuring the effect the variations (or variants) have on user behaviour.
 
-Taking the example of the new onboarding flow above. You may choose to measure how many users never finish onboarding. If your new variant has more people completing the onboarding, this would positively affect your customers and revenue.
+Taking the address entry example above. You may choose to measure how many users finish onboarding. If your new variant has more people completing the onboarding, this would positively affect your customers and revenue. My personal hypothesis here would be users would prefer to enter their address via postcode as it is quicker. 
 
 ## Setting up the experiment
 
