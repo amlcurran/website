@@ -3,7 +3,6 @@ title: "Running an A/B test on our paywall"
 slug: "bodycoach-a-b-testing-paywall"
 image: "book-reviews"
 rawDate: "2023-01-28"
-unlisted: true
 ---
 As part of the Get Moving team at The Body Coach, we set up and ran an A/B test to attempt to improve the conversion of users on our paywall. A/B tests are hard to run well and this one was one I felt ran well – we got great results from it.
 
@@ -51,7 +50,7 @@ The first was technical - a user could take a trial or perform a purchase, so we
 
 The second was to reduce the scope of the A/B test. Say we’d done some misconfiguration on the new paywall and it errored when the user tried to subscribe. This would change the experiment results if we were measuring the subscriptions as failed against the new paywall, although this wouldn’t be the fault of the paywall redesign itself. We wanted to limit the number of independent variables in the experiment so we could get the most accurate results, quickly.
 
-## Running it
+## Running the experiment
 
 We used Amplitude to run this A/B test. My candid review of Amplitude is that it is fantastic, but the data is overwhelming. A huge positive of it is that it takes a lot of the interpretation of the data and does it for you, removing human bias in the results. 
 
@@ -69,10 +68,16 @@ As a paywall is a very important part of revenue generation, we wanted to move s
 
 ## The results
 
-Our results started off slow but their statistical significance was low. This made a lot of sense - with only a few users in the experiment initially a lot of the changes could be down to fluke. 
+Our results started off slow but their statistical significance was low. This made a lot of sense - with only a few users in the experiment initially a lot of the changes could be down to fluke. When increasing the number of users in the experiment the statistical significance of the experience accelerated.
 
-In the end our results really did bear out that many more users would attempt a purchase on the new paywall (see the results below). When increasing the number of users in the experiment the statistical significance of the experience accelerated.
+![Showing how statistical significance increased sharply towards the end of the rollout](a-b-test-confidence.png)
+
+In the end our results really did bear out that many more users would attempt a purchase on the new paywall:
+
+![Showing how our new paywall performed much better than our older one](a-b-test-results.png)
 
 Within a few weeks - just before our busiest period of the year - we decided to switch the whole user base to see the new paywall due to its significant uplift in users attempting to purchase.
 
-## Next time
+## Conclusion
+
+This experiment was a major success. Not because it showed us what we expected, but because we managed to get a highly confident result driven off our hypothesis. Had we got a confident result, but one that showed our old paywall was more performant, then that would still be a highly successful test.

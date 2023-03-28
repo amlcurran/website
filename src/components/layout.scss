@@ -35,6 +35,7 @@ html {
   --text-on-background: var(--secondary);
   --surface: white;
   --article-padding: 16px;
+  --h2-top-margin: 1rem;
 
   @media (max-width: core.$breakpoint) {
     font-size: 100%;
@@ -249,16 +250,12 @@ h1 {
 }
 h2 {
   font-family: $brandFont, $brandFontFallback;
-  margin: 1rem 0 0.3rem;
+  margin: var(--h2-top-margin) 0 0.3rem;
   color: var(--primary);
   font-weight: bold;
   text-rendering: optimizeLegibility;
   font-size: 24pt;
   line-height: 1.1;
-
-  &:first-of-type {
-    margin: 0 0 0.3rem;
-  }
 
   @media (max-width: core.$breakpoint) {
     margin: 0 0 0.3rem;
@@ -379,6 +376,7 @@ article ul {
   flex: 1 1 0;
   flex-direction: row;
   gap: var(--article-padding);
+  --h2-top-margin: 0rem;
 }
 
 .bordered {
