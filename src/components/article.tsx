@@ -7,7 +7,6 @@ import ogs from "open-graph-scraper"
 import {ArticleFrontmatter} from "../pages/articles"
 import {PreviouslyOn} from "./PreviouslyOn";
 import {booleanComponent, optionalComponent} from "../utils/optionalComponent";
-import {GatsbyImage, StaticImage} from "gatsby-plugin-image";
 import {UnlistedWarning} from "./UnlistedWarning";
 
 const dateOptions: Intl.DateTimeFormatOptions = {
@@ -27,7 +26,7 @@ export default function ArticlePage({data, pageContext}: {data: ArticleQuery, pa
         keywords={[`articles`, `blog`, `vlog`, `tech`, `thoughts`]}
         description={snippet}
         key="SEO"
-        image={data.markdownRemark.frontmatter.featured?.childImageSharp.resize?.src}
+        image={data.markdownRemark.frontmatter.featured?.childImageSharp.gatsbyImageData.images.fallback?.src}
     />
     const previouslyOn = optionalComponent(
       pageContext.previousOpenGraph,

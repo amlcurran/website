@@ -16,7 +16,7 @@ interface SEOProps {
   meta?: any[]
   keywords?: string[],
   title: string
-  image?: string
+  image?: any
   bodyAttributes?: any
 }
 

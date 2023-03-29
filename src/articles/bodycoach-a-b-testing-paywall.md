@@ -1,8 +1,9 @@
 ---
 title: "Running an A/B test on our paywall"
 slug: "bodycoach-a-b-testing-paywall"
-image: "book-reviews"
-rawDate: "2023-01-28"
+image: "a-b-test-paywall-rollout"
+rawDate: "2023-03-28"
+unlisted: true
 ---
 As part of the Get Moving team at The Body Coach, we set up and ran an A/B test to attempt to improve the conversion of users on our paywall. A/B tests are hard to run well and this one was one I felt ran well – we got great results from it.
 
@@ -64,7 +65,7 @@ Our set up for this experiment was simple - any user who would see the paywall w
 
 As a paywall is a very important part of revenue generation, we wanted to move slowly on this, because any negative result on the new variant would result in revenue loss. So we started with 10% of users in the experiment (half of whom would see the new variant and half the old). Once we saw users were signing up through the new variant we knew it was working and increased the percentage in steps up to 100%. As the experiment had a 50/50 split, this resulted in half the user seeing the new paywall, half the old, and us measuring all of their outcomes.
 
-![](paywall-rollout.jpg)
+![](a-b-test-paywall-rollout.jpg)
 
 ## The results
 
