@@ -11,16 +11,15 @@ export function Filters({tags}: {tags: string[]}) {
 }
 
 function LocationChip({tag}: { tag: string }) {
-    let selected = filterParam() == tag;
-    return <a href={`?filter=${tag}`}>
-        <Chip style={{display: "inline-block"}}
-              selected={selected}
-              text={tag}
-              closeButton={
-                  {
-                      closeLocation: "?",
-                      visible: selected
-                  }
-              }/>
-    </a>
+  const selected = filterParam() == tag;
+  return <Chip style={{display: "inline-block"}}
+               selected={selected}
+               text={tag}
+               link={`?filter=${tag}`}
+               closeButton={
+                 {
+                   closeLocation: "?",
+                   visible: selected
+                 }
+               }/>
 }

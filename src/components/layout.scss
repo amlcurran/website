@@ -169,6 +169,17 @@ a:hover {
     background: var(--primary-hover);
   }
 }
+
+.hover-background-on-primary {
+  transition: background 0.2s ease-in-out;
+  background: transparent;
+  border-radius: 8px;
+
+  &:hover {
+    background: #FFFFFF66;
+  }
+}
+
 .chips-host {
   display: flex;
   flex-wrap: wrap;

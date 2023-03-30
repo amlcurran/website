@@ -3,16 +3,13 @@
 .chip {
   background-color: core.$primary-hover;
   margin-right: 5px;
-  padding: 3px 10px 5px;
+  padding: 3px 10px;
   border-radius: 20px;
   color: var(--primary);
 }
 
-.chip-selected {
+.chip.selected {
   background-color: var(--primary);
-  margin-right: 5px;
-  padding: 3px 10px 5px;
-  border-radius: 20px;
   color: core.$tertiary;
 
   a {
