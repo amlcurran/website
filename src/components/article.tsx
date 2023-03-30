@@ -26,7 +26,7 @@ export default function ArticlePage({data, pageContext}: {data: ArticleQuery, pa
         keywords={[`articles`, `blog`, `vlog`, `tech`, `thoughts`]}
         description={snippet}
         key="SEO"
-        image={data.markdownRemark.frontmatter.featured?.childImageSharp.gatsbyImageData.images.fallback?.src}
+        image={data.markdownRemark.frontmatter.featured?.childImageSharp.gatsbyImageData}
     />
     const previouslyOn = optionalComponent(
       pageContext.previousOpenGraph,
