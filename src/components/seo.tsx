@@ -91,7 +91,7 @@ function SEO({ description, lang, meta, keywords, title, image, bodyAttributes }
           media: '(prefers-color-scheme: dark)'
         },
         {
-          name: 'og:image',
+          name: 'og:image:secure_url',
           content: image
         }
       ]
