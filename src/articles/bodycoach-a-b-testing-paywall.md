@@ -3,15 +3,14 @@ title: "Running an A/B test on our paywall"
 slug: "bodycoach-a-b-testing-paywall"
 image: "a-b-test-paywall-rollout"
 rawDate: "2023-03-28"
-unlisted: true
 ---
-As part of the Get Moving team at The Body Coach, we set up and ran an A/B test to attempt to improve the conversion of users on our paywall. A/B tests are hard to run well and this one was one I felt ran well – we got great results from it.
+As part of the Get Moving team at The Body Coach, we set up and ran an A/B test to attempt to improve the conversion of users on our paywall. A/B tests are hard to run well and this one I felt ran well – we got great results from it.
 
 Here’s what we did, and how it all came about.
 
 ## Identifying the problem space
 
-The product and design teams at The Body Coach did research which uncovered that our paywall – where we asked the user to pay to sign up – wasn't following best practise.
+The product and design teams at The Body Coach did research which uncovered that our paywall – where we asked the user to pay to sign up – wasn't following best practice.
 
 After a lot of research by the team, in particular from the website [Superwall](https://www.paywallscreens.com/), they came up with optimisations and a new design which we ran as our A/B test. Here are the old and new designs side-by-side:
 
@@ -53,7 +52,7 @@ The second was to reduce the scope of the A/B test. Say we’d done some misconf
 
 ## Running the experiment
 
-We used Amplitude to run this A/B test. My candid review of Amplitude is that it is fantastic, but the data is overwhelming. A huge positive of it is that it takes a lot of the interpretation of the data and does it for you, removing human bias in the results. 
+We used Amplitude to run this A/B test. My candid review of Amplitude is that it is fantastic, but the data is overwhelming. A huge positive of Amplitude is that it does a lot of the interpretation of the data for you, removing human bias in the results. 
 
 Amplitude splits an A/B test into four stages:
 - **Plan**: creating the A/B test parameters themselves
@@ -82,3 +81,5 @@ Within a few weeks - just before our busiest period of the year - we decided to 
 ## Conclusion
 
 This experiment was a major success. Not because it showed us what we expected, but because we managed to get a highly confident result driven off our hypothesis. Had we got a confident result, but one that showed our old paywall was more performant, then that would still be a highly successful test.
+
+_Thanks to John Wards and KP for proofing this article_
