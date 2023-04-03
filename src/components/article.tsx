@@ -27,12 +27,15 @@ interface ArticleContext {
 
 export default function ArticlePage({data, pageContext}: {data: ArticleQuery, pageContext: ArticleContext}) {
     const snippet = data.markdownRemark.frontmatter.snippet || "Articles and piece I've written"
+    if (!data.markdownRemark.frontmatter.snippet) {
+        console.warn(`${data.markdownRemark.frontmatter.title} has no snippet`)
+    }
     const seo = <SEO
         title={data.markdownRemark.frontmatter.title}
         keywords={[`articles`, `blog`, `vlog`, `tech`, `thoughts`]}
         description={snippet}
         key="SEO"
-        image={pageContext.image?.childImageSharp.gatsbyImageData.images.fallback?.src}
+        image={`https://www.amlcurran.co.uk${pageContext.image?.childImageSharp.gatsbyImageData.images.fallback?.src}`}
     />
     const previouslyOn = optionalComponent(
       pageContext.previousOpenGraph,
