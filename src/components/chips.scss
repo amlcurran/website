@@ -8,6 +8,12 @@
   color: var(--primary);
 }
 
+.close-icon {
+  vertical-align: middle;
+  padding: 0 4px;
+  font-weight: bold;
+}
+
 .chip.selected {
   background-color: var(--primary);
   color: core.$tertiary;

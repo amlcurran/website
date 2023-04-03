@@ -15,17 +15,10 @@ interface CloseButtonProps {
     closeLocation: string
 }
 
-const CloseIcon = () => {
-    return <span className="material-icons-round md-18" style={{
-        verticalAlign: "middle",
-        paddingLeft: 4,
-        paddingRight: 4,
-        fontWeight: "bold"
-    }}>close</span>
-}
+const CloseIcon = () => <span className="material-icons-round md-18">close</span>
 
 const CloseButton = (props: CloseButtonProps) => {
-    return <a href={props.closeLocation} className={"hover-background-on-primary"}>{props.visible ? <CloseIcon /> : <></>}</a>;
+    return booleanComponent(props.visible, () => <a href={props.closeLocation} className={"hover-background-on-primary close-icon"}><CloseIcon /></a>)
 }
 
 export const Chip = (props: ChipProps) => {
