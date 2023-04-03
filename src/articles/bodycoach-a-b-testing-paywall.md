@@ -2,6 +2,7 @@
 title: "Running an A/B test on our paywall"
 slug: "bodycoach-a-b-testing-paywall"
 image: "a-b-test-paywall-rollout"
+snippet: "How we ran and measured an A/B test as part of our paywall"
 rawDate: "2023-03-28"
 ---
 As part of the Get Moving team at The Body Coach, we set up and ran an A/B test to attempt to improve the conversion of users on our paywall. A/B tests are hard to run well and this one I felt ran well – we got great results from it.
