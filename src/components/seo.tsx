@@ -1,26 +1,15 @@
-/**
- * SEO component that queries for data with
- *  Gatsby's useStaticQuery React hook
- *
- * See: https://www.gatsbyjs.org/docs/use-static-query/
- */
-
-import React, {CSSProperties} from "react"
-import Helmet, {HelmetHTMLBodyDatum} from "react-helmet"
+import React from "react"
+import Helmet from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
-import Styling from "./styling"
 
 interface SEOProps {
-  description: string
-  lang?: string
-  meta?: any[]
-  keywords?: string[],
   title: string
+  description: string
+  keywords?: string[],
   image?: any
-  bodyAttributes?: any
 }
 
-function SEO({ description, lang, meta, keywords, title, image, bodyAttributes }: SEOProps) {
+function SEO({ description, keywords, title, image}: SEOProps) {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -36,15 +25,10 @@ function SEO({ description, lang, meta, keywords, title, image, bodyAttributes }
   )
 
   const metaDescription = description || site.siteMetadata.description
-  const defKeywords = keywords || []
-  const defMeta = meta || []
+  const defKeywords = (keywords || []).join(", ")
 
   return (
     <Helmet
-      htmlAttributes={{
-        lang,
-      }}
-      bodyAttributes={bodyAttributes}
       title={title}
       titleTemplate={`%s | ${site.siteMetadata.title}`}
       meta={[
@@ -93,17 +77,12 @@ function SEO({ description, lang, meta, keywords, title, image, bodyAttributes }
         {
           name: 'og:image:secure_url',
           content: image
+        },
+        {
+          name: "keywords",
+          content: defKeywords
         }
-      ]
-        .concat(
-          defKeywords.length > 0
-            ? {
-                name: `keywords`,
-                content: defKeywords.join(`, `),
-              }
-            : []
-        )
-        .concat(defMeta)}
+      ]}
     />
   )
 }

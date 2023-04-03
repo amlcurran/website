@@ -22,9 +22,10 @@ interface SideProjectsQuery {
 }
 
 const SideProjects = ({data}: { data: SideProjectsQuery }) => {
-    const seo = <SEO title="On the side" keywords={[`side projects`, `flutter`, `tech`, 'oo-er']}
-                     description="Here's what I get up to when I'm not coding" key="SEO"
-                     bodyAttributes={{class: "snap-scroll"}}/>
+    const seo = <SEO title="On the side"
+                     keywords={[`side projects`, `flutter`, `tech`, 'oo-er']}
+                     description="Here's what I get up to when I'm not coding"
+                     key="SEO"/>
     return (
         <Layout seo={seo}>
             <p style={{marginTop: 16}}>Here's a collection of side projects not related to my actual job, aiming to learn new projects or technologies.</p>
