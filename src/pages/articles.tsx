@@ -53,8 +53,8 @@ const Article = ({edge, data}: { edge: Edge<MarkdownRemark<ArticleFrontmatter>>,
         title={edge.node.frontmatter.title}
         link={`/articles/${edge.node.frontmatter.slug}`}
         image={data.allFile.edges
-            .map((edge) => edge.node)
-            .filter((file: Image) => file.name === edge.node.frontmatter.image)[0]}
+            .map(edge => edge.node)
+            .filter(file => file.name === edge.node.frontmatter.image)[0]}
         html={edge.node.frontmatter.snippet || edge.node.excerpt || ""}
         url={`/articles/${edge.node.frontmatter.slug}`}
         rawDate={edge.node.frontmatter.rawDate}/>

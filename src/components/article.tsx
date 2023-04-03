@@ -8,6 +8,7 @@ import {ArticleFrontmatter} from "../pages/articles"
 import {PreviouslyOn} from "./PreviouslyOn";
 import {booleanComponent, optionalComponent} from "../utils/optionalComponent";
 import {UnlistedWarning} from "./UnlistedWarning";
+import {SharpImage} from "../utils/graphql";
 
 const dateOptions: Intl.DateTimeFormatOptions = {
     day: "numeric",
@@ -19,14 +20,19 @@ interface ArticleQuery {
     markdownRemark: MarkdownRemark<ArticleFrontmatter>
 }
 
-export default function ArticlePage({data, pageContext}: {data: ArticleQuery, pageContext: { previousOpenGraph?: ogs.OpenGraphProperties }}) {
+interface ArticleContext {
+    previousOpenGraph?: ogs.OpenGraphProperties
+    image?: SharpImage
+}
+
+export default function ArticlePage({data, pageContext}: {data: ArticleQuery, pageContext: ArticleContext}) {
     const snippet = data.markdownRemark.frontmatter.snippet || "Articles and piece I've written"
     const seo = <SEO
         title={data.markdownRemark.frontmatter.title}
         keywords={[`articles`, `blog`, `vlog`, `tech`, `thoughts`]}
         description={snippet}
         key="SEO"
-        image={data.markdownRemark.frontmatter.featured?.childImageSharp.gatsbyImageData}
+        image={pageContext.image?.childImageSharp.gatsbyImageData.images.fallback?.src}
     />
     const previouslyOn = optionalComponent(
       pageContext.previousOpenGraph,
