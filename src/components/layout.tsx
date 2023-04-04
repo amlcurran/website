@@ -13,7 +13,10 @@ import SEO from "./seo";
 
 interface LayoutProps {
   children: ReactNode
-  seo: JSX.Element
+  /**
+   * @deprecated
+   */
+  seo?: JSX.Element
   style?: CSSProperties
 }
 

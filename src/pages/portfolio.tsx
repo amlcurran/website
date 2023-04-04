@@ -17,6 +17,7 @@ import {
 } from "../portfolio/portfolioViewModel";
 import {SmallCard} from "../components/smallCard";
 import {NonMatchingBanner} from "../components/NonMatchingBanner";
+import {SEO2} from "../components/Seo2";
 
 
 export interface PortfolioQuery {
@@ -27,12 +28,8 @@ const Portfolio = ({ data }: { data: PortfolioQuery }) => {
   // Use some state management to avoid rebuilding this all the time?
   const location = typeof window !== `undefined` ? window.location : undefined
   const viewModel = new PortfolioViewModel(location, data)
-  const seo = <SEO title="Portfolio"
-                   keywords={[`portfolio`, `developer`, `engineer`, `mobile`, `ios`, `android`]}
-                   description="A series of my most popular projects"
-                   key="SEO" />
   return (
-    <Layout seo={seo}>
+    <Layout>
       <main className="collapsingGrid">
         <Filters tags={viewModel.tags()}/>
         {
@@ -69,6 +66,11 @@ const Portfolio = ({ data }: { data: PortfolioQuery }) => {
     </Layout>
   )
 }
+
+export const Head = () => <SEO2 title="Portfolio"
+                               keywords={[`portfolio`, `developer`, `engineer`, `mobile`, `ios`, `android`]}
+                               description="A series of my most popular projects"
+                               key="SEO" />
 
 function image(node: PortfolioSingleImage | PortfolioDoubleImage) {
   if (typeof node === 'string') {
