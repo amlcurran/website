@@ -1,4 +1,4 @@
-import {graphql} from "gatsby"
+import {graphql, HeadProps} from "gatsby"
 import React from "react"
 import {MarkdownRemark} from "../utils/remark"
 import Layout from "./layout"
@@ -9,6 +9,7 @@ import {PreviouslyOn} from "./PreviouslyOn";
 import {booleanComponent, optionalComponent} from "../utils/optionalComponent";
 import {UnlistedWarning} from "./UnlistedWarning";
 import {SharpImage} from "../utils/graphql";
+import {SEO2} from "./Seo2";
 
 const dateOptions: Intl.DateTimeFormatOptions = {
     day: "numeric",
@@ -26,17 +27,9 @@ interface ArticleContext {
 }
 
 export default function ArticlePage({data, pageContext}: {data: ArticleQuery, pageContext: ArticleContext}) {
-    const snippet = data.markdownRemark.frontmatter.snippet || "Articles and piece I've written"
     if (!data.markdownRemark.frontmatter.snippet) {
         console.warn(`${data.markdownRemark.frontmatter.title} has no snippet`)
     }
-    const seo = <SEO
-        title={data.markdownRemark.frontmatter.title}
-        keywords={[`articles`, `blog`, `vlog`, `tech`, `thoughts`]}
-        description={snippet}
-        key="SEO"
-        image={`https://www.amlcurran.co.uk${pageContext.image?.childImageSharp.gatsbyImageData.images.fallback?.src}`}
-    />
     const previouslyOn = optionalComponent(
       pageContext.previousOpenGraph,
       (properties) => <PreviouslyOn previousOpenGraph={properties} previous={data.markdownRemark.frontmatter.previous!}/>
@@ -46,7 +39,7 @@ export default function ArticlePage({data, pageContext}: {data: ArticleQuery, pa
       () => <UnlistedWarning />
     )
     return (
-        <Layout seo={seo} style={{paddingTop: 16}}>
+        <Layout style={{paddingTop: 16}}>
             <article className={"readable-width"}>
                 <h4>{data.markdownRemark.timeToRead + " minutes to read  ● "}<time>{new Date(data.markdownRemark.frontmatter.rawDate).toLocaleDateString(undefined, dateOptions)}</time></h4>
                 <h1 style={{marginTop: 12}}>{data.markdownRemark.frontmatter.title}</h1>
@@ -57,6 +50,14 @@ export default function ArticlePage({data, pageContext}: {data: ArticleQuery, pa
         </Layout>
     )
 }
+
+export const Head = ({ data, pageContext }: HeadProps<ArticleQuery, ArticleContext>) => <SEO2
+  title={data.markdownRemark.frontmatter.title}
+  keywords={[`articles`, `blog`, `vlog`, `tech`, `thoughts`]}
+  description={data.markdownRemark.frontmatter.snippet || "Articles and piece I've written"}
+  key="SEO"
+  image={`https://www.amlcurran.co.uk${pageContext.image?.childImageSharp.gatsbyImageData.images.fallback?.src}`}
+/>
 
 export const pageQuery = graphql`
   query BlogPostBySlug($slug: String!) {
