@@ -1,11 +1,11 @@
 import React from "react"
 
 import Layout from "../components/layout"
-import SEO from "../components/seo"
 import { graphql } from "gatsby";
 import { GraphQLList, Edge, SharpImage } from "../utils/graphql";
 import { MarkdownRemark } from "../utils/remark";
 import {LinkedArticle} from "../components/linkedArticle";
+import {SEO2} from "../components/Seo2";
 
 export interface ArticleFrontmatter {
   title: string
@@ -28,7 +28,6 @@ interface ArticlesQuery {
 }
 
 const Articles = ({ data }: { data: ArticlesQuery }) => {
-  const seo = <SEO title="Articles" keywords={[`articles`, `blog`, `vlog`, `tech`, `thoughts`]} description="Articles and piece I've written" key="SEO" />
   const articles = data.allMarkdownRemark.edges
       .filter(edge => {
         if (edge.node.frontmatter.unlisted) {
@@ -39,7 +38,7 @@ const Articles = ({ data }: { data: ArticlesQuery }) => {
       })
       .map(edge => <Article edge={edge} data={data} key={edge.node.id} />)
   return (
-    <Layout seo={seo}>
+    <Layout>
       <main className="collapsingGrid">
         {articles}
       </main>
@@ -57,6 +56,8 @@ const Article = ({edge, data}: { edge: Edge<MarkdownRemark<ArticleFrontmatter>>,
         html={edge.node.frontmatter.snippet || edge.node.excerpt || ""}
         url={`/articles/${edge.node.frontmatter.slug}`}
         rawDate={edge.node.frontmatter.rawDate}/>
+
+export const Head = () => <SEO2 title="Articles" keywords={[`articles`, `blog`, `vlog`, `tech`, `thoughts`]} description="Articles and piece I've written" key="SEO" />
 
 export const query = graphql`{
   allMarkdownRemark(

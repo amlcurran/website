@@ -1,10 +1,10 @@
 import React, { CSSProperties } from "react"
 
-import SEO from "../components/seo"
 import "./index.css"
 import Styling from "../components/styling"
 import FrontPageCard, { ExternalLinkFrontPageCard } from "../components/FrontPageCard";
 import { StaticImage } from "gatsby-plugin-image"
+import {SEO2} from "../components/Seo2";
 
 const myStyle: CSSProperties = {
   paddingTop: 12,
@@ -14,7 +14,6 @@ const myStyle: CSSProperties = {
 const NewIndexPage = () => (
   <>
     <main className="content">
-      <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} description="Alex Curran's portfolio website" />
       <div className="index-top">
       <div style={{ ...myStyle, color: Styling.secondaryColor }} className="headlineLink">Hey, I'm Alex Curran.</div>
       I’m a software developer, specialising in mobile applications across Android and iOS.
@@ -49,5 +48,8 @@ const NewIndexPage = () => (
     </main>
   </>
 )
+
+export const Head = () =>
+  <SEO2 title="Home" keywords={[`gatsby`, `application`, `react`]} description="Alex Curran's portfolio website" />
 
 export default NewIndexPage

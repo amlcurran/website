@@ -1,7 +1,6 @@
 import React from "react"
 
 import Layout from "../components/layout"
-import SEO from "../components/seo"
 import {graphql} from "gatsby"
 import {Url} from "url"
 import {Edge, GraphQLList} from "../utils/graphql"
@@ -9,6 +8,7 @@ import {MarkdownRemark} from "../utils/remark"
 import {LargeCard} from "../components/card"
 import {Image} from "./articles"
 import {GatsbyImage, IGatsbyImageData} from "gatsby-plugin-image"
+import {SEO2} from "../components/Seo2";
 
 interface TalksFrontmatter {
   id: string
@@ -27,15 +27,17 @@ interface TalksQuery {
 
 const Talks = ({ data }: { data: TalksQuery }) => {
   return (
-    <Layout seo={<SEO title="Talks"
-                      keywords={[`talks`, `developer`, `engineer`, `mobile`, `ios`, `android`]}
-                      description="A summary of the talks I've done over my career" key="SEO"/>}>
+    <Layout>
       <div className="collapsingGrid">
         {data.allMarkdownRemark.edges.map(edge => <TalkElement edge={edge} query={data} key={edge.node.frontmatter.id}/>)}
       </div>
     </Layout>
   )
 }
+
+export const Head = () => <SEO2 title="Talks"
+                               keywords={[`talks`, `developer`, `engineer`, `mobile`, `ios`, `android`]}
+                               description="A summary of the talks I've done over my career" key="SEO"/>
 
 interface TalkElementProps {
   query: TalksQuery

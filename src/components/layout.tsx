@@ -9,20 +9,14 @@ import React, {CSSProperties, ReactNode} from "react"
 
 import Header from "./header"
 import "./layout.scss"
-import SEO from "./seo";
 
 interface LayoutProps {
   children: ReactNode
-  /**
-   * @deprecated
-   */
-  seo?: JSX.Element
   style?: CSSProperties
 }
 
-const Layout = ({ children, seo, style }: LayoutProps) => (
+const Layout = ({ children, style }: LayoutProps) => (
   <>
-    {seo}
     <Header />
     <div style={{ ...style}} className="content" >
       <main>{children}</main>

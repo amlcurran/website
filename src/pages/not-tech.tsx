@@ -3,10 +3,10 @@ import React from "react"
 import Layout from "../components/layout"
 import {graphql, Link} from "gatsby";
 import {Edge, GraphQLList, SharpImage} from "../utils/graphql";
-import SEO from "../components/seo";
 import {ImageRail} from "../components/image-rail";
 import {OutboundLink} from "gatsby-plugin-google-gtag";
-import {GatsbyImage, StaticImage} from "gatsby-plugin-image";
+import {StaticImage} from "gatsby-plugin-image";
+import {SEO2} from "../components/Seo2";
 
 interface NotTechQuery {
     allFile: GraphQLList<SharpImage & File>
@@ -14,7 +14,7 @@ interface NotTechQuery {
 
 const NotTech = ({ data }: { data: NotTechQuery }) => {
     return (
-        <Layout seo={seo}>
+        <Layout>
           <p style={{marginTop: 16}}>I try hard to make sure that I don't spend all my time on my computer. Whilst not easy in my field of work, I feel it is important to try to make things with my hands, regardless of how imperfect they are. Here's just a small taste of some of my hobbies.</p>
           <section style={{marginTop: 36}}>
             <h2>Pottery</h2>
@@ -71,7 +71,7 @@ function imagesWithName(notTechBits: Edge<SharpImage & File>[], name: string) {
     return notTechBits.filter((edge) => edge.node.name.indexOf(name) !== -1);
 }
 
-const seo = <SEO
+export const Head = () => <SEO2
     title="Not tech"
     keywords={[`hands`, `developer`, `engineer`, `pottery`, `soap`]}
     description="Here's what I get up to when I'm not coding"

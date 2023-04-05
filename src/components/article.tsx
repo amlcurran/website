@@ -2,7 +2,6 @@ import {graphql, HeadProps} from "gatsby"
 import React from "react"
 import {MarkdownRemark} from "../utils/remark"
 import Layout from "./layout"
-import SEO from "./seo"
 import ogs from "open-graph-scraper"
 import {ArticleFrontmatter} from "../pages/articles"
 import {PreviouslyOn} from "./PreviouslyOn";

@@ -1,20 +1,10 @@
 import React from "react";
 import Layout from "../../components/layout";
-import SEO from "../../components/seo";
+import {SEO2} from "../../components/Seo2";
 
 const HelpingSmallBusiness = () => {
   return (
-    <Layout
-      seo={<SEO title={"Helping small businesses"} description={"Helping small businesses in North London"} keywords={[
-        "small business",
-        "charity",
-        "pro bono",
-        "Stoke Newington",
-        "Finsbury Park",
-        "Highbury",
-        "Walthamstow",
-        "Horsham"
-      ]}/>}>
+    <Layout>
       <h2 style={{paddingTop: 24}}>Helping small businesses</h2>
       <p>If you’re a small business or charity in Highbury, Stoke Newington, Walthamstow, or Horsham and would like some
         pro bono help with a website, app, or would like a chat about how to use technology, get in touch!</p>
@@ -27,5 +17,18 @@ const HelpingSmallBusiness = () => {
     </Layout>
   );
 }
+
+export const Head = () => <SEO2 title="Helping small businesses"
+                               description="Helping small businesses in North London"
+                               keywords={[
+                                 "small business",
+                                 "charity",
+                                 "pro bono",
+                                 "Stoke Newington",
+                                 "Finsbury Park",
+                                 "Highbury",
+                                 "Walthamstow",
+                                 "Horsham"
+                               ]}/>
 
 export default HelpingSmallBusiness

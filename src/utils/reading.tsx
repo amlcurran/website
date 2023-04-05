@@ -1,9 +1,9 @@
 import React from "react";
 import {graphql} from "gatsby";
-import {Edge, GraphQLList} from "./graphql";
+import {GraphQLList} from "./graphql";
 import Layout from "../components/layout";
-import SEO from "../components/seo";
 import {LinkedArticle} from "../components/linkedArticle";
+import {SEO2} from "../components/Seo2";
 
 interface PocketApiArticle {
     title: string
@@ -21,9 +21,8 @@ interface ReadingQuery {
 }
 
 const Reading = (query: ReadingQuery) => {
-    let seo = <SEO title={"My reading"} description={"Favourite articles from pocket"} />
     return (
-      <Layout seo={seo}>
+      <Layout>
           <div>
               {query.data.allPocketArticle.edges.map(article =>
                   <LinkedArticle title={article.node.title}
@@ -36,6 +35,8 @@ const Reading = (query: ReadingQuery) => {
       </Layout>
   )
 }
+
+export const Head = () => <SEO2 title={"My reading"} description={"Favourite articles from pocket"} />
 
 export const pageQuery = graphql`{
   allPocketArticle(sort: {time_added: DESC}) {

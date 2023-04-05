@@ -2,7 +2,6 @@ import React from "react"
 import {graphql} from "gatsby"
 
 import Layout from "../components/layout"
-import SEO from "../components/seo"
 import {GraphQLList} from "../utils/graphql"
 import {MarkdownRemark} from "../utils/remark"
 import {LargeCard} from "../components/card"

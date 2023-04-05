@@ -1,13 +1,13 @@
 import React from "react"
 
 import Layout from "../components/layout"
-import SEO from "../components/seo"
 import {Edge, GraphQLList} from "../utils/graphql"
 import {MarkdownRemark} from "../utils/remark"
 import {graphql} from "gatsby"
-import {Icon, LargeCard} from "../components/card"
+import {LargeCard} from "../components/card"
 import {Chip} from "../components/Chip"
 import PhoneFrame from "../components/phone-frames"
+import {SEO2} from "../components/Seo2";
 
 interface SideProjectFrontmatter {
     start: Date
@@ -22,12 +22,8 @@ interface SideProjectsQuery {
 }
 
 const SideProjects = ({data}: { data: SideProjectsQuery }) => {
-    const seo = <SEO title="On the side"
-                     keywords={[`side projects`, `flutter`, `tech`, 'oo-er']}
-                     description="Here's what I get up to when I'm not coding"
-                     key="SEO"/>
     return (
-        <Layout seo={seo}>
+        <Layout>
             <p style={{marginTop: 16}}>Here's a collection of side projects not related to my actual job, aiming to learn new projects or technologies.</p>
             <div className="collapsingGrid">
                 {data.allMarkdownRemark.edges.map(asSideProject)}
@@ -56,6 +52,11 @@ function asSideProject({node}: Edge<MarkdownRemark<SideProjectFrontmatter>>, ind
         belowTitle={techChips}
         style={{marginBottom: 72, scrollSnapAlign: "start"}}/>)
 }
+
+export const Head = () => <SEO2 title="On the side"
+                                keywords={[`side projects`, `flutter`, `tech`, 'oo-er']}
+                                description="Here's what I get up to when I'm not coding"
+                                key="SEO"/>
 
 export const pageQuery = graphql`{
   allMarkdownRemark(
