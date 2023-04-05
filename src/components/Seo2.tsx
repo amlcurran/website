@@ -16,6 +16,7 @@ export function SEO2({ description, keywords, title, image}: SEOProps) {
   return <>
     <title>{title} | Alex Curran</title>
     <meta name="description" content={metaDescription} />
+    <meta name="image" property="og:image" content={image} />
     <meta name="og:title" content={title} />
     <meta name="og:description" content={metaDescription} />
     <meta name="og:type" content="website" />
