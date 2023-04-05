@@ -37,7 +37,7 @@ const Articles = ({ data }: { data: ArticlesQuery }) => {
           return true
         }
       })
-      .map(edge => <Article edge={edge} data={data} />)
+      .map(edge => <Article edge={edge} data={data} key={edge.node.id} />)
   return (
     <Layout seo={seo}>
       <main className="collapsingGrid">
@@ -49,7 +49,6 @@ const Articles = ({ data }: { data: ArticlesQuery }) => {
 
 const Article = ({edge, data}: { edge: Edge<MarkdownRemark<ArticleFrontmatter>>, data: ArticlesQuery }) =>
     <LinkedArticle
-        key={edge.node.id}
         title={edge.node.frontmatter.title}
         link={`/articles/${edge.node.frontmatter.slug}`}
         image={data.allFile.edges
