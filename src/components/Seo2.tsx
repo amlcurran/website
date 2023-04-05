@@ -19,6 +19,7 @@ export function SEO2({ description, keywords, title, image}: SEOProps) {
     <meta name="og:title" content={title} />
     <meta name="og:description" content={metaDescription} />
     <meta name="og:type" content="website" />
+    <meta name="og:image" content={image} />
     <meta name="og:image:secure_url" content={image} />
     <meta name="twitter:creator" content="@amlcurran" />
     <meta name="twitter:title" content={title} />
