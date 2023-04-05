@@ -51,13 +51,34 @@ export default function ArticlePage({data, pageContext}: {data: ArticleQuery, pa
     )
 }
 
-export const Head = ({ data, pageContext }: HeadProps<ArticleQuery, ArticleContext>) => <SEO2
-  title={data.markdownRemark.frontmatter.title}
-  keywords={[`articles`, `blog`, `vlog`, `tech`, `thoughts`]}
-  description={data.markdownRemark.frontmatter.snippet || "Articles and piece I've written"}
-  key="SEO"
-  image={`https://www.amlcurran.co.uk${pageContext.image?.childImageSharp.gatsbyImageData.images.fallback?.src}`}
-/>
+export const Head = ({data, pageContext}: HeadProps<ArticleQuery, ArticleContext>) => {
+    const schema = {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        headline: data.markdownRemark.frontmatter.title,
+        abstract: data.markdownRemark.frontmatter.snippet || "Articles and piece I've written",
+        image: [
+          `https://www.amlcurran.co.uk${pageContext.image?.childImageSharp.gatsbyImageData.images.fallback?.src}`
+        ],
+        datePublished: new Date(data.markdownRemark.frontmatter.rawDate).toLocaleDateString(undefined, dateOptions),
+        dateModified: new Date(data.markdownRemark.frontmatter.rawDate).toLocaleDateString(undefined, dateOptions),
+        author: [{
+            "@type": "Person",
+            "name": "Alex Curran",
+            "url": "https://www.amlcurran.co.uk"
+        }],
+    }
+    return <>
+        <script type="application/ld+json">{JSON.stringify(schema, null, 2)}</script>
+        <SEO2
+          title={data.markdownRemark.frontmatter.title}
+          keywords={[`articles`, `blog`, `vlog`, `tech`, `thoughts`]}
+          description={data.markdownRemark.frontmatter.snippet || "Articles and piece I've written"}
+          key="SEO"
+          image={`https://www.amlcurran.co.uk${pageContext.image?.childImageSharp.gatsbyImageData.images.fallback?.src}`}
+        />
+    </>;
+}
 
 export const pageQuery = graphql`
   query BlogPostBySlug($slug: String!) {
