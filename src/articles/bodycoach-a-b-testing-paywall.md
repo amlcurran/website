@@ -9,6 +9,10 @@ As part of the Get Moving team at The Body Coach, we set up and ran an A/B test 
 
 Here’s what we did, and how it all came about.
 
+```toc
+```
+
+
 ## Identifying the problem space
 
 The product and design teams at The Body Coach did research which uncovered that our paywall – where we asked the user to pay to sign up – wasn't following best practice.

@@ -97,7 +97,19 @@ module.exports = {
             options: {
               backgroundColor: 'transparent'
             }
-          }
+          },
+          {
+            resolve: `gatsby-remark-table-of-contents`,
+            options: {
+              exclude: "Table of contents",
+              tight: true,
+              ordered: false,
+              fromHeading: 1,
+              toHeading: 6,
+              className: "table-of-contents"
+            },
+          },
+          `gatsby-remark-autolink-headers`
         ]
       }
     },

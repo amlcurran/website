@@ -180,6 +180,24 @@ a:hover {
   }
 }
 
+.table-of-contents {
+  background-color: core.$primary-hover;
+  border-radius: 16px;
+  padding: 12px 0;
+  font-size: 18px;
+
+  ul {
+    list-style-type: decimal;
+    margin: 0;
+  }
+  ul ul {
+    list-style-type: lower-alpha;
+  }
+  p {
+    margin: 0;
+  }
+}
+
 .chips-host {
   display: flex;
   flex-wrap: wrap;
