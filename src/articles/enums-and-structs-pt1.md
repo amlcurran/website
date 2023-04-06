@@ -56,7 +56,7 @@ Thankfully we've all moved on from that to give data objects behaviour – but t
 
 Let's go back to our long-running HTTPS request. If there's an error, we want to show an alert to the user. We could make an enum with a case for each alert we want to show. But then we'll need to switch over the enum for the alert title, subtitle, buttons, etc. For example:
 
-```
+```swift
 enum ErrorViewState {
     case loggedOut
     case notFound
@@ -88,7 +88,7 @@ enum ErrorViewState {
 
 Instead if we think about this as a bundle of data, we can make a struct with properties, e.g. title, subtitle, buttons. Not only does this push more logic out of our view layer, but we could even put this logic in a backend-for-frontend!
 
-```
+```swift
 struct ErrorViewState {
     let errorTitle: String
     let errorDescription: String
