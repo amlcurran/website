@@ -355,6 +355,9 @@ pre {
   border-radius: 8px;
   overflow: scroll;
 }
+pre[class*="language-"] {
+  font-size: 0.8em !important;
+}
 code {
   font-size: 0.95rem;
   line-height: 1.45rem;

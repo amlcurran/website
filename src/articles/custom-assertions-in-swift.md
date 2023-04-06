@@ -12,7 +12,7 @@ If you’ve not written a test before, then you may not have seen a typical test
 
 An if statement is actually an assertion, in the example below we’re asserting that the array is not empty:
 
-```
+```swift
 if imagesArray.isEmpty == false {
     // Do something here
 }
@@ -20,7 +20,7 @@ if imagesArray.isEmpty == false {
 
 In tests, assertion are the key points of unit tests — we use them to assert (or check) that our logic gives us the expected result:
 
-```
+```swift
 func testTwoMultipliedByTwoIsFour() {
     let calculator = Calculator()
     let result = calculator.multiply(2, by: 2)

@@ -10,13 +10,13 @@ A boolean (or Bool, or whatever syntax your language uses) is simple construct b
 
 We use methods like this a lot as iOS developers, as UIKit has many methods like this:
 
-```
+```swift
 viewController.present(otherViewController, animated: true)
 ```
 
 which could just as easily been two methods:
 
-```
+```swift
 viewController.immediatelyPresent(otherViewController)
 viewController.animatePresentation(of: otherViewController)
 ```
@@ -25,7 +25,7 @@ It is easy for these to get into how we write code, but they’re not always the
 
 Let’s look at this method, and see why it is problematic:
 
-```
+```swift
 func dataLoader(_ dataLoader: DataLoader, finishedLoading data: Data?, wasSuccessful success: Bool) {
     dataLoader.currentRequest?.cancel()
     view.hideLoadingSpinner()
@@ -52,7 +52,7 @@ Whilst this would increase duplication, duplication is not always a bad thing! D
 
 There is also a term for measuring the amount of control flows in a chunk of code, which is called cyclomatic complexity. This may be familiar if you’ve ever used some static analysis tools, like SonarQube, on your project. The cyclomatic complexity is measured as the number of control flows in the piece of code. So, the code above has a cyclomatic complexity of 2. Bear in mind that cyclomatic complexity increases dramatically — a method which takes two booleans can have a complexity up to 4. Also a switch statement has a cyclomatic complexity equal to the number of cases! Try to figure out what cyclomatic complexity of the method below is (answer at the bottom of the post):
 
-```
+```swift
 func handleData(wasSuccessful success: Bool) {
     if success {
         view.hideLoadingSpinner()
@@ -81,7 +81,7 @@ We identified above that there are three different sections of the code, so let�
 
 Here’s what I would call them:
 
-```
+```swift
 func dataLoader(_ dataLoader: DataLoader, finishedLoading data: Data?, wasSuccessful success: Bool) {
     stopLoading()
     if success {
@@ -124,7 +124,7 @@ In this case, it gets given the boolean flag which the presenter must ask (via t
 
 The easiest way to do this would be having separate delegate methods. If we were to use two delegate methods, then we would end up with something like this:
 
-```
+```swift
 func dataLoader(_ dataLoader: DataLoader, finishedLoading data: Data) {
     stopLoading()
     cache.store(data)
@@ -143,7 +143,7 @@ So now we’ve refactored our one method with an if statement, into two with no 
 
 ### When the entire method is actually two different implementations
 
-```
+```swift
 func showPicker(animated: Bool) {
     if animated {
         UIView.animate(withDuration: 0.2, animations: {
@@ -157,7 +157,7 @@ func showPicker(animated: Bool) {
 
 Here we could decompose this into a method that performs the move, and one that also animates it:
 
-```
+```swift
 func showPickerAnimated() {
     UIView.animate(withDuration: 0.2, animations: {
         self.showPicker()
@@ -171,7 +171,7 @@ func showPicker() {
 
 ### When the method does an additional thing determined by the boolean
 
-```
+```swift
 func update(_ items: [String], andRefreshTable refreshTable: Bool) {
     self.items = items
     if refreshTable {
@@ -182,7 +182,7 @@ func update(_ items: [String], andRefreshTable refreshTable: Bool) {
 
 This is a particularly good case to remove a boolean. Instead of having the if statement in a method, you can have two methods and compose the more complex one from the simpler one:
 
-```
+```swift
 func update(_ items: [String]) {
     self.items = items
 }
@@ -210,4 +210,3 @@ The answer to the cyclomatic complexity question is…
 * excluding Objective-C, of course…
 
 Photo by [Tianyi Ma](https://unsplash.com/@tma?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on [Unsplash](https://unsplash.com/s/photos/computer?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)
-  

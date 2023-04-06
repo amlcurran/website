@@ -21,7 +21,7 @@ So long as you avoid [callback hell](http://callbackhell.com/), they’re a shor
 
 Completion blocks have problems but they’re not always obvious to see, which we can see with an implementation of one:
 
-```
+```swift
 let task = URLSession.shared.dataTask(with: aUrl, completionHandler: { (data, response, error) in
     if let data = data {
         parse(data.asJSON)
@@ -37,7 +37,7 @@ Hopefully now the problem is more obvious! The [Single Responsibility Principle]
 
 The other problem is made far more obvious by Swift’s type system. Take a look at the signature of the completion block:
 
-```
+```swift
 (Data?, URLResponse?, Error?) -> Void
 ```
 
@@ -49,19 +49,25 @@ This is a problem because a convention is just another way of saying something r
 
 Using the interesting concept of [higher-order functions](http://learnyouahaskell.com/higher-order-functions), we can improve the API of a lot of these functions (except for URLSession, we’ll address that one at the bottom of this post). Most completion blocks take the signature, where Result can be any piece of useful data:
 
-```(Result?, Error?) -> Void```
+```swift
+(Result?, Error?) -> Void
+```
 
 What we should be aiming for instead (remembering the term mutually exclusive) is two blocks, one taking the form:
 
-```resultHandler: (Result) -> Void```
+```swift
+resultHandler: (Result) -> Void
+```
 
 And another with the form:
 
-```errorHandler: (Error) -> Void```
+```swift
+errorHandler: (Error) -> Void
+```
 
 If any of you are familiar with [RxSwift](https://github.com/ReactiveX/RxSwift), then these will look [pretty familiar](http://reactivex.io/documentation/operators/subscribe.html). To implement something wrapping this functionality, we can use generics:
 
-```
+```swift
 func completion<Result>(onResult: @escaping (Result) -> Void, onError: @escaping (Error) -> Void) -> ((Result?, Error?) -> Void) {
     return { (maybeResult, maybeError) in
         if let result = maybeResult {
@@ -81,7 +87,7 @@ case NoResultFound
 
 This function creates a closure which will use two separate closures to handle the results. Here’s a before and after using CLGeocoder:
 
-```
+```swift
 CLGeocoder().geocodeAddressString(location, completionHandler: { [weak self] (maybePlaces, maybeError) in
     if let places = maybePlaces {
         self?.handleGeocoding(places: places)
@@ -94,7 +100,7 @@ CLGeocoder().geocodeAddressString(location, completionHandler: { [weak self] (ma
 ```
 And here’s the implementation with our closures:
 
-```
+```swift
 CLGeocoder().geocodeAddressString(location, completionHandler: completion(
     onResult: { [weak self] places in
         self?.handleGeocoding(places: places)
@@ -106,7 +112,7 @@ CLGeocoder().geocodeAddressString(location, completionHandler: completion(
 ```
 The benefit here is that no longer do we have to deal with `Optionals` everywhere in the result, which makes our code more direct. The other benefit is now that the two data _flows_ in the result are separated into two distinct cases — one where the request succeeds, and one where it fails. This reduces boilerplate, ambiguity and also allows us to use function pointers to write succinct, readable code:
 
-```
+```swift
 CLGeocoder().geocodeAddressString(location, completionHandler: completion(
 onResult: zoomToFirstPlace,
 onError: showToast))
@@ -116,7 +122,7 @@ onError: showToast))
 
 We can’t use our completion function defined above in the case of URLSession as the result is two separate objects — Data and a URLResponse . But if we think of the result to be both of these objects combined, it becomes clearer what we can do. If an error happens, and we don’t care about the URLResponse in that case, we can define a struct to encapsulate the Data and URLResponse:
 
-```
+```swift
 struct Response {
     let data: Data
     let metadata: URLResponse?
@@ -137,7 +143,7 @@ extension URLSession {
 
 Which would then allow us to use our function as we see fit:
 
-```
+```swift
 URLSession.shared.dataTask(with: aUrl, completion: completion(
 onResult: parseResponseAsJSON,
 onError: tryCachedVersion

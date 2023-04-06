@@ -25,13 +25,13 @@ We use a third-party library which allows us to update text within the app witho
 
 Whilst it works flawlessly under most circumstances, one place where the developer must be careful is when fetching a string that is set in a custom XML attribute:
 
-```
+```kotlin
 valueLabel.text = styledAttributes.getString(R.styleable.Row_rowAmountText)
 ```
 ‍
 In places like this, the library cannot update the text; instead you need to use a slightly different method we built:
 
-```
+```kotlin
 valueLabel.text = styledAttributes.getStringFromResources(resources, R.styleable.Row_rowAmountText)
 ```
 

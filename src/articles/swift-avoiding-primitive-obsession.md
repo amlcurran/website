@@ -24,7 +24,7 @@ One thing often overlooked about good code is that it makes it difficult to do t
 
 Let’s focus on this little snippet of code and look at some ways of modelling this better:
 
-```
+```swift
 func showDetailsForEmail(withId: String) {
     // push new view controller
 }
@@ -34,7 +34,7 @@ func showDetailsForEmail(withId: String) {
 
 typealias is a [keyword](https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Declarations.html) — available both in Objective-C and Swift — useful to show where something in your code could be easily represented by something else:
 
-```
+```swift
 typealias EmailId = String
 
 func showDetailsForEmail(withId: EmailId) {
@@ -45,7 +45,7 @@ Typealiases are good for explaining what something can be used for in this conte
 
 Unfortunately, typealiases fail the second requirement — preventing misuse of the API. Typealiases are a “nickname” for another object; they’re not a separate type so they won’t prevent their “nicknamed” type being used in their place. Even though the above function requires an EmailId, you could still pass a String (or even another typealias) in its place:
 
-```
+```swift
 typealias EmailId = String
 typealias SMSId = String
 
@@ -63,7 +63,7 @@ This code doesn’t make sense from the perspective of a developer, but the comp
 
 The simplest way to ensure that you don’t end up accidentally passing the wrong “meaning” of one of these strings to a method is to make two different objects for the two different types, promoting them from being lowly typealiases:
 
-```
+```swift
 struct EmailId {
     let rawValue: String
 }
@@ -91,7 +91,7 @@ Which is perfect! Whilst it might seem like overhead to create two separate obje
 
 A common annoyance with creating objects to wrap domain items is that it can add a lot of boilerplate to the data you create in your tests:
 
-```
+```swift
 let testEmail = Email(id: EmailId(rawValue: “from:alice:to:bob”), message: “…”)
 ```
 
@@ -99,7 +99,7 @@ Ensuring tests are expressive and quick and easy to understand is important. Luc
 
 Swift has a suite of protocols which can be used to say “this object can be constructed just from a primitive”. These are the `ExpressibleBy*Literal` protocols where * can be some built-in types, e.g. a String, Int, Double, or Array. Implementing these protocols just requires implementing some initialisers:
 
-```
+```swift
 struct EmailId: ExpressibleByStringLiteral {
 
     let rawValue: String
@@ -120,20 +120,20 @@ struct EmailId: ExpressibleByStringLiteral {
 
 You can then pass a string literal instead of having to create this struct yourself, which means you don’t have to worry about the boilerplate of creating your wrapping struct all the time:
 
-```
+```swift
 let firstEmailId = EmailId(rawValue: “from:jane:to:kathy”)
 let secondEmailId: EmailId = “from:daniel:to:erica”
 ```
 
 This can make your test setup easier as now instead of:
 
-```
+```swift
 let testEmail = Email(id: EmailId(rawValue: “from:sue:to:terry”), message: “…”)
 ```
 
 You can simply write:
 
-```
+```swift
 let testEmail = Email(id: “from:sue:to:terry”, message: “…”)
 ```
 
@@ -141,7 +141,7 @@ You would still create an EmailId , but you’ve reduced some of the boilerplate
 
 One really important point is that this will only work with string literals (ie text contained in “quotation marks”). So the following code won’t compile because stringId is a String (as soon as a string literal is assigned, it is assigned as a String):
 
-```
+```swift
 let stringId = “any”
 let testEmail = Email(id: stringId, message: “…”) // fails to compile, as stringId is a String
 ```
