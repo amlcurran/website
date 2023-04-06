@@ -1,10 +1,22 @@
-const path = require("path")
-const openGraphScraper = require("open-graph-scraper")
+import openGraphScraper from "open-graph-scraper";
+import type {CreatePagesArgs, GatsbyNode, Page} from "gatsby"
+import path from "path";
+import {GraphQLList} from "./src/utils/graphql";
+import {MarkdownRemark} from "./src/utils/remark";
+import {ArticleFrontmatter, Image} from "./src/pages/articles";
 
-exports.createPages = async ({ actions, graphql, reporter }) => {
+interface PagesQuery {
+  data?: {
+    allMarkdownRemark: GraphQLList<MarkdownRemark<ArticleFrontmatter>>
+    allFile: GraphQLList<Image>
+  }
+  errors?: any[]
+}
+
+export const createPages: GatsbyNode["createPages"] = async ({ actions, graphql, reporter }: CreatePagesArgs) => {
   const { createPage } = actions
 
-  const result = await graphql(`{
+  const result: PagesQuery = await graphql(`{
   allMarkdownRemark(
     filter: {fileAbsolutePath: {regex: "/articles/"}}
     sort: {frontmatter: {rawDate: DESC}}
@@ -36,8 +48,8 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   }
 }`)
 
-  if (result.errors) {
-    console.log(result.errors)
+  if (result.errors || !result.data) {
+    reporter.error(result.errors || "No errors")
     reporter.panicOnBuild(`Error while running GraphQL query.`)
     return
   }
@@ -50,14 +62,17 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   }
 }
 
-async function createArticle(node, createPage, image) {
-  const blogPostTemplate = path.resolve(`src/components/article.tsx`)
-  let fetchResult;
+async function fetchOpenGraphForPrevious(node: any): Promise<any> {
   if (node.frontmatter.previous) {
-    fetchResult = await openGraphScraper({url: node.frontmatter.previous});
+    return openGraphScraper({url: node.frontmatter.previous});
   } else {
-    fetchResult = { }
+    return {}
   }
+}
+
+async function createArticle(node: MarkdownRemark<ArticleFrontmatter>, createPage: (page: Page) => void, image: Image) {
+  const blogPostTemplate = path.resolve(`src/components/article.tsx`)
+  const fetchResult = await fetchOpenGraphForPrevious(node);
 
   if (node.frontmatter.unlisted === true) {
      console.log(`${node.frontmatter.slug} is unlisted`)
