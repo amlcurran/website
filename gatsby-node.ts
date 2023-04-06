@@ -4,6 +4,7 @@ import path from "path";
 import {GraphQLList} from "./src/utils/graphql";
 import {MarkdownRemark} from "./src/utils/remark";
 import {ArticleFrontmatter, Image} from "./src/pages/articles";
+import {Reporter} from "gatsby/reporter";
 
 interface PagesQuery {
   data?: {
@@ -58,7 +59,7 @@ export const createPages: GatsbyNode["createPages"] = async ({ actions, graphql,
     const image = result.data.allFile.edges
         .map(edge => edge.node)
         .filter(file => file.name === node.frontmatter.image)[0]
-    const page = await pageForArticle(node, image)
+    const page = await pageForArticle(node, image, reporter)
     await createPage(page)
   }
 }
@@ -71,12 +72,12 @@ async function fetchOpenGraphForPrevious(node: any): Promise<any> {
   }
 }
 
-async function pageForArticle(node: MarkdownRemark<ArticleFrontmatter>, image: Image): Promise<Page> {
+async function pageForArticle(node: MarkdownRemark<ArticleFrontmatter>, image: Image, reporter: Reporter): Promise<Page> {
   const blogPostTemplate = path.resolve(`src/components/article.tsx`)
   const fetchResult = await fetchOpenGraphForPrevious(node);
 
   if (node.frontmatter.unlisted === true) {
-     console.log(`${node.frontmatter.slug} is unlisted`)
+     reporter.info(`${node.frontmatter.slug} is unlisted`)
   }
 
   return {
