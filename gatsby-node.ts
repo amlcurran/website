@@ -58,7 +58,8 @@ export const createPages: GatsbyNode["createPages"] = async ({ actions, graphql,
     const image = result.data.allFile.edges
         .map(edge => edge.node)
         .filter(file => file.name === node.frontmatter.image)[0]
-    await createArticle(node, createPage, image)
+    const page = await pageForArticle(node, image)
+    await createPage(page)
   }
 }
 
@@ -70,7 +71,7 @@ async function fetchOpenGraphForPrevious(node: any): Promise<any> {
   }
 }
 
-async function createArticle(node: MarkdownRemark<ArticleFrontmatter>, createPage: (page: Page) => void, image: Image) {
+async function pageForArticle(node: MarkdownRemark<ArticleFrontmatter>, image: Image): Promise<Page> {
   const blogPostTemplate = path.resolve(`src/components/article.tsx`)
   const fetchResult = await fetchOpenGraphForPrevious(node);
 
@@ -78,7 +79,7 @@ async function createArticle(node: MarkdownRemark<ArticleFrontmatter>, createPag
      console.log(`${node.frontmatter.slug} is unlisted`)
   }
 
-  createPage({
+  return {
     path: `articles/${node.frontmatter.slug}`,
     component: blogPostTemplate,
     context: {
@@ -86,5 +87,5 @@ async function createArticle(node: MarkdownRemark<ArticleFrontmatter>, createPag
       previousOpenGraph: fetchResult.result,
       image: image
     }
-  })
+  }
 }
