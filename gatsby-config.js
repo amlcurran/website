@@ -9,7 +9,6 @@ module.exports = {
     author: `Alex Curran`,
   },
   plugins: [
-    `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sass`,
     {
       resolve: `gatsby-plugin-manifest`,
