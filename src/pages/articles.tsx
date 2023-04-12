@@ -1,11 +1,12 @@
 import React from "react"
 
 import Layout from "../components/layout"
-import { graphql } from "gatsby";
-import { GraphQLList, Edge, SharpImage } from "../utils/graphql";
-import { MarkdownRemark } from "../utils/remark";
+import {graphql} from "gatsby";
+import {Edge, GraphQLList, SharpImage} from "../utils/graphql";
+import {MarkdownRemark} from "../utils/remark";
 import {LinkedArticle} from "../components/linkedArticle";
 import {SEO2} from "../components/Seo2";
+import {getWindow} from "../utils/window";
 
 export interface ArticleFrontmatter {
   title: string
@@ -27,16 +28,26 @@ interface ArticlesQuery {
   profile: SharpImage
 }
 
+function notUnlistedOrInDebug(frontmatter: ArticleFrontmatter) {
+  if (frontmatter.unlisted) {
+    return !frontmatter.unlisted || getWindow()?.location.host === "localhost:8000"
+  } else {
+    return true
+  }
+}
+
 const Articles = ({ data }: { data: ArticlesQuery }) => {
   const articles = data.allMarkdownRemark.edges
-      .filter(edge => {
-        if (edge.node.frontmatter.unlisted) {
-          return !edge.node.frontmatter.unlisted
-        } else {
-          return true
-        }
-      })
-      .map(edge => <Article edge={edge} data={data} key={edge.node.id} />)
+    .map(edge => edge.node)
+    .filter(node => notUnlistedOrInDebug(node.frontmatter))
+    .map(markdown =>
+      <LinkedArticle
+        title={markdown.frontmatter.unlisted ? `(Unlisted) ${markdown.frontmatter.title}` : markdown.frontmatter.title}
+        image={firstImage(data, markdown)}
+        html={markdown.frontmatter.snippet || markdown.excerpt || ""}
+        url={`/articles/${markdown.frontmatter.slug}`}
+        rawDate={markdown.frontmatter.rawDate}/>
+    )
   return (
     <Layout>
       <main className="collapsingGrid">
@@ -46,16 +57,19 @@ const Articles = ({ data }: { data: ArticlesQuery }) => {
   )
 }
 
-const Article = ({edge, data}: { edge: Edge<MarkdownRemark<ArticleFrontmatter>>, data: ArticlesQuery }) =>
+function firstImage(data: ArticlesQuery, markdown: MarkdownRemark<ArticleFrontmatter>) {
+  return data.allFile.edges
+    .map(edge => edge.node)
+    .filter(file => file.name === markdown.frontmatter.image)[0];
+}
+
+const Article = ({markdown, image}: { markdown: MarkdownRemark<ArticleFrontmatter>, image: Image}) =>
     <LinkedArticle
-        title={edge.node.frontmatter.title}
-        link={`/articles/${edge.node.frontmatter.slug}`}
-        image={data.allFile.edges
-            .map(edge => edge.node)
-            .filter(file => file.name === edge.node.frontmatter.image)[0]}
-        html={edge.node.frontmatter.snippet || edge.node.excerpt || ""}
-        url={`/articles/${edge.node.frontmatter.slug}`}
-        rawDate={edge.node.frontmatter.rawDate}/>
+        title={markdown.frontmatter.unlisted ? `(Unlisted) ${markdown.frontmatter.title}` : markdown.frontmatter.title}
+        image={image}
+        html={markdown.frontmatter.snippet || markdown.excerpt || ""}
+        url={`/articles/${markdown.frontmatter.slug}`}
+        rawDate={markdown.frontmatter.rawDate}/>
 
 export const Head = () => <SEO2 title="Articles" keywords={[`articles`, `blog`, `vlog`, `tech`, `thoughts`]} description="Articles and piece I've written" key="SEO" />
 

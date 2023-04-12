@@ -10,7 +10,6 @@ interface Linkable {
 interface ArticleProps {
     title: string
     html: string
-    link?: string
     image: Image | string
     rawDate: string
 }
