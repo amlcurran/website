@@ -8,9 +8,6 @@ module.exports = {
     description: `I’m Alex Curran, a software developer specialising in mobile applications across Android and iOS.`,
     author: `Alex Curran`,
   },
-  flags: {
-    DEV_SSR: true
-  },
   plugins: [
     `gatsby-plugin-sass`,
     {
@@ -135,25 +132,25 @@ module.exports = {
         }
       },
     },
-    // {
-    //   resolve: `gatsby-source-pocketapi`,
-    //   options: {
-    //     consumerKey: process.env.POCKET_CONSUMER_KEY,
-    //     accessToken: process.env.POCKET_AUTH_TOKEN,
-    //     weeksOfHistory: 52 * 4,
-    //     apiMaxRecordsToReturn: 3000,
-    //     getCurrentWeekOnly: `n`,
-    //     stateFilterString: "archive",
-    //     tagFilter: false,
-    //     tagFilterString: "_untagged_",
-    //     favouriteFilter: true,
-    //     favouriteFilterValue: 1,
-    //     searchFilter: false,
-    //     searchFilterString: "These 21 things",
-    //     domainFilter: false,
-    //     domainFilterString: "buzzfeed.com"
-    //   }
-    // }
+    {
+      resolve: `gatsby-source-pocketapi`,
+      options: {
+        consumerKey: process.env.POCKET_CONSUMER_KEY,
+        accessToken: process.env.POCKET_AUTH_TOKEN,
+        weeksOfHistory: 52 * 4,
+        apiMaxRecordsToReturn: 3000,
+        getCurrentWeekOnly: `n`,
+        stateFilterString: "archive",
+        tagFilter: false,
+        tagFilterString: "_untagged_",
+        favouriteFilter: true,
+        favouriteFilterValue: 1,
+        searchFilter: false,
+        searchFilterString: "These 21 things",
+        domainFilter: false,
+        domainFilterString: "buzzfeed.com"
+      }
+    }
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // 'gatsby-plugin-offline',
