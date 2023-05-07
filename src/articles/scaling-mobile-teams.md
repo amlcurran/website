@@ -2,13 +2,13 @@
 title: "Scaling mobile teams"
 slug: "scaling-mobile-teams"
 image: "ec-both-apps"
-featured: ./ec-both-apps.png
+featured: ./scaling-mobile-teams-cover-markus-spiske.jpg
 rawDate: "2023-04-06"
 snippet: "Scaling mobile teams in an engineering department is hard. This is how I decide how and when to scale for start-ups, scale-ups, and corporations."
 unlisted: true
 ---
 
-As companies grow, so does their teams, technical debt, and requirements. Scaling is a notoriously difficult problem for any part of engineering, but mobile – with its monolithic codebases and slow release schedule – presents unique difficulties.
+As companies gr ow, so does their teams, technical debt, and requirements. Scaling is a notoriously difficult problem for any part of engineering, but mobile – with its monolithic codebases and slow release schedule – presents unique difficulties.
 
 Over the years in mobile development, I've worked at many different scales and companies, and here is my "golden path" for scaling mobile capabilities. This isn't an immutable formula I follow every time, but the basis of a strategy to be extended and tweaked as the problem requires.
 
@@ -22,7 +22,7 @@ This plan covers team structure, code structure, and personnel requirements.
 ## A structure for bootstraps
 > Best used when the company has 1-10 engineers
 
-![img.png](scaling-teams-bootstrap.png)
+![A structure for a bootstrapped company - one team](scaling-teams-bootstrap.png)
 
 Congrats you've made a business! Here everyone is in one team and you have full stack engineers doing everything. 
 
@@ -48,7 +48,7 @@ Aim to get 5 modules *maximum* in your project. These days, I'd always try to st
 
 > Best used when the company has 10-30 engineers
 
-![img.png](scaline-teams-startup.png)
+![A structure for a start up - a few teams each with mobile developers](scaline-teams-startup.png)
 
 Now your company is growing, and you no longer have one engineering team doing everything. You're likely at the point you have two or three teams focused on business goals, for example Acquisition, Retention, or Growth. 
 
@@ -78,7 +78,7 @@ There should be a "core" module containing core APIs (e.g. networking) and UI ut
 ## A structure for scale-ups
 > Best used when the company has 30-80 engineers
 
-![img.png](scaling-teams-scaleup.png)
+![A structure for scale-ups - multiple feature teams and a single platform team](scaling-teams-scaleup.png)
 
 You've expanded again and your company has roughly 8 teams. 
 
@@ -112,7 +112,7 @@ Building observability and the ability for experimentation are two useful things
 
 > Best used when the company has 80+ engineers
 
-![img.png](scaling-teams-large.png)
+![A structure in a corporation - multiple business units, and a mobile platform business unit consisting of multiple teams](scaling-teams-large.png)
 
 At a large company with many engineers, there's a lot of teams. Like in the scale-up phase, where communication between engineers gets harder, at this level, communication between entire teams and business units is hard. 
 
@@ -164,3 +164,4 @@ Ultimately though, everything boils down to communication. And everything is a t
 | Scale-up    | Structure & maintainability | Feature teams + platform team    |
 | Corporation | Teams & consistency         | Feature teams & utility teams    |
 
+_Cover photo from [Markus Spiske](https://unsplash.com/photos/vrbZVyX2k4I) on Unsplash_
