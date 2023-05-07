@@ -40,11 +40,11 @@ export default function ArticlePage({data, pageContext}: {data: ArticleQuery, pa
     return (
         <Layout style={{paddingTop: 16}}>
             <article className={"readable-width"}>
-                <h4>{data.markdownRemark.timeToRead + " minutes to read  ● "}<time>{new Date(data.markdownRemark.frontmatter.rawDate).toLocaleDateString(undefined, dateOptions)}</time></h4>
+                <h4>{data.markdownRemark.timeToRead + " minutes to read  ● "}<time suppressHydrationWarning={true}>{new Date(data.markdownRemark.frontmatter.rawDate).toLocaleDateString(undefined, dateOptions)}</time></h4>
                 <h1 style={{marginTop: 12}}>{data.markdownRemark.frontmatter.title}</h1>
                 {previouslyOn}
                 {unlisted}
-                <p dangerouslySetInnerHTML={{__html: data.markdownRemark.html}} />
+                <div dangerouslySetInnerHTML={{__html: data.markdownRemark.html}} />
             </article>
         </Layout>
     )
