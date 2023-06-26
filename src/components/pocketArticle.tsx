@@ -1,25 +1,27 @@
 import {Link} from "@reach/router";
 import {GatsbyImage} from "gatsby-plugin-image";
-import React from "react";
-import {ArticleProps, Linkable} from "./linkedArticle";
+import React, {CSSProperties} from "react";
+import {Linkable} from "./linkedArticle";
+import {SharpImage} from "../utils/graphql";
+
+interface ArticleProps {
+  title: string
+  html: string
+  image: SharpImage | string
+  style?: CSSProperties
+}
 
 export const PocketArticle = (props: ArticleProps & Linkable) => {
   return (
-    <Link to={props.url} style={props.style}>
-      <section className="card-total hover-background" style={{ flexDirection: 'column', minWidth: 'unset'}}>
+    <a href={props.url} style={props.style}>
+      <section className="card-total hover-background" style={{ flexDirection: 'column', minWidth: 'unset', gap: 'unset'}}>
         {imagePart(props)}
         <div className="article-text">
-          <h3>{props.title}</h3>
-          <h4>{new Date(props.rawDate).toLocaleDateString(undefined, {
-            day: "numeric",
-            month: "short",
-            year: "numeric"
-          })}</h4>
-          <div dangerouslySetInnerHTML={{__html: props.html}} className="no-links article-snippet"
-               style={{lineClamp: 3}}/>
+          <h4>{props.title}</h4>
+          <div dangerouslySetInnerHTML={{__html: props.html}} className="no-links article-snippet" />
         </div>
       </section>
-    </Link>
+    </a>
   )
 }
 
@@ -28,15 +30,12 @@ function imagePart(props: ArticleProps & Linkable): JSX.Element {
     return <img
       src={props.image}
       alt={`Image for ${props.title}`}
-      className="article-card-image"
-      style={{borderRadius: 8, width: '100%', aspectRatio: '16/9', objectFit: 'cover'}} />
+      style={{borderRadius: 8, width: '100%', height: 108, aspectRatio: '16/9', objectFit: 'cover'}} />
   } else {
     return <GatsbyImage
       image={props.image.childImageSharp.gatsbyImageData}
       alt={`Image for ${props.title}`}
-      className="article-card-image"
-      imgClassName="article-card-image"
-      imgStyle={{borderRadius: 8, width: '100%', aspectRatio: '16/9', objectFit: 'cover'}}/>
+      style={{borderRadius: 8, width: '100%', height: 108, opacity: 0.4, aspectRatio: '16/9', objectFit: 'cover'}}/>
   }
 }
 

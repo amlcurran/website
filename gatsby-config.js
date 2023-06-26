@@ -140,7 +140,6 @@ module.exports = {
         weeksOfHistory: 52 * 4,
         apiMaxRecordsToReturn: 3000,
         getCurrentWeekOnly: `n`,
-        stateFilterString: "archive",
         tagFilter: false,
         favouriteFilter: false,
         searchFilter: false,

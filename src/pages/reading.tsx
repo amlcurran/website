@@ -1,13 +1,13 @@
-import React, {CSSProperties} from "react";
+import React from "react";
 import {graphql} from "gatsby";
-import {GraphQLList} from "../utils/graphql";
+import {GraphQLList, SharpImage} from "../utils/graphql";
 import Layout from "../components/layout";
-import {LinkedArticle} from "../components/linkedArticle";
 import {SEO2} from "../components/Seo2";
 import {PocketArticle} from "../components/pocketArticle";
 
 interface PocketApiArticle {
     title: string
+    articleDomain: string
     url: string
     image?: { src: string }
     excerpt: string
@@ -16,37 +16,31 @@ interface PocketApiArticle {
 interface ReadingProps {
   engManagement?: GraphQLList<PocketApiArticle>
   generalFavs?: GraphQLList<PocketApiArticle>
+  placeholders: GraphQLList<SharpImage>
 }
 
 interface ReadingQuery {
     data: ReadingProps
 }
 
+const ReadingShelf = ({list, images}: {list?: GraphQLList<PocketApiArticle>, images: GraphQLList<SharpImage>}) => <div style={{ display: 'flex', flexDirection: 'row', gap: 16, overflow: 'scroll'  }}>
+  {list?.edges.map((article, index) =>
+    <PocketArticle title={article.node.title}
+                   image={article.node.image?.src || images.edges[index % 3].node}
+                   html={article.node.articleDomain}
+                   key={article.node.title}
+                   url={article.node.url}
+                   style={{width: 250}} />
+  )}
+</div>
+
 const Reading = (query: ReadingQuery) => {
     return (
       <Layout>
         <h2>Engineering management</h2>
-          <div style={{ display: 'flex', flexDirection: 'row', gap: 16, overflow: 'scroll'  }}>
-              {query.data.engManagement?.edges.map(article =>
-                  <PocketArticle title={article.node.title}
-                                 html={article.node.excerpt}
-                                 image={article.node.image?.src || ""}
-                                 rawDate={""}
-                                 url={article.node.url}
-                                 style={{width: 200}} />
-              )}
-          </div>
+        <ReadingShelf list={query.data.engManagement} images={query.data.placeholders} />
         <h2>General great articles</h2>
-          <div style={{ display: 'flex', flexDirection: 'row', gap: 16,  overflow: 'scroll' }}>
-              {query.data.generalFavs?.edges.map(article =>
-                  <PocketArticle title={article.node.title}
-                                 html={article.node.excerpt}
-                                 image={article.node.image?.src || ""}
-                                 rawDate={""}
-                                 url={article.node.url}
-                                 style={{width: 200}} />
-              )}
-          </div>
+        <ReadingShelf list={query.data.generalFavs} images={query.data.placeholders} />
       </Layout>
   )
 }
@@ -66,11 +60,11 @@ export const pageQuery = graphql`{
           src
         }
         favorite
-        excerpt
+        articleDomain
       }
     }
   }
-   generalFavs: allPocketArticle(
+  generalFavs: allPocketArticle(
     sort: {time_added: DESC}
     filter: {favorite: {eq: true}}
   ) {
@@ -82,7 +76,19 @@ export const pageQuery = graphql`{
           src
         }
         favorite
-        excerpt
+        articleDomain
+      }
+    }
+  }
+  placeholders: allFile(filter: { name: {regex: "/techlife.*/"} }) {
+    edges {
+      node {
+        childImageSharp {
+          id
+          gatsbyImageData(
+              layout: FIXED
+          )
+        }
       }
     }
   }

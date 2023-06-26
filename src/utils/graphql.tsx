@@ -11,6 +11,7 @@ export interface GraphQLList<T> {
 export interface SharpImage {
     childImageSharp: {
         resize?: { src: string }
+        fluid?: { src: string }
         gatsbyImageData: IGatsbyImageData
     }
 }
