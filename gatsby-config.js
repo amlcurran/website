@@ -142,13 +142,9 @@ module.exports = {
         getCurrentWeekOnly: `n`,
         stateFilterString: "archive",
         tagFilter: false,
-        tagFilterString: "_untagged_",
-        favouriteFilter: true,
-        favouriteFilterValue: 1,
+        favouriteFilter: false,
         searchFilter: false,
-        searchFilterString: "These 21 things",
         domainFilter: false,
-        domainFilterString: "buzzfeed.com"
       }
     }
     // this (optional) plugin enables Progressive Web App + Offline functionality

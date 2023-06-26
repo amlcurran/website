@@ -1,17 +1,18 @@
 import {Link} from "@reach/router";
-import React from "react";
+import React, {CSSProperties} from "react";
 import {GatsbyImage} from "gatsby-plugin-image";
 import {Image} from "../pages/articles";
 
-interface Linkable {
+export interface Linkable {
     url: string
 }
 
-interface ArticleProps {
+export interface ArticleProps {
     title: string
     html: string
     image: Image | string
     rawDate: string
+    style?: CSSProperties
 }
 
 export const LinkedArticle = (props: ArticleProps & Linkable) => {
