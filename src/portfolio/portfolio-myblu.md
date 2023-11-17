@@ -9,7 +9,7 @@ id: "myblu-novoda"
 platforms: ["android", "iOS"]
 tags: ["engineering management", "technical leadership", "individual contributor", "project planning", "consulting"]
 images: ["secret-android"]
-rank: 3
+rank: 1
 ---
 My final project with Novoda was a small but vibrant app for a new client.
 

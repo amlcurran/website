@@ -9,7 +9,7 @@ platforms: ["android", "iOS"]
 images: ["freetrade-android"]
 tags: ["individual contributor", "project planning"]
 secondImage: "freetrade-ios-dark"
-rank: 1
+rank: 3
 ---
 Freetrade is a investment platform aiming to make investing open to all.
 

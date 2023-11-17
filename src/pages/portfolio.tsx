@@ -85,7 +85,7 @@ function image(node: PortfolioSingleImage | PortfolioDoubleImage) {
 
 export const pageQuery = graphql`{
   allMarkdownRemark(
-    sort: {frontmatter: {rank: ASC}}
+    sort: {frontmatter: {rank: DESC}}
     filter: {fileAbsolutePath: {glob: "**/portfolio-*.md"}}
   ) {
     edges {

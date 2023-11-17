@@ -9,7 +9,7 @@ platforms: ["android", "iOS"]
 images: ["bodycoach-android", "bodycoach-android"]
 tags: ["engineering management", "product management", "project planning"]
 secondImage: "bodycoach-iphone-2"
-rank: 0
+rank: 4
 ---
 Join fitness star Joe Wicks in The Body Coach app and find workout and nutrition plans, PB challenges and weekly live workouts with the fitness star himself.
 
